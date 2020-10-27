@@ -6,7 +6,7 @@ import Login from '../Login'
 // Обертка для всего сайта
 
 const PageTemplate = ({children}) => {
-  const [login, setLogin] = React.useState(true)
+  const [login, setLogin] = React.useState(false)
 
   const showLogin = () => {
     setLogin(!login)
@@ -15,7 +15,7 @@ const PageTemplate = ({children}) => {
     <div>
       <Header showLogin={showLogin} login={login}/>
       {children}
-      {login ? <Login /> : null}
+      {login ? <Login showLogin={showLogin}/> : null}
     </div>
   )
 }

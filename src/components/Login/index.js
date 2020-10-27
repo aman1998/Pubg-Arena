@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getName as getNameAction } from '../../store/actions/'
 import styles from './styles.module.scss'
 import Logo from '../../assets/icons/logo.svg'
+import Cancel from '../../assets/icons/cancel'
 
-const Login = () => {
+const Login = ({showLogin}) => {
   const { name } = useSelector((state) => ({
     name: state.auth.name,
   }))
@@ -18,7 +19,6 @@ const Login = () => {
       <div className={styles.blockHeader}>
         <img src={Logo} alt='#' />
         <div>Добро пожаловать в Arenum</div>
-        <div>{name}</div>
         <div>Нажимая кнопку, вы соглашаетесь с Условиями использования и Политикой конфиденциальности
 и подтверждаете, что вам есть 18 лет.</div>
       </div>
@@ -43,6 +43,9 @@ const Login = () => {
           />
         </label>
         <button className={styles.blockFormBtn}>Регистрация</button>
+
+        {/* Иконка закрытия блока */}
+        <div className={styles.cancel} onClick={showLogin}><Cancel /></div>
       </form>
     </div> 
   )
