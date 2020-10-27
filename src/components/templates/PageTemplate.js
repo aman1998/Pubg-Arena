@@ -1,21 +1,23 @@
 import React from 'react'
-import styles from './styles.module.scss'
-import Header from '../Header'
-import Login from '../Login'
+
+import Header from '../layout/Header'
+import Login from '../UI/Login/Login'
+import Footer from '../layout/Footer'
 
 // Обертка для всего сайта
 
-const PageTemplate = ({children}) => {
+const PageTemplate = (props) => {
   const [login, setLogin] = React.useState(false)
 
   const showLogin = () => {
     setLogin(!login)
   }
   return (
-    <div>
+    <div className='pageTemplate'>
       <Header showLogin={showLogin} login={login}/>
-      {children}
+      {props.children}
       {login ? <Login showLogin={showLogin}/> : null}
+      <Footer />
     </div>
   )
 }

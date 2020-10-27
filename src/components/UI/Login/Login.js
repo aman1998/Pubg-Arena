@@ -1,33 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getName as getNameAction } from '../../store/actions/'
-import styles from './styles.module.scss'
-import Logo from '../../assets/icons/logo.svg'
-import Cancel from '../../assets/icons/cancel'
+
+import { getName as getNameAction } from '../../../store/actions'
+
+import Cancel from '../../../assets/icons/cancel'
+import Logo from '../../../assets/icons/logo.svg'
 
 const Login = ({showLogin}) => {
   const { name } = useSelector((state) => ({
     name: state.auth.name,
   }))
 
+  const [inputName, setInputName] = useState('')
+
   const dispatch = useDispatch()
   const getName = (name) => dispatch(getNameAction(name))
 
   return (
-    <div className={styles.block}>
+    <div className='login'>
       <div onClick={() => getName('Esen')}>+400 хп за регистрацию</div>
-      <div className={styles.blockHeader}>
+      <div className='loginHeader'>
         <img src={Logo} alt='#' />
         <div>Добро пожаловать в Arenum</div>
         <div>Нажимая кнопку, вы соглашаетесь с Условиями использования и Политикой конфиденциальности
 и подтверждаете, что вам есть 18 лет.</div>
       </div>
-      <form className={styles.blockForm}>
+      <form className='loginForm'>
         <label htmlFor='name'>
           <input 
             name='name'
             placeholder='name'
-            onChange={(e) => getName(e.target.value)}
+            value={inputName}
+            onChange={(e) => setInputName(e.target.value)}
           />
         </label>
         <label htmlFor='surname'>
@@ -42,10 +46,10 @@ const Login = ({showLogin}) => {
             placeholder='phone'
           />
         </label>
-        <button className={styles.blockFormBtn}>Регистрация</button>
+        <button className='loginFormBtn'>Регистрация</button>
 
         {/* Иконка закрытия блока */}
-        <div className={styles.cancel} onClick={showLogin}><Cancel /></div>
+        <div className='cancel' onClick={showLogin}><Cancel /></div>
       </form>
     </div> 
   )

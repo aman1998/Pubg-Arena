@@ -1,4 +1,4 @@
-.block {
+.login{
   background: #5c5e66;
   max-width: 414px;
   width: 100%;
@@ -17,7 +17,7 @@
       border-radius: 6px 6px 0 0;
     }
   }
-  &Header {
+  &>Header {
     text-align: center;
     padding: 30px 20px 10px 20px;
     font-size: 15px;
@@ -33,7 +33,7 @@
       }
     }
   }
-  &Form {
+  &>Form {
     padding: 0px 20px 10px 20px;
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@
       border: none;
       outline: none;
     }
-    &Btn {
+    &>Btn {
       background: #0054ff;
       color: inherit;
       cursor: pointer;

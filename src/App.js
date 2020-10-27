@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import MainPage from './pages/MainPage'
-import ProfilePage from './pages/ProfilePage'
 
+import MainPage from './pages/Home'
+import ProfilePage from './pages/Profile'
+
+import './assets/style/style.scss'
 
 function App () {
   return (

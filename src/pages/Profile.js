@@ -1,7 +1,7 @@
 import React from 'react'
-import PageTemplate from '../../components/PageTemplate'
-import UserInfo from '../../components/UserInfo'
-import UserProgress from '../../components/UserProgress'
+import PageTemplate from '../components/templates/PageTemplate'
+import UserInfo from '../components/User/UserInfo'
+import UserProgress from '../components/User/UserProgress'
 
 const ProfilePage = () => {
   return (

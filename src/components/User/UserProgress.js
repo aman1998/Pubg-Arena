@@ -1,28 +1,27 @@
 import React from 'react'
-import styles from './styles.module.scss'
-import { NavLink } from 'react-router-dom' 
+import { NavLink } from 'react-router-dom'
 
 const UserProgress = () => {
   return (
-    <nav className={styles.block}>
+    <nav >
       <NavLink
         to='/profile'
-        className={styles.blockItem}
-        activeClassName={styles.active}
+        className='navItem'
+        activeClassName='active'
         exact>  
         Турниры
       </NavLink>
       <NavLink
         to='/profile/rewards'
-        className={styles.blockItem}
-        activeClassName={styles.active}
+        className='navItem'
+        activeClassName='active'
         exact>  
         Задания
       </NavLink>
       <NavLink
         to='/profile/progress'
-        className={styles.blockItem}
-        activeClassName={styles.active}
+        className='navItem'
+        activeClassName='active'
         exact>  
         Достижения
       </NavLink>
