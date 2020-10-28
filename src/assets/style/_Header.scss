@@ -6,48 +6,45 @@ header {
   background: transparent;
   display: flex;
   justify-content: center;
-  .container{
-    width: 70%;
-    .block {
-      @include flexSpaceBetween;
+  .block {
+    @include flexSpaceBetween;
+    align-items: center;
+    padding: 10px 0;
+    color: #f2f2f2;
+    .active {
+      color: #b3b3b3;
+    }
+    &Left {
+      display: flex;
       align-items: center;
-      padding: 10px 0;
-      color: #f2f2f2;
-      .active {
-        color: #b3b3b3;
+      .items{
+        width: fit-content;
       }
-      &Left {
+      .line-vert{
+        width: 1px;
+        height: 30px;
+        background-color: $lineColor;
+        margin: 0 20px;
+      }
+    }
+    &Right{
+      display: flex;
+      justify-content: space-between;
+      width: 250px;
+      .items {
+        width: fit-content;
         display: flex;
         align-items: center;
-        .items{
-          width: fit-content;
-        }
-        .line-vert{
-          width: 1px;
-          height: 30px;
-          background-color: $lineColor;
-          margin: 0 20px;
-        }
       }
-      &Right{
-        display: flex;
-        justify-content: space-between;
-        width: 250px;
-        .items {
-          width: fit-content;
-          display: flex;
-          align-items: center;
-        }
-        .itemsLogin {
-          @include flexCenter;
-          padding: 6px 16px;
-          background:#0054ff;
-          transition: 0.4s;
-          border-radius: 4px;
-          cursor: pointer;
-          &:hover {
-            background: #004ce6;
-          }
+      .itemsLogin {
+        @include flexCenter;
+        padding: 6px 16px;
+        background: #0054ff;
+        transition: 0.4s;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+          background: #004ce6;
         }
       }
     }
