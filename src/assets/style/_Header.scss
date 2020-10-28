@@ -16,7 +16,7 @@ header {
       .active {
         color: #b3b3b3;
       }
-      .blockLeft {
+      &Left {
         display: flex;
         align-items: center;
         .items{
@@ -29,7 +29,7 @@ header {
           margin: 0 20px;
         }
       }
-      .blockRight{
+      &Right{
         display: flex;
         justify-content: space-between;
         width: 250px;
@@ -39,6 +39,7 @@ header {
           align-items: center;
         }
         .itemsLogin {
+          @include flexCenter;
           padding: 6px 16px;
           background:#0054ff;
           transition: 0.4s;

@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import Logo from '../../assets/icons/logo.svg'
+import LoginController from "../../container/LoginController";
 
 const Header = (props) => {
   return (
@@ -22,21 +23,7 @@ const Header = (props) => {
               Главное
             </NavLink>
           </div>
-          <div className='blockRight'>
-            <NavLink
-              to='/profile'
-              className='items'
-              activeClassName='active'
-            >
-              Личный кабинет
-            </NavLink> 
-            <div
-              className='item itemsLogin'
-              onClick={props.showLogin}
-            >
-              Войти
-            </div>
-          </div>
+          <LoginController />
         </nav>
       </div>
     </header>

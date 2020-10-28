@@ -1,22 +1,24 @@
+import {GET_NAME, GET_PHONE, GET_SURNAME} from "../actionTypes";
+
 const initilalState = {
   name: 'aman',
-  surname: '',
-  phone: ''
+  surname: 'aman',
+  phone: 'aman'
 }
 
 const reducer = (state = initilalState, action) => {
   switch (action.type) {
-    case 'GET_NAME':
+    case GET_NAME:
       return {
         ...state,
         login: action.name,
       }
-    case 'GET_SURNAME':
+    case GET_SURNAME:
       return {
         ...state,
         login: action.surname,
       }
-    case 'GET_PHONE':
+    case GET_PHONE:
       return {
         ...state,
         login: action.phone,

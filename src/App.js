@@ -1,20 +1,20 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
 
 import './assets/style/style.scss'
 
-function App () {
+function App() {
   return (
-      <BrowserRouter>
-        <Switch>
-          <Route path = '/' component = {MainPage} exact/>
-          <Route path = '/profile' component = {ProfilePage} exact/>
-        </Switch>
-      </BrowserRouter>
-    )
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' component={MainPage} exact/>
+        <Route path='/profile' component={ProfilePage} exact/>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default App;
