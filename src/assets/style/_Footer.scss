@@ -1,5 +1,20 @@
-.footer{
-  .container{
+@import './variables';
 
+.footer{
+  display: flex;
+  justify-content: space-between;
+  color: $lineColor;
+  font-size: $fz15;
+  &-icons {
+    display: flex;
+    div {
+      margin-right: 20px;
+    }
+  }
+  &-rules {
+    display: flex;
+    div {
+      margin-right: 20px
+    }
   }
 }

@@ -12,6 +12,8 @@ function App() {
       <Switch>
         <Route path='/' component={MainPage} exact/>
         <Route path='/profile' component={ProfilePage} exact/>
+        <Route path = '/profile/rewards' component = {ProfilePage} exact/>
+        <Route path = '/profile/progress' component = {ProfilePage} exact/>
       </Switch>
     </BrowserRouter>
   )
