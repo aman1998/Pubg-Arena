@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 
 import Header from '../layout/Header'
-import Login from '../UI/Login/Login'
 import Footer from '../layout/Footer'
 
 // Обертка для всего сайта

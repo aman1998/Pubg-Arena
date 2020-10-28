@@ -1,11 +1,12 @@
 import React from 'react'
 import PageTemplate from '../components/templates/PageTemplate'
+import Slider from "../container/Slider";
 
 const MainPage = () => {
   return (
     <PageTemplate>
       <div className='home-main'>
-        hehllo lwowll laskdjf a Lorem ipsum dolor
+        <Slider />
       </div>
     </PageTemplate>
   )
