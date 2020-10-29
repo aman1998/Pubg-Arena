@@ -1,4 +1,10 @@
-export const GET_NAME = 'GET_NAME'
-export const GET_SURNAME = 'GET_SURNAME'
-export const GET_PHONE = 'GET_PHONE'
+export const GET_USERNAME = 'GET_USERNAME'
+export const GET_EMAIL = 'GET_EMAIL'
+export const GET_PASSWORD = 'GET_PASSWORD'
+export const SET_USERNAME = 'SET_USERNAME'
+export const SET_EMAIL = 'SET_EMAIL'
+export const SET_PASSWORD = 'SET_PASSWORD'
+
 export const IS_LOGGED = 'IS_LOGGED'
+export const LOG_IN = 'LOG_IN'
+export const LOG_OUT = 'LOG_OUT'

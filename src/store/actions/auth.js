@@ -1,12 +1,17 @@
-export const getName = (name) => ({
-  type: 'GET_NAME',
-  name,
+import {GET_EMAIL, GET_PASSWORD, GET_USERNAME, SET_USERNAME} from "../actionTypes";
+
+export const getUsername = () => ({
+  type: GET_USERNAME
 })
-export const getSurname = (surname) => ({
-  type: 'GET_SURNAME',
-  surname,
+
+export const getPassword = () => ({
+  type: GET_PASSWORD
 })
-export const getPhone = (phone) => ({
-  type: 'GET_PHONE',
-  phone,
+
+export const getEmail = () => ({
+  type: GET_EMAIL
+})
+
+export const setUsername = () => ({
+  type: SET_USERNAME
 })

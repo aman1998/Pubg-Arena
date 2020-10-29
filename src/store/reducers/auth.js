@@ -1,32 +1,43 @@
-import {GET_NAME, GET_PHONE, GET_SURNAME, IS_LOGGED} from "../actionTypes";
+import {GET_EMAIL, GET_PASSWORD, GET_USERNAME, SET_EMAIL, SET_PASSWORD, SET_USERNAME} from "../actionTypes";
 
-const initialState = {
-  isLoggedIn: true
+let initialState = {
+  username: 'admin',
+  email: 'admin@test.com',
+  password: 'adminadmin'
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_NAME:
+    case GET_USERNAME:
       return {
         ...state,
-        login: action.name,
+        username: action.username
       }
-    case GET_SURNAME:
+    case GET_EMAIL:
       return {
         ...state,
-        login: action.surname,
+        email: action.email
       }
-    case GET_PHONE:
+    case GET_PASSWORD:
       return {
         ...state,
-        login: action.phone,
+        password: action.password
       }
-    case IS_LOGGED:
+    case SET_USERNAME:
       return {
-        ...state
+        ...state,
+        password: action.password
       }
-    default:
-      return state
+    case SET_EMAIL:
+      return {
+        ...state,
+        email: action.email
+      }
+    case SET_PASSWORD:
+      return {
+        ...state,
+        password: action.password
+      }
   }
 }
 
