@@ -1,5 +1,4 @@
 import React from 'react'
-import PageTemplate from '../templates/PageTemplate'
 import avatar from '../../assets/img/pubg.jpg'
 
 const Event = () => {

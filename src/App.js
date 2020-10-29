@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-
+import Edit from './components/User/UserEdit'
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
 
@@ -14,6 +14,7 @@ function App() {
         <Route path='/profile' component={ProfilePage} exact/>
         <Route path = '/profile/rewards' component = {ProfilePage} exact/>
         <Route path = '/profile/progress' component = {ProfilePage} exact/>
+        <Route path = '/profile/settings' component = {Edit} exact/>
       </Switch>
     </BrowserRouter>
   )
