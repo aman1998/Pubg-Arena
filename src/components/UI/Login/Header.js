@@ -9,7 +9,7 @@ const Header = (props) => {
         <div>
           +400 хп за регистрацию
         </div>
-        <div className='cancel' onClick={props.showLogin}><Cancel /></div>
+        <div className='cancel' onClick={props.close}><Cancel /></div>
       </div>
       <div className='loginHeaderContent'>
         <img src={Logo} alt='#'/>

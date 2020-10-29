@@ -49,8 +49,26 @@ const LoginController = () => {
           </>
         )
       }
-      {loginModal ? <Login showLogin={showLogin} login={loginModal} showBack={loginModal} backdropClicked={showLogin} /> : null}
-      {registrModal ? <Registr showRegistr={showRegistr} registr={registrModal} showBack={registrModal} backdropClicked={showRegistr} /> : null}
+      {
+        loginModal ? (
+          <Login
+            showLogin={showLogin}
+            login={loginModal}
+            showBack={loginModal}
+            backdropClicked={showLogin}
+          />
+        ) :  null
+      }
+      {
+        registrModal ? (
+          <Registr
+            showRegistr={showRegistr}
+            registr={registrModal}
+            showBack={registrModal}
+            backdropClicked={showRegistr}
+          />
+        ) : null
+      }
     </div>
   )
 }

@@ -6,7 +6,7 @@ const Login = (props) => {
 
   return (
     <div className='login'>
-      <Header title={props.title} bg={props.bg}/>
+      <Header title={props.title} bg={props.bg} close={props.close}/>
       <Formik
         initialValues={{ email: '', password: '', name: '' }}
         validate={values => {

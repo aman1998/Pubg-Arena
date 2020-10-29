@@ -6,12 +6,12 @@ import Template from './Template'
 const Login = (props) => {
   return (
     <>
-      <BackDrop show={props.showLogin} clicked={props.backdropClicked}>
+      <BackDrop show={props.showLogin} clicked={props.backdropClicked} />
         <Template 
-          title='Вход' 
+          title='Вход'
+          close={props.showLogin}
           bg='#0054ff'
-        ></Template>
-      </BackDrop>
+        > </Template>
     </>
   )
 }
