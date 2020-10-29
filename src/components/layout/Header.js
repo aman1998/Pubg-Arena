@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/icons/logo.svg'
 import LoginController from "../../container/LoginController";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <header>
       <div className='container'>
@@ -21,6 +21,14 @@ const Header = (props) => {
               exact
             >
               Главное
+            </NavLink>
+            <div className='line-vert'></div>
+            <NavLink
+              to='/profile'
+              className='items'
+              activeClassName='active'
+            >
+              Личный кабинет
             </NavLink>
           </div>
           <LoginController />

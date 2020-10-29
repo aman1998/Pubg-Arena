@@ -44,7 +44,37 @@ header {
         border-radius: 4px;
         cursor: pointer;
         &:hover {
-          background: #004ce6;
+          background: #0f60ff;
+        }
+      }
+      .register{
+        background: linear-gradient(120.85deg,#48c691 14.07%,#26835f 93.02%);
+        &:hover{
+          background: linear-gradient(200.85deg, #48c691 14.07%, #26835f 93%);
+        }
+      }
+      .loginUserInfo{
+        display: flex;
+        @include flexCenter;
+        box-sizing: border-box;
+        .username{
+          margin-right: 20px;
+        }
+        .userMoney{
+          margin-left: 20px;
+          color: #F7B900;
+          display: flex;
+          justify-content: center;
+          align-items: end;
+          .moneyText{
+            margin-left: 6px;
+          }
+        }
+        .userAvatar{
+          width: 45px;
+          .avatar{
+            width: 100%;
+          }
         }
       }
     }

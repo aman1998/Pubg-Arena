@@ -1,12 +1,10 @@
-import {GET_NAME, GET_PHONE, GET_SURNAME} from "../actionTypes";
+import {GET_NAME, GET_PHONE, GET_SURNAME, IS_LOGGED} from "../actionTypes";
 
-const initilalState = {
-  name: 'aman',
-  surname: 'aman',
-  phone: 'aman'
+const initialState = {
+  isLoggedIn: true
 }
 
-const reducer = (state = initilalState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_NAME:
       return {
@@ -22,6 +20,10 @@ const reducer = (state = initilalState, action) => {
       return {
         ...state,
         login: action.phone,
+      }
+    case IS_LOGGED:
+      return {
+        ...state
       }
     default:
       return state

@@ -1,31 +1,50 @@
 import React, {useState} from 'react'
-import {NavLink} from "react-router-dom";
 
 import Login from "../components/UI/Login/Login";
+import LoginUserInfo from "../components/layout/LoginUserInfo";
+
+import avatar from '../assets/icons/avatar.png'
 
 const LoginController = () => {
-  const [login, setLogin] = useState(false)
+  const [loginModal, setLoginModal] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(true)
+  const [user, setUser] = useState({
+    username: 'erlan',
+    avatar: avatar,
+    money: 400
+  })
 
   const showLogin = () => {
-    setLogin(!login)
+    setLoginModal(!loginModal)
   }
 
   return(
     <div className='blockRight'>
-      <NavLink
-        to='/profile'
-        className='items'
-        activeClassName='active'
-      >
-        Личный кабинет
-      </NavLink>
-      <div
-        className='item itemsLogin'
-        onClick={showLogin}
-      >
-        Войти
-      </div>
-      {login ? <Login showLogin={showLogin} login={login} showBack={login} backdropClicked={showLogin} /> : null}
+      {
+        loggedIn ? (
+          <LoginUserInfo
+            username={user.username}
+            userMoney={user.money}
+            avatar={avatar}
+          />
+        ) : (
+          <>
+            <div
+              className='item itemsLogin'
+              onClick={showLogin}
+            >
+              Войти
+            </div>
+            <div
+            className='item itemsLogin register'
+            onClick={showLogin}
+            >
+              Регистрация
+            </div>
+          </>
+        )
+      }
+      {loginModal ? <Login showLogin={showLogin} login={loginModal} showBack={loginModal} backdropClicked={showLogin} /> : null}
     </div>
   )
 }
