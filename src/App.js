@@ -9,22 +9,22 @@ import './assets/style/style.scss'
 const ENDOPOINT = 'url'
 
 function App() {
-  const token = useSelector(state => state.token)
+  const token = localStorage.getItem('token');
 
   const dispatch = useDispatch()
 
-  React.useEffect(() => {
-    if (token) {
-      fetch(`${ENDOPOINT}/profile`, {
-        method: 'GET',
-        headers: { 'X-Auth': `${token}` },
-      })
-        .then((response) => response.json())
-        .then(({ data }) => {
+  // React.useEffect(() => {
+  //   if (token) {
+  //     fetch(`${ENDOPOINT}/profile`, {
+  //       method: 'GET',
+  //       headers: { 'X-Auth': `${token}` },
+  //     })
+  //       .then((response) => response.json())
+  //       .then(({ data }) => {
           
-        })
-    }
-  }, [token])
+  //       })
+  //   }
+  // }, [token])
   
   console.log(token)
   return (

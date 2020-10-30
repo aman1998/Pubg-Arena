@@ -10,11 +10,10 @@ import {
 
 const initialState = [
   {
-    username: '',
+    username: 'Аман',
     email: '',
     password: '',
-    // token: localStorage.getItem('token'),
-    token: 'token',
+    token: localStorage.getItem('token')
   }
 ]
 
