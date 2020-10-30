@@ -6,25 +6,25 @@ import ProfilePage from './pages/Profile'
 
 import './assets/style/style.scss'
 
-const ENDOPOINT = 'url'
+const ENDOPOINT = 'http://localhost:1717'
 
 function App() {
   const token = localStorage.getItem('token');
 
   const dispatch = useDispatch()
 
-  // React.useEffect(() => {
-  //   if (token) {
-  //     fetch(`${ENDOPOINT}/profile`, {
-  //       method: 'GET',
-  //       headers: { 'X-Auth': `${token}` },
-  //     })
-  //       .then((response) => response.json())
-  //       .then(({ data }) => {
-          
-  //       })
-  //   }
-  // }, [token])
+  React.useEffect(() => {
+    if (token) {
+      fetch(`${ENDOPOINT}/profile`, {
+        method: 'GET',
+        headers: { 'X-Auth': `${token}` },
+      })
+        .then((response) => response.json())
+        .then(({ data }) => {
+          console.log(data)
+        })
+    }
+  }, [token])
   
   console.log(token)
   return (

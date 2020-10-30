@@ -87,7 +87,7 @@ const Login = (props) => {
       >
         {() => (
           <Form className='loginForm'>
-            <Field type="text" name="login" placeholder='nik' />
+            <Field type="text" name="login" placeholder='Никнейм' />
             <ErrorMessage name="login" component="div" className='error'/>
             <Field name="email" type="text" placeholder='Почта'/>
             <ErrorMessage name="email" component="div" className='error'/>
