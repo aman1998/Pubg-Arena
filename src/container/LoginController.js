@@ -1,14 +1,19 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import {useDispatch} from 'react-redux'
 
 import Login from "../components/UI/Login/Login";
 import Registr from "../components/UI/Login/Registr";
 import LoginUserInfo from "../components/layout/LoginUserInfo";
 
+import {getAll, setEmail} from "../store/actions/auth";
+import {getIsLogged, logIn} from "../store/actions/logInOut";
+
 import avatar from '../assets/icons/avatar.png'
 
 const LoginController = () => {
+  const dispatch = useDispatch()
   const [loginModal, setLoginModal] = useState(false)
-  const [registrModal, setRegistrModal] = useState(false)
+  const [registerModal, setRegisterModal] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({
     username: 'erlan',
@@ -18,10 +23,14 @@ const LoginController = () => {
 
   const showLogin = () => {
     setLoginModal(!loginModal)
+    setLoggedIn(true)
   }
-  const showRegistr = () => {
-    setRegistrModal(!registrModal)
+  const showRegister = () => {
+    setRegisterModal(!registerModal)
   }
+
+  useEffect(() => {
+  }, [loggedIn])
 
   return(
     <div className='blockRight'>
@@ -42,7 +51,7 @@ const LoginController = () => {
             </div>
             <div
             className='item itemsLogin register'
-            onClick={showRegistr}
+            onClick={showRegister}
             >
               Регистрация
             </div>
@@ -60,12 +69,12 @@ const LoginController = () => {
         ) :  null
       }
       {
-        registrModal ? (
+        registerModal ? (
           <Registr
-            showRegistr={showRegistr}
-            registr={registrModal}
-            showBack={registrModal}
-            backdropClicked={showRegistr}
+            showRegister={showRegister}
+            register={registerModal}
+            showBack={registerModal}
+            backdropClicked={showRegister}
           />
         ) : null
       }
