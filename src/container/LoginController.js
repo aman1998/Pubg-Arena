@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 import Login from "../components/UI/Login/Login";
 import Registr from "../components/UI/Login/Registr";
@@ -9,11 +9,13 @@ import {getAll, setEmail} from "../store/actions/auth";
 import {getIsLogged, logIn} from "../store/actions/logInOut";
 
 import avatar from '../assets/icons/avatar.png'
+import {showLogin} from "../store/actions/modalLogin";
+import {showRegister} from "../store/actions/modalRegister";
 
 const LoginController = () => {
+  const loginModal = useSelector(state => state.modalLogin)
+  const registerModal = useSelector(state => state.modalRegister)
   const dispatch = useDispatch()
-  const [loginModal, setLoginModal] = useState(false)
-  const [registerModal, setRegisterModal] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({
     username: 'erlan',
@@ -21,13 +23,13 @@ const LoginController = () => {
     money: 400
   })
 
-  const showLogin = () => {
-    setLoginModal(!loginModal)
-  }
-  const showRegister = () => {
-    setRegisterModal(!registerModal)
+  const showLog = () => {
+    dispatch(showLogin())
   }
 
+  const showReg = () => {
+    dispatch(showRegister())
+  }
 
   return(
     <div className='blockRight'>
@@ -42,13 +44,13 @@ const LoginController = () => {
           <>
             <div
               className='item itemsLogin'
-              onClick={showLogin}
+              onClick={showLog}
             >
               Войти
             </div>
             <div
             className='item itemsLogin register'
-            onClick={showRegister}
+            onClick={showReg}
             >
               Регистрация
             </div>
@@ -58,20 +60,16 @@ const LoginController = () => {
       {
         loginModal ? (
           <Login
-            showLogin={showLogin}
             login={loginModal}
             showBack={loginModal}
-            backdropClicked={showLogin}
           />
         ) :  null
       }
       {
         registerModal ? (
           <Registr
-            showRegister={showRegister}
             register={registerModal}
             showBack={registerModal}
-            backdropClicked={showRegister}
           />
         ) : null
       }

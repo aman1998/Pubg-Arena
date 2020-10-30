@@ -4,10 +4,10 @@ import Header from './Header'
 import * as Yup from 'yup';
 
 const Login = (props) => {
-  const handleRegistr = (body) => {
+  const handleRegister = (body) => {
     fetch(`http://localhost:1717/registr`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body),
     })
   }
@@ -15,16 +15,17 @@ const Login = (props) => {
     // e.preventDefault()
     fetch(`http://localhost:1717/auth`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body),
     })
       .then((response) => {
         if (!response.ok) throw response.status
         return response.json()
       })
-      .then(({ user }) => {
+      .then(({user}) => {
         console.log(user.token)
         window.localStorage.setItem('token', user.token)
+        props.showLogin()
       })
   }
   return (
@@ -56,25 +57,25 @@ const Login = (props) => {
               password: Yup.string()
                 .min(6, 'Минимум 6 символов')
                 .required('Введите пароль!'),
-        }) :
-        Yup.object().shape({
-          login: Yup.string()
-              .required('Введите никнейм!'),
-          email: Yup.string()
-              .email('Неправильный формат')
-              .required('Введите почту!'),
-          password: Yup.string()
-              .min(6, 'Минимум 6 символов')
-              .required('Введите пароль!'),
-          confirmPassword: Yup.string()
-                    .oneOf([Yup.ref('password'), null], 'Пароли должны совпадать')
-                    .required('Подтвердите пароль!'),
-      })
+            }) :
+            Yup.object().shape({
+              login: Yup.string()
+                .required('Введите никнейм!'),
+              email: Yup.string()
+                .email('Неправильный формат')
+                .required('Введите почту!'),
+              password: Yup.string()
+                .min(6, 'Минимум 6 символов')
+                .required('Введите пароль!'),
+              confirmPassword: Yup.string()
+                .oneOf([Yup.ref('password'), null], 'Пароли должны совпадать')
+                .required('Подтвердите пароль!'),
+            })
         }
         onSubmit={
           props.title === 'Регистрация' ?
             fields => {
-              handleRegistr(fields)
+              handleRegister(fields)
               alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
             }
             :
@@ -83,10 +84,10 @@ const Login = (props) => {
               handleLogin(fields)
             }
         }
-    >
+      >
         {() => (
           <Form className='loginForm'>
-            <Field type="text" name="login" placeholder='Никнейм'/>
+            <Field type="text" name="login" placeholder='nik' />
             <ErrorMessage name="login" component="div" className='error'/>
             <Field name="email" type="text" placeholder='Почта'/>
             <ErrorMessage name="email" component="div" className='error'/>

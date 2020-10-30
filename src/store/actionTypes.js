@@ -10,3 +10,6 @@ export const NEW_USER = 'NEW_USER'
 export const IS_LOGGED = 'IS_LOGGED'
 export const LOG_IN = 'LOG_IN'
 export const LOG_OUT = 'LOG_OUT'
+
+export const SHOW_LOGIN_MODAL = 'SHOW_LOGIN_MODAL'
+export const SHOW_REGISTER_MODAL = 'SHOW_REGISTER_MODAL'
