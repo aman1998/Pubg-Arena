@@ -8,7 +8,7 @@ const MainPage = () => {
     <PageTemplate>
       <div className='home-main'>
         <Slider />
-        <Events />
+        <Events title='Расписание'/>
       </div>
     </PageTemplate>
   )

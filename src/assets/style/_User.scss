@@ -1,6 +1,4 @@
-.user{
-  border-bottom: 1px solid #5c5e66;
-  padding: 100px 0 50px 0;
+.block{
   &User {
     display: flex;
     align-items: center;
@@ -11,21 +9,11 @@
       align-items: center;
     }
     .avatar {
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
       background: rgba(121, 114, 114, 0.89);
       border-radius: 50%;
       margin-right: 30px;
-    }
-    .edit {
-      max-width: 200px;
-      padding: 6px 20px;
-      background-color: #000;
-      font-size: 15px;
-      border: 1px solid #838692;
-      border-radius: 4px;
-      margin-top: 10px;
-      cursor: pointer;
     }
     .results {
       color: #5c5e66;
@@ -37,7 +25,7 @@
         }
         p {
           &:nth-child(1) {
-            font-size: 50px;
+            font-size: 15px;
             color: #fff;
           }
         }
