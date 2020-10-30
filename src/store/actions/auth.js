@@ -1,19 +1,23 @@
-import {GET_ALL, GET_EMAIL, GET_PASSWORD, GET_USERNAME, SET_EMAIL, SET_PASSWORD, SET_USERNAME} from "../actionTypes";
+import {
+  GET_ALL,
+  GET_TOKEN,
+  NEW_USER,
+  SET_EMAIL,
+  SET_PASSWORD,
+  SET_USERNAME
+} from "../actionTypes";
 
-export const getUsername = () => ({
-  type: GET_USERNAME
-})
-
-export const getPassword = () => ({
-  type: GET_PASSWORD
-})
-
-export const getEmail = () => ({
-  type: GET_EMAIL
+export const getToken = () => ({
+  type: GET_TOKEN
 })
 
 export const getAll = () => ({
   type: GET_ALL
+})
+
+export const newUser = (user) => ({
+  type: NEW_USER,
+  payload: user
 })
 
 export const setUsername = (name) => ({

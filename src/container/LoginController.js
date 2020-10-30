@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 import Login from "../components/UI/Login/Login";
 import Registr from "../components/UI/Login/Registr";
 import LoginUserInfo from "../components/layout/LoginUserInfo";
-
-import {getAll, setEmail} from "../store/actions/auth";
-import {getIsLogged, logIn} from "../store/actions/logInOut";
 
 import avatar from '../assets/icons/avatar.png'
 import {showLogin} from "../store/actions/modalLogin";
