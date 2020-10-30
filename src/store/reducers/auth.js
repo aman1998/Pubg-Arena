@@ -10,9 +10,11 @@ import {
 
 const initialState = [
   {
-    username: 'admin',
-    email: 'admin@test.com',
-    password: 'adminadmin'
+    username: '',
+    email: '',
+    password: '',
+    // token: localStorage.getItem('token'),
+    token: 'token',
   }
 ]
 
