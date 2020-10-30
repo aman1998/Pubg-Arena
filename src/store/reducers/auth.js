@@ -1,42 +1,48 @@
-import {GET_EMAIL, GET_PASSWORD, GET_USERNAME, SET_EMAIL, SET_PASSWORD, SET_USERNAME} from "../actionTypes";
+import {
+  GET_ALL,
+  GET_EMAIL,
+  GET_PASSWORD,
+  GET_USERNAME, NEW_USER,
+  SET_EMAIL,
+  SET_PASSWORD,
+  SET_USERNAME
+} from "../actionTypes";
 
-let initialState = {
-  username: 'admin',
-  email: 'admin@test.com',
-  password: 'adminadmin'
-}
+const initialState = [
+  {
+    username: 'admin',
+    email: 'admin@test.com',
+    password: 'adminadmin'
+  }
+]
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_USERNAME:
-      return {
+    case GET_ALL:
+      return state
+    case NEW_USER:
+      return [
         ...state,
-        username: action.username
-      }
-    case GET_EMAIL:
-      return {
-        ...state,
-        email: action.email
-      }
-    case GET_PASSWORD:
-      return {
-        ...state,
-        password: action.password
-      }
+        action.payload
+      ]
     case SET_USERNAME:
       return {
         ...state,
-        password: action.password
+        password: action.payload
       }
     case SET_EMAIL:
       return {
         ...state,
-        email: action.email
+        email: action.payload
       }
     case SET_PASSWORD:
       return {
         ...state,
-        password: action.password
+        password: action.payload
+      }
+    default:
+      return {
+        ...state
       }
   }
 }

@@ -1,17 +1,16 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import BackDrop from "../BackDrop";
 import Template from './Template'
 
-const Registr = (props) => (
+const Register = (props) => (
   <>
-    <BackDrop show={props.showRegistr} clicked={props.backdropClicked} />
+    <BackDrop show={props.showRegister} clicked={props.backdropClicked} />
     <Template
       title='Регистрация'
-      close={props.showRegistr}
+      close={props.showRegister}
       bg='#26835f'>
     </Template>
   </>
 );
 
-export default Registr;
+export default Register;

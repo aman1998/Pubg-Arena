@@ -1,5 +1,5 @@
-import React  from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import React from 'react'
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import Header from './Header'
 import * as Yup from 'yup';
 
@@ -9,70 +9,78 @@ const Login = (props) => {
       <Header title={props.title} bg={props.bg} close={props.close}/>
       <Formik
         initialValues={
-          props.title == 'Регистрация' ? 
-          {
-            login: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-        } :
-        {
-          login: '',
-          email: '',
-          password: '',
-      }
+          props.title === 'Регистрация' ?
+            {
+              login: '',
+              email: '',
+              password: '',
+              confirmPassword: '',
+            } :
+            {
+              login: '',
+              email: '',
+              password: '',
+            }
         }
         validationSchema={
           props.title === 'Вход' ?
-          Yup.object().shape({
-            login: Yup.string()
+            Yup.object().shape({
+              login: Yup.string()
                 .required('Введите никнейм!'),
-            email: Yup.string()
+              email: Yup.string()
                 .email('Неправильный формат')
                 .required('Введите почту!'),
-            password: Yup.string()
+              password: Yup.string()
                 .min(6, 'Минимум 6 символов')
                 .required('Введите пароль!'),
-        }) :
-        Yup.object().shape({
-          login: Yup.string()
-              .required('Введите никнейм!'),
-          email: Yup.string()
-              .email('Неправильный формат')
-              .required('Введите почту!'),
-          password: Yup.string()
-              .min(6, 'Минимум 6 символов')
-              .required('Введите пароль!'),
-          confirmPassword: Yup.string()
-                    .oneOf([Yup.ref('password'), null], 'Passwords must match')
-                    .required('Confirm Password is required'),
-      })
+            }) :
+            Yup.object().shape({
+              login: Yup.string()
+                .required('Введите никнейм!'),
+              email: Yup.string()
+                .email('Неправильный формат')
+                .required('Введите почту!'),
+              password: Yup.string()
+                .min(6, 'Минимум 6 символов')
+                .required('Введите пароль!'),
+              confirmPassword: Yup.string()
+                .oneOf([Yup.ref('password'), null], 'Passwords must match')
+                .required('Confirm Password is required'),
+            })
         }
-        onSubmit={fields => {
-            alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
-        }}
-    >
+        onSubmit={
+          props.title === 'Регистрация' ?
+            fields => {
+              alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+            }
+            :
+            fields => {
+              alert('success!!' + JSON.stringify(fields, null, 4))
+            }
+        }
+      >
         {() => (
-            <Form className='loginForm'>
-                <Field type="text" name="login" placeholder='Никнейм'/>
-                <ErrorMessage name="login" component="div" className='error'/>
-                <Field name="email" type="text" placeholder='Почта'/>
-                <ErrorMessage name="email" component="div" className='error'/>
-                <Field type="password" name="password" placeholder='Пароль'/>
-                <ErrorMessage name="password" component="div" className='error'/>
-                {props.title == 'Регистрация' ? 
+          <Form className='loginForm'>
+            <Field type="text" name="login" placeholder='Никнейм'/>
+            <ErrorMessage name="login" component="div" className='error'/>
+            <Field name="email" type="text" placeholder='Почта'/>
+            <ErrorMessage name="email" component="div" className='error'/>
+            <Field type="password" name="password" placeholder='Пароль'/>
+            <ErrorMessage name="password" component="div" className='error'/>
+            {
+              props.title === 'Регистрация' ?
                 <div>
                   <Field type="password" name="confirmPassword" placeholder='Повторите пароль'/>
                   <ErrorMessage name="confirmPassword" component="div" className='error'/>
                 </div>
                 : ''
-              }
-                <button type="submit"  className='loginFormBtn' style={{background: props.bg}}>
-                {props.title}
-              </button>
-            </Form>
+            }
+            <button type="submit" className='loginFormBtn' style={{background: props.bg}}>
+              {props.title}
+            </button>
+          </Form>
         )}
-    </Formik>
+      </Formik>
     </div>
   )
 }

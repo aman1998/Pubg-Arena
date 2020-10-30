@@ -1,23 +1,15 @@
 import {IS_LOGGED, LOG_IN, LOG_OUT} from "../actionTypes";
 
-let initialState = {
-  isLogged: false
-}
-
-const reducer = (state = initialState, action) => {
+const reducer = (state = false, action) => {
   switch (action.type) {
     case IS_LOGGED:
-      return {
-        ...state
-      }
+      return state
     case LOG_IN:
-      return {
-        isLogged: true
-      }
+      return state = true
     case LOG_OUT:
-      return {
-        isLogged: false
-      }
+      return state = false
+    default:
+      return state
   }
 }
 
