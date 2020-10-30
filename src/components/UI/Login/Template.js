@@ -11,22 +11,22 @@ const Login = (props) => {
       body: JSON.stringify(body),
     })
   }
-  // const handleLogin = (body) => {
-  //   // e.preventDefault()
-  //   fetch(`http://localhost:1717/auth`, {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(body),
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) throw response.status
-  //       return response.json()
-  //     })
-  //     .then(({ user }) => {
-  //       console.log(user)
-  //       // window.localStorage.setItem('token', user.token)
-  //     })
-  // }
+  const handleLogin = (body) => {
+    // e.preventDefault()
+    fetch(`http://localhost:1717/auth`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        if (!response.ok) throw response.status
+        return response.json()
+      })
+      .then(({ user }) => {
+        console.log(user.token)
+        window.localStorage.setItem('token', user.token)
+      })
+  }
   return (
     <div className='login'>
       <Header title={props.title} bg={props.bg} close={props.close}/>
@@ -80,7 +80,7 @@ const Login = (props) => {
             :
             fields => {
               alert('success!!' + JSON.stringify(fields, null, 4))
-              // handleLogin(fields)
+              handleLogin(fields)
             }
         }
     >
