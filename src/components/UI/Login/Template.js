@@ -25,7 +25,7 @@ const Login = (props) => {
       .then(({user}) => {
         console.log(user.token)
         window.localStorage.setItem('token', user.token)
-        props.showLogin()
+
       })
   }
   return (

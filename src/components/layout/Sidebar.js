@@ -6,10 +6,7 @@ const Sidebar = () => {
   const sidebarItem = [
     { id: 1, link: '/profile/', text: 'Личные Данные' },
     { id: 2,link: '/profile/settings/', text: 'Настройка аккаунта' },
-    { id: 3, link: '/profile/card/', text: 'Вывести со счета'},
-    { id: 4, link: '/profile/tasks/', text: 'Задания'},
-    { id: 5, link: '/profile/events/', text: 'Турниры'},
-    { id: 6, link: '/profile/progress/', text: 'Достижения'},
+    { id: 3, link: '/profile/card/', text: 'Вывести со счета'}
   ]
   return (
     <aside>
