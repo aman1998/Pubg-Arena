@@ -4,6 +4,13 @@ import Header from './Header'
 import * as Yup from 'yup';
 
 const Login = (props) => {
+  const signIn = (body) => {
+    fetch(`http://localhost:1717/registr`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+  }
   return (
     <div className='login'>
       <Header title={props.title} bg={props.bg} close={props.close}/>
@@ -44,12 +51,12 @@ const Login = (props) => {
               .min(6, 'Минимум 6 символов')
               .required('Введите пароль!'),
           confirmPassword: Yup.string()
-                    .oneOf([Yup.ref('password'), null], 'Passwords must match')
-                    .required('Confirm Password is required'),
+                    .oneOf([Yup.ref('password'), null], 'Пароли должны совпадать')
+                    .required('Подтвердите пароль!'),
       })
         }
         onSubmit={fields => {
-            alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+            signIn(fields)
         }}
     >
         {() => (

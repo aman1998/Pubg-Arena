@@ -1,15 +1,13 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const UserInfo = () => {
   return (
-    <section className='user'>
-      <div className='userUser'>
+    <section className='block'>
+      <div className='blockUser'>
         <div className='userInfo'>
           <div className='avatar'></div>
-          <div>
-            <div className='name'>Амангельди</div>
-            <div className='edit'>Редактировать</div>
-          </div>
+          <div className='name'>Амангельди</div>
         </div>
         <div className='results'>
           <div className='item'>

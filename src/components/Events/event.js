@@ -1,7 +1,7 @@
 import React from 'react'
 import avatar from '../../assets/img/pubg.jpg'
 
-const Event = () => {
+const Event = (props) => {
   const eventItems = [
     { id: 1, day: 28, month: 'Октябрь', title: 'Top 15 challange', time: '16:30', price: 1500, mode: '1 vs All'},
     { id: 2, day: 12, month: 'Ноября', title: 'Top 10 challange', time: '12:30', price: 1500, mode: '1 vs All'},
@@ -9,7 +9,7 @@ const Event = () => {
   ]
   return (
     <div className='wrapper'>
-      <h1 className='container'>Расписание</h1>
+      <h1 className='container'>{props.title}</h1>
       {eventItems.map(item => (
       <section className='block' key={item.id}>
         <div className='event container'>
