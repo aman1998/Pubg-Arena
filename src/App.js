@@ -9,7 +9,7 @@ import './assets/style/style.scss'
 const ENDOPOINT = 'url'
 
 function App() {
-  const token = localStorage.getItem('token');
+  const token = useSelector(state => state.auth.token)
 
   const dispatch = useDispatch()
 

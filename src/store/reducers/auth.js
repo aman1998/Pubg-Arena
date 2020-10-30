@@ -1,16 +1,14 @@
 import {
   GET_ALL,
   GET_TOKEN,
-  SET_EMAIL,
-  SET_PASSWORD,
-  SET_USERNAME
+  NEW_USER,
 } from "../actionTypes";
 
 const initialState = {
   username: 'admin',
   email: 'admin@test.com',
   password: 'adminadmin',
-  token: 'akkahahha'
+  token: localStorage.getItem('token')
 }
 
 const reducer = (state = initialState, action) => {
@@ -19,20 +17,13 @@ const reducer = (state = initialState, action) => {
       return state
     case GET_TOKEN:
       return state.token
-    case SET_USERNAME:
+    case NEW_USER:
       return {
         ...state,
-        password: action.payload
-      }
-    case SET_EMAIL:
-      return {
-        ...state,
-        email: action.payload
-      }
-    case SET_PASSWORD:
-      return {
-        ...state,
-        password: action.payload
+
+        username: action.username,
+        email: action.email,
+        password: action.password
       }
     default:
       return {
