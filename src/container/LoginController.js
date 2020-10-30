@@ -23,14 +23,11 @@ const LoginController = () => {
 
   const showLogin = () => {
     setLoginModal(!loginModal)
-    setLoggedIn(true)
   }
   const showRegister = () => {
     setRegisterModal(!registerModal)
   }
 
-  useEffect(() => {
-  }, [loggedIn])
 
   return(
     <div className='blockRight'>

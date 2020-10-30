@@ -11,7 +11,7 @@ const gold = (props) => {
         width={props.w}
         height={props.h}
         fill={props.backColor}
-        viewBox="0 0 54 54" style={{enableBackground: 'new 0 0 54 54;'}} xmlSpace="preserve">
+        viewBox="0 0 54 54" style={{enableBackground: 'new 0 0 54 54'}} xmlSpace="preserve">
         <g>
           <g>
             <path d="M27,0C14.042,0,3.5,12.112,3.5,27S14.042,54,27,54s23.5-12.112,23.5-27S39.958,0,27,0z M27,52
