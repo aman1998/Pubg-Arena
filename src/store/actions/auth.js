@@ -4,7 +4,8 @@ import {
   NEW_USER,
   SET_EMAIL,
   SET_PASSWORD,
-  SET_USERNAME
+  SET_USERNAME,
+  GET_PROFILE
 } from "../actionTypes";
 
 export const getToken = () => ({
@@ -33,4 +34,9 @@ export const setPassword = (pass) => ({
 export const setEmail = (email) => ({
   type: SET_EMAIL,
   payload: email
+})
+
+export const getProfile = (profile) => ({
+  type: GET_PROFILE,
+  profile,
 })
