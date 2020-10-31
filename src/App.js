@@ -3,7 +3,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
-import {getProfile as getProfileAction} from './store/actions/auth'
 
 import './assets/style/style.scss'
 
@@ -11,13 +10,10 @@ const ENDOPOINT = 'http://localhost:1717'
 
 function App() {
   const token = useSelector(state => state.auth.token)
-  const profile = useSelector(state => state.auth.profile)
 
   const dispatch = useDispatch()
-  const getProfile = () => dispatch(getProfileAction())
 
   React.useEffect(() => {
-    console.log(profile)
     if (token) {
       fetch(`${ENDOPOINT}/profile`, {
         method: 'GET',
@@ -25,8 +21,7 @@ function App() {
       })
         .then((response) => response.json())
         .then(({ data }) => {
-          getProfile(data)
-          console.log(profile)
+
         })
     }
   }, [])
