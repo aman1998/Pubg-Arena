@@ -16,8 +16,11 @@ const Profile = () => {
         <Route path='/profile/settings' exact>
           Настройки
         </Route>
-        <Route path='/profile/card' exact>
+        <Route path='/profile/cardOut' exact>
           вывести
+        </Route>
+        <Route path='/profile/cardIn' exact>
+          Пополнить
         </Route>
         </div>
       </div>

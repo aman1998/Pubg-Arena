@@ -11,7 +11,10 @@ const ENDOPOINT = 'http://localhost:1717'
 
 function App() {
   const token = localStorage.getItem('token')
-  const profile = useSelector(state => state.auth.profile)
+  const { profile} = useSelector(
+    (state ) => ({
+      profile: state.auth.profile,
+    }))
 
   const dispatch = useDispatch()
 
@@ -23,7 +26,6 @@ function App() {
       })
         .then((response) => response.json())
         .then(({ data }) => {
-          dispatch(getProfileAction({...data}))
           console.log(profile)
         })
     }
@@ -35,7 +37,8 @@ function App() {
         <Route path='/' component={MainPage} exact/>
         <Route path='/profile' component={ProfilePage} exact/>
         <Route path = '/profile/settings' component = {ProfilePage} exact/>
-        <Route path = '/profile/card' component = {ProfilePage} exact/>
+        <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
+        <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
       </Switch>
     </BrowserRouter>
   )
