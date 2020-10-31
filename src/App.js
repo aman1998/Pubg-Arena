@@ -6,15 +6,15 @@ import ProfilePage from './pages/Profile'
 import {getProfile as getProfileAction} from './store/actions/auth'
 
 import './assets/style/style.scss'
+import {showLogin} from "./store/actions/modalLogin";
 
 const ENDOPOINT = 'http://localhost:1717'
 
 function App() {
-  const token = useSelector(state => state.auth.token)
+  const token = localStorage.getItem('token')
   const profile = useSelector(state => state.auth.profile)
 
   const dispatch = useDispatch()
-  const getProfile = () => dispatch(getProfileAction())
 
   React.useEffect(() => {
     console.log(profile)
@@ -25,11 +25,11 @@ function App() {
       })
         .then((response) => response.json())
         .then(({ data }) => {
-          getProfile(data)
-          console.log(profile)
+          dispatch(getProfileAction(data))
+          console.log(data)
         })
     }
-  }, [])
+  }, [token])
   
   return (
     <BrowserRouter>

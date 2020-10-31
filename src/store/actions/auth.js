@@ -36,7 +36,7 @@ export const setEmail = (email) => ({
   payload: email
 })
 
-export const getProfile = (profile) => ({
+export const getProfile = (payload) => ({
   type: GET_PROFILE,
-  profile,
+  payload
 })
