@@ -25,8 +25,8 @@ function App() {
       })
         .then((response) => response.json())
         .then(({ data }) => {
-          dispatch(getProfileAction(data))
-          console.log(data)
+          dispatch(getProfileAction({...data}))
+          console.log(profile)
         })
     }
   }, [token])
