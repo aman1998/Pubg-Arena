@@ -2,14 +2,14 @@ import {
   GET_ALL,
   GET_TOKEN,
   NEW_USER,
-  GET_PROFILE
+  GET_PROFILE, SET_TOKEN
 } from "../actionTypes";
 
 const initialState = {
   username: 'admin',
   email: 'admin@test.com',
   password: 'adminadmin',
-  token: localStorage.getItem('token'),
+  token: 'kaka',
   profile: {
     name: 'Aman',
     surname: 'Esen'
@@ -27,6 +27,11 @@ const reducer = (state = initialState, action) => {
       }
     case GET_TOKEN:
       return state.token
+    case SET_TOKEN:
+      return {
+        ...state,
+        token: action.payload
+      }
     case NEW_USER:
       return {
         ...state,
