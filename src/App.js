@@ -3,13 +3,15 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
+import {getProfile as getProfileAction} from './store/actions/auth'
 
 import './assets/style/style.scss'
 
 const ENDOPOINT = 'http://localhost:1717'
 
 function App() {
-  const token = useSelector(state => state.auth.token)
+  const token = localStorage.getItem('token')
+  const profile = useSelector(state => state.auth.profile)
 
   const dispatch = useDispatch()
 
@@ -21,10 +23,11 @@ function App() {
       })
         .then((response) => response.json())
         .then(({ data }) => {
-
+          dispatch(getProfileAction({...data}))
+          console.log(profile)
         })
     }
-  }, [])
+  }, [token])
   
   return (
     <BrowserRouter>

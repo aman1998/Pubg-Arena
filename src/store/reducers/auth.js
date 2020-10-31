@@ -19,7 +19,12 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL:
-      return state
+      return {
+        ...state,
+        profile: {
+          ...state.profile
+        }
+      }
     case GET_TOKEN:
       return state.token
     case NEW_USER:
@@ -33,11 +38,14 @@ const reducer = (state = initialState, action) => {
     case GET_PROFILE:
     return {
       ...state,
-      profile: action.profile,
+      profile: action.payload
     }
     default:
       return {
-        ...state
+        ...state,
+        profile: {
+          ...state.profile
+        }
       }
   }
 }

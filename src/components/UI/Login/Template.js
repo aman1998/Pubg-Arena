@@ -2,8 +2,12 @@ import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import Header from './Header'
 import * as Yup from 'yup';
+import {useDispatch} from "react-redux";
+import {showLogin} from "../../../store/actions/modalLogin";
 
 const Login = (props) => {
+  const dispatch = useDispatch()
+  const showLog = () => dispatch(showLogin())
   const handleRegister = (body) => {
     fetch(`http://localhost:1717/registr`, {
       method: 'POST',
@@ -76,12 +80,11 @@ const Login = (props) => {
           props.title === 'Регистрация' ?
             fields => {
               handleRegister(fields)
-              alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
             }
             :
             fields => {
-              alert('success!!' + JSON.stringify(fields, null, 4))
               handleLogin(fields)
+              showLog()
             }
         }
       >
