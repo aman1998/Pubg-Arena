@@ -1,7 +1,7 @@
 .pageTemplate {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  main {
+    padding-bottom: 90px;
+  }
 }
 
 .active {

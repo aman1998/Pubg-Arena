@@ -2,10 +2,10 @@ import React from 'react'
 import Vk from '../../assets/icons/vkontakte'
 import Tg from '../../assets/icons/telegram'
 
-const Footer = () => {
+const Footer = (props) => {
   return(
     <div className='container'>
-      <footer className='footer'>
+      <footer className={`footer ${props.class}`}>
         <div className='footer-top'>
           <div className='footer-icons'>
             <div><Vk /></div>

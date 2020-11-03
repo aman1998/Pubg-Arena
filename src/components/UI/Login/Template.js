@@ -4,10 +4,10 @@ import Header from './Header'
 import * as Yup from 'yup';
 import {useDispatch} from "react-redux";
 import {showLogin} from "../../../store/actions/modalLogin";
+import {getProfile, setToken} from "../../../store/actions/auth";
 
 const Login = (props) => {
   const dispatch = useDispatch()
-  const showLog = () => dispatch(showLogin())
   const handleRegister = (body) => {
     fetch(`http://localhost:1717/registr`, {
       method: 'POST',
@@ -26,10 +26,12 @@ const Login = (props) => {
         if (!response.ok) throw response.status
         return response.json()
       })
-      .then(({user}) => {
-        console.log(user.token)
-        window.localStorage.setItem('token', user.token)
-
+      .then( data => {
+        dispatch(getProfile({...data.user.data}))
+        dispatch(setToken(data.user.token))
+      })
+      .catch(e => {
+        console.log({message: e.message})
       })
   }
   return (
@@ -84,7 +86,7 @@ const Login = (props) => {
             :
             fields => {
               handleLogin(fields)
-              showLog()
+              dispatch(showLogin())
             }
         }
       >

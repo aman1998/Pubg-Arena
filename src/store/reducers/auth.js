@@ -2,7 +2,7 @@ import {
   GET_ALL,
   GET_TOKEN,
   NEW_USER,
-  GET_PROFILE
+  GET_PROFILE, SET_TOKEN
 } from "../actionTypes";
 
 const initialState = {
@@ -27,6 +27,11 @@ const reducer = (state = initialState, action) => {
       }
     case GET_TOKEN:
       return state.token
+    case SET_TOKEN:
+      return {
+        ...state,
+        token: action.payload
+      }
     case NEW_USER:
       return {
         ...state,

@@ -3,16 +3,16 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
-import {getProfile as getProfileAction} from './store/actions/auth'
+import {getProfile as getProfileAction} from './store/actions'
 
 import './assets/style/style.scss'
 
 const ENDOPOINT = 'http://localhost:1717'
 
 function App() {
-  const token = localStorage.getItem('token')
-  const { profile} = useSelector(
-    (state ) => ({
+
+  const { token, profile } = useSelector(state => ({
+      token: state.auth.token,
       profile: state.auth.profile,
     }))
 
@@ -26,7 +26,7 @@ function App() {
       })
         .then((response) => response.json())
         .then(({ data }) => {
-          console.log(profile)
+          dispatch(getProfileAction(data))
         })
     }
   }, [token])

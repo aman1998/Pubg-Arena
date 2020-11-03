@@ -3,10 +3,12 @@ import { Route } from 'react-router-dom'
 import PageTemplate from '../components/templates/PageTemplate'
 import Sidebar from '../components/layout/Sidebar'
 import UserInfo from '../components/User/UserInfo'
+import CardIn from '../components/Card/CardIn'
+import CardOut from '../components/Card/CardOut'
 
 const Profile = () => {
   return (
-    <PageTemplate>
+    <PageTemplate class='footer-profile'>
       <div className='container profile'>
         <Sidebar />
         <div className='content'>
@@ -16,12 +18,8 @@ const Profile = () => {
         <Route path='/profile/settings' exact>
           Настройки
         </Route>
-        <Route path='/profile/cardOut' exact>
-          вывести
-        </Route>
-        <Route path='/profile/cardIn' exact>
-          Пополнить
-        </Route>
+        <CardIn />
+        <CardOut />
         </div>
       </div>
     </PageTemplate>
