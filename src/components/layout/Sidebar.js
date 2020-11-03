@@ -8,6 +8,7 @@ const Sidebar = () => {
     { id: 2,link: '/profile/settings/', text: 'Настройка аккаунта' },
     { id: 3, link: '/profile/cardIn/', text: 'Пополнить счет'},
     { id: 4, link: '/profile/cardOut/', text: 'Вывести со счета'},
+    { id: 5, link: '/profile/createLobbie/', text: 'Создать лобби'},
   ]
   return (
     <aside>

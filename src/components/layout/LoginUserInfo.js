@@ -1,21 +1,27 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import Gold from '../../assets/icons/gold-svgrepo-com'
+import logout from '../../assets/icons/logout.svg'
 
 const LoginUserInfo = (props) => {
+  const {name} = useSelector(state => ({
+    name: state.profile.myProfile.username
+  }))
+
+  const removeToken = () => {
+    localStorage.removeItem('token')
+  }
+
   return(
     <div className='loginUserInfo'>
       <div className='username'>
-        {props.username}
+        {name}
       </div>
       <div className='userAvatar'>
         <img src={props.avatar} alt='user Avatar' className='avatar' />
       </div>
       <div className='userMoney'>
-        <Gold backColor='#F7B900' w='20px' h='20px' />
-        <div className='moneyText'>
-          {props.userMoney} сом
-        </div>
+        <img src={logout} alt='#' className='logout' onClick={removeToken}/>
       </div>
     </div>
   )

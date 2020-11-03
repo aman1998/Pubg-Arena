@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux'
 import auth from './auth'
-import auth2 from './auth2'
+import profile from './profile'
 import isLogged from './isLogged'
 import modalRegister from './modalRegister'
 import modalLogin from './modalLogin'
+import lobbies from './lobbies'
 
 export default combineReducers({
   auth,
-  auth2,
+  profile,
   isLogged,
   modalRegister,
-  modalLogin
+  modalLogin,
+  lobbies
 })

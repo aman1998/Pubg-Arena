@@ -5,6 +5,7 @@ import Sidebar from '../components/layout/Sidebar'
 import UserInfo from '../components/User/UserInfo'
 import CardIn from '../components/Card/CardIn'
 import CardOut from '../components/Card/CardOut'
+import CreateLobbie from '../components/Lobbies/createLobbie'
 
 const Profile = () => {
   return (
@@ -20,6 +21,9 @@ const Profile = () => {
         </Route>
         <CardIn />
         <CardOut />
+        <Route path='/profile/createLobbie' exact>
+          <CreateLobbie />
+        </Route>
         </div>
       </div>
     </PageTemplate>

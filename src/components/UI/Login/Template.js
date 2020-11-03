@@ -4,7 +4,8 @@ import Header from './Header'
 import * as Yup from 'yup';
 import {useDispatch} from "react-redux";
 import {showLogin} from "../../../store/actions/modalLogin";
-import {getProfile, setToken} from "../../../store/actions/auth";
+import {getMyProfile} from "../../../store/actions/profile";
+import {setToken} from "../../../store/actions/auth";
 
 const Login = (props) => {
   const dispatch = useDispatch()
@@ -27,8 +28,8 @@ const Login = (props) => {
         return response.json()
       })
       .then( data => {
-        dispatch(getProfile({...data.user.data}))
-        dispatch(setToken(data.user.token))
+        dispatch(getMyProfile({...data.user.data}))
+        localStorage.setItem('token',data.user.token )
       })
       .catch(e => {
         console.log({message: e.message})

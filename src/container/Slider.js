@@ -6,7 +6,7 @@ import Slide from '../components/Slides/Slide'
 import pugBackImg from '../assets/icons/pubg-wide-high.jpg'
 
 const Slider = () => {
-  const [config, setConfig] = useState({
+  const [config] = useState({
     slideIndex: 0,
     length: 5,
     wrapAround: false,
@@ -16,7 +16,7 @@ const Slider = () => {
     withoutControls: true
   })
 
-  const [slides, setSlides] = useState([
+  const [slides] = useState([
     {
       title: 'PLAY TODAY ON XBOX, PC, PS4, AND STADIA',
       text: 'Compete with 100 players on a remote island for a winner-takes-all showdown where strategic gameplay is as important as shooting skills.',
