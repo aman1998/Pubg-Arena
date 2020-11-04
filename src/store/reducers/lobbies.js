@@ -1,5 +1,6 @@
 const initialState = {
-  list: []
+  list: [],
+  success: true
 }
 
 const reducer = (state = initialState, action) => {
@@ -8,6 +9,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         list: action.list,
+      }
+      case 'GET_LOBBIES_SUCCESS':
+      return {
+        ...state,
+        success: action.success,
       }
     default: return state
   }

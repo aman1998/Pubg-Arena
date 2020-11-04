@@ -1,0 +1,31 @@
+.lobby {
+  display: flex;
+  margin-top: 20px;
+  color: #b2b7bb;
+  &-img {
+    width: 230px;
+    height: 308px;
+    object-fit: cover;
+    box-shadow: -3px 4px 15px 15px rgba(0,0,0,0.86);
+    -webkit-box-shadow: -3px 4px 15px 15px rgba(0,0,0,0.86); 
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+    &__date {
+      font-size: 36px;
+      line-height: 1.15;
+      color: #dfe4e7;
+    }
+    &__mode {
+      font-size: 24px;
+      color: #d1dfe7;
+    }
+    &__btn {
+      margin: 0;
+      @include btn();
+    }
+  }
+}

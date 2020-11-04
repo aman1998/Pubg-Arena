@@ -6,6 +6,8 @@ import {useDispatch} from "react-redux";
 import {showLogin} from "../../../store/actions/modalLogin";
 import {getMyProfile} from "../../../store/actions/profile";
 import {setToken} from "../../../store/actions/auth";
+import {showRegister} from "../../../store/actions/modalRegister";
+
 
 const Login = (props) => {
   const dispatch = useDispatch()
@@ -29,6 +31,7 @@ const Login = (props) => {
       })
       .then( data => {
         dispatch(getMyProfile({...data.user.data}))
+        dispatch(setToken(data.user.token))
         localStorage.setItem('token',data.user.token )
       })
       .catch(e => {
@@ -83,6 +86,8 @@ const Login = (props) => {
           props.title === 'Регистрация' ?
             fields => {
               handleRegister(fields)
+              dispatch(showRegister())
+              alert('Вы успешно зарегистрованы!')
             }
             :
             fields => {

@@ -10,7 +10,7 @@ import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
 
 const LoginController = () => {
-  const { loginModal,token, registerModal} = useSelector(state => ({
+  const { loginModal,token, registerModal } = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
     token: state.auth.token
@@ -18,7 +18,7 @@ const LoginController = () => {
 
   const dispatch = useDispatch()
   // const [loggedIn, setLoggedIn] = useState(false)
-  const [user ] = useState({
+  const [ user ] = useState({
     username: 'erlan',
     avatar: avatar,
     money: 400
@@ -35,7 +35,7 @@ const LoginController = () => {
   return(
     <div className='blockRight'>
       {
-        token !== null ? (
+        token ? (
           <LoginUserInfo
             userMoney={user.money}
             avatar={avatar}

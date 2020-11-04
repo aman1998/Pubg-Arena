@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import {setToken} from '../../store/actions/auth'
 
 import logout from '../../assets/icons/logout.svg'
 
@@ -8,8 +9,11 @@ const LoginUserInfo = (props) => {
     name: state.profile.myProfile.username
   }))
 
+  const dispatch = useDispatch()
+
   const removeToken = () => {
     localStorage.removeItem('token')
+    dispatch(setToken(null))
   }
 
   return(

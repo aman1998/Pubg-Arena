@@ -1,7 +1,11 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
+import { useSelector, useDispatch } from 'react-redux'
+import {getLobbiesSuccess as getLobbiesSuccessAction} from '../../store/actions/lobbies'
 
 const CreateLobbie = () => {
+    const dispatch = useDispatch()
+
     const createLobby = (body) => {
         fetch(`http://localhost:1717/createLobby`, {
         method: 'POST',
@@ -9,7 +13,7 @@ const CreateLobbie = () => {
         body: JSON.stringify(body),
         })
         .then((data) => {
-            console.log('data', data)
+            dispatch(getLobbiesSuccessAction(true))
         })
     }
     return (
