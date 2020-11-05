@@ -26,7 +26,7 @@ const Event = (props) => {
                   <p>с Нашими правилами турнира</p>
                 </div>
                   <NavLink
-                    to={`lobby-${item.id}`}
+                    to={`/lobby/${item.id}`}
                     exact
                     className='info-bottom__btn'
                   >

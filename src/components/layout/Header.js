@@ -1,10 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import {useSelector} from "react-redux"
 import Logo from '../../assets/icons/logo.svg'
 import LoginController from "../../container/LoginController";
 
 const Header = () => {
+  const {token} = useSelector(state => ({
+    token: state.auth.token
+  }))
+
   return (
     <header>
       <div className='container'>
@@ -23,13 +27,15 @@ const Header = () => {
               Главное
             </NavLink>
             <div className='line-vert'></div>
+            {token ? 
             <NavLink
               to='/profile'
               className='items'
               activeClassName='active'
             >
               Личный кабинет
-            </NavLink>
+            </NavLink> :
+              null}
           </div>
           <LoginController />
         </nav>

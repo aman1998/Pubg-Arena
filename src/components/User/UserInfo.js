@@ -2,9 +2,12 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 const UserInfo = () => {
-  const { name } = useSelector(state => ({
+  const { name, myProfile } = useSelector(state => ({
     name: state.profile.myProfile.username,
+    myProfile: state.profile.myProfile,
   }))
+
+  console.log(myProfile)
   return (
     <section className='block'>
       <div className='blockUser'>

@@ -6,14 +6,7 @@ import {
 } from "../actionTypes";
 
 const initialState = {
-  username: 'admin',
-  email: 'admin@test.com',
-  password: 'adminadmin',
   token: localStorage.getItem('token'),
-  profile: {
-    name: 'Aman',
-    surname: 'Esen'
-  }
 }
 
 const reducer = (state = initialState, action) => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {setToken} from '../../store/actions/auth'
+import {getMyProfile,checkIsLog} from '../../store/actions/profile'
 
 import logout from '../../assets/icons/logout.svg'
 
@@ -14,6 +15,8 @@ const LoginUserInfo = (props) => {
   const removeToken = () => {
     localStorage.removeItem('token')
     dispatch(setToken(null))
+    dispatch(getMyProfile({favoritesList: []}))
+    dispatch(checkIsLog(false))
   }
 
   return(

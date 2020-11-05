@@ -3,6 +3,7 @@ const initialState = {
   myProfile: {
     favoritesList: [],
   },
+  isLog: false,
   login: {
     success: false,
     loading: false,
@@ -91,6 +92,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         myProfile: action.myProfile,
+      }
+    case 'IS_LOG':
+      return {
+        ...state,
+        isLog: action.isLog,
       }
     default: return state
   }

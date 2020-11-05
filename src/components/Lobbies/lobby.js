@@ -16,7 +16,7 @@ const Lobby = (props) => {
     // fetch(`${ENDOPOINT}/player_list/${myProfile.id}`, {
       method: 'PUT',
       body: JSON.stringify({
-        idList,
+        idList: 'sdsd'
       }),
       headers: {
         'Content-type': 'application/json',
@@ -38,7 +38,7 @@ const Lobby = (props) => {
           <div className='lobby-content__title'>{props.title}</div>
           <div className='lobby-content__price--game'>{`Цена участия: ${props.priceGame} сомов`}</div>
           <div className='lobby-content__price--kill'>{`Цена 1 убийства: ${props.priceKill} сомов`}</div>
-          <button className='lobby-content__btn'>Вступить</button>
+          <button className='lobby-content__btn' onClick={addPlayers}>Вступить</button>
         </div>
       </section>
     </div>

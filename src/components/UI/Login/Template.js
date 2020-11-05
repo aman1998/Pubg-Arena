@@ -1,15 +1,17 @@
 import React from 'react'
-import {Formik, Form, Field, ErrorMessage} from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik'
 import Header from './Header'
-import * as Yup from 'yup';
-import {useDispatch} from "react-redux";
-import {showLogin} from "../../../store/actions/modalLogin";
-import {getMyProfile} from "../../../store/actions/profile";
-import {setToken} from "../../../store/actions/auth";
-import {showRegister} from "../../../store/actions/modalRegister";
+import * as Yup from 'yup'
+import {useDispatch} from "react-redux"
+import {showLogin} from "../../../store/actions/modalLogin"
+import {getMyProfile} from "../../../store/actions/profile"
+import {setToken} from "../../../store/actions/auth"
+import {showRegister} from "../../../store/actions/modalRegister"
+import {checkIsLog} from '../../../store/actions/profile'
 
 
 const Login = (props) => {
+
   const dispatch = useDispatch()
   const handleRegister = (body) => {
     fetch(`http://localhost:1717/registr`, {
