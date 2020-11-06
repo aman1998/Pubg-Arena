@@ -18,6 +18,7 @@
   }
   &-icons {
     display: flex;
+    flex-wrap: wrap;
     @media screen and (max-width: 1000px) {
       justify-content: center;;
     }
@@ -27,6 +28,7 @@
   }
   &-rules {
     display: flex;
+    flex-wrap: wrap;
     div {
       margin-right: 20px
     }
