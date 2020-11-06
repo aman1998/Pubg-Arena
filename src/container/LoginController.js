@@ -8,6 +8,7 @@ import LoginUserInfo from "../components/layout/LoginUserInfo";
 import avatar from '../assets/icons/avatar.png'
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
+import {getIsLogged} from "../store/actions/logInOut";
 
 const LoginController = () => {
   const dispatch = useDispatch()

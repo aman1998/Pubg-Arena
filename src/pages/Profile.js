@@ -13,15 +13,15 @@ const Profile = () => {
       <div className='container profile'>
         <Sidebar />
         <div className='content'>
-          <Route path='/profile' >
+          <Route path='/profile' exact>
             <UserRating />
           </Route>
-          <Route path='/profile/settings' >
+          <Route path='/profile/settings' exact>
             Настройки
           </Route>
           <CardIn />
           <CardOut />
-          <Route path='/profile/createLobbie' >
+          <Route path='/profile/createLobbie' exact>
             <CreateLobbie />
           </Route>
         </div>
