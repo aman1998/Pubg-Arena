@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector} from 'react-redux'
 import PubgPhoto from '../../assets/img/pubg.png'
 
 const ENDOPOINT = 'http://localhost:1717'
@@ -11,9 +11,7 @@ const Lobby = (props) => {
   }))
 
   const addPlayers = () => {
-    const idList = 'lobby-Lt8NkJp-m'
     fetch(`${ENDOPOINT}/player_list/${myProfile.id}`, {
-    // fetch(`${ENDOPOINT}/player_list/${myProfile.id}`, {
       method: 'PUT',
       body: JSON.stringify({
         idList: 'sdsd'

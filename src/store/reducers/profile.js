@@ -1,102 +1,35 @@
+import {GET_PROFILE, GET_TOKEN, SET_PROFILE, SET_TOKEN} from "../actionTypes";
+import {act} from "@testing-library/react";
+
 const initialState = {
   token: localStorage.getItem('token'),
   myProfile: {
     favoritesList: [],
-  },
-  isLog: false,
-  login: {
-    success: false,
-    loading: false,
-    failed: false,
-    error: '',
-  },
-  signup: {
-    success: false,
-    loading: false,
-    failed: false,
-    error: '',
-  },
+  }
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_SUCCESS':
+    case SET_PROFILE:
       return {
         ...state,
         token: localStorage.getItem('token'),
-        myProfile: action.myProfile,
-        login: {
-          success: true,
-          loading: false,
-          failed: false,
-          error: '',
-        },
+        myProfile: action.myProfile
       }
-    case 'LOGIN_LOADING':
-      return {
-        ...state,
-        login: {
-          success: false,
-          loading: true,
-          failed: false,
-          error: '',
-        },
-      }
-    case 'LOGIN_FAILED':
-      return {
-        ...state,
-        login: {
-          success: false,
-          loading: false,
-          failed: true,
-          error: action.error,
-        },
-      }
-    case 'SIGNUP_SUCCESS':
-      return {
-        ...state,
-        me: action.me,
-        get: {
-          success: true,
-          loading: false,
-          failed: false,
-          error: '',
-        },
-      }
-    case 'SIGNUP_LOADING':
-      return {
-        ...state,
-        get: {
-          success: false,
-          loading: true,
-          failed: false,
-          error: '',
-        },
-      }
-    case 'SIGNUP_FAILED':
-      return {
-        ...state,
-        get: {
-          success: false,
-          loading: false,
-          failed: true,
-          error: action.error,
-        },
-      }
-    case 'GET_TOKEN':
+    case GET_TOKEN:
       return {
         ...state,
         token: localStorage.getItem('token'),
       }
-    case 'GET_MY_PROFILE':
+    case SET_TOKEN:
+      return {
+        ...state,
+        token: action.token
+      }
+    case GET_PROFILE:
       return {
         ...state,
         myProfile: action.myProfile,
-      }
-    case 'IS_LOG':
-      return {
-        ...state,
-        isLog: action.isLog,
       }
     default: return state
   }

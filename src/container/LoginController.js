@@ -10,12 +10,9 @@ import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
 
 const LoginController = () => {
-  const { loginModal,token, registerModal, isLog } = useSelector(state => ({
+  const { loginModal, registerModal, isLog } = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
-    isLog: state.profile.isLog,
-    token: state.auth.token,
-    isLog: state.profile.isLog
   }))
 
   const dispatch = useDispatch()

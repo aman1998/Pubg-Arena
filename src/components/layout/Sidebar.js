@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import styles from './styles.module.scss'
 
 const Sidebar = () => {
   const sidebarItem = [
@@ -12,21 +11,21 @@ const Sidebar = () => {
   ]
   return (
     <aside>
-      <nav className={`${styles.sidebar}`}>
+      <nav className='sidebar'>
         <div>
-          <ul className={styles.sidebarItems}>
+          <ul className={'sidebarItems'}>
           {
             sidebarItem.map((item) => (
               <NavLink
                 key={item.id}
                 to={item.link}
-                className={styles.sidebarItem}
-                activeClassName={styles.active}
+                className='sidebarItem'
+                activeClassName='active'
                 exact
               >
                 <div>
-                  <div className={styles.sidebarItemIcon}>{item.icon}</div>
-                  <div className={styles.sidebarItemText}>{item.text}</div>
+                  <div className='sidebarItemIcon'>{item.icon}</div>
+                  <div className='sidebarItemText'>{item.text}</div>
                 </div>
               </NavLink>
             ))

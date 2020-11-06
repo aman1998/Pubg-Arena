@@ -6,7 +6,7 @@ import LoginController from "../../container/LoginController";
 
 const Header = () => {
   const {token} = useSelector(state => ({
-    token: state.auth.token
+    token: state.profile.token
   }))
 
   return (
