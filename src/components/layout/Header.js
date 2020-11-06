@@ -5,8 +5,8 @@ import Logo from '../../assets/icons/logo.svg'
 import LoginController from "../../container/LoginController";
 
 const Header = () => {
-  const {token} = useSelector(state => ({
-    token: state.profile.token
+  const {isLogged} = useSelector(state => ({
+    isLogged: state.isLogged
   }))
 
   return (
@@ -27,7 +27,7 @@ const Header = () => {
               Главное
             </NavLink>
             <div className='line-vert'></div>
-            {token ? 
+            { isLogged ?
             <NavLink
               to='/profile'
               className='items'

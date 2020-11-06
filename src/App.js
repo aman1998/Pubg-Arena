@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import {getMyProfile as getProfileAction} from './store/actions/profile'
-import {logIn} from "./store/actions/logInOut";
+import {logIn, logOut} from "./store/actions/logInOut";
 import {getLobbiesList as getLobbiesListAction, getLobbiesSuccess as getLobbiesSuccessAction } from './store/actions/lobbies'
 
 import MainPage from './pages/Home'
@@ -35,15 +35,22 @@ function App() {
           dispatch(getProfileAction(data))
           dispatch(logIn())
         })
-    }
-      fetch(`${ENDOPOINT}/list`, {
-        method: 'GET',
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(getLobbiesListAction(data))
-          dispatch(getLobbiesSuccessAction(false))
+        .catch((e) => {
+          console.log(e.message)
+          dispatch(logOut())
         })
+    }
+    fetch(`${ENDOPOINT}/list`, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(getLobbiesListAction(data))
+        dispatch(getLobbiesSuccessAction(false))
+      })
+      .catch(e => {
+        console.log(e.message)
+      })
   }, [token, getLobbiesSuccess])
   
   return (
