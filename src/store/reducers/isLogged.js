@@ -2,7 +2,7 @@ import {IS_LOGGED, LOG_IN, LOG_OUT} from "../actionTypes";
 
 const searchToken = () => {
   const isToken = localStorage.getItem('token')
-  if(isToken){
+  if(isToken != null){
     return true
   }
   return false

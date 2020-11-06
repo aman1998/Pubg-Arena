@@ -12,10 +12,11 @@ import {getIsLogged} from "../store/actions/logInOut";
 
 const LoginController = () => {
   const dispatch = useDispatch()
-  const { loginModal, registerModal, isLogged} = useSelector(state => ({
+  const { loginModal, registerModal, isLogged, isLog} = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
-    isLogged: state.isLogged
+    isLogged: state.isLogged,
+    isLog: state.profile.isLog
   }))
 
   // const [loggedIn, setLoggedIn] = useState(false)
@@ -36,7 +37,7 @@ const LoginController = () => {
   return(
     <div className='blockRight'>
       {
-        isLogged ? (
+        isLog ? (
           <LoginUserInfo
             userMoney={user.money}
             avatar={avatar}

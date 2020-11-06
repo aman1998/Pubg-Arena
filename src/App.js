@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import {getMyProfile as getProfileAction} from './store/actions/profile'
+import {getMyProfile as getProfileAction, checkIsLog} from './store/actions/profile'
 import {logIn} from "./store/actions/logInOut";
 import {getLobbiesList as getLobbiesListAction, getLobbiesSuccess as getLobbiesSuccessAction } from './store/actions/lobbies'
 
@@ -34,6 +34,7 @@ function App() {
         .then(({ data }) => {
           dispatch(getProfileAction(data))
           dispatch(logIn())
+          dispatch(checkIsLog(true))
         })
     }
       fetch(`${ENDOPOINT}/list`, {
@@ -53,11 +54,11 @@ function App() {
         <Route path='/lobby/:id' component = {LobbyPage}/>
         {isLog ? 
         <Switch>
-          <Route path='/profile' component={ProfilePage} />
-          <Route path = '/profile/settings' component = {ProfilePage} />
-          <Route path = '/profile/cardIn' component = {ProfilePage} />
-          <Route path = '/profile/cardOut' component = {ProfilePage} />
-          <Route path = '/profile/createLobbie' component = {ProfilePage} />
+          <Route path='/profile' component={ProfilePage} exact/>
+          <Route path = '/profile/settings' component = {ProfilePage} exact/>
+          <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
+          <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
+          <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
         </Switch> :
         null}
       </Switch>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {getMyProfile, setToken} from '../../store/actions/profile'
+import {getMyProfile, setToken, checkIsLog} from '../../store/actions/profile'
 
 import logout from '../../assets/icons/logout.svg'
 import {logOut} from "../../store/actions/logInOut";
@@ -17,6 +17,7 @@ const LoginUserInfo = (props) => {
     dispatch(getMyProfile({favoritesList: []}))
     dispatch(setToken(null))
     dispatch(logOut(false))
+    dispatch(checkIsLog(false))
   }
 
   return(
