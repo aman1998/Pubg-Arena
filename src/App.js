@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import {getMyProfile as getProfileAction} from './store/actions/profile'
-import {logIn} from "./store/actions/logInOut";
+import {checkIsLog, getMyProfile as getProfileAction} from './store/actions/profile'
+import {logIn, logOut} from "./store/actions/logInOut";
 import {getLobbiesList as getLobbiesListAction, getLobbiesSuccess as getLobbiesSuccessAction } from './store/actions/lobbies'
 
 import MainPage from './pages/Home'
@@ -10,6 +10,7 @@ import ProfilePage from './pages/Profile'
 import LobbyPage from './pages/Lobby'
 
 import './assets/style/style.scss'
+import {loading, notLoading} from "./store/actions/isLoading";
 
 const ENDOPOINT = 'http://localhost:1717'
 
@@ -35,10 +36,12 @@ function App() {
         .then(({ data }) => {
           dispatch(getProfileAction(data))
           dispatch(logIn())
+          dispatch(checkIsLog(true))
           dispatch(notLoading())
         })
         .catch((e) => {
           console.log(e.message)
+          dispatch(checkIsLog(false))
           dispatch(logOut())
         })
     }
