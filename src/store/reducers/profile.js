@@ -1,5 +1,4 @@
 import {GET_PROFILE, GET_TOKEN, SET_PROFILE, SET_TOKEN} from "../actionTypes";
-import {act} from "@testing-library/react";
 
 const initialState = {
   token: localStorage.getItem('token'),

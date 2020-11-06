@@ -8,6 +8,7 @@ import {getMyProfile, setToken} from "../../../store/actions/profile"
 import {showRegister} from "../../../store/actions/modalRegister"
 
 import Header from './Header'
+import {logIn} from "../../../store/actions/logInOut";
 
 const Login = (props) => {
 
@@ -33,6 +34,7 @@ const Login = (props) => {
       .then( data => {
         dispatch(getMyProfile({...data.user.data}))
         dispatch(setToken(data.user.token))
+        dispatch(logIn())
         localStorage.setItem('token',data.user.token )
       })
       .catch(e => {

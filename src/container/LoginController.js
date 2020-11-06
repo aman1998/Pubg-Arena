@@ -8,14 +8,16 @@ import LoginUserInfo from "../components/layout/LoginUserInfo";
 import avatar from '../assets/icons/avatar.png'
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
+import {getIsLogged} from "../store/actions/logInOut";
 
 const LoginController = () => {
-  const { loginModal, registerModal, isLog } = useSelector(state => ({
+  const dispatch = useDispatch()
+  const { loginModal, registerModal, isLogged} = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
+    isLogged: state.isLogged
   }))
 
-  const dispatch = useDispatch()
   // const [loggedIn, setLoggedIn] = useState(false)
   const [ user ] = useState({
     username: 'erlan',
@@ -34,7 +36,7 @@ const LoginController = () => {
   return(
     <div className='blockRight'>
       {
-        isLog ? (
+        isLogged ? (
           <LoginUserInfo
             userMoney={user.money}
             avatar={avatar}
