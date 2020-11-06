@@ -12,7 +12,7 @@ import LobbyPage from './pages/Lobby'
 import './assets/style/style.scss'
 import {loading, notLoading} from "./store/actions/isLoading";
 
-const ENDOPOINT = 'http://localhost:1717'
+const ENDPOINT = 'http://localhost:1717'
 
 function App() {
 
@@ -28,7 +28,7 @@ function App() {
   React.useEffect(() => {
     if (token) {
       dispatch(loading())
-      fetch(`${ENDOPOINT}/profile`, {
+      fetch(`${ENDPOINT}/profile`, {
         method: 'GET',
         headers: { 'X-Auth': ` ${token}` },
       })
@@ -45,7 +45,7 @@ function App() {
           dispatch(logOut())
         })
     }
-    fetch(`${ENDOPOINT}/list`, {
+    fetch(`${ENDPOINT}/list`, {
       method: 'GET',
     })
       .then((response) => response.json())
