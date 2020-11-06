@@ -10,6 +10,7 @@ import ProfilePage from './pages/Profile'
 import LobbyPage from './pages/Lobby'
 
 import './assets/style/style.scss'
+import {loading, notLoading} from "./store/actions/isLoading";
 
 const ENDOPOINT = 'http://localhost:1717'
 
@@ -26,6 +27,7 @@ function App() {
 
   React.useEffect(() => {
     if (token) {
+      dispatch(loading())
       fetch(`${ENDOPOINT}/profile`, {
         method: 'GET',
         headers: { 'X-Auth': ` ${token}` },
@@ -34,6 +36,7 @@ function App() {
         .then(({ data }) => {
           dispatch(getProfileAction(data))
           dispatch(logIn())
+          dispatch(notLoading())
         })
         .catch((e) => {
           console.log(e.message)

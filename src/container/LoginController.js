@@ -11,14 +11,15 @@ import {showRegister} from "../store/actions/modalRegister";
 
 const LoginController = () => {
   const dispatch = useDispatch()
-  const { loginModal, registerModal, isLogged} = useSelector(state => ({
+  const {loginModal, registerModal, isLogged, isLoading} = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
-    isLogged: state.isLogged
+    isLogged: state.isLogged,
+    isLoading: state.isLoading
   }))
 
   // const [loggedIn, setLoggedIn] = useState(false)
-  const [ user ] = useState({
+  const [user] = useState({
     username: 'erlan',
     avatar: avatar,
     money: 400
@@ -32,29 +33,31 @@ const LoginController = () => {
     dispatch(showRegister())
   }
 
-  return(
+  return (
     <div className='blockRight'>
       {
-        isLogged ? (
-          <LoginUserInfo
-            userMoney={user.money}
-            avatar={avatar}
-          />
-        ) : (
-          <>
-            <div
-              className='item itemsLogin'
-              onClick={showLog}
-            >
-              Войти
-            </div>
-            <div
-            className='item itemsLogin register'
-            onClick={showReg}
-            >
-              Регистрация
-            </div>
-          </>
+        isLoading ? null : (
+          isLogged ? (
+            <LoginUserInfo
+              userMoney={user.money}
+              avatar={avatar}
+            />
+          ) : (
+            <>
+              <div
+                className='item itemsLogin'
+                onClick={showLog}
+              >
+                Войти
+              </div>
+              <div
+                className='item itemsLogin register'
+                onClick={showReg}
+              >
+                Регистрация
+              </div>
+            </>
+          )
         )
       }
       {
@@ -63,7 +66,7 @@ const LoginController = () => {
             login={loginModal}
             showBack={loginModal}
           />
-        ) :  null
+        ) : null
       }
       {
         registerModal ? (
