@@ -11,10 +11,10 @@ const reducer = (state = initialState, action) => {
         list: action.list,
       }
       case 'GET_LOBBIES_SUCCESS':
-      return {
-        ...state,
-        success: action.success,
-      }
+        return {
+          ...state,
+          success: action.success,
+        }
     default: return state
   }
 }

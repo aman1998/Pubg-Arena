@@ -1,9 +1,11 @@
+import {GET_PROFILE, SET_TOKEN} from "../actionTypes";
+
 export const getMyProfile = (myProfile) => ({
-  type: 'GET_MY_PROFILE',
+  type: GET_PROFILE,
   myProfile,
 })
-export const checkIsLog = (isLog) => ({
-  type: 'IS_LOG',
-  isLog,
-})
 
+export const setToken = (token) => ({
+  type: SET_TOKEN,
+  token
+})

@@ -8,21 +8,21 @@ const UserNav = () => {
         to='/profile'
         className='navItem'
         activeClassName='active'
-        exact>  
+      >
         Задания
       </NavLink>
       <NavLink
         to='/profile/events'
         className='navItem'
         activeClassName='active'
-        exact>  
+      >
         Турниры
       </NavLink>
       <NavLink
         to='/profile/progress'
         className='navItem'
         activeClassName='active'
-        exact>  
+      >
         Достижения
       </NavLink>
     </nav>

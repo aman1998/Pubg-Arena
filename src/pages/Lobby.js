@@ -28,7 +28,6 @@ const Lobby = () => {
   }, [])
 
 
-  
   return (
     <PageTemplate>
       <div style={{minHeight: '50vh', position: 'relative'}}>
