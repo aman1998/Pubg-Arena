@@ -4,6 +4,7 @@ import {getMyProfile, setToken, checkIsLog} from '../../store/actions/profile'
 
 import logout from '../../assets/icons/logout.svg'
 import {logOut} from "../../store/actions/logInOut";
+import {Link} from "react-router-dom";
 
 const LoginUserInfo = (props) => {
   const {name} = useSelector(state => ({
@@ -12,7 +13,7 @@ const LoginUserInfo = (props) => {
 
   const dispatch = useDispatch()
 
-  const removeToken = () => {
+  const handleLogout = () => {
     localStorage.removeItem('token')
     dispatch(getMyProfile({favoritesList: []}))
     dispatch(setToken(null))
@@ -29,7 +30,9 @@ const LoginUserInfo = (props) => {
         <img src={props.avatar} alt='user Avatar' className='avatar' />
       </div>
       <div className='userMoney'>
-        <img src={logout} alt='#' className='logout' onClick={removeToken}/>
+        <Link to={'/'} onClick={handleLogout} >
+          <img src={logout} alt='#' className='logout' />
+        </Link>
       </div>
     </div>
   )
