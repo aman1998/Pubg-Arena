@@ -1,38 +1,28 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import {getMyProfile, setToken, checkIsLog} from '../../store/actions/profile'
-
-import logout from '../../assets/icons/logout.svg'
-import {logOut} from "../../store/actions/logInOut";
+import React, {useState} from 'react'
 import {Link} from "react-router-dom";
+import PersonIcon from '@material-ui/icons/Person'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 const LoginUserInfo = (props) => {
-  const {name} = useSelector(state => ({
-    name: state.profile.myProfile.username
-  }))
+  const [modalUserInfo, setModalUserInfo] = useState(false)
 
-  const dispatch = useDispatch()
-
-  const handleLogout = () => {
-    localStorage.removeItem('token')
-    dispatch(getMyProfile({favoritesList: []}))
-    dispatch(setToken(null))
-    dispatch(logOut(false))
-    dispatch(checkIsLog(false))
-  }
-
-  return(
+  return (
     <div className='loginUserInfo'>
-      <div className='username'>
-        {name}
+      <div className='userAvatar' onClick={() => setModalUserInfo(!modalUserInfo)}>
+        <PersonIcon className='userIcon' />
       </div>
-      <div className='userAvatar'>
-        <img src={props.avatar} alt='user Avatar' className='avatar' />
-      </div>
-      <div className='userMoney'>
-        <Link to={'/'} onClick={handleLogout} >
-          <img src={logout} alt='#' className='logout' />
-        </Link>
+      <div className={modalUserInfo ? 'modalInfo down' : 'modalInfo up'}>
+        <div className='username'>
+          {props.name}
+        </div>
+        <div className='money'>
+          {props.money}
+        </div>
+        <div className='userMoney'>
+          <Link to={'/'} onClick={props.handleLogout}>
+            <ExitToAppIcon className='logout' />
+          </Link>
+        </div>
       </div>
     </div>
   )
