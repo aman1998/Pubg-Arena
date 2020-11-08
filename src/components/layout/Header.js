@@ -4,7 +4,6 @@ import {useSelector} from "react-redux"
 import Logo from '../../assets/icons/logo.svg'
 import LoginController from "../../container/LoginController";
 import Error from "../UI/Error";
-import PageTemplate from "../templates/PageTemplate";
 
 const Header = () => {
   const {isLogged} = useSelector(state => ({

@@ -1,10 +1,9 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import PageTemplate from '../components/templates/PageTemplate'
 import Events from '../components/Events/event'
 import Slider from "../container/Slider";
 import { useSelector, useDispatch } from 'react-redux'
 import {getLobbiesList as getLobbiesListAction, getLobbiesSuccess as getLobbiesSuccessAction} from '../store/actions/lobbies';
-import Error from "../components/UI/Error";
 
 const ENDOPOINT = 'http://localhost:1717'
 
