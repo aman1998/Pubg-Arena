@@ -69,13 +69,7 @@ header {
           flex-direction: column;
           justify-content: center;
           position: absolute;
-          z-index: 500;
-          background-color: #343232;
-          border: 1px solid #5c5e66;
-          border-radius: 6px;
-          padding: 16px;
-          box-sizing: border-box;
-          transition: all 0.3s ease-out;
+          @include popups();
           &.down{
             transform: translateY(80px);
           }

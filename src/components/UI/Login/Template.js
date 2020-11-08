@@ -9,6 +9,7 @@ import {showRegister} from "../../../store/actions/modalRegister"
 
 import Header from './Header'
 import {logIn} from "../../../store/actions/logInOut";
+import {hideError, showError} from "../../../store/actions/error";
 
 const Login = (props) => {
 
@@ -38,6 +39,10 @@ const Login = (props) => {
         localStorage.setItem('token',data.user.token )
       })
       .catch(e => {
+        dispatch(showError())
+        setTimeout(() => {
+          dispatch(hideError())
+        }, 3000)
         console.log({message: e.message})
       })
   }

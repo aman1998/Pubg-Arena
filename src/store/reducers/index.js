@@ -5,6 +5,7 @@ import modalRegister from './modalRegister'
 import modalLogin from './modalLogin'
 import lobbies from './lobbies'
 import isLoading from './isLoading'
+import error from './error'
 
 export default combineReducers({
   profile,
@@ -12,5 +13,6 @@ export default combineReducers({
   modalRegister,
   modalLogin,
   lobbies,
-  isLoading
+  isLoading,
+  error
 })
