@@ -1,0 +1,19 @@
+@import "../templates";
+
+.state-auth{
+  position: absolute;
+  @include popups();
+  &.down{
+    transform: translateY(20px);
+  }
+  &.up{
+    transform: translateY(-500px);
+  }
+}
+.state-auth--error{
+  background-color: red;
+}
+
+.state-auth--success {
+  background-color:green;
+}

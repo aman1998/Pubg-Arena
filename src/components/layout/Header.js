@@ -3,10 +3,11 @@ import { NavLink } from 'react-router-dom'
 import {useSelector} from "react-redux"
 import Logo from '../../assets/icons/logo.svg'
 import LoginController from "../../container/LoginController";
+import IsAuth from '../UI/IsAuthState'
 
 const Header = () => {
-  const {token} = useSelector(state => ({
-    token: state.profile.token
+  const {isLogged} = useSelector(state => ({
+    isLogged: state.isLogged
   }))
 
   return (
@@ -27,7 +28,7 @@ const Header = () => {
               Главное
             </NavLink>
             <div className='line-vert'></div>
-            {token ? 
+            { isLogged ?
             <NavLink
               to='/profile'
               className='items'
@@ -40,6 +41,10 @@ const Header = () => {
           <LoginController />
         </nav>
       </div>
+      <IsAuth
+        class = {isLogged ? 'success' : 'error'}
+        text = {isLogged ? 'Вы успешно вошли!' : 'Ошибка входа'}
+      />
     </header>
   )
 }

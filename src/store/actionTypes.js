@@ -11,3 +11,13 @@ export const LOG_OUT = 'LOG_OUT'
 
 export const SHOW_LOGIN_MODAL = 'SHOW_LOGIN_MODAL'
 export const SHOW_REGISTER_MODAL = 'SHOW_REGISTER_MODAL'
+
+// export const SHOW_ERROR = 'SHOW_ERROR'
+// export const HIDE_ERROR = 'HIDE_ERROR'
+export const SHOW_STATE = 'SHOW_STATE'
+export const HIDE_STATE = 'HIDE_STATE'
+
+export const IS_LOADING = 'IS_LOADING'
+export const LOADING = 'LOADING'
+export const NOT_LOADING = 'NOT_LOADING'
+

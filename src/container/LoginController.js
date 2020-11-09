@@ -1,31 +1,33 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 import Login from "../components/UI/Login/Login";
-import Registr from "../components/UI/Login/RegTemplate";
 import LoginUserInfo from "../components/layout/LoginUserInfo";
 
-import avatar from '../assets/icons/avatar.png'
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
-import {getIsLogged} from "../store/actions/logInOut";
+// import {getIsLogged} from "../store/actions/logInOut";
 import RegTemplate from '../components/UI/Login/RegTemplate';
+import {checkIsLog, getMyProfile, setToken} from "../store/actions/profile";
+import {logOut} from "../store/actions/logInOut";
 
 const LoginController = () => {
   const dispatch = useDispatch()
-  const { loginModal, registerModal, isLogged, isLog} = useSelector(state => ({
+  const {
+    loginModal,
+    registerModal,
+    isLogged,
+    isLoading,
+    name,
+    money
+  } = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
     isLogged: state.isLogged,
-    isLog: state.profile.isLog
+    isLoading: state.isLoading,
+    name: state.profile.myProfile.username,
+    money: state.profile.myProfile.money
   }))
-
-  // const [loggedIn, setLoggedIn] = useState(false)
-  const [ user ] = useState({
-    username: 'erlan',
-    avatar: avatar,
-    money: 400
-  })
 
   const showLog = () => {
     dispatch(showLogin())
@@ -35,38 +37,40 @@ const LoginController = () => {
     dispatch(showRegister())
   }
 
-  return(
-    <div className='blockRight'>
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    dispatch(getMyProfile({favoritesList: []}))
+    dispatch(setToken(null))
+    dispatch(logOut(false))
+    dispatch(checkIsLog(false))
+  }
+
+  return (
+    <div className={isLogged ? 'blockRight loggedIn' : 'blockRight'}>
       {
-        isLog ? (
-          <LoginUserInfo
-            userMoney={user.money}
-            avatar={avatar}
-          />
-        ) : (
-          <>
-            <div
-              className='item itemsLogin'
-              onClick={showLog}
-            >
-              Войти
-            </div>
-            <div
-            className='item itemsLogin register'
-            onClick={showReg}
-            >
-              Регистрация
-            </div>
-          </>
+        isLoading ? null : (
+          isLogged ? (
+            <LoginUserInfo
+              name={name}
+              money={money}
+              handleLogout={handleLogout}
+            />
+          ) : (
+            <>
+              <div className='item itemsLogin' onClick={showLog} >
+                Войти
+              </div>
+              <div className='item itemsLogin register' onClick={showReg} >
+                Регистрация
+              </div>
+            </>
+          )
         )
       }
       {
         loginModal ? (
-          <Login
-            login={loginModal}
-            showBack={loginModal}
-          />
-        ) :  null
+          <Login login={loginModal} showBack={loginModal} />
+        ) : null
       }
       {
         registerModal ? (
@@ -74,6 +78,7 @@ const LoginController = () => {
             register={registerModal}
             showBack={registerModal}
           />
+          // <Registr register={registerModal} showBack={registerModal} />
         ) : null
       }
     </div>

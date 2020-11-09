@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux"
 
 import {showLogin} from "../../../store/actions/modalLogin"
 import {getMyProfile, setToken} from "../../../store/actions/profile"
+import {hideState, showState} from "../../../store/actions/isAuthState";
 
 import Header from './Header'
 import {logIn} from "../../../store/actions/logInOut";
@@ -31,8 +32,16 @@ const Login = (props) => {
         dispatch(setToken(data.user.token))
         dispatch(logIn())
         localStorage.setItem('token',data.user.token )
+        dispatch(showState())
+        setTimeout(() => {
+          dispatch(hideState())
+        }, 3000)
       })
       .catch(e => {
+        dispatch(showState())
+        setTimeout(() => {
+          dispatch(hideState())
+        }, 3000)
         console.log({message: e.message})
       })
   }

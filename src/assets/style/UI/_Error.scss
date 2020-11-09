@@ -1,0 +1,13 @@
+@import "../templates";
+
+.error-popup{
+  position: absolute;
+  @include popups();
+  background-color: red;
+  &.down{
+    transform: translateY(20px);
+  }
+  &.up{
+    transform: translateY(-500px);
+  }
+}

@@ -31,6 +31,9 @@ header {
       display: flex;
       justify-content: space-between;
       width: 250px;
+      &.loggedIn{
+        justify-content: right;
+      }
       .items {
         width: fit-content;
         display: flex;
@@ -54,26 +57,24 @@ header {
         }
       }
       .loginUserInfo{
+        position: relative;
         display: flex;
         @include flexCenter;
         box-sizing: border-box;
         .username{
           margin-right: 20px;
         }
-        .userMoney{
-          margin-left: 20px;
-          color: #F7B900;
+        .modalInfo{
           display: flex;
+          flex-direction: column;
           justify-content: center;
-          align-items: flex-end;
-          .moneyText{
-            margin-left: 6px;
+          position: absolute;
+          @include popups();
+          &.down{
+            transform: translateY(80px);
           }
-        }
-        .userAvatar{
-          width: 45px;
-          .avatar{
-            width: 100%;
+          &.up{
+            transform: translateY(-100vh);
           }
         }
       }

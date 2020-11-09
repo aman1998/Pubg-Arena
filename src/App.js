@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import {getMyProfile as getProfileAction, checkIsLog} from './store/actions/profile'
-import {logIn} from "./store/actions/logInOut";
+import {checkIsLog, getMyProfile as getProfileAction} from './store/actions/profile'
+import {logIn, logOut} from "./store/actions/logInOut";
 import {getLobbiesList as getLobbiesListAction, getLobbiesSuccess as getLobbiesSuccessAction } from './store/actions/lobbies'
 
 import MainPage from './pages/Home'
@@ -10,8 +10,9 @@ import ProfilePage from './pages/Profile'
 import LobbyPage from './pages/Lobby'
 
 import './assets/style/style.scss'
+import {loading, notLoading} from "./store/actions/isLoading";
 
-const ENDOPOINT = 'http://localhost:1717'
+const ENDPOINT = 'http://localhost:1717'
 
 function App() {
 
@@ -26,7 +27,8 @@ function App() {
 
   React.useEffect(() => {
     if (token) {
-      fetch(`${ENDOPOINT}/profile`, {
+      dispatch(loading())
+      fetch(`${ENDPOINT}/profile`, {
         method: 'GET',
         headers: { 'X-Auth': ` ${token}` },
       })
@@ -35,16 +37,25 @@ function App() {
           dispatch(getProfileAction(data))
           dispatch(logIn())
           dispatch(checkIsLog(true))
+          dispatch(notLoading())
+        })
+        .catch((e) => {
+          console.log(e.message)
+          dispatch(checkIsLog(false))
+          dispatch(logOut())
         })
     }
-      fetch(`${ENDOPOINT}/list`, {
-        method: 'GET',
+    fetch(`${ENDPOINT}/list`, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(getLobbiesListAction(data))
+        dispatch(getLobbiesSuccessAction(false))
       })
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(getLobbiesListAction(data))
-          dispatch(getLobbiesSuccessAction(false))
-        })
+      .catch(e => {
+        console.log(e.message)
+      })
   }, [token, getLobbiesSuccess])
   
   return (

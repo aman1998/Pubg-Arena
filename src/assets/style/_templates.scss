@@ -25,3 +25,13 @@
   border: none;
   outline: none;
 }
+
+@mixin popups{
+  z-index: 600;
+  background-color: #343232;
+  border: 1px solid #5c5e66;
+  border-radius: 6px;
+  padding: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+}

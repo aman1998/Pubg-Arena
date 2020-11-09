@@ -1,12 +1,12 @@
-import {IS_LOGGED, LOG_IN, LOG_OUT} from "../actionTypes";
+import {IS_LOADING, LOADING, NOT_LOADING} from "../actionTypes";
 
 const reducer = (state = false, action) => {
   switch (action.type) {
-    case IS_LOGGED:
+    case IS_LOADING:
       return state
-    case LOG_IN:
+    case LOADING:
       return state = true
-    case LOG_OUT:
+    case NOT_LOADING:
       return state = false
     default:
       return state
