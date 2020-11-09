@@ -2,13 +2,14 @@ import React, {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 import Login from "../components/UI/Login/Login";
-import Registr from "../components/UI/Login/Registr";
+import Registr from "../components/UI/Login/RegTemplate";
 import LoginUserInfo from "../components/layout/LoginUserInfo";
 
 import avatar from '../assets/icons/avatar.png'
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
 import {getIsLogged} from "../store/actions/logInOut";
+import RegTemplate from '../components/UI/Login/RegTemplate';
 
 const LoginController = () => {
   const dispatch = useDispatch()
@@ -69,7 +70,7 @@ const LoginController = () => {
       }
       {
         registerModal ? (
-          <Registr
+          <RegTemplate
             register={registerModal}
             showBack={registerModal}
           />
