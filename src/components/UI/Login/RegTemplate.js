@@ -16,9 +16,21 @@ const RegTemplate = (props) => {
     dispatch(showRegister())
     }
 
-    const handlePhone = () => {
-      setPhone(false)
-      setActivate(true)
+    const handlePhone = (body) => {
+      fetch(`dsdsd/phone`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      })
+        // .then((response) => {
+        //   if (!response.ok) throw response.status
+        //   return response.json()
+        // })
+        .then((bool) => {
+          setPhone(false)
+          setActivate(true)
+          console.log('bool', bool)
+        })
     }
 
     const handleActivate = () => {

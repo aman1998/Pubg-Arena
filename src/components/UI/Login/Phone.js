@@ -40,7 +40,7 @@ const Register = (props) => {
       }
       onSubmit={
         fields => {
-          props.handlePhone()
+          props.handlePhone(fields)
         }
       }
     >
