@@ -12,7 +12,7 @@ import LobbyPage from './pages/Lobby'
 import './assets/style/style.scss'
 import {loading, notLoading} from "./store/actions/isLoading";
 
-const ENDPOINT = 'http://localhost:1717'
+const ENDPOINT = 'http://localhost:8000'
 
 function App() {
 
@@ -28,15 +28,15 @@ function App() {
   React.useEffect(() => {
     if (token) {
       dispatch(loading())
-      fetch(`${ENDPOINT}/profile`, {
+      fetch(`${ENDPOINT}/profile/`, {
         method: 'GET',
-        headers: { 'X-Auth': ` ${token}` },
+        headers: { 'Authorization': ` ${token}` },
       })
         .then((response) => response.json())
-        .then(({ data }) => {
+        .then((data) => {
           dispatch(getProfileAction(data))
           dispatch(logIn())
-          dispatch(checkIsLog(true))
+            dispatch(checkIsLog(true))
           dispatch(notLoading())
         })
         .catch((e) => {
@@ -45,13 +45,14 @@ function App() {
           dispatch(logOut())
         })
     }
-    fetch(`${ENDPOINT}/list`, {
+    fetch(`${ENDPOINT}/lobby/rates/`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((data) => {
         dispatch(getLobbiesListAction(data))
         dispatch(getLobbiesSuccessAction(false))
+          console.log(data)
       })
       .catch(e => {
         console.log(e.message)

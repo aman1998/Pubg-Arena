@@ -19,14 +19,16 @@ const LoginController = () => {
     isLogged,
     isLoading,
     name,
-    money
+    money,
+      phone
   } = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
     isLogged: state.isLogged,
     isLoading: state.isLoading,
-    name: state.profile.myProfile.username,
-    money: state.profile.myProfile.money
+    name: state.profile.myProfile.name,
+    money: state.profile.myProfile.money,
+    phone: state.profile.myProfile.phone
   }))
 
   const showLog = () => {
@@ -51,6 +53,7 @@ const LoginController = () => {
         isLoading ? null : (
           isLogged ? (
             <LoginUserInfo
+                phone={phone}
               name={name}
               money={money}
               handleLogout={handleLogout}

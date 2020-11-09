@@ -19,8 +19,8 @@ const Event = (props) => {
             <div className='event-content'>
               <div className='info'>
                 <div className='info-top'>
-                  <div className='info-top__date'>{`${item.date} в ${item.time}`}</div>
-                  <div className='info-top__title'>{item.title}</div>
+                  <div className='info-top__date'>{`${item.date} `}</div>
+                  <div className='info-top__title'>{item.name}</div>
                 </div>
                 <div className='info-bottom'>
                   <div className='info-bottom__rule'><span>Нажимая кнопку вы соглашаетесь</span>
@@ -31,7 +31,7 @@ const Event = (props) => {
                     exact
                     className='info-bottom__btn'
                   >
-                    Учавстовать за {item.priceGame} сомов
+                    Учавстовать за {item.price} сомов
                   </NavLink>
                 </div>
               </div>
@@ -39,12 +39,12 @@ const Event = (props) => {
                 <div className='info2-top'>
                   <div>
                     <div className='info2-top__price'>
-                      <div>{`${item.priceKill} рублей`}</div>
+                      <div>{`${item.kill_award} рублей`}</div>
                       <div>Цена за убийство</div>
                     </div>
                     <div className='percent'>100%</div>
                   </div>
-                  <div className='info2-top__mode'>{item.mode}</div>
+                  <div className='info2-top__mode'>{item.map}</div>
                 </div>
                 <div className='info2-price'></div>
               </div>

@@ -12,6 +12,9 @@ const LoginUserInfo = (props) => {
         <PersonIcon className='userIcon' />
       </div>
       <div className={modalUserInfo ? 'modalInfo down' : 'modalInfo up'}>
+          <div className='phone'>
+              {props.phone}
+          </div>
         <div className='username'>
           {props.name}
         </div>

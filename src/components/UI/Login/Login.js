@@ -4,13 +4,14 @@ import * as Yup from 'yup'
 import {useDispatch} from "react-redux"
 
 import {showLogin} from "../../../store/actions/modalLogin"
-import {getMyProfile, setToken} from "../../../store/actions/profile"
+import {checkIsLog, getMyProfile as getProfileAction, getMyProfile, setToken} from "../../../store/actions/profile"
 import {hideState, showState} from "../../../store/actions/isAuthState";
 
 import Header from './Header'
 import {logIn} from "../../../store/actions/logInOut";
+import {notLoading} from "../../../store/actions/isLoading";
 
-const Login = (props) => {
+    const Login = (props) => {
   const showLog = () => {
     dispatch(showLogin())
   }
@@ -18,7 +19,7 @@ const Login = (props) => {
   const dispatch = useDispatch()
   const handleLogin = (body) => {
     // e.preventDefault()
-    fetch(`http://localhost:1717/auth`, {
+    fetch(`http://localhost:8000/login/`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body),
@@ -28,10 +29,11 @@ const Login = (props) => {
         return response.json()
       })
       .then( data => {
-        dispatch(getMyProfile({...data.user.data}))
-        dispatch(setToken(data.user.token))
+          console.log(data)
+        // dispatch(getMyProfile({...data}))
+        dispatch(setToken(`Token ${data.token}`))
         dispatch(logIn())
-        localStorage.setItem('token',data.user.token )
+        localStorage.setItem('token', `Token ${data.token}` )
         dispatch(showState())
         setTimeout(() => {
           dispatch(hideState())
@@ -51,13 +53,13 @@ const Login = (props) => {
       <Formik
         initialValues={
           {
-            login: '',
+            phone: '',
             password: '',
           }
         }
         validationSchema={
             Yup.object().shape({
-              login: Yup.string()
+              phone: Yup.string()
                 .required('Введите никнейм!'),
               password: Yup.string()
                 .min(6, 'Минимум 6 символов')
@@ -66,6 +68,7 @@ const Login = (props) => {
         }
         onSubmit={
             fields => {
+                console.log(fields)
               handleLogin(fields)
               dispatch(showLogin())
             }
@@ -73,8 +76,8 @@ const Login = (props) => {
       >
         {() => (
           <Form className='loginForm'>
-            <Field type="text" name="login" placeholder='Никнейм' />
-            <ErrorMessage name="login" component="div" className='error'/>
+            <Field type="text" name="phone" placeholder='phone' />
+            <ErrorMessage name="phone" component="div" className='error'/>
             <Field type="password" name="password" placeholder='Пароль'/>
             <ErrorMessage name="password" component="div" className='error'/>
             <button type="submit" className='loginFormBtn' style={{background: '#0054ff'}}>

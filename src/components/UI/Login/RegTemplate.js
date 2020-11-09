@@ -6,6 +6,8 @@ import {useDispatch} from "react-redux"
 import Header from './Header'
 import {showRegister} from "../../../store/actions/modalRegister";
 
+const ENDPOINT = 'http://localhost:8000'
+
 const RegTemplate = (props) => {
   const [showRegistr, setReg] = React.useState(false)
   const [showPhone, setPhone] = React.useState(true)
@@ -17,7 +19,7 @@ const RegTemplate = (props) => {
     }
 
     const handlePhone = (body) => {
-      fetch(`dsdsd/phone`, {
+      fetch(`${ENDPOINT}/validate/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -26,14 +28,22 @@ const RegTemplate = (props) => {
         //   if (!response.ok) throw response.status
         //   return response.json()
         // })
-        .then((bool) => {
+        .then((response) => {
+          console.log(response)
           setPhone(false)
           setActivate(true)
-          console.log('bool', bool)
         })
     }
 
-    const handleActivate = () => {
+    const handleActivate = (body) => {
+      fetch(`${ENDPOINT}/verify/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      })
+          .then((response) => {
+            console.log(body)
+          })
       setActivate(false)
       setReg(true)
     }

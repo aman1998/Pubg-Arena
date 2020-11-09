@@ -3,7 +3,6 @@ import {GET_PROFILE, GET_TOKEN, SET_PROFILE, SET_TOKEN, IS_LOG} from "../actionT
 const initialState = {
   token: localStorage.getItem('token'),
   myProfile: {
-    favoritesList: [],
   },
   isLog: false
 }
