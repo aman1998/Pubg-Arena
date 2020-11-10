@@ -29,7 +29,7 @@ const RegTemplate = (props) => {
         .then((response) => {
           console.log(response)
           setPhone(false)
-          setActivate(true)
+          setShowActivate(true)
         })
     }
 
