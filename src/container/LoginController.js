@@ -6,9 +6,8 @@ import LoginUserInfo from "../components/layout/LoginUserInfo";
 
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
-// import {getIsLogged} from "../store/actions/logInOut";
 import RegTemplate from '../components/UI/Login/RegTemplate';
-import {checkIsLog, getMyProfile, setToken} from "../store/actions/profile";
+import {checkIsLog, setProfile, setToken} from "../store/actions/profile";
 import {logOut} from "../store/actions/logInOut";
 
 const LoginController = () => {
@@ -20,7 +19,7 @@ const LoginController = () => {
     isLoading,
     name,
     money,
-      phone
+    phone
   } = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
@@ -41,7 +40,7 @@ const LoginController = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token')
-    dispatch(getMyProfile({favoritesList: []}))
+    dispatch(setProfile({favoritesList: []}))
     dispatch(setToken(null))
     dispatch(logOut(false))
     dispatch(checkIsLog(false))
@@ -81,7 +80,6 @@ const LoginController = () => {
             register={registerModal}
             showBack={registerModal}
           />
-          // <Registr register={registerModal} showBack={registerModal} />
         ) : null
       }
     </div>

@@ -1,63 +1,32 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
-import {checkIsLog, getMyProfile as getProfileAction} from './store/actions/profile'
-import {logIn, logOut} from "./store/actions/logInOut";
-import {getLobbiesList as getLobbiesListAction, getLobbiesSuccess as getLobbiesSuccessAction } from './store/actions/lobbies'
+import {useDispatch, useSelector} from 'react-redux'
+
+import { fetchProfileActionCreator} from './store/actions/profile'
+import {fetchLobbiesActionCreator, setLobbiesList} from './store/actions/lobbies'
 
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
-import LobbyPage from './pages/Lobby'
+import LobbyPage from './pages/LobbyPage'
 
 import './assets/style/style.scss'
-import {loading, notLoading} from "./store/actions/isLoading";
-
-const ENDPOINT = 'http://localhost:8000'
+import axios from "./axios/axios"
 
 function App() {
-
-  const { token, isLog, getLobbiesSuccess } = useSelector(state => ({
-      token: state.profile.token,
-      myProfile: state.profile.myProfile,
-      getLobbiesSuccess: state.lobbies.success,
-      isLog: state.profile.isLog
-    }))
-
   const dispatch = useDispatch()
 
-  React.useEffect(() => {
+  const { token, isLog} = useSelector(state => ({
+    token: state.profile.token,
+    myProfile: state.profile.myProfile,
+    isLog: state.profile.isLog
+  }))
+
+  useEffect(() => {
     if (token) {
-      dispatch(loading())
-      fetch(`${ENDPOINT}/profile/`, {
-        method: 'GET',
-        headers: { 'Authorization': ` ${token}` },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(getProfileAction(data))
-          dispatch(logIn())
-            dispatch(checkIsLog(true))
-          dispatch(notLoading())
-        })
-        .catch((e) => {
-          console.log(e.message)
-          dispatch(checkIsLog(false))
-          dispatch(logOut())
-        })
+      dispatch(fetchProfileActionCreator())
     }
-    fetch(`${ENDPOINT}/lobby/rates/`, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch(getLobbiesListAction(data))
-        dispatch(getLobbiesSuccessAction(false))
-          console.log(data)
-      })
-      .catch(e => {
-        console.log(e.message)
-      })
-  }, [token, getLobbiesSuccess])
+    dispatch(fetchLobbiesActionCreator())
+  }, [token])
   
   return (
     <BrowserRouter>

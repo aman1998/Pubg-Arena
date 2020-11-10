@@ -5,14 +5,13 @@ import {NavLink} from 'react-router-dom'
 import avatar from '../../assets/img/pubg.jpg'
 
 const Event = (props) => {
-  const {lobbies} = useSelector(state => ({
-    lobbies: state.lobbies.list
-  }))
+  const lobbies = useSelector(state => state.lobbies.list)
 
   return (
     <div className='wrapper'>
       <h1 className='container'>{props.title}</h1>
-      {lobbies.map(item => (
+      {
+        lobbies ? lobbies.map(item => (
         <section className='block' key={item.id}>
           <div className='event container'>
             <img src={avatar} alt='#' className='avatar'/>
@@ -51,7 +50,8 @@ const Event = (props) => {
             </div>
           </div>
         </section>
-      ))}
+        )) : <div>loading..</div>
+      }
     </div>
   )
 }
