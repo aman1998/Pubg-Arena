@@ -2,7 +2,7 @@ import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 import Login from "../components/UI/Login/Login";
-import LoginUserInfo from "../components/layout/LoginUserInfo";
+import LoginUserInfo from "../components/User/LoginUserInfo";
 
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";

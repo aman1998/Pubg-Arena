@@ -1,8 +1,26 @@
 import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
+import {useDispatch} from "react-redux"
 
 const Register = (props) => {
+  const [telephoneValid, setTelephoneValid] = React.useState(true);
+  const dispatch = useDispatch()
+  const handlePhone = (body) => {
+    // fetch(`http://localhost:1717/registr`, {
+    //   method: 'POST',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify(body),
+    // })
+  }
+
+  const setValidity = valid => {
+    setTelephoneValid(valid);
+  };
+  // process number into string with area code for submission
+  const processNumber = (isValid, phone) => {
+    return `+${996} ${phone}`;
+  };
 
   return (
     <Formik

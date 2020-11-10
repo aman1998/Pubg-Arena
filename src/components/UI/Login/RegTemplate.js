@@ -5,13 +5,15 @@ import Activate from './Activate'
 import {useDispatch} from "react-redux"
 import Header from './Header'
 import {showRegister} from "../../../store/actions/modalRegister";
+import {hideState, showState} from "../../../store/actions/isAuthState";
 
 const ENDPOINT = 'http://localhost:8000'
 
 const RegTemplate = (props) => {
-  const [showRegistr, setReg] = React.useState(false)
-  const [showPhone, setPhone] = React.useState(true)
-  const [showActivate, setActivate] = React.useState(false)
+  const [phone, setPhone] = React.useState('')
+  const [showRegistr, setShowReg] = React.useState(false)
+  const [showPhone, setShowPhone] = React.useState(true)
+  const [showActivate, setShowActivate] = React.useState(false)
   const dispatch = useDispatch()
 
   const showReg = () => {
@@ -40,8 +42,8 @@ const RegTemplate = (props) => {
           .then((response) => {
             console.log(body)
           })
-      setActivate(false)
-      setReg(true)
+      setShowActivate(false)
+      setShowReg(true)
     }
 
   return (
