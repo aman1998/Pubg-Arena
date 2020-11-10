@@ -1,5 +1,5 @@
 import React from 'react'
-import Registr from './Registr'
+import Register from './Register'
 import Phone from './Phone'
 import Activate from './Activate'
 import {useDispatch} from "react-redux"
@@ -24,10 +24,6 @@ const RegTemplate = (props) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
-        // .then((response) => {
-        //   if (!response.ok) throw response.status
-        //   return response.json()
-        // })
         .then((response) => {
           console.log(response)
           setPhone(false)
@@ -54,7 +50,7 @@ const RegTemplate = (props) => {
       {showPhone ? 
         <Phone handlePhone={handlePhone}/> : showActivate ? 
         <Activate handleActivate={handleActivate} /> : showRegister ? 
-        <Registr /> : null}
+        <Register /> : null}
     </div>
   )
 }

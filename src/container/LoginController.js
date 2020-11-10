@@ -42,7 +42,7 @@ const LoginController = () => {
     localStorage.removeItem('token')
     dispatch(setProfile({favoritesList: []}))
     dispatch(setToken(null))
-    dispatch(logOut(false))
+    dispatch(logOut())
     dispatch(checkIsLog(false))
   }
 
@@ -52,17 +52,17 @@ const LoginController = () => {
         isLoading ? null : (
           isLogged ? (
             <LoginUserInfo
-                phone={phone}
+              phone={phone}
               name={name}
               money={money}
               handleLogout={handleLogout}
             />
           ) : (
             <>
-              <div className='item itemsLogin' onClick={showLog} >
+              <div className='item itemsLogin' onClick={showLog}>
                 Войти
               </div>
-              <div className='item itemsLogin register' onClick={showReg} >
+              <div className='item itemsLogin register' onClick={showReg}>
                 Регистрация
               </div>
             </>
@@ -71,7 +71,7 @@ const LoginController = () => {
       }
       {
         loginModal ? (
-          <Login login={loginModal} showBack={loginModal} />
+          <Login login={loginModal} showBack={loginModal}/>
         ) : null
       }
       {

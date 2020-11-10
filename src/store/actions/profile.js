@@ -13,7 +13,7 @@ export const fetchProfileActionCreator = () => dispatch => {
   const token = localStorage.getItem('token')
   axios.get('/profile/', {
     headers: {
-      'Authorization': `Token ${token}`
+      'Authorization': `${token}`
     }
   })
     .then((response) => {
