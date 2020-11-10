@@ -5,13 +5,15 @@ import Activate from './Activate'
 import {useDispatch} from "react-redux"
 import Header from './Header'
 import {showRegister} from "../../../store/actions/modalRegister";
+import {hideState, showState} from "../../../store/actions/isAuthState";
 
 const ENDPOINT = 'http://localhost:8000'
 
 const RegTemplate = (props) => {
-  const [showRegistr, setReg] = React.useState(false)
-  const [showPhone, setPhone] = React.useState(true)
-  const [showActivate, setActivate] = React.useState(false)
+  const [phone, setPhone] = React.useState('')
+  const [showRegistr, setShowReg] = React.useState(false)
+  const [showPhone, setShowPhone] = React.useState(true)
+  const [showActivate, setShowActivate] = React.useState(false)
   const dispatch = useDispatch()
 
   const showReg = () => {
@@ -19,20 +21,28 @@ const RegTemplate = (props) => {
     }
 
     const handlePhone = (body) => {
-      fetch(`${ENDPOINT}/validate/`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      })
-        // .then((response) => {
-        //   if (!response.ok) throw response.status
-        //   return response.json()
-        // })
-        .then((response) => {
-          console.log(response)
-          setPhone(false)
-          setActivate(true)
-        })
+      console.log(body)
+      setShowPhone(false)
+      setShowActivate(true)
+      setPhone(body.phone)
+      dispatch(showState())
+      setTimeout(() => {
+        dispatch(hideState())
+      }, 3000)
+      // fetch(`${ENDPOINT}/validate/`, {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(body),
+      // })
+      //   // .then((response) => {
+      //   //   if (!response.ok) throw response.status
+      //   //   return response.json()
+      //   // })
+      //   .then((response) => {
+      //     console.log(response)
+      //     setShowPhone(false)
+      //     setShowActivate(true)
+      //   })
     }
 
     const handleActivate = (body) => {
@@ -44,8 +54,8 @@ const RegTemplate = (props) => {
           .then((response) => {
             console.log(body)
           })
-      setActivate(false)
-      setReg(true)
+      setShowActivate(false)
+      setShowReg(true)
     }
 
   return (
@@ -53,8 +63,8 @@ const RegTemplate = (props) => {
       <Header title='Регистрация' bg='#26835f' close={showReg}/>
       {showPhone ? 
         <Phone handlePhone={handlePhone}/> : showActivate ? 
-        <Activate handleActivate={handleActivate} /> : showRegister ? 
-        <Registr /> : null}
+        <Activate handleActivate={handleActivate} phone={phone} /> : showRegister ? 
+        <Registr  phone={phone}/> : null}
     </div>
   )
 }

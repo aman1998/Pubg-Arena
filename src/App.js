@@ -12,7 +12,7 @@ import LobbyPage from './pages/Lobby'
 import './assets/style/style.scss'
 import {loading, notLoading} from "./store/actions/isLoading";
 
-const ENDPOINT = 'http://localhost:8000'
+const ENDPOINT = 'http://localhost:1717'
 
 function App() {
 
@@ -33,7 +33,9 @@ function App() {
         headers: { 'Authorization': ` ${token}` },
       })
         .then((response) => response.json())
-        .then((data) => {
+        // .then((data) => {
+        .then(({data}) => {
+          console.log(data)
           dispatch(getProfileAction(data))
           dispatch(logIn())
             dispatch(checkIsLog(true))

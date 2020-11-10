@@ -6,13 +6,6 @@ import {useDispatch} from "react-redux"
 const Register = (props) => {
   const [telephoneValid, setTelephoneValid] = React.useState(true);
   const dispatch = useDispatch()
-  const handlePhone = (body) => {
-    // fetch(`http://localhost:1717/registr`, {
-    //   method: 'POST',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify(body),
-    // })
-  }
 
   const setValidity = valid => {
     setTelephoneValid(valid);
@@ -38,7 +31,6 @@ const Register = (props) => {
       onSubmit={
         fields => {
           props.handlePhone(fields)
-          console.log(fields)
         }
       }
     >

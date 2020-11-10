@@ -19,7 +19,7 @@ import {notLoading} from "../../../store/actions/isLoading";
   const dispatch = useDispatch()
   const handleLogin = (body) => {
     // e.preventDefault()
-    fetch(`http://localhost:8000/login/`, {
+    fetch(`http://localhost:1717/login/`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body),
@@ -29,11 +29,11 @@ import {notLoading} from "../../../store/actions/isLoading";
         return response.json()
       })
       .then( data => {
-          console.log(data)
-        // dispatch(getMyProfile({...data}))
-        dispatch(setToken(`Token ${data.token}`))
+        dispatch(setToken(data.user.token))
+        localStorage.setItem('token',data.user.token )
+        // dispatch(setToken(`Token ${data.token}`))
+        // localStorage.setItem('token', `Token ${data.token}` )
         dispatch(logIn())
-        localStorage.setItem('token', `Token ${data.token}` )
         dispatch(showState())
         setTimeout(() => {
           dispatch(hideState())
