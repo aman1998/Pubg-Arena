@@ -6,11 +6,14 @@ export const setLobbiesList = (list) => ({
   list
 })
 
-export const fetchLobbiesActionCreator = () => {
-  return async dispatch => {
-    const response = await axios.get('/lobby/rates/')
-    dispatch(setLobbiesList(response.data))
-  }
+export const fetchLobbiesActionCreator = () => dispatch => {
+  axios.get('/lobby/rates/')
+    .then(response => {
+      dispatch(setLobbiesList(response.data))
+    })
+    .catch(error => {
+      console.log(error)
+    })
 }
 
 export const setCurrent = (current) => ({
