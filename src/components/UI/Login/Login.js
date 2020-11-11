@@ -4,14 +4,11 @@ import * as Yup from 'yup'
 import {useDispatch} from "react-redux"
 
 import {showLogin} from "../../../store/actions/modalLogin"
-import {setProfile, setToken} from "../../../store/actions/profile"
-import {hideState, showState} from "../../../store/actions/isAuthState";
+import {fetchLoginActionCreator} from "../../../store/actions/profile"
 
 import Header from './Header'
-import {logIn, logOut} from "../../../store/actions/logInOut";
-import axios from "../../../axios/axios";
 
-const Login = (props) => {
+const Login = () => {
   const dispatch = useDispatch()
 
   const showLog = () => {
@@ -19,28 +16,7 @@ const Login = (props) => {
   }
 
   const handleLogin = (body) => {
-    axios.post('/login/', {
-      data: JSON.stringify(body)
-    })
-      .then( data => {
-        console.log(data)
-        dispatch(setProfile({...data}))
-        dispatch(setToken(`Token ${data.token}`))
-        dispatch(logIn())
-        localStorage.setItem('token', `Token ${data.token}` )
-        dispatch(showState())
-        setTimeout(() => {
-          dispatch(hideState())
-        }, 3000)
-      })
-      .catch(e => {
-        dispatch(showState())
-        dispatch(logOut())
-        setTimeout(() => {
-          dispatch(hideState())
-        }, 3000)
-        console.log(e)
-      })
+    dispatch(fetchLoginActionCreator(body))
   }
   return (
     <div className='login'>
@@ -53,20 +29,19 @@ const Login = (props) => {
           }
         }
         validationSchema={
-            Yup.object().shape({
-              phone: Yup.string()
-                .required('Введите никнейм!'),
-              password: Yup.string()
-                .min(6, 'Минимум 6 символов')
-                .required('Введите пароль!'),
-            }) 
+          Yup.object().shape({
+            phone: Yup.string()
+              .required('Введите никнейм!'),
+            password: Yup.string()
+              .min(6, 'Минимум 6 символов')
+              .required('Введите пароль!'),
+          })
         }
         onSubmit={
-            fields => {
-                console.log(fields)
-              handleLogin(fields)
-              dispatch(showLogin())
-            }
+          fields => {
+            handleLogin(fields)
+            dispatch(showLogin())
+          }
         }
       >
         {() => (

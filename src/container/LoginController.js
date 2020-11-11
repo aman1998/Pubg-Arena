@@ -9,6 +9,7 @@ import {showRegister} from "../store/actions/modalRegister";
 import RegTemplate from '../components/UI/Login/RegTemplate';
 import {checkIsLog, setProfile, setToken} from "../store/actions/profile";
 import {logOut} from "../store/actions/logInOut";
+import axios from "../axios/axios";
 
 import IncognitoIcon from '../assets/icons/incognito.svg'
 
@@ -22,7 +23,8 @@ const LoginController = () => {
     isLoading,
     name,
     money,
-    phone
+    phone,
+    token
   } = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
@@ -30,7 +32,8 @@ const LoginController = () => {
     isLoading: state.isLoading,
     name: state.profile.myProfile.name,
     money: state.profile.myProfile.money,
-    phone: state.profile.myProfile.phone
+    phone: state.profile.myProfile.phone,
+    token: state.profile.token
   }))
 
   const showLog = () => {
@@ -42,11 +45,19 @@ const LoginController = () => {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
     dispatch(setProfile({favoritesList: []}))
-    dispatch(setToken(null))
     dispatch(logOut())
     dispatch(checkIsLog(false))
+    axios.post('/logout/', {
+      headers:{
+        'Authorization': token
+      }
+    })
+      .then(response => {
+        localStorage.removeItem('token')
+        dispatch(setToken(null))
+      })
+      .catch(e => console.log(e))
   }
 
   return (
