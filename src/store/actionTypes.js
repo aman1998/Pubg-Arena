@@ -23,3 +23,5 @@ export const SET_PHONE = 'SET_PHONE'
 export const SET_ACTIVATE = 'SET_ACTIVATE'
 export const SET_REGISTER = 'SET_REGISTER'
 
+export const SET_LOBBY = 'SET_LOBBY'
+export const SET_LOBBY_LIST = 'SET_LOBBY_LIST'

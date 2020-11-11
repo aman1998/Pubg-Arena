@@ -6,12 +6,14 @@ import LoginUserInfo from "../components/User/LoginUserInfo";
 
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
-// import {getIsLogged} from "../store/actions/logInOut";
 import RegTemplate from '../components/UI/Login/RegTemplate';
-import {checkIsLog, getMyProfile, setToken} from "../store/actions/profile";
+import {checkIsLog, setProfile, setToken} from "../store/actions/profile";
 import {logOut} from "../store/actions/logInOut";
 
+import IncognitoIcon from '../assets/icons/incognito.svg'
+
 const LoginController = () => {
+  const [modalUserInfo, setModalUserInfo] = React.useState(false)
   const dispatch = useDispatch()
   const {
     loginModal,
@@ -20,7 +22,7 @@ const LoginController = () => {
     isLoading,
     name,
     money,
-      phone
+    phone
   } = useSelector(state => ({
     loginModal: state.modalLogin,
     registerModal: state.modalRegister,
@@ -41,9 +43,9 @@ const LoginController = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token')
-    dispatch(getMyProfile({favoritesList: []}))
+    dispatch(setProfile({favoritesList: []}))
     dispatch(setToken(null))
-    dispatch(logOut(false))
+    dispatch(logOut())
     dispatch(checkIsLog(false))
   }
 
@@ -53,18 +55,29 @@ const LoginController = () => {
         isLoading ? null : (
           isLogged ? (
             <LoginUserInfo
-                phone={phone}
+              phone={phone}
               name={name}
               money={money}
               handleLogout={handleLogout}
             />
           ) : (
             <>
-              <div className='item itemsLogin' onClick={showLog} >
-                Войти
+              <div className='itemsLoginDesktop'>
+                <div className='item itemsLogin ' onClick={showLog}>
+                  Войти
+                </div>
+                <div className='item itemsLogin register' onClick={showReg}>
+                  Регистрация
+                </div>
               </div>
-              <div className='item itemsLogin register' onClick={showReg} >
-                Регистрация
+              <img src={IncognitoIcon} alt='#' className='incognito' onClick={() => setModalUserInfo(!modalUserInfo)}/>
+              <div className={modalUserInfo ? 'modalInfo modalReg down' : 'modalInfo modalReg up'}>
+                <div className='item itemsLogin' onClick={showLog} style={{marginBottom: '10px'}}>
+                  Войти
+                </div>
+                <div className='item itemsLogin register' onClick={showReg}>
+                  Регистрация
+                </div>
               </div>
             </>
           )
@@ -72,7 +85,7 @@ const LoginController = () => {
       }
       {
         loginModal ? (
-          <Login login={loginModal} showBack={loginModal} />
+          <Login login={loginModal} showBack={loginModal}/>
         ) : null
       }
       {
@@ -81,7 +94,6 @@ const LoginController = () => {
             register={registerModal}
             showBack={registerModal}
           />
-          // <Registr register={registerModal} showBack={registerModal} />
         ) : null
       }
     </div>

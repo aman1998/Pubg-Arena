@@ -9,7 +9,7 @@ const Activate = (props) => {
     })}>
       <input type='text' name='phone' value={props.phone} disabled/>
       <input type='text' name='otp' placeholder='Введите ключ активации' value={otp} onChange={e => setOtp(e.target.value)} />
-      <button type="submit" className='loginFormBtn' style={{background: '#26835f'}}>
+      <button type="submit" className='loginFormBtn reg'>
             Активировать
       </button>
     </form>

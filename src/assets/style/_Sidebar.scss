@@ -75,4 +75,10 @@
       }
     }
   }
+  &-mobile {
+    display: none;
+    @media screen and (max-width: 560px){
+      display: block;
+    }
+  }
 }

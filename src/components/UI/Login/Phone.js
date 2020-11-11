@@ -3,6 +3,11 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 
 const Register = (props) => {
+  const [telephoneValid, setTelephoneValid] = React.useState(true);
+
+  const setValidity = valid => {
+    setTelephoneValid(valid);
+  };
   // process number into string with area code for submission
   const processNumber = (isValid, phone) => {
     return `+${996} ${phone}`;
@@ -24,6 +29,7 @@ const Register = (props) => {
       onSubmit={
         fields => {
           props.handlePhone(fields)
+          console.log(fields)
         }
       }
     >
@@ -31,7 +37,7 @@ const Register = (props) => {
         <Form className='loginForm'>
           <Field type="text" name="phone" placeholder='phone' />
           <ErrorMessage name="phone" component="div" className='error'/>
-          <button type="submit" className='loginFormBtn' style={{background: '#26835f'}}>
+          <button type="submit" className='loginFormBtn reg'>
             Далее
           </button>
         </Form>

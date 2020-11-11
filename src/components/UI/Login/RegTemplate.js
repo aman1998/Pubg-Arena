@@ -1,5 +1,5 @@
 import React from 'react'
-import Registr from './Registr'
+import Register from './Register'
 import Phone from './Phone'
 import Activate from './Activate'
 import {useDispatch} from "react-redux"
@@ -31,20 +31,16 @@ const RegTemplate = (props) => {
       setTimeout(() => {
         dispatch(hideState())
       }, 3000)
-      // fetch(`${ENDPOINT}/validate/`, {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(body),
-      // })
-      //   // .then((response) => {
-      //   //   if (!response.ok) throw response.status
-      //   //   return response.json()
-      //   // })
-      //   .then((response) => {
-      //     console.log(response)
-      //     setShowPhone(false)
-      //     setShowActivate(true)
-      //   })
+      fetch(`${ENDPOINT}/validate/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      })
+        .then((response) => {
+          console.log(response)
+          setPhone(false)
+          setShowActivate(true)
+        })
     }
 
     const handleActivate = (body) => {
@@ -63,11 +59,11 @@ const RegTemplate = (props) => {
 
   return (
     <div className='login'>
-      <Header title='Регистрация' bg='#26835f' close={showReg}/>
+      <Header title='Регистрация' close={showReg} class='reg'/>
       {showPhone ? 
         <Phone handlePhone={handlePhone}/> : showActivate ? 
-        <Activate handleActivate={handleActivate} phone={phone} /> : showRegister ? 
-        <Registr  phone={phone}/> : null}
+        <Activate handleActivate={handleActivate} /> : showRegister ? 
+        <Register /> : null}
     </div>
   )
 }

@@ -3,11 +3,11 @@
 
 header {
   border-bottom: 1px solid $lineColor;
-  background: transparent;
+  background: $bgHrFr;
   .block {
     @include flexSpaceBetween;
     display: flex;
-  justify-content: space-between;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 0;
     color: #f2f2f2;
@@ -28,9 +28,17 @@ header {
       }
     }
     &Right{
-      display: flex;
-      justify-content: space-between;
+      .itemsLoginDesktop {
+        display: flex;
+        justify-content: flex-end;
+        @media screen and (max-width: 500px){
+          display: none;
+        }
+      }
       width: 250px;
+      @media screen and (max-width: 500px){
+        width: auto;
+      }
       &.loggedIn{
         justify-content: right;
       }
@@ -42,12 +50,13 @@ header {
       .itemsLogin {
         @include flexCenter;
         padding: 6px 16px;
-        background: #0054ff;
+        background: linear-gradient(120.85deg,#0054ff 14.07%,#27225a 93.02%);
         transition: 0.4s;
         border-radius: 4px;
         cursor: pointer;
+        margin-right: 10px;
         &:hover {
-          background: #0f60ff;
+          background: linear-gradient(200.85deg,#0054ff 14.07%, #27225a 93%);
         }
       }
       .register{
@@ -69,11 +78,19 @@ header {
           flex-direction: column;
           justify-content: center;
           position: absolute;
+          @media screen and (max-width: 560px){
+            width: 200px;
+          }
           @include popups();
           &.down{
             transform: translateY(80px);
+            right: 0;
+            @media screen and (max-width: 560px){
+              transform: translateY(120px);
+            }
           }
           &.up{
+            right: 0;
             transform: translateY(-100vh);
           }
         }
@@ -82,5 +99,37 @@ header {
         }
       }
     }
+  }
+}
+
+
+.modalInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  @media screen and (max-width: 560px){
+    width: 200px;
+  }
+  @include popups();
+  &.down{
+    right: 0;
+  }
+  &.up{
+    right: 0;
+    transform: translateY(-100vh);
+  }
+}
+.modalReg {
+  &.down{
+    transform: translateY(40px);
+  }
+}
+
+.incognito {
+  cursor: pointer;
+  display: none;
+  @media screen and (max-width: 500px){
+    display: inline-block;
   }
 }

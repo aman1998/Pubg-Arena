@@ -1,20 +1,23 @@
+import {SET_LOBBY, SET_LOBBY_LIST} from "../actionTypes";
+
 const initialState = {
-  list: [],
-  success: true
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_LOBBIES_LIST':
+    case SET_LOBBY_LIST:
       return {
         ...state,
-        list: action.list,
+        list: action.list
       }
-      case 'GET_LOBBIES_SUCCESS':
-        return {
-          ...state,
-          success: action.success,
-        }
+    case SET_LOBBY:
+      return {
+        ...state,
+        list: [
+          ...state.list
+        ],
+        current: action.current
+      }
     default: return state
   }
 }

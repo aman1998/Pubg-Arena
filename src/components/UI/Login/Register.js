@@ -73,7 +73,7 @@ const Register = (props) => {
           <ErrorMessage name="password" component="div" className='error'/>
           <Field type="password" name="confirmPassword" placeholder='Повторите пароль'/>
           <ErrorMessage name="confirmPassword" component="div" className='error'/>
-          <button type="submit" className='loginFormBtn' style={{background: '#26835f'}}>
+          <button type="submit" className='loginFormBtn reg'>
             Регистрация
           </button>
         </Form>

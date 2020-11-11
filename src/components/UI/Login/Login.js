@@ -4,36 +4,30 @@ import * as Yup from 'yup'
 import {useDispatch} from "react-redux"
 
 import {showLogin} from "../../../store/actions/modalLogin"
-import {checkIsLog, getMyProfile as getProfileAction, getMyProfile, setToken} from "../../../store/actions/profile"
+import {setProfile, setToken} from "../../../store/actions/profile"
 import {hideState, showState} from "../../../store/actions/isAuthState";
 
 import Header from './Header'
-import {logIn} from "../../../store/actions/logInOut";
-import {notLoading} from "../../../store/actions/isLoading";
+import {logIn, logOut} from "../../../store/actions/logInOut";
+import axios from "../../../axios/axios";
 
-    const Login = (props) => {
+const Login = (props) => {
+  const dispatch = useDispatch()
+
   const showLog = () => {
     dispatch(showLogin())
   }
 
-  const dispatch = useDispatch()
   const handleLogin = (body) => {
-    // e.preventDefault()
-    fetch(`http://localhost:1717/login/`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(body),
+    axios.post('/login/', {
+      data: JSON.stringify(body)
     })
-      .then((response) => {
-        if (!response.ok) throw response.status
-        return response.json()
-      })
       .then( data => {
-        dispatch(setToken(data.user.token))
-        localStorage.setItem('token',data.user.token )
-        // dispatch(setToken(`Token ${data.token}`))
-        // localStorage.setItem('token', `Token ${data.token}` )
+        console.log(data)
+        dispatch(setProfile({...data}))
+        dispatch(setToken(`Token ${data.token}`))
         dispatch(logIn())
+        localStorage.setItem('token', `Token ${data.token}` )
         dispatch(showState())
         setTimeout(() => {
           dispatch(hideState())
@@ -41,15 +35,16 @@ import {notLoading} from "../../../store/actions/isLoading";
       })
       .catch(e => {
         dispatch(showState())
+        dispatch(logOut())
         setTimeout(() => {
           dispatch(hideState())
         }, 3000)
-        console.log({message: e.message})
+        console.log(e)
       })
   }
   return (
     <div className='login'>
-      <Header title='Вход' bg='#0054ff' close={showLog}/>
+      <Header title='Вход' class='log' close={showLog}/>
       <Formik
         initialValues={
           {
@@ -80,7 +75,7 @@ import {notLoading} from "../../../store/actions/isLoading";
             <ErrorMessage name="phone" component="div" className='error'/>
             <Field type="password" name="password" placeholder='Пароль'/>
             <ErrorMessage name="password" component="div" className='error'/>
-            <button type="submit" className='loginFormBtn' style={{background: '#0054ff'}}>
+            <button type="submit" className='loginFormBtn log'>
               Вход
             </button>
           </Form>

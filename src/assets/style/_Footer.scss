@@ -1,45 +1,5 @@
 @import './variables';
 
 .footer{
-  margin: 30px 0 0 0;
-  color: $lineColor;
-  font-size: $fz15;
-  &-top {
-    display: flex;
-    justify-content: space-between;
-    @media screen and (max-width: 1000px) {
-      flex-direction: column;
-    }
-  }
-  &-bottom {
-    text-align: center;
-    font-size: 13px;
-    margin: 20px 0 10px 0;
-  }
-  &-icons {
-    display: flex;
-    flex-wrap: wrap;
-    @media screen and (max-width: 1000px) {
-      justify-content: center;;
-    }
-    div {
-      margin-right: 20px;
-    }
-  }
-  &-rules {
-    display: flex;
-    flex-wrap: wrap;
-    div {
-      margin-right: 20px
-    }
-  }
-}
-
-.footer-profile {
-  position: absolute;
-  left: 10%;
-  bottom: 0;
-  right: 10%;
-  width: 80%;
-  // height: 80px;
+  
 }

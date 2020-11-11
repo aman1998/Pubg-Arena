@@ -24,6 +24,12 @@
       }
     }
   }
+  .reg {
+    background: linear-gradient(200.85deg, #48c691 14.07%, #26835f 93%);
+  }
+  .log {
+    background: linear-gradient(200.85deg,#0054ff 14.07%, #27225a 93%);
+  }
   &Header{
     text-transform: uppercase;
     font-size: 11px;
@@ -54,9 +60,6 @@
       outline: none;
       transition: 0.4s;
       border-radius: 6px;
-      &:hover {
-        background: #004ce6;
-      }
     }
   }
   .cancel {

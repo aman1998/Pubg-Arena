@@ -5,7 +5,7 @@ import Logo from '../../../assets/icons/logo.svg'
 const Header = (props) => {
   return (
     <div>
-      <div className='loginHeader'style={{background: props.bg}}>
+      <div className= {`loginHeader ${props.class}`}>
         <div>
           +400 хп за регистрацию
         </div>

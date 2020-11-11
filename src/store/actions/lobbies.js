@@ -1,9 +1,21 @@
-export const getLobbiesList = (list) => ({
-  type: 'GET_LOBBIES_LIST',
-  list,
-})
-export const getLobbiesSuccess = (success) => ({
-  type: 'GET_LOBBIES_SUCCESS',
-  success,
+import {SET_LOBBY, SET_LOBBY_LIST} from "../actionTypes";
+import axios from "../../axios/axios";
+
+export const setLobbiesList = (list) => ({
+  type: SET_LOBBY_LIST,
+  list
 })
 
+export const fetchLobbiesActionCreator = () => {
+  return async dispatch => {
+    // const response = await axios.get('/lobby/rates/')
+    const response = await axios.get('/list/')
+    dispatch(setLobbiesList(response.data))
+    console.log(response.data)
+  }
+}
+
+export const setCurrent = (current) => ({
+  type: SET_LOBBY,
+  current
+})

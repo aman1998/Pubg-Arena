@@ -1,95 +1,97 @@
 @import './variables';
 
 .wrapper {
-  padding: 10px 0;
-  .block {
-    margin-top: 20px;
-    height: auto;
-    padding: 15px 0;
-    background: linear-gradient(172.87deg,rgb(35, 37, 37),#8f9094);
-    transition: 0.4s;
-    cursor: pointer;
-    .event {
-      display: flex;
-      height: 152px;
-      color: #f2f2f2;
-      font-size: 14px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      .avatar {
-        height: 100%;
-        width: 152px;
-        object-fit: cover;
-        margin-right: 20px;
-        border-radius: 20px;
-        box-shadow: 0 6px 32px rgba(0, 0, 0, 0.534);
-        box-shadow: -3px 4px 15px 15px rgba(0,0,0,0.86);
-        -webkit-box-shadow: -3px 4px 15px 15px rgba(0,0,0,0.86); 
-      }
-      &-content {
-        display: flex;
-        font-size: 18px;
-        width: 100%;
-        .info {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          &-bottom {
-            &__rule {
-              // display: none;
-              font-size: 12px;
-              transition: 0.4s;
-              span {
-                color: $lineColor;
-              }
-            }
-            &__btn {
-              display: block;
-              @include btn();
-            }
-          }
-          &-top {
-            &__date {
-              font-size: 14px;
-            }
-          }
-        }
-        .info2 {
-          width: 100%;
-          margin-left: 150px;
-          &-top {
-            display: flex;
-            justify-content: space-between;
-            div {
-              &:nth-child(1) {
-                display: flex;
-              }
-            }
-            .percent {
-              margin-left: 100px;
-            }
-            &__price {
-              display: flex;
-              flex-direction: column;
-              div {
-                &:nth-child(2) {
-                  color: rgb(34, 26, 26);
-                  font-size: 14px;
-                }
-              }
-            }
-          }
-        }
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (max-width: 560px){
+    display: block;
+    width: 100%;
+  }
+  .event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px 40px 0px;
+    border-right: 1px solid rgba(214, 214, 214, 0.5);
+    border-bottom: 1px solid rgba(214, 214, 214, 0.5);
+    width: 373px;
+    @media screen and (max-width: 1150px){
+      width: 50%;
+      &:nth-child(2n+2) {
+        border-right: none;
       }
     }
-    &:hover {
-      border-bottom: 0px solid rgb(7, 7, 49);
-      border-top: 0px solid rgb(7, 7, 49);
-      box-shadow: 0 6px 32px rgba(0, 0, 0, 0.534);
-      .info-bottom__rule {
-        display: block;
+    @media screen and (min-width: 1150px){
+      &:nth-child(3n+3) {
+        border-right: none;
       }
+    }
+    @media screen and (max-width: 560px){
+      width: 100%;
+      border-right: none;
+    }
+    .avatar {
+      width: 150px;
+      height: 145px;
+      object-fit: cover;
+      border-radius: 10px;
+      @media screen and (max-width: 560px){
+        width: 205px;
+        height: 200px;
+      }
+    }
+    .name {
+      margin: 16px 0 6px 0;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 31px;
+      @media screen and (max-width: 560px){
+        font-size: 20px;
+        line-height: 23px;
+      }
+    }
+    .map {
+      font-style: italic;
+      font-size: 24px;
+      line-height: 26px;
+      @media screen and (max-width: 560px){
+        font-size: 18px;
+        line-height: 21px;
+      }
+    }
+    .date {
+      margin: 6px 0;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 24px;
+      @media screen and (max-width: 560px){
+        font-size: 18px;
+        line-height: 21px;
+      }
+    }
+    .rule {
+      max-width: 321px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 120%;
+      span {
+        color: #F2C00F;
+      }
+    }
+    .price {
+      font-size: 16px;
+      line-height: 19px;
+      color: #2D9069;
+    }
+    .price-title {
+      margin: 6px 0;
+      color: #FFFFFF;
+    }
+    .btn {
+      margin-top: 20px;
+      @include btn2();
     }
   }
 }
+
