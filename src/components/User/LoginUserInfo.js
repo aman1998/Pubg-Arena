@@ -9,12 +9,12 @@ const LoginUserInfo = (props) => {
   return (
     <div className='loginUserInfo'>
       <div className='userAvatar' onClick={() => setModalUserInfo(!modalUserInfo)}>
-        <PersonIcon className='userIcon' />
+        <PersonIcon className='userIcon'/>
       </div>
       <div className={modalUserInfo ? 'modalInfo down' : 'modalInfo up'}>
-          <div className='phone'>
-              {props.phone}
-          </div>
+        <div className='phone'>
+          {props.phone}
+        </div>
         <div className='username'>
           {props.name}
         </div>
@@ -23,7 +23,7 @@ const LoginUserInfo = (props) => {
         </div>
         <div className='userMoney'>
           <Link to={'/'} onClick={props.handleLogout}>
-            <ExitToAppIcon className='logout' />
+            <ExitToAppIcon className='logout'/>
           </Link>
         </div>
       </div>
