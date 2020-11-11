@@ -20,7 +20,7 @@ const LoginUserInfo = (props) => {
           {props.name}
         </div>
         <div className='money'>
-          {props.money}
+          balance: {props.balance}
         </div>
         <div className='sidebar-mobile'>
           <div><NavLink to='/profile/' exact>Личные данные</NavLink></div>
