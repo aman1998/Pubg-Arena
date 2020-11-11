@@ -6,10 +6,12 @@ import LoginController from "../../container/LoginController";
 import IsAuth from '../UI/IsAuthState'
 
 const Header = () => {
-  const {isLogged} = useSelector(state => ({
-    isLogged: state.isLogged
+  const {isLogged, isPhone, isActivate} = useSelector(state => ({
+    isLogged: state.isLogged,
+    isPhone: state.register.isPhone,
+    isActivate: state.register.isActivate
   }))
-
+  console.log(isActivate)
   return (
     <header>
       <div className='container'>
@@ -42,8 +44,8 @@ const Header = () => {
         </nav>
       </div>
       <IsAuth
-        class = {isLogged ? 'success' : 'error'}
-        text = {isLogged ? 'Вы успешно вошли!' : 'Ошибка входа'}
+        class = {isLogged || isPhone || isActivate ? 'success' : 'error'}
+        text = {isLogged ? 'Вы успешно вошли!' : isPhone ? 'Вам отправили код активации' : isActivate ? 'Активация прошла' : 'Ошибка входа'}
       />
     </header>
   )

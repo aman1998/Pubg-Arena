@@ -4,8 +4,10 @@ import Phone from './Phone'
 import Activate from './Activate'
 import {useDispatch} from "react-redux"
 import Header from './Header'
-import {showRegister} from "../../../store/actions/modalRegister";
-import {hideState, showState} from "../../../store/actions/isAuthState";
+import {showRegister} from "../../../store/actions/modalRegister"
+import {hideState, showState} from "../../../store/actions/isAuthState"
+import {setPhone as setPhoneAction} from '../../../store/actions/register'
+import {setActivate} from '../../../store/actions/register'
 
 const ENDPOINT = 'http://localhost:8000'
 
@@ -21,11 +23,11 @@ const RegTemplate = (props) => {
     }
 
     const handlePhone = (body) => {
-      console.log(body)
       setShowPhone(false)
       setShowActivate(true)
       setPhone(body.phone)
       dispatch(showState())
+      dispatch(setPhoneAction())
       setTimeout(() => {
         dispatch(hideState())
       }, 3000)
@@ -56,6 +58,7 @@ const RegTemplate = (props) => {
           })
       setShowActivate(false)
       setShowReg(true)
+      dispatch(setActivate())
     }
 
   return (

@@ -4,6 +4,7 @@ import isLogged from './isLogged'
 import modalRegister from './modalRegister'
 import modalLogin from './modalLogin'
 import lobbies from './lobbies'
+import register from './register'
 import isLoading from './isLoading'
 import isAuthState from './isAuthState'
 
@@ -14,5 +15,6 @@ export default combineReducers({
   modalLogin,
   lobbies,
   isLoading,
+  register,
   isAuthState
 })

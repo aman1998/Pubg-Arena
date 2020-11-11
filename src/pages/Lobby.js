@@ -13,7 +13,8 @@ const Lobby = () => {
   const [error, setError] = React.useState(false)
 
   React.useEffect(() => {
-    fetch(`${ENDOPOINT}/lobby/${id}`, {
+    // fetch(`${ENDOPOINT}/lobby/${id}`, {
+    fetch(`${ENDOPOINT}/list/${id}`, {
       method: 'GET',
     })
       .then((response) => response.json())
@@ -35,12 +36,12 @@ const Lobby = () => {
         {loading && !error ? 
           <div className='loading'></div> : !loading && !error ?
           <LobbyPage 
-            title={lobby.title}
-            name_mode={lobby.name_mode}
+            title={lobby.name}
+            name_mode={lobby.map}
             date={lobby.date}
             time={lobby.time}
-            priceGame={lobby.priceGame}
-            priceKill={lobby.priceKill}
+            priceGame={lobby.price}
+            priceKill={lobby.kill_award}
             playerCount={lobby.playerCount}
           /> : !loading && error ?
           <div className='error-fetch'>Обновите</div> : null

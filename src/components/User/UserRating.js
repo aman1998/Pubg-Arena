@@ -2,14 +2,13 @@ import React from 'react'
 import { useSelector} from 'react-redux'
 
 const UserRating = () => {
-  const { name, myProfile, phone, balance} = useSelector(state => ({
+  const { name, myProfile, phone, balance } = useSelector(state => ({
     name: state.profile.myProfile.name,
     myProfile: state.profile.myProfile,
     phone: state.profile.myProfile.phone,
     balance: state.profile.myProfile.balance
   }))
 
-  console.log(myProfile)
   return (
     <section className='block'>
       <div className='blockUser'>

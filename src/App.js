@@ -35,10 +35,9 @@ function App() {
         .then((response) => response.json())
         // .then((data) => {
         .then(({data}) => {
-          console.log(data)
           dispatch(getProfileAction(data))
           dispatch(logIn())
-            dispatch(checkIsLog(true))
+          dispatch(checkIsLog(true))
           dispatch(notLoading())
         })
         .catch((e) => {
@@ -47,18 +46,6 @@ function App() {
           dispatch(logOut())
         })
     }
-    fetch(`${ENDPOINT}/lobby/rates/`, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch(getLobbiesListAction(data))
-        dispatch(getLobbiesSuccessAction(false))
-          console.log(data)
-      })
-      .catch(e => {
-        console.log(e.message)
-      })
   }, [token, getLobbiesSuccess])
   
   return (
