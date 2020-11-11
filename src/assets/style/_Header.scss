@@ -20,11 +20,19 @@ header {
       .items{
         width: fit-content;
       }
+      .home, .profile {
+        @media screen and (max-width: 500px){
+          display: none;
+        }
+      }
       .line-vert{
         width: 1px;
         height: 30px;
         background-color: $lineColor;
         margin: 0 20px;
+        @media screen and (max-width: 500px){
+          display: none;
+        }
       }
     }
     &Right{

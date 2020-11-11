@@ -23,7 +23,7 @@ const Header = () => {
             <div className='line-vert'></div>
             <NavLink
               to='/'
-              className='items'
+              className='items home'
               activeClassName='active'
               exact
             >
@@ -33,7 +33,7 @@ const Header = () => {
             { isLogged ?
             <NavLink
               to='/profile'
-              className='items'
+              className='items profile'
               activeClassName='active'
             >
               Личный кабинет

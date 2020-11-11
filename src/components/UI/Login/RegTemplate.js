@@ -22,6 +22,9 @@ const RegTemplate = () => {
         setShowPhone(false)
       })
       .catch(e => console.log(e))
+      setPhone(body.phone)
+      setShowActivate(true)
+      setShowPhone(false)
   }
 
   const handleActivate = (body) => {
@@ -50,7 +53,7 @@ const RegTemplate = () => {
 
   return (
     <div className='login'>
-      <Header title='Регистрация' bg='#26835f' close={dispatchShowRegister}/>
+      <Header title='Регистрация' class='reg' close={dispatchShowRegister}/>
       {
         showPhone ? (
           <Phone handlePhone={handlePhone}/>

@@ -37,10 +37,12 @@ const LoginController = () => {
   }))
 
   const showLog = () => {
+    setModalUserInfo(false)
     dispatch(showLogin())
   }
 
   const showReg = () => {
+    setModalUserInfo(false)
     dispatch(showRegister())
   }
 

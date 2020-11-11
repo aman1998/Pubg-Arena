@@ -35,8 +35,10 @@ export const fetchLoginActionCreator = (body) => dispatch => {
     body
   )
     .then( response => {
-      localStorage.setItem('token', `Token ${response.data.token}` )
-      dispatch(setToken(`Token ${response.data.token}`))
+      if( response.data.token !== '') {
+        localStorage.setItem('token', `Token ${response.data.token}` )
+        dispatch(setToken(`Token ${response.data.token}`))
+      } 
       dispatch(logIn())
       dispatch(showState())
       dispatch(fetchProfileActionCreator({...response.data}))

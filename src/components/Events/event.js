@@ -24,7 +24,13 @@ const Event = (props) => {
             <div className='price'>{item.price} сомов</div>
             <div className='price price-title'>Цена за участия</div>
             <div className='price'>{item.kill_award} сомов</div>
-            <div className='btn'>Подробнее</div>
+            <NavLink
+              to={`/lobby/${item.id}`}
+              exact
+              className='info-bottom__btn btn'
+            >
+              Подробнее
+            </NavLink>
         </section>
         )) : <div>loading..</div>
       }

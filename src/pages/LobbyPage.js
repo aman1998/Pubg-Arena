@@ -1,49 +1,54 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import PageTemplate from '../components/templates/PageTemplate'
-import LobbyContainer from '../components/Lobbies/LobbyContainer'
+import LobbyPage from '../components/Lobbies/LobbyContainer'
 import {useParams} from 'react-router'
-import {useSelector} from "react-redux";
 
-const LobbyPage = () => {
+const ENDOPOINT = 'http://localhost:1717'
+
+const Lobby = () => {
   let {id} = useParams()
-  const [current, setCurrent] = useState('')
-  const lobbies = useSelector(state => state.lobbies.list)
 
-  useEffect(() => {
-    // fetch(`http://localhost:1717/lobby/rates/${id}`, {
-    //   method: 'GET',
-    // })
-    //   .then((response) => {
-    //     console.log(response)
-    //     response.json()
-    //
-    //   })
-    //   .then((data) => {
-    //     console.log('lobby one', data)
-    //   })
-    for(let i = 0; i < lobbies.length; i++ ){
-      if(lobbies[i].id === id){
-        setCurrent(lobbies[i])
-      }
-    }
+  const [lobby, setLobby] = React.useState('')
+  const [loading, setLoading] = React.useState(true)
+  const [error, setError] = React.useState(false)
+
+  React.useEffect(() => {
+    fetch(`${ENDOPOINT}/lobby/${id}`, {
+    // fetch(`${ENDOPOINT}/list/${id}`, {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setLoading(false)
+        setLobby(data)
+          console.log('lobby one', data)
+      })
+      .catch(() => {
+        setLoading(false)
+        setError(true)
+      })
   }, [])
 
 
   return (
     <PageTemplate>
       <div style={{minHeight: '50vh', position: 'relative'}}>
-        <LobbyContainer
-          title={current.title}
-          name_mode={current.name}
-          date={current.date}
-          time={current.time}
-          priceGame={current.price}
-          priceKill={current.kill_award}
-          playerCount={current.player_count}
-        />
+        {loading && !error ? 
+          <div className='loading'></div> : !loading && !error ?
+          <LobbyPage 
+            title={lobby.name}
+            name_mode={lobby.map}
+            date={lobby.date}
+            time={lobby.time}
+            priceGame={lobby.price}
+            priceKill={lobby.kill_award}
+            playerCount={lobby.playerCount}
+          /> : !loading && error ?
+          <div className='error-fetch'>Обновите</div> : null
+        }
       </div>
     </PageTemplate>
   )
 }
 
-export default LobbyPage
+export default Lobby
