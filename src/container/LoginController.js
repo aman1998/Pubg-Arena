@@ -22,7 +22,7 @@ const LoginController = () => {
     isLogged,
     isLoading,
     name,
-    money,
+    balance,
     phone,
     token
   } = useSelector(state => ({
@@ -31,7 +31,7 @@ const LoginController = () => {
     isLogged: state.isLogged,
     isLoading: state.isLoading,
     name: state.profile.myProfile.name,
-    money: state.profile.myProfile.money,
+    balance: state.profile.myProfile.balance,
     phone: state.profile.myProfile.phone,
     token: state.profile.token
   }))
@@ -70,7 +70,7 @@ const LoginController = () => {
             <LoginUserInfo
               phone={phone}
               name={name}
-              money={money}
+              balance={balance}
               handleLogout={handleLogout}
             />
           ) : (
