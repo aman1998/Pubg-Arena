@@ -31,9 +31,12 @@ const RegTemplate = () => {
     axios.post('/verify/', body)
       .then((response) => {
         console.log('res', response)
-        console.log(body)
-        setShowActivate(false)
-        setShowRegisterContainer(true)
+        if(response.data.details !== 'OTP incorrect, please try again' && 
+        response.data.details !== 'Phone not recognised. Kindly request a new otp with this number'
+        ) {
+          setShowActivate(false)
+          setShowRegisterContainer(true)
+        }
       })
       .catch(e => console.log(e))
   }
