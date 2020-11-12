@@ -32,7 +32,9 @@ const LobbyContainer = (props) => {
         <div className='players-list'>
           {
             lobbies.map(item => (
-              <div>{item.player_list.map(i => (<div>t.name</div>))}</div>
+              item.player_list.map(item => (
+                <div>{item.name}</div>
+              ))
             ))
           }
         </div>
