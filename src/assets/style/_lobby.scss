@@ -1,31 +1,70 @@
 .lobby {
   display: flex;
-  margin-top: 20px;
-  color: #b2b7bb;
-  &-img {
-    width: 230px;
-    height: 308px;
-    object-fit: cover;
-    box-shadow: -3px 4px 15px 15px rgba(0,0,0,0.86);
-    -webkit-box-shadow: -3px 4px 15px 15px rgba(0,0,0,0.86); 
-  }
-  &-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 20px;
-    &__date {
-      font-size: 36px;
-      line-height: 1.15;
-      color: #dfe4e7;
+  margin-top: 50px;
+  @media screen and (max-width: 560px){
+        flex-direction: column;
+      }
+  .avatar {
+      width: 200px;
+      height: 280px;
+      margin-right: 30px;
+      object-fit: cover;
+      border-radius: 10px;
+      @media screen and (max-width: 560px){
+        width: 205px;
+        height: 200px;
+      }
     }
-    &__mode {
+    .name {
+      margin: 16px 0 6px 0;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 31px;
+      @media screen and (max-width: 560px){
+        font-size: 20px;
+        line-height: 23px;
+      }
+    }
+    .map {
+      font-style: italic;
       font-size: 24px;
-      color: #d1dfe7;
+      line-height: 26px;
+      @media screen and (max-width: 560px){
+        font-size: 18px;
+        line-height: 21px;
+      }
     }
-    &__btn {
-      margin: 0;
-      @include btn();
+    .date {
+      margin: 6px 0;
+      font-style: italic;
+      font-size: 20px;
+      line-height: 24px;
+      @media screen and (max-width: 560px){
+        font-size: 18px;
+        line-height: 21px;
+      }
     }
-  }
+    .rule {
+      max-width: 321px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 120%;
+      span {
+        color: #F2C00F;
+      }
+    }
+    .price {
+      font-size: 16px;
+      line-height: 19px;
+      color: #2D9069;
+    }
+    .price-title {
+      margin: 6px 0;
+      color: #FFFFFF;
+    }
+    .btn {
+      margin-top: 20px;
+      @include btn2();
+    }
 }

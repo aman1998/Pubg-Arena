@@ -3,7 +3,7 @@ import PageTemplate from '../components/templates/PageTemplate'
 import LobbyPage from '../components/Lobbies/LobbyContainer'
 import {useParams} from 'react-router'
 
-const ENDOPOINT = 'http://localhost:1717'
+const ENDOPOINT = 'http://195.38.164.24:8080'
 
 const Lobby = () => {
   let {id} = useParams()
@@ -13,7 +13,7 @@ const Lobby = () => {
   const [error, setError] = React.useState(false)
 
   React.useEffect(() => {
-    fetch(`${ENDOPOINT}/lobby/${id}`, {
+    fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
     // fetch(`${ENDOPOINT}/list/${id}`, {
       method: 'GET',
     })
@@ -21,7 +21,7 @@ const Lobby = () => {
       .then((data) => {
         setLoading(false)
         setLobby(data)
-          console.log('lobby one', data)
+        console.log(data)
       })
       .catch(() => {
         setLoading(false)
@@ -36,6 +36,7 @@ const Lobby = () => {
         {loading && !error ? 
           <div className='loading'></div> : !loading && !error ?
           <LobbyPage 
+            id={lobby.id}
             title={lobby.name}
             name_mode={lobby.map}
             date={lobby.date}

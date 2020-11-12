@@ -22,9 +22,9 @@ const RegTemplate = () => {
         setShowPhone(false)
       })
       .catch(e => console.log(e))
-      setPhone(body.phone)
-      setShowActivate(true)
-      setShowPhone(false)
+      // setPhone(body.phone)
+      // setShowActivate(true)
+      // setShowPhone(false)
   }
 
   const handleActivate = (body) => {
