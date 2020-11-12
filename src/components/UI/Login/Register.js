@@ -12,6 +12,7 @@ const Register = (props) => {
           player_id: '',
           phone: props.phone,
           password: '',
+          confirmPassword: '',
         }
       }
       validationSchema={
@@ -25,11 +26,19 @@ const Register = (props) => {
           password: Yup.string()
             .min(6, 'Минимум 6 символов')
             .required('Введите пароль!'),
+          confirmPassword: Yup.string()
+            .oneOf([Yup.ref('password'), null], 'Пароли должны совпадать')
+            .required('Подтвердите пароль'),
         })
       }
       onSubmit ={
         fields => {
-          props.handleRegister(fields)
+          props.handleRegister({
+            name: fields.name,
+            player_id: fields. player_id,
+            phone: fields.phone,
+            password: fields.password,
+          })
         }
       } >
       {() => (
