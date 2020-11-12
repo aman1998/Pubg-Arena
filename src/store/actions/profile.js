@@ -1,5 +1,5 @@
 import {SET_TOKEN, IS_LOG, SET_PROFILE} from "../actionTypes"
-import {loading, notLoading} from "./isLoading"
+import {isLoading, loading, notLoading} from "./isLoading"
 import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
 import {hideState, showState} from "./isAuthState";
@@ -27,6 +27,8 @@ export const fetchProfileActionCreator = () => dispatch => {
       console.log(e.message)
       dispatch(checkIsLog(false))
       dispatch(logOut())
+      dispatch(notLoading())
+      dispatch(setToken(''))
     })
 }
 

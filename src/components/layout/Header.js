@@ -11,7 +11,6 @@ const Header = () => {
     isPhone: state.register.isPhone,
     isActivate: state.register.isActivate
   }))
-  console.log(isActivate)
   return (
     <header>
       <div className='container'>
