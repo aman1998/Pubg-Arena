@@ -86,7 +86,7 @@ const LoginController = () => {
               </div>
               <img src={IncognitoIcon} alt='#' className='incognito' onClick={() => setModalUserInfo(!modalUserInfo)}/>
               <div className={modalUserInfo ? 'modalInfo modalReg down' : 'modalInfo modalReg up'}>
-                <div className='item itemsLogin' onClick={showLog} style={{marginBottom: '10px'}}>
+                <div className='item itemsLogin' onClick={showLog} style={{margin: '0 0 10px 0'}}>
                   Войти
                 </div>
                 <div className='item itemsLogin register' onClick={showReg}>

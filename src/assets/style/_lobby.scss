@@ -1,18 +1,44 @@
-.lobby {
-  display: flex;
-  margin-top: 50px;
+.wrapper {
+  width: 100%;
   @media screen and (max-width: 560px){
-        flex-direction: column;
-      }
-  .avatar {
+    display: block;
+    width: 100%;
+  }
+  .lobby {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    width: 100%;
+    @media screen and (max-width: 768px){
+      flex-direction: column;
+      margin-top: 30px;
+    }
+    @media screen and (max-width: 400px){
+      align-items: center;
+      display: block;
+      width: 100%;
+    }
+    &-left {
+      display: flex;
+      margin-bottom: 30px;
+      @media screen and (max-width: 500px){
+            // flex-direction: column;
+            display: block;
+            width: 100%;
+          }
+    }
+    .avatar {
       width: 200px;
       height: 280px;
       margin-right: 30px;
       object-fit: cover;
       border-radius: 10px;
-      @media screen and (max-width: 560px){
+      @media screen and (max-width: 768px){
         width: 205px;
         height: 200px;
+      }
+      @media screen and (max-width: 500px){
+        margin-right: 0px;
       }
     }
     .name {
@@ -20,7 +46,7 @@
       font-weight: 500;
       font-size: 26px;
       line-height: 31px;
-      @media screen and (max-width: 560px){
+      @media screen and (max-width: 768px){
         font-size: 20px;
         line-height: 23px;
       }
@@ -29,7 +55,7 @@
       font-style: italic;
       font-size: 24px;
       line-height: 26px;
-      @media screen and (max-width: 560px){
+      @media screen and (max-width: 768px){
         font-size: 18px;
         line-height: 21px;
       }
@@ -39,7 +65,7 @@
       font-style: italic;
       font-size: 20px;
       line-height: 24px;
-      @media screen and (max-width: 560px){
+      @media screen and (max-width: 768px){
         font-size: 18px;
         line-height: 21px;
       }
@@ -57,14 +83,39 @@
     .price {
       font-size: 16px;
       line-height: 19px;
-      color: #2D9069;
+      span {
+        color: #2D9069;
+      }
     }
     .price-title {
       margin: 6px 0;
       color: #FFFFFF;
     }
     .btn {
+      border: none;
+      cursor: pointer;
+      outline: none;
       margin-top: 20px;
       @include btn2();
     }
+    &-right {
+      padding: 10px;
+      overflow: auto;
+      width: 200px;
+      max-height: 500px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-sizing: border-box;
+      border-radius: 10px;
+      @media screen and (max-width: 560px){
+        width: 205px;
+      }
+      .title {
+        text-align: center;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 10px;
+      }
+    }
+  }
 }

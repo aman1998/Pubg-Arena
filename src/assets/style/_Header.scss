@@ -68,6 +68,7 @@ header {
         }
       }
       .register{
+        margin-right: 0;
         background: linear-gradient(120.85deg,#48c691 14.07%,#26835f 93.02%);
         &:hover{
           background: linear-gradient(200.85deg, #48c691 14.07%, #26835f 93%);
@@ -129,6 +130,9 @@ header {
   }
 }
 .modalReg {
+  @media screen and (min-width: 500px){
+    display: none;
+  }
   &.down{
     transform: translateY(40px);
   }
