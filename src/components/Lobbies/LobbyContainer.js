@@ -29,7 +29,8 @@ const LobbyContainer = (props) => {
           <div className='price'>Цена 1 убийства: {props.priceKill} сомов</div>
           <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
         </div>
-        <div className='players-list'>
+        <div className='players-list' style={{marginLeft: "100px"}}>
+          <h2>Участники</h2>
           {
             props.players ? props.players.map(item => (
               <div className='player' key={item.id}>{item.name}</div>
