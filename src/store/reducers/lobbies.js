@@ -1,6 +1,7 @@
 import {SET_LOBBY, SET_LOBBY_LIST} from "../actionTypes";
 
 const initialState = {
+  list: []
 }
 
 const reducer = (state = initialState, action) => {
