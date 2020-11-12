@@ -3,20 +3,18 @@ import { useSelector} from 'react-redux'
 import PubgPhoto from '../../assets/img/pubg.png'
 import axios from '../../axios/axios'
 
-const ENDOPOINT = 'http://localhost:1717'
-
-
 const LobbyContainer = (props) => {
-  const { myProfile } = useSelector(state => ({
+  const { myProfile, lobbies } = useSelector(state => ({
     myProfile: state.profile.myProfile,
+    lobbies: state.lobbies.list
   }))
 
   const enterGame = () => {
-    // axios.post('/lobby/rates/:id', {name: myProfile.id, id: props.id})
-    // .then(() => {
-    //   console.log(props.id)
-    // })
-    // .catch(e => console.log(e))
+    axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk})
+    .then((response) => {
+      console.log(response)
+    })
+    .catch(e => console.log(e))
   }
 
   return (
@@ -29,10 +27,14 @@ const LobbyContainer = (props) => {
           <div className='name'>{props.title}</div>
           <div className='price'>Цена участия: {props.priceGame} сомов</div>
           <div className='price'>Цена 1 убийства: {props.priceKill} сомов</div>
-          <button className='lobby-content__btn btn' onClick={enterGame()}>Вступить</button>
+          <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
         </div>
         <div className='players-list'>
-          <div className='player'></div>
+          {
+            lobbies.map(item => (
+              <div>{item.player_list.map(i => (<div>t.name</div>))}</div>
+            ))
+          }
         </div>
       </section>
     </div>
