@@ -44,6 +44,7 @@ const Lobby = () => {
             priceGame={lobby.price}
             priceKill={lobby.kill_award}
             playerCount={lobby.playerCount}
+            players={lobby.player_list}
           /> : !loading && error ?
           <div className='error-fetch'>Обновите</div> : null
         }

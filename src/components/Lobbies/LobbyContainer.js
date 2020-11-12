@@ -31,9 +31,9 @@ const LobbyContainer = (props) => {
         </div>
         <div className='players-list'>
           {
-            lobbies.map(item => (
-              <div>{item.player_list.map(i => (<div>t.name</div>))}</div>
-            ))
+            props.players ? props.players.map(item => (
+              <div className='player' key={item.id}>{item.name}</div>
+            )) : <div>loading</div>
           }
         </div>
       </section>
