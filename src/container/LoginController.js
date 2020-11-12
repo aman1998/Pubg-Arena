@@ -47,17 +47,18 @@ const LoginController = () => {
   }
 
   const handleLogout = () => {
-    dispatch(setProfile({favoritesList: []}))
-    dispatch(logOut())
-    dispatch(checkIsLog(false))
-    axios.post('/logout/', {
+    axios.post('/logout/',{},  {
       headers:{
         'Authorization': token
       }
     })
       .then(response => {
+        console.log(response)
         localStorage.removeItem('token')
         dispatch(setToken(null))
+        dispatch(logOut())
+        dispatch(setProfile({}))
+        dispatch(checkIsLog(false))
       })
       .catch(e => console.log(e))
   }
