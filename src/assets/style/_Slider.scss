@@ -1,35 +1,82 @@
-@import "./templates";
-.slider{
-  width: 100%;
-  .container{
-    width: 80%;
+@import "templates";
+
+.slider-box{
+  @include flexCenter();
+  margin-bottom: 50px;
+  .slider{
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    .slides{
+      width: 400%;
+      display: flex;
+      overflow: hidden;
+      .slide{
+        position: relative;
+        width: 25%;
+        transition: 0.7s;
+        @include more_1350{
+          height: 850px;
+        }
+        @include flexCenter();
+        .img{
+          width: 100%;
+        }
+        .content{
+          position: absolute;
+          .text{
+            font-size: 32px;
+            font-weight: bold;
+            @include _768{
+              font-size: 24px;
+            }
+            @include _600{
+              font-size: 18px;
+            }
+            @include _480{
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      input{
+        display: none;
+      }
+
+    }
+    .navigation-manual{
+      position: absolute;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: -40px;
+      .manual-btn{
+        border: 2px solid #2D9069;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.4s;
+        &:hover{
+          background-color: #2D9069;
+        }
+        &:not(:last-child){
+          margin-right: 30px;
+        }
+      }
+    }
   }
 }
-.slide{
-  position: relative;
-  height: 60vh;
-  @include flexCenter;
-  .img{
-    width: 100%;
-    opacity: 0.6;
-    transition: 0.5s;
-  }
-  .content{
-    position: absolute;
-    width: 50%;
-    top: 40%;
-    left: 20%;
-    z-index: 10;
-    h1{
 
-    }
-    h3{
-
-    }
-  }
-  &:hover{
-    .img{
-      opacity: 0.8;
-    }
-  }
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+#radio2:checked ~ .first{
+  margin-left: -25%;
+}
+#radio3:checked ~ .first{
+  margin-left: -50%;
+}
+#radio4:checked ~ .first{
+  margin-left: -75%;
 }

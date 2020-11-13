@@ -76,9 +76,24 @@ header {
       }
       .loginUserInfo{
         position: relative;
-        display: flex;
         @include flexCenter;
         box-sizing: border-box;
+        .userAvatar{
+          display: flex;
+          .username{
+            @include flexCenter;
+            div{
+              margin-right: 10px;
+            }
+          }
+          .balance{
+            @include flexCenter;
+            margin-right: 50px;
+            div{
+              margin-right: 10px;
+            }
+          }
+        }
         .username{
           margin-right: 20px;
         }

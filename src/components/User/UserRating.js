@@ -2,34 +2,38 @@ import React from 'react'
 import { useSelector} from 'react-redux'
 
 const UserRating = () => {
-  const { name, myProfile, phone, balance } = useSelector(state => ({
-    name: state.profile.myProfile.name,
+  const {myProfile} = useSelector(state => ({
     myProfile: state.profile.myProfile,
-    phone: state.profile.myProfile.phone,
-    balance: state.profile.myProfile.balance
   }))
 
   return (
     <section className='block'>
       <div className='blockUser'>
+        <h2>Основная информация</h2>
         <div className='userInfo'>
-          <div className='avatar'></div>
-          <div className='name'>{name}</div>
-          <div className='name'>{balance}</div>
-          <div className='name'>{phone}</div>
-        </div>
-        <div className='results'>
-          <div className='item'>
-            <p>0</p>
-            <p>mmr</p>
+          <div className='phone-box'>
+            <div className='phone-subtitle'>
+              Номер телефона
+            </div>
+            <div className='phone'>
+              {myProfile.phone}
+            </div>
           </div>
-          <div className='item'>
-            <p>0</p>
-            <p>Подписчиков</p>
+          <div className='name-box'>
+            <div className='name-subtitle'>
+              Имя
+            </div>
+            <div className='name'>
+              {myProfile.name}
+            </div>
           </div>
-          <div className='item'>
-            <p>0</p>
-            <p>Подписки</p>
+          <div className='balance-box'>
+            <div className='balance-subtitle'>
+              Баланс
+            </div>
+            <div className='balance'>
+              {myProfile.balance}
+            </div>
           </div>
         </div>
       </div>

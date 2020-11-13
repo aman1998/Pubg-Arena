@@ -1,27 +1,56 @@
 import React, {useState} from 'react'
-import {Link} from "react-router-dom";
-import PersonIcon from '@material-ui/icons/Person'
+import {Link, NavLink} from "react-router-dom"
+import useWindowDimensions from "../Hooks/useWindowDimentions"
+
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
-import { NavLink } from 'react-router-dom'
+import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
 
 const LoginUserInfo = (props) => {
   const [modalUserInfo, setModalUserInfo] = useState(false)
+  const {width} = useWindowDimensions()
 
   return (
     <div className='loginUserInfo'>
-      <div className='userAvatar' onClick={() => setModalUserInfo(!modalUserInfo)}>
-        <PersonIcon className='userIcon'/>
+      <div
+        className='userAvatar'
+        onClick={() => setModalUserInfo(!modalUserInfo)}
+      >
+        {
+          width >= 800 ? (
+            <>
+              <div className='balance'>
+                <div> {props.balance} </div>
+                <MonetizationOnOutlinedIcon className='balance-icon'/>
+              </div>
+              <div className='username'>
+                <div>{props.name}</div>
+                <PersonOutlineOutlinedIcon className='userIcon'/>
+              </div>
+            </>
+          ) : (
+            <div className='username'>
+              <PersonOutlineOutlinedIcon className='userIcon'/>
+            </div>
+          )
+        }
       </div>
       <div className={modalUserInfo ? 'modalInfo down' : 'modalInfo up'}>
-        <div className='phone'>
-          {props.phone}
-        </div>
-        <div className='username'>
-          {props.name}
-        </div>
-        <div className='money'>
-          balance: {props.balance}
-        </div>
+        {
+          width <= 800 ? (
+            <>
+              <div className='phone'>
+                {props.phone}
+              </div>
+              <div className='username'>
+                {props.name}
+              </div>
+              <div className='money'>
+                balance: {props.balance}
+              </div>
+            </>
+          ) : null
+        }
         <div className='sidebar-mobile'>
           <div><NavLink to='/profile/' exact>Личные данные</NavLink></div>
           <div><NavLink to='/profile/settings/' exact>Настройки</NavLink></div>

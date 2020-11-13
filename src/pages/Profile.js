@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import PageTemplate from '../components/templates/PageTemplate'
 import Sidebar from '../components/layout/Sidebar'
 import UserRating from '../components/User/UserRating'
-import CardIn from '../components/Card/CardIn'
+// import CardIn from '../components/Card/CardIn'
 import CardOut from '../components/Card/CardOut'
 
 const Profile = () => {
@@ -18,7 +18,7 @@ const Profile = () => {
           <Route path='/profile/settings' exact>
             Настройки
           </Route>
-          <CardIn />
+          {/*<CardIn />*/}
           <CardOut />
         </div>
       </div>

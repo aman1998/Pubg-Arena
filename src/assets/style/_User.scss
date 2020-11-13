@@ -1,26 +1,40 @@
+@import "templates";
+
 .block{
   &User {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flexCenter;
+    flex-direction: column;
     font-size: 18px;
-    &>div {
-      display: flex;
-      align-items: center;
-    }
-    .results {
-      color: #5c5e66;
-      font-size: 15px;
-      .item {
-        margin-right: 40px;
-        &:nth-child(1) {
-          margin-right: 70px;
+    .userInfo{
+      margin-top: 40px;
+      .phone-box{
+        @include userInfo;
+        .phone-subtitle{
+          font-size: 14px;
         }
-        p {
-          &:nth-child(1) {
-            font-size: 15px;
-            color: #fff;
-          }
+        .phone{
+          margin-top: 10px;
+          padding-bottom: 6px;
+        }
+      }
+      .name-box{
+        @include userInfo;
+        .name-subtitle{
+          font-size: 14px;
+        }
+        .name{
+          margin-top: 10px;
+          padding-bottom: 6px;
+        }
+      }
+      .balance-box{
+        @include userInfo;
+        .balance-subtitle{
+          font-size: 14px;
+        }
+        .balance{
+          margin-top: 10px;
+          padding-bottom: 6px;
         }
       }
     }
