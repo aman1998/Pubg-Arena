@@ -17,7 +17,7 @@ function App() {
   const { token, isLog} = useSelector(state => ({
     token: state.profile.token,
     myProfile: state.profile.myProfile,
-    isLog: state.profile.isLog
+    isLog: state.profile.isLog,
   }))
 
   useEffect(() => {

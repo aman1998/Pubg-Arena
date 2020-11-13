@@ -8,6 +8,8 @@ import Timer from '../UI/Timer'
 const ENDOPOINT = 'http://195.38.164.24:8080'
 
 const LobbyContainer = (props) => {
+  const [password, showPassword] = React.useState(false)
+
   const { myProfile, players } = useSelector(state => ({
     myProfile: state.profile.myProfile,
     players: state.lobbies.players
@@ -19,6 +21,7 @@ const LobbyContainer = (props) => {
     axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk})
     .then((response) => {
       dispatch(setLoading(true))
+      showPassword(true)
     })
     .catch(e => console.log(e))
   }
@@ -49,6 +52,11 @@ const LobbyContainer = (props) => {
           }
         </div>
       </section>
+      {password ? 
+      <div className='password-block'>
+        <div>Ваш код для участия в игре</div>
+        <div className='password'>sdsdsdsd</div>
+      </div> : null}
     </div>
   )
 }

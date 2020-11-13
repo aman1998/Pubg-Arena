@@ -20,6 +20,7 @@ export const fetchLobbiesActionCreator = () => dispatch => {
   axios.get('/lobby/rates/')
     .then(response => {
       dispatch(setLobbiesList(response.data))
+      console.log(response.data)
     })
     .catch(error => {
       console.log(error)
