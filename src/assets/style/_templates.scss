@@ -48,3 +48,40 @@
   box-sizing: border-box;
   transition: all 0.3s ease-out;
 }
+
+@mixin more_1350{
+  @media (min-width: 1350px) {
+    @content;
+  }
+}
+
+@mixin _1170{
+  @media (max-width: 1170px) {
+    @content;
+  }
+}
+@mixin _979{
+  @media (max-width: 979px) {
+    @content;
+  }
+}
+@mixin _768{
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin _600{
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+@mixin _480{
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin _360{
+  @media (max-width: 360px) {
+    @content;
+  }
+}

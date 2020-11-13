@@ -1,57 +1,58 @@
-import React, {useState} from 'react'
-import Carousel from 'nuka-carousel'
+import React from 'react'
 
-import Slide from '../components/Slides/Slide'
-
-import pugBackImg from '../assets/icons/pubg-wide-high.jpg'
+import pubg1 from '../assets/img/pubg-slide1.webp'
+import pubg2 from '../assets/img/pubg-slide2.jpg'
 
 const Slider = () => {
-  const [config] = useState({
-    slideIndex: 0,
-    length: 5,
-    wrapAround: false,
-    slidesToShow: 1.0,
-    transitionMode: 'scroll',
-    heightMode: 'max',
-    withoutControls: true
-  })
 
-  const [slides] = useState([
-    {
-      title: 'PLAY TODAY ON XBOX, PC, PS4, AND STADIA',
-      text: 'Compete with 100 players on a remote island for a winner-takes-all showdown where strategic gameplay is as important as shooting skills.',
-      backImg: pugBackImg
-    },
-    {
-      title: 'PLAY TODAY ON XBOX, PC, PS4, AND STADIA',
-      text: 'Compete with 100 players on a remote island for a winner-takes-all showdown where strategic gameplay is as important as shooting skills.',
-      backImg: pugBackImg
-    },
-    {
-      title: 'PLAY TODAY ON XBOX, PC, PS4, AND STADIA',
-      text: 'Compete with 100 players on a remote island for a winner-takes-all showdown where strategic gameplay is as important as shooting skills.',
-      backImg: pugBackImg
-    }
-  ])
+  return (
+    <div className='slider-box'>
+      <div className='slider'>
+        <div className='slides'>
+          <input type='radio' name='radio-btn' id='radio1'/>
+          <input type='radio' name='radio-btn' id='radio2'/>
+          <input type='radio' name='radio-btn' id='radio3'/>
+          <input type='radio' name='radio-btn' id='radio4'/>
 
-  return(
-    <div className='slider'>
-      <div className='slides'>
-        <Carousel
-          withoutControls={false}
-          wrapAround={config.wrapAround}
-          slideIndex={config.slideIndex}
-          transitionMode={config.transitionMode}
-          heightMode={config.heightMode}>
-          {slides.map(slide=> (
-            <Slide
-              key={slide.title}
-              title={slide.title}
-              text={slide.text}
-              backImg={slide.backImg}
-            />
-          ))}
-        </Carousel>
+          <div className='slide first' >
+            <img src={pubg1} alt="alt" className='img' />
+            <div className='content'>
+              <div className='text'>
+                PLAY TODAY ON XBOX, PC, PS4, AND STADIA
+              </div>
+            </div>
+          </div>
+          <div className='slide' >
+            <img src={pubg2} alt="alt" className='img' />
+            <div className='content'>
+              <div className='text'>
+                SURVIVED WILL BE GOD, ANOTHER DEAD
+              </div>
+            </div>
+          </div>
+          <div className='slide' >
+            <img src={pubg1} alt="alt" className='img' />
+            <div className='content'>
+              <div className='text'>
+                PLAY TODAY ON XBOX, PC, PS4, AND STADIA
+              </div>
+            </div>
+          </div>
+          <div className='slide' >
+            <img src={pubg2} alt="alt" className='img' />
+            <div className='content'>
+              <div className='text'>
+                WE ARE GOING TO PLAY TOURNAMENTS
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='navigation-manual'>
+          <label htmlFor='radio1' className='manual-btn' />
+          <label htmlFor='radio2' className='manual-btn' />
+          <label htmlFor='radio3' className='manual-btn' />
+          <label htmlFor='radio4' className='manual-btn' />
+        </div>
       </div>
     </div>
   )
