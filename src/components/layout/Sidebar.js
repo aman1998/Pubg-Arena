@@ -1,40 +1,56 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
+
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined'
+import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined'
+import RemoveCircleOutlineOutlinedIcon from '@material-ui/icons/RemoveCircleOutlineOutlined'
 
 const Sidebar = () => {
-  const sidebarItem = [
-    { id: 1, link: '/profile/', text: 'Личные Данные' },
-    { id: 2,link: '/profile/settings/', text: 'Настройка аккаунта' },
-    { id: 3, link: '/profile/cardIn/', text: 'Пополнить счет'},
-    { id: 4, link: '/profile/cardOut/', text: 'Вывести со счета'},
-    { id: 5, link: '/profile/createLobbie/', text: 'Создать лобби'},
-  ]
   return (
     <aside>
       <nav className='sidebar'>
         <div>
           <ul className={'sidebarItems'}>
-          {
-            sidebarItem.map((item) => (
-              <NavLink
-                key={item.id}
-                to={item.link}
-                className='sidebarItem'
-                activeClassName='active'
-                exact
-              >
-                <div>
-                  <div className='sidebarItemIcon'>{item.icon}</div>
-                  <div className='sidebarItemText'>{item.text}</div>
-                </div>
-              </NavLink>
-            ))
-          }
-          </ul> 
+            <NavLink
+              to='/profile/'
+              className='sidebarItem'
+              activeClassName='active'
+              exact
+            >
+              <div>
+                <ErrorOutlineOutlinedIcon className='sidebarItemIcon'/>
+                <div className='sidebarItemText'>Личные Данные</div>
+              </div>
+            </NavLink>
+
+            <NavLink
+              to='/profile/settings/'
+              className='sidebarItem'
+              activeClassName='active'
+              exact
+            >
+              <div>
+                <SettingsOutlinedIcon className='sidebarItemIcon'/>
+                <div className='sidebarItemText'>Настройки аккаунта</div>
+              </div>
+            </NavLink>
+
+            <NavLink
+              to='/profile/cardOut/'
+              className='sidebarItem'
+              activeClassName='active'
+              exact
+            >
+              <div>
+                <RemoveCircleOutlineOutlinedIcon className='sidebarItemIcon'/>
+                <div className='sidebarItemText'>Вывести со счета</div>
+              </div>
+            </NavLink>
+          </ul>
         </div>
       </nav>
     </aside>
-  )
+)
 }
 
 export default Sidebar

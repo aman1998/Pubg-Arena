@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import {Link, NavLink} from "react-router-dom"
 import useWindowDimensions from "../Hooks/useWindowDimentions"
 
-import PersonIcon from '@material-ui/icons/Person'
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn'
+import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
 
 const LoginUserInfo = (props) => {
   const [modalUserInfo, setModalUserInfo] = useState(false)
@@ -19,18 +19,18 @@ const LoginUserInfo = (props) => {
         {
           width >= 800 ? (
             <>
-              <div className='username'>
-                <div>{props.name}</div>
-                <PersonIcon className='userIcon'/>
-              </div>
               <div className='balance'>
                 <div> {props.balance} </div>
-                <MonetizationOnIcon className='balance-icon'/>
+                <MonetizationOnOutlinedIcon className='balance-icon'/>
+              </div>
+              <div className='username'>
+                <div>{props.name}</div>
+                <PersonOutlineOutlinedIcon className='userIcon'/>
               </div>
             </>
           ) : (
             <div className='username'>
-              <PersonIcon className='userIcon'/>
+              <PersonOutlineOutlinedIcon className='userIcon'/>
             </div>
           )
         }

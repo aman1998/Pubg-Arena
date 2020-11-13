@@ -81,14 +81,15 @@ header {
           display: flex;
           .username{
             @include flexCenter;
-            .userIcon{
-              margin-left: 10px;
+            div{
+              margin-right: 10px;
             }
           }
           .balance{
             @include flexCenter;
-            .balance-icon{
-              margin-left: 10px;
+            margin-right: 50px;
+            div{
+              margin-right: 10px;
             }
           }
         }

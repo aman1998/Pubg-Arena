@@ -75,6 +75,11 @@
     @content;
   }
 }
+@mixin _560{
+  @media (max-width: 560px) {
+    @content;
+  }
+}
 @mixin _480{
   @media (max-width: 480px) {
     @content;
@@ -84,4 +89,10 @@
   @media (max-width: 360px) {
     @content;
   }
+}
+
+@mixin userInfo{
+  margin-bottom: 40px;
+  border-bottom: 1px solid white;
+  width: 300px;
 }
