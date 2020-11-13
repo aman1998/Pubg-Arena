@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
+import Timer from '../UI/Timer'
 
 import avatar from '../../assets/img/pubg.jpg'
 
@@ -24,6 +25,7 @@ const Event = (props) => {
             <div className='price'>{item.price} сомов</div>
             <div className='price price-title'>Цена за участия</div>
             <div className='price'>{item.kill_award} сомов</div>
+            <Timer date={item.date} />
             <NavLink
               to={`/lobby/${item.id}`}
               exact

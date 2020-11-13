@@ -3,6 +3,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import PubgPhoto from '../../assets/img/pubg.png'
 import axios from '../../axios/axios'
 import {setPlayers, setLoading} from '../../store/actions/lobbies'
+import Timer from '../UI/Timer'
 
 const ENDOPOINT = 'http://195.38.164.24:8080'
 
@@ -35,17 +36,13 @@ const LobbyContainer = (props) => {
             <div className='name'>{props.title}</div>
             <div className='price'>Цена участия: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
+            <Timer date={props.date}/>
             <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
           </div>
         </div>
         <div className='lobby-right players-list'>
           <h2 className='title'>Участники</h2>
           {
-            // lobbies.map(item => (
-            //   item.player_list.map(item => (
-            //     <div>{item.name}</div>
-            //   ))
-            // ))
             players ? players.map((item, index) => (
               <div className='player' key={item.id}>{index+1}. {item.name}</div>
             )) : <div>loading</div>

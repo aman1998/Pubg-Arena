@@ -1,4 +1,4 @@
-import {SET_LOBBY, SET_LOBBY_LIST, SET_PLAYERS, SET_LOADING} from "../actionTypes";
+import { SET_LOBBY_LIST, SET_PLAYERS, SET_LOADING} from "../actionTypes";
 
 const initialState = {
   list: [],
@@ -22,14 +22,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: action.isLoading
-      }
-    case SET_LOBBY:
-      return {
-        ...state,
-        list: [
-          ...state.list
-        ],
-        current: action.current
       }
     default: return state
   }

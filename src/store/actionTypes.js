@@ -27,3 +27,4 @@ export const SET_LOBBY = 'SET_LOBBY'
 export const SET_LOBBY_LIST = 'SET_LOBBY_LIST'
 export const SET_PLAYERS = 'SET_PLAYERS'
 export const SET_LOADING = 'SET_LOADING'
+

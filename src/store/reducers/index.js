@@ -7,6 +7,7 @@ import lobbies from './lobbies'
 import register from './register'
 import isLoading from './isLoading'
 import isAuthState from './isAuthState'
+import lobby from './lobby'
 
 export default combineReducers({
   profile,
@@ -16,5 +17,6 @@ export default combineReducers({
   lobbies,
   isLoading,
   register,
-  isAuthState
+  isAuthState,
+  lobby
 })

@@ -26,7 +26,7 @@ export const fetchLobbiesActionCreator = () => dispatch => {
     })
 }
 
-export const setCurrent = (current) => ({
+export const setLobby = (lobby) => ({
   type: SET_LOBBY,
-  current
+  lobby
 })

@@ -9,23 +9,20 @@ import {setLoading as setLoadingAction} from '../store/actions/lobbies'
 const ENDOPOINT = 'http://195.38.164.24:8080'
 
 const Lobby = () => {
-  const [startFetch, setFetch] = React.useState(false)
   let {id} = useParams()
 
   const {isLoading} = useSelector(state => ({
-    isLoading: state.lobbies.isLoading
+    isLoading: state.lobbies.isLoading,
   }))
 
   const [lobby, setLobby] = React.useState('')
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(false)
-  const [data, setData] = React.useState('')
 
   const dispatch = useDispatch()
 
   React.useEffect(() => {
     fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
-    // fetch(`${ENDOPOINT}/list/${id}`, {
       method: 'GET',
     })
       .then((response) => response.json())
@@ -34,13 +31,13 @@ const Lobby = () => {
         setLobby(data)
         dispatch(setPlayers(data.player_list))
         dispatch(setLoadingAction(false))
+
       })
       .catch(() => {
         setLoading(false)
         setError(true)
       })
   }, [isLoading])
-
 
   return (
     <PageTemplate>
