@@ -1,7 +1,9 @@
-import {SET_LOBBY, SET_LOBBY_LIST} from "../actionTypes";
+import {SET_LOBBY, SET_LOBBY_LIST, SET_PLAYERS, SET_LOADING} from "../actionTypes";
 
 const initialState = {
-  list: []
+  list: [],
+  players: [],
+  isLoading: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +12,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         list: action.list
+      }
+    case SET_PLAYERS:
+      return {
+        ...state,
+        players: action.players
+      }
+    case SET_LOADING:
+      return {
+        ...state,
+        isLoading: action.isLoading
       }
     case SET_LOBBY:
       return {
