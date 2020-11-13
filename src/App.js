@@ -3,14 +3,13 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 
 import { fetchProfileActionCreator} from './store/actions/profile'
-import {fetchLobbiesActionCreator, setLobbiesList} from './store/actions/lobbies'
+import {fetchLobbiesActionCreator} from './store/actions/lobbies'
 
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
 import LobbyPage from './pages/LobbyPage'
 
 import './assets/style/style.scss'
-import axios from "./axios/axios"
 
 function App() {
   const dispatch = useDispatch()
