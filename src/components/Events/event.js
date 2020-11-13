@@ -13,19 +13,19 @@ const Event = (props) => {
       {/* <h1 className='container'>{props.title}</h1> */}
       {
         lobbies ? lobbies.map(item => (
-        <section className='event' key={item.id}>
+          <section className='event' key={item.id}>
             <img src={avatar} alt='#' className='avatar'/>
             <div className='name'>{item.name}</div>
             <div className='map'>{item.map}</div>
             <div className='date'>{item.date}</div>
             <div className='rule'>
-            Я ознакомлен с <span>Условиями пользования</span> <p>и с <span>Политикой конфидициальности</span></p>
+              Я ознакомлен с <span>Условиями пользования</span> <p>и с <span>Политикой конфидициальности</span></p>
             </div>
             <div className='price price-title'>Цена за участия</div>
             <div className='price'>{item.price} сомов</div>
             <div className='price price-title'>Цена за участия</div>
             <div className='price'>{item.kill_award} сомов</div>
-            <Timer date={item.date} />
+            <Timer date={item.date}/>
             <NavLink
               to={`/lobby/${item.id}`}
               exact
@@ -33,7 +33,7 @@ const Event = (props) => {
             >
               Подробнее
             </NavLink>
-        </section>
+          </section>
         )) : <div>loading..</div>
       }
     </div>

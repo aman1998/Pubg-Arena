@@ -18,7 +18,7 @@ const LobbyContainer = (props) => {
   const dispatch = useDispatch()
 
   const enterGame = () => {
-    axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk})
+    axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk, balance: myProfile.balance})
     .then((response) => {
       dispatch(setLoading(true))
       showPassword(true)
@@ -26,20 +26,18 @@ const LobbyContainer = (props) => {
     .catch(e => console.log(e))
   }
 
-  console.log('players', players)
-
   return (
     <div className='container wrapper'>
       <section className='lobby'>
         <div className='lobby-left'>
           <img src={PubgPhoto} alt='#' className='avatar'/>
           <div className='lobby-content'>
-            <div className='map'>Карта: {props.name_mode}</div>
+            <div className='map'>Карта: {props.map}</div>
             <div className='date'>{props.date} {props.time}</div>
-            <div className='name'>{props.title}</div>
+            <div className='name'>{props.name}</div>
             <div className='price'>Цена участия: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
-            <Timer date={props.date}/>
+            {/*<Timer date={props.date}/>*/}
             <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
           </div>
         </div>
@@ -52,7 +50,7 @@ const LobbyContainer = (props) => {
           }
         </div>
       </section>
-      {password ? 
+      {password ?
       <div className='password-block'>
         <div>Ваш код для участия в игре</div>
         <div className='password'>sdsdsdsd</div>

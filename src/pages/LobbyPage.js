@@ -46,10 +46,10 @@ const Lobby = () => {
           <div className='loading'></div> : !loading && !error ?
           <LobbyPage 
             id={lobby.id}
-            title={lobby.name}
-            name_mode={lobby.map}
+            name={lobby.name}
+            map={lobby.map}
             date={lobby.date}
-            time={lobby.time}
+            // time={lobby.time}
             priceGame={lobby.price}
             priceKill={lobby.kill_award}
             playerCount={lobby.playerCount}
