@@ -1,18 +1,23 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import Timer from '../UI/Timer'
+
+import {getTime} from '../../store/actions/timer'
 
 import avatar from '../../assets/img/pubg.jpg'
 
 const Event = (props) => {
-  const lobbies = useSelector(state => state.lobbies.list)
+  const {lobbies} = useSelector(state => ({
+    lobbies: state.lobbies.list,
+  }))
+
+  const dispatch = useDispatch()
 
   return (
     <div className='wrapper container'>
-      {/* <h1 className='container'>{props.title}</h1> */}
       {
-        lobbies ? lobbies.map(item => (
+        lobbies.map(item => (
         <section className='event' key={item.id}>
             <img src={avatar} alt='#' className='avatar'/>
             <div className='name'>{item.name}</div>
@@ -30,11 +35,12 @@ const Event = (props) => {
               to={`/lobby/${item.id}`}
               exact
               className='info-bottom__btn btn'
+              onClick={() => dispatch(getTime(item.date))}
             >
               Подробнее
             </NavLink>
         </section>
-        )) : <div>loading..</div>
+        ))
       }
     </div>
   )

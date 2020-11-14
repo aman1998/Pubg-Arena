@@ -1,11 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react'
-import {useSelector} from 'react-redux'
 
 const Timer = (props) => {
-  const {game} = useSelector(state => ({
-    game: state.lobby.lobby
-  }))
-  const [timerDays, setTimerDays] = useState('00');
+    const [timerDays, setTimerDays] = useState('00');
     const [timerHours, setTimerHours] = useState('00');
     const [timerMinutes, setTimerMinutes] = useState('00');
     const [timerSeconds, setTimerSeconds] = useState('00');
@@ -42,6 +38,7 @@ const Timer = (props) => {
         clearInterval(someref)
       }
     })
+
   return (
     <section className='timer'>
       <div className='block'>

@@ -26,8 +26,6 @@ const LobbyContainer = (props) => {
     .catch(e => console.log(e))
   }
 
-  console.log('players', players)
-
   return (
     <div className='container wrapper'>
       <section className='lobby'>
@@ -39,7 +37,7 @@ const LobbyContainer = (props) => {
             <div className='name'>{props.title}</div>
             <div className='price'>Цена участия: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
-            <Timer date={props.date}/>
+            {/* <Timer date={props.date}/> */}
             <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
           </div>
         </div>

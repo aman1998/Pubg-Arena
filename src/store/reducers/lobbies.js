@@ -1,9 +1,15 @@
-import { SET_LOBBY_LIST, SET_PLAYERS, SET_LOADING} from "../actionTypes";
+import { SET_LOBBY_LIST, SET_PLAYERS, SET_LOADING, GET_LOBBIES_SUCCESS, GET_LOBBIES_FAILED, GET_LOBBIES_LOADING, CHANGE_FIELD } from "../actionTypes";
 
 const initialState = {
   list: [],
   players: [],
-  isLoading: false
+  isLoading: false,
+  get: {
+    success: false,
+    loading: false,
+    failed: false,
+    error: '',
+  }
 }
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +29,44 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: action.isLoading
       }
+      case GET_LOBBIES_SUCCESS:
+      return {
+        ...state,
+        get: {
+          success: true,
+          loading: false,
+          failed: false,
+          error: '',
+        },
+      }
+    case GET_LOBBIES_LOADING:
+      return {
+        ...state,
+        get: {
+          success: false,
+          loading: true,
+          failed: false,
+          error: '',
+        },
+      }
+    case GET_LOBBIES_FAILED:
+      return {
+        ...state,
+        get: {
+          success: false,
+          loading: false,
+          failed: true,
+          error: action.error,
+        },
+      }
+    // case CHANGE_FIELD:
+    // return {
+    //   ...state,
+    //   [action.formName]: {
+    //     ...state[action.formName],
+    //     [action.fieldName]: action.value,
+    //   },
+    // }
     default: return state
   }
 }

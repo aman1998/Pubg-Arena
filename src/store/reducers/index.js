@@ -8,6 +8,7 @@ import register from './register'
 import isLoading from './isLoading'
 import isAuthState from './isAuthState'
 import lobby from './lobby'
+import timer from './timer'
 
 export default combineReducers({
   profile,
@@ -18,5 +19,6 @@ export default combineReducers({
   isLoading,
   register,
   isAuthState,
-  lobby
+  lobby,
+  timer
 })
