@@ -7,6 +7,7 @@ import axios from '../../axios/axios'
 import Timer from '../UI/Timer'
 
 import PubgPhoto from '../../assets/img/pubg.png'
+import {getDate} from "../../axios/dateFormatter";
 
 const LobbyContainer = (props) => {
   const [password, setPassword] = useState(false)
@@ -40,7 +41,7 @@ const LobbyContainer = (props) => {
           <img src={PubgPhoto} alt='#' className='avatar'/>
           <div className='lobby-content'>
             <div className='map'>Карта: {props.map}</div>
-            <div className='date'>{props.date} {props.time}</div>
+            <div className='date'>{getDate(props.date)}</div>
             <div className='name'>{props.name}</div>
             <div className='price'>Цена участия: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
