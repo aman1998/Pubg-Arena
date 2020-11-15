@@ -3,8 +3,13 @@
 
 .footer{
   background-color: $bgHrFr;
-  .container{
+  //position: fixed;
+  //bottom: 0;
+  //left: 0;
+  //width: 100%;
+  .container-footer{
     width: 85%;
+    margin: 0 auto;
     padding-top: 30px;
     padding-bottom: 30px;
     @include flexSpaceBetween;

@@ -6,7 +6,7 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 const Footer = () => {
   return (
     <footer className='footer'>
-      <div className="container">
+      <div className="container-footer">
         <div className='footer-logo'>
           <h2>LOGO</h2>
         </div>
