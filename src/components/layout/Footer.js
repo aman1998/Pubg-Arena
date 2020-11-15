@@ -2,8 +2,6 @@ import React from 'react'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
-import {NavLink} from "react-router-dom";
-
 
 const Footer = () => {
   return (
@@ -21,15 +19,15 @@ const Footer = () => {
           <div className='text'>Политика конфидициальности</div>
         </div>
         <div className="footer-soc">
-          <NavLink to='https://facebook.com' >
+          <a href='https://facebook.com' >
             <FacebookIcon className='facebook-icon'/>
-          </NavLink>
-          <NavLink to='https://instagram.com'>
+          </a>
+          <a href='https://instagram.com'>
             <InstagramIcon className='insta-icon'/>
-          </NavLink>
-          <NavLink to='https://twitter.com'>
+          </a>
+          <a href='https://twitter.com'>
             <TwitterIcon className='twitter-icon'/>
-          </NavLink>
+          </a>
         </div>
       </div>
     </footer>
