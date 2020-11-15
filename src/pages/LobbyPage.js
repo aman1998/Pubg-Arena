@@ -31,9 +31,7 @@ const Lobby = () => {
       .then((data) => {
         setLoading(false)
         setLobby(data)
-        dispatch(setPlayers(data.player_list))
         dispatch(setLoadingAction(false))
-
       })
       .catch(() => {
         setLoading(false)

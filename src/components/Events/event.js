@@ -5,7 +5,7 @@ import Timer from '../UI/Timer'
 
 import avatar from '../../assets/img/pubg.jpg'
 
-const Event = (props) => {
+const Event = () => {
   const lobbies = useSelector(state => state.lobbies.list)
 
   return (
@@ -14,8 +14,7 @@ const Event = (props) => {
       {
         lobbies ? lobbies.map(item => (
           <section className='event' key={item.id}>
-            <img src={avatar} alt='#' className='avatar'/>
-            <div className='name'>{item.name}</div>
+            <img src={avatar} alt='#' className='avatar'/> <div className='name'>{item.name}</div>
             <div className='map'>{item.map}</div>
             <div className='date'>{item.date}</div>
             <div className='rule'>
@@ -23,7 +22,7 @@ const Event = (props) => {
             </div>
             <div className='price price-title'>Цена за участия</div>
             <div className='price'>{item.price} сомов</div>
-            <div className='price price-title'>Цена за участия</div>
+            <div className='price price-title'>Цена за убийство</div>
             <div className='price'>{item.kill_award} сомов</div>
             <Timer date={item.date}/>
             <NavLink
