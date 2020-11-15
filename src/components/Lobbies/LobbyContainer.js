@@ -8,11 +8,11 @@ import Timer from '../UI/Timer'
 const ENDOPOINT = 'http://195.38.164.24:8080'
 
 const LobbyContainer = (props) => {
-  const [password, showPassword] = React.useState(false)
+  const [password, setPassword] = React.useState(false)
 
-  const { myProfile, players } = useSelector(state => ({
+  const { myProfile, players} = useSelector(state => ({
     myProfile: state.profile.myProfile,
-    players: state.lobbies.players
+    players: state.lobbies.players,
   }))
 
   const dispatch = useDispatch()
@@ -21,7 +21,7 @@ const LobbyContainer = (props) => {
     axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk, balance: myProfile.balance})
     .then((response) => {
       dispatch(setLoading(true))
-      showPassword(true)
+      setPassword(true)
     })
     .catch(e => console.log(e))
   }
@@ -37,7 +37,7 @@ const LobbyContainer = (props) => {
             <div className='name'>{props.name}</div>
             <div className='price'>Цена участия: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
-            {/*<Timer date={props.date}/>*/}
+            {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date} /> : ' '}
             <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
           </div>
         </div>
@@ -53,7 +53,7 @@ const LobbyContainer = (props) => {
       {password ?
       <div className='password-block'>
         <div>Ваш код для участия в игре</div>
-        <div className='password'>sdsdsdsd</div>
+        <div className='password'>{props.pass}</div>
       </div> : null}
     </div>
   )

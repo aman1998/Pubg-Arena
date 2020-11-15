@@ -15,7 +15,9 @@ const Lobby = () => {
     isLoading: state.lobbies.isLoading,
   }))
 
-  const [lobby, setLobby] = React.useState('')
+  const [lobby, setLobby] = React.useState({
+    date: '0000-00-00T00:00:00+06:00'
+  })
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(false)
 
@@ -49,10 +51,11 @@ const Lobby = () => {
             name={lobby.name}
             map={lobby.map}
             date={lobby.date}
-            // time={lobby.time}
+            time={lobby.time}
             priceGame={lobby.price}
             priceKill={lobby.kill_award}
             playerCount={lobby.playerCount}
+            pass={lobby.passcode}
             players={lobby.player_list}
           /> : !loading && error ?
           <div className='error-fetch'>Обновите</div> : null

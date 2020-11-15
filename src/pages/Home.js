@@ -9,7 +9,7 @@ const MainPage = () => {
   return (
     <PageTemplate>
       <div className='home-main'>
-          <Slider />
+        <Slider />
         <Events title='Расписание'/>
       </div>
     </PageTemplate>

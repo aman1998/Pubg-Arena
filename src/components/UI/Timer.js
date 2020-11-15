@@ -1,49 +1,37 @@
 import React, {useState, useRef, useEffect} from 'react'
-import {useSelector} from 'react-redux'
 
 const Timer = (props) => {
-  const {game} = useSelector(state => ({
-    game: state.lobby.lobby
-  }))
-  const [timerDays, setTimerDays] = useState(0);
-  const [timerHours, setTimerHours] = useState(0);
-  const [timerMinutes, setTimerMinutes] = useState(0);
-  const [timerSeconds, setTimerSeconds] = useState(0);
+  const [timerDays, setTimerDays] = useState('00');
+  const [timerHours, setTimerHours] = useState('00');
+  const [timerMinutes, setTimerMinutes] = useState('00');
+  const [timerSeconds, setTimerSeconds] = useState('00');
 
-  let interval = useRef()
-
-  const startTimer = () => {
-    const countdownDateFormat = `${props.date}`.split("+")[0]
+  useEffect(() => {
+    const  countdownDateFormat = `${props.date}`.split("+")[0]
     const countdownDate = new Date(countdownDateFormat).getTime();
 
-    interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countdownDate - now;
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    const timer = window.setInterval(() => {
       let days = Math.floor(distance / (1000 * 60 * 60 * 24));
       let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      if (distance < 0) {
-        clearInterval(interval.current)
-        // setTimerDays('00')
-        // setTimerHours('00')
-        // setTimerMinutes('00')
-        // setTimerSeconds('00')
+      if(distance < 0) {
+        clearInterval(timer)
       } else {
-        setTimerDays(days.toString())
-        setTimerHours(hours.toString())
-        setTimerMinutes(minutes.toString())
-        setTimerSeconds(seconds.toString())
+        setTimerDays(days)
+        setTimerHours(hours)
+        setTimerMinutes(minutes)
+        setTimerSeconds(seconds)
       }
-    }, 1000)
-  }
-  useEffect(() => {
-    startTimer()
-    return () => {
-      clearInterval(interval.current)
-    }
-  }, [timerSeconds])
+    }, 1000);
+    return () => { // Return callback to run on unmount.
+      window.clearInterval(timer);
+    };
+  }, [timerSeconds]);
+
   return (
     <section className='timer'>
       <div className='block'>
