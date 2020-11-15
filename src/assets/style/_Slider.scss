@@ -26,17 +26,19 @@
         }
         .content{
           position: absolute;
+          text-align: center;
           .text{
             font-size: 36px;
             font-weight: bold;
+            text-shadow: 2px 2px 2px #000;
             @include _768{
-              font-size: 24px;
+              font-size: 25px;
             }
             @include _600{
-              font-size: 18px;
+              font-size: 20px;
             }
             @include _480{
-              font-size: 14px;
+              font-size: 16px;
             }
           }
         }
