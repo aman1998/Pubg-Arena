@@ -1,27 +1,26 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import PubgPhoto from '../../assets/img/pubg.png'
+
+import { setLoading} from '../../store/actions/lobbies'
+
 import axios from '../../axios/axios'
-import {setPlayers, setLoading} from '../../store/actions/lobbies'
 import Timer from '../UI/Timer'
 
-const ENDOPOINT = 'http://195.38.164.24:8080'
+import PubgPhoto from '../../assets/img/pubg.png'
 
 const LobbyContainer = (props) => {
   const [password, setPassword] = useState(false)
 
-  const {myProfile, players} = useSelector(state => ({
+  const {myProfile} = useSelector(state => ({
     myProfile: state.profile.myProfile,
-    players: state.lobbies.players,
   }))
 
   const dispatch = useDispatch()
 
   const enterGame = () => {
     axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk, balance: myProfile.balance})
-      .then((response) => {
+      .then(() => {
         dispatch(setLoading(true))
-        // setPassword(true)
       })
       .catch(e => console.log(e))
   }
@@ -63,7 +62,7 @@ const LobbyContainer = (props) => {
         <div className='password-block'>
           <div>Ваш код для участия в игре</div>
           <div className='password'>{props.pass}</div>
-        </div> : <div>pass is not</div>}
+        </div> : null}
     </div>
   )
 }
