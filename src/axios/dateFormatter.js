@@ -1,8 +1,14 @@
 export const getDate = (date) => {
-  let newMonth = (new Date(date)).getMonth()
-  let newDay = (new Date(date)).getDay()
+  const formatMinutes = (min) => {
+    if(min < 10){
+      return '0' + min
+    }
+  }
+  let newMonth = (new Date(date)).getMonth() + 1
+  let newDay = (new Date(date)).getDate()
   let newYear = (new Date(date)).getFullYear()
   let newHours = (new Date(date)).getHours()
-  let newMinutes = (new Date(date)).getMinutes()
+  let newMinutes = formatMinutes((new Date(date)).getMinutes())
+
   return `${newDay}/${newMonth}/${newYear}  ${newHours}:${newMinutes}`
 }
