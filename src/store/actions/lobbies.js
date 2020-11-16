@@ -32,7 +32,7 @@ export const fetchLobbiesActionCreator = () => dispatch => {
     .then(response => {
       dispatch(setLobbiesList(response.data))
       dispatch({ type: GET_LOBBIES_SUCCESS })
-      console.log(response.data)
+      // console.log(response.data)
     })
     .catch(error => {
       dispatch({ type: GET_LOBBIES_FAILED })

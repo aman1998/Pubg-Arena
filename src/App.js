@@ -3,7 +3,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
 
 import { fetchProfileActionCreator} from './store/actions/profile'
-import {fetchLobbiesActionCreator} from './store/actions/lobbies'
 
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
@@ -27,7 +26,6 @@ function App() {
     if (token) {
       dispatch(fetchProfileActionCreator())
     }
-    dispatch(fetchLobbiesActionCreator())
   }, [token])
   
   return (
