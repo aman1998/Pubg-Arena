@@ -25,6 +25,15 @@ export const SET_REGISTER = 'SET_REGISTER'
 
 export const SET_LOBBY = 'SET_LOBBY'
 export const SET_LOBBY_LIST = 'SET_LOBBY_LIST'
+export const GET_LOBBIES_SUCCESS = 'GET_LOBBIES_SUCCESS'
+export const GET_LOBBIES_FAILED = 'GET_LOBBIES_FAILED'
+export const GET_LOBBIES_LOADING = 'GET_LOBBIES_LOADING'
 export const SET_PLAYERS = 'SET_PLAYERS'
 export const SET_LOADING = 'SET_LOADING'
+
+export const CHANGE_FIELD = 'CHANGE_FIELD'
+
+export const GET_TIME= 'GET_TIME'
+
+
 

@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import {NavLink} from 'react-router-dom'
 
 import { setLoading} from '../../store/actions/lobbies'
 
@@ -43,6 +44,14 @@ const LobbyContainer = (props) => {
             <div className='map'>Карта: {props.map}</div>
             <div className='date'>{getDate(props.date)}</div>
             <div className='name'>{props.name}</div>
+            <div className='rule'>Я соглашаюсь с <span>
+                    <NavLink
+                        to={`/rules`}
+                        exact
+                      >
+                        Правилами игры
+                    </NavLink>
+              </span></div>
             <div className='price'>Цена участия: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}

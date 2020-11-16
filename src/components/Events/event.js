@@ -1,15 +1,17 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
-
-import Timer from '../UI/Timer'
 
 import {getDate} from '../../axios/dateFormatter'
 
 import avatar from '../../assets/img/pubg.jpg'
 
-const Event = () => {
-  const lobbies = useSelector(state => state.lobbies.list)
+const Event = (props) => {
+  const {lobbies} = useSelector(state => ({
+    lobbies: state.lobbies.list,
+  }))
+
+  const dispatch = useDispatch()
 
   return (
     <div className='wrapper container'>
@@ -21,13 +23,29 @@ const Event = () => {
             <div className='map'>{item.map}</div>
             <div className='date'>{getDate(item.date)}</div>
             <div className='rule'>
-              Я ознакомлен с <span>Условиями пользования</span> <p>и с <span>Политикой конфидициальности</span></p>
+              Я ознакомлен с <span>
+                    <NavLink
+                      to={`/terms`}
+                      exact
+                    >
+                      Условиями пользования
+                    </NavLink>
+                  </span> 
+              <p>
+              и с <span>
+                  <NavLink
+                    to={`/privacy`}
+                    exact
+                  >
+                    Политикой конфиденциальности
+                  </NavLink>
+                </span>
+              </p>
             </div>
             <div className='price price-title'>Цена за участия</div>
             <div className='price'>{item.price} сомов</div>
             <div className='price price-title'>Цена за убийство</div>
             <div className='price'>{item.kill_award} сомов</div>
-            <Timer date={item.date}/>
             <NavLink
               to={`/lobby/${item.id}`}
               exact

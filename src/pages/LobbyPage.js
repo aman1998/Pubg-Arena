@@ -5,8 +5,10 @@ import {useParams} from 'react-router'
 import {setPlayers} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
 import {setLoading as setLoadingAction} from '../store/actions/lobbies'
+import {fetchLobbiesActionCreator} from '../store/actions/lobbies'
 
 const ENDOPOINT = 'http://195.38.164.24:8080'
+const ENDOPOINT2 = 'http://localhost:1717'
 
 const Lobby = () => {
   let {id} = useParams()
@@ -15,22 +17,27 @@ const Lobby = () => {
     isLoading: state.lobbies.isLoading,
   }))
 
+  const [loading, setLoading] = React.useState(false)
+  const [success, setSuccess] = React.useState(false)
   const [lobby, setLobby] = React.useState({
     date: '0000-00-00T00:00:00+06:00'
   })
-  const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(false)
 
   const dispatch = useDispatch()
 
   React.useEffect(() => {
+    setLoading(true)
     fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
+    // fetch(`${ENDOPOINT2}/list/${id}/`, {
       method: 'GET',
     })
       .then((response) => response.json())
       .then((data) => {
         setLoading(false)
+        setSuccess(true)
         setLobby(data)
+        dispatch(setPlayers(data.player_list))
         dispatch(setLoadingAction(false))
       })
       .catch(() => {
@@ -39,11 +46,14 @@ const Lobby = () => {
       })
   }, [isLoading])
 
+  console.log('lobby', lobby)
+
   return (
     <PageTemplate>
       <div style={{minHeight: '50vh', position: 'relative'}}>
-        {loading && !error ? 
-          <div className='loading'></div> : !loading && !error ?
+        { loading ? 
+          <div className='loading'></div> : 
+          success ?
           <LobbyPage 
             id={lobby.id}
             name={lobby.name}
@@ -55,8 +65,8 @@ const Lobby = () => {
             playerCount={lobby.playerCount}
             pass={lobby.passcode}
             players={lobby.player_list}
-          /> : !loading && error ?
-          <div className='error-fetch'>Обновите</div> : null
+          /> :
+          <div className='error-fetch'>Обновите</div> 
         }
       </div>
     </PageTemplate>

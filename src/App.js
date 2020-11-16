@@ -8,6 +8,9 @@ import {fetchLobbiesActionCreator} from './store/actions/lobbies'
 import MainPage from './pages/Home'
 import ProfilePage from './pages/Profile'
 import LobbyPage from './pages/LobbyPage'
+import PrivacyPage from './pages/Privacy'
+import TermsPage from './pages/Terms'
+import RulesPage from './pages/Rules'
 
 import './assets/style/style.scss'
 
@@ -32,6 +35,9 @@ function App() {
       <Switch>
         <Route path='/' component={MainPage} exact/>
         <Route path='/lobby/:id' component = {LobbyPage}/>
+        <Route path='/privacy' component = {PrivacyPage}/>
+        <Route path='/terms' component = {TermsPage}/>
+        <Route path='/rules' component = {RulesPage}/>
         {isLog ? 
         <Switch>
           <Route path='/profile' component={ProfilePage} exact/>
