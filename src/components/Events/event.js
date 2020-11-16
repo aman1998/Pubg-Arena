@@ -6,19 +6,17 @@ import {getDate} from '../../axios/dateFormatter'
 
 import avatar from '../../assets/img/pubg.jpg'
 
-const Event = (props) => {
+const Event = () => {
   const {lobbies} = useSelector(state => ({
     lobbies: state.lobbies.list,
   }))
-
-  const dispatch = useDispatch()
 
   return (
     <div className='wrapper container'>
       {
         lobbies ? lobbies.map(item => (
           <section className='event' key={item.id}>
-            <img src={lobbies.image} alt='image' className='avatar'/>
+            <img src={avatar} alt='image' className='avatar'/>
             <div className='name'>{item.name}</div>
             <div className='map'>{item.map}</div>
             <div className='date'>{getDate(item.date)}</div>
