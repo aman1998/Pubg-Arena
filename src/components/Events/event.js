@@ -3,8 +3,6 @@ import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import Timer from '../UI/Timer'
 
-import {getTime} from '../../store/actions/timer'
-
 import avatar from '../../assets/img/pubg.jpg'
 
 const Event = (props) => {
@@ -30,12 +28,11 @@ const Event = (props) => {
             <div className='price'>{item.price} сомов</div>
             <div className='price price-title'>Цена за участия</div>
             <div className='price'>{item.kill_award} сомов</div>
-            <Timer date={item.date} />
+            {/* <Timer date={item.date} /> */}
             <NavLink
               to={`/lobby/${item.id}`}
               exact
               className='info-bottom__btn btn'
-              onClick={() => dispatch(getTime(item.date))}
             >
               Подробнее
             </NavLink>

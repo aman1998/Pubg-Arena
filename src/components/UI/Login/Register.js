@@ -35,7 +35,7 @@ const Register = (props) => {
         fields => {
           props.handleRegister({
             name: fields.name,
-            player_id: fields. player_id,
+            player_id: fields.player_id,
             phone: fields.phone,
             password: fields.password,
           })

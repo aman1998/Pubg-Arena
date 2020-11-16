@@ -13,14 +13,14 @@ const ENDOPOINT2 = 'http://localhost:1717'
 const Lobby = () => {
   let {id} = useParams()
 
-  const {isLoading, lobbies, time} = useSelector(state => ({
+  const {isLoading} = useSelector(state => ({
     isLoading: state.lobbies.isLoading,
-    lobbies: state.lobbies.list,
-    time: state.timer.time
   }))
 
 
-  const [lobby, setLobby] = React.useState('')
+  const [lobby, setLobby] = React.useState({
+    date: '0000-00-00T00:00:00+06:00'
+  })
   const [loading, setLoading] = React.useState(false)
   const [success, setSuccess] = React.useState(false)
   const [error, setError] = React.useState(false)
@@ -28,8 +28,9 @@ const Lobby = () => {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
-    // fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
-    fetch(`${ENDOPOINT2}/list/${id}/`, {
+    setLoading(true)
+    fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
+    // fetch(`${ENDOPOINT2}/list/${id}/`, {
       method: 'GET',
     })
       .then((response) => response.json())
@@ -37,6 +38,8 @@ const Lobby = () => {
         setLoading(false)
         setSuccess(true)
         setLobby(data)
+        console.log(data)
+        console.log('lobby', lobby)
         dispatch(setPlayers(data.player_list))
         dispatch(setLoadingAction(false))
       })
@@ -45,6 +48,8 @@ const Lobby = () => {
         setError(true)
       })
   }, [isLoading])
+
+  console.log('lobby', lobby)
 
   return (
     <PageTemplate>
@@ -56,7 +61,7 @@ const Lobby = () => {
             id={lobby.id}
             title={lobby.name}
             name_mode={lobby.map}
-            date={time}
+            date={lobby.date}
             time={lobby.time}
             priceGame={lobby.price}
             priceKill={lobby.kill_award}
