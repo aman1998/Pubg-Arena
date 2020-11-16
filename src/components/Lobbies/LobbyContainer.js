@@ -39,7 +39,7 @@ const LobbyContainer = (props) => {
     <div className='container wrapper'>
       <section className='lobby'>
         <div className='lobby-left'>
-          <img src={PubgPhoto} alt='#' className='avatar'/>
+          <img src={`${props.image}`} alt='#' className='avatar'/>
           <div className='lobby-content'>
             <div className='map'>Карта: {props.map}</div>
             <div className='date'>{getDate(props.date)}</div>

@@ -57,6 +57,7 @@ const Lobby = () => {
             name={lobby.name}
             map={lobby.map}
             date={lobby.date}
+            image={lobby.image}
             time={lobby.time}
             priceGame={lobby.price}
             priceKill={lobby.kill_award}

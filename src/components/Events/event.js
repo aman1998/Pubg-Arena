@@ -16,7 +16,7 @@ const Event = () => {
       {
         lobbies ? lobbies.map(item => (
           <section className='event' key={item.id}>
-            <img src={avatar} alt='image' className='avatar'/>
+            <img src={`${item.image}`} alt='image' className='avatar'/>
             <div className='name'>{item.name}</div>
             <div className='map'>{item.map}</div>
             <div className='date'>{getDate(item.date)}</div>
