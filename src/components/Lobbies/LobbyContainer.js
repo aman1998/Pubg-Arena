@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
-import { setLoading} from '../../store/actions/lobbies'
+import {setLoading} from '../../store/actions/lobbies'
 
 import axios from '../../axios/axios'
 import Timer from '../UI/Timer'
@@ -46,9 +46,9 @@ const LobbyContainer = (props) => {
             <div className='name'>{props.name}</div>
             <div className='rule'>Я соглашаюсь с <span>
                     <NavLink
-                        to={`/rules`}
-                        exact
-                      >
+                      to={`/rules`}
+                      exact
+                    >
                         Правилами игры
                     </NavLink>
               </span></div>

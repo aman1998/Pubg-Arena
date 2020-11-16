@@ -14,8 +14,7 @@ const Footer = () => {
   const {width} = useWindowDimensions()
   return (
     <footer className='footer'>
-      <div className="container-footer">
-
+      <div className="container">
         {
           width >= 768 ? (
             <div className='footer-logo'>
@@ -25,23 +24,23 @@ const Footer = () => {
         }
         {
           width <= 768 ? (
-            <div className='less'>
-        <div className='footer-main'>
-          <div className='title'><NavLink to='/' exact>Главная</NavLink></div>
-          <div className='text'><NavLink to='/terms' exact>Условия пользования</NavLink></div>
-        </div>
-        <div className='footer-private'>
-          <div className='title'>
-            <NavLink to='/profile' exact>Личный кабинет</NavLink>
-          </div>
-          <div className='text'>
-            <NavLink to='/privacy' exact>Политика конфидициальности</NavLink>
-          </div>
-        </div>
-        </div>
-          ) : (
+            <>
+              <div className='less'>
+                <div className='footer-main'>
+                  <div className='title'><NavLink to='/' exact>Главная</NavLink></div>
+                  <div className='text'><NavLink to='/terms' exact>Условия пользования</NavLink></div>
+                </div>
+                <div className='footer-private'>
+                  <div className='title'>
+                    <NavLink to='/profile' exact>Личный кабинет</NavLink>
+                  </div>
+                  <div className='text'>
+                    <NavLink to='/privacy' exact>Политика конфидициальности</NavLink>
+                  </div>
+                </div>
+              </div>
               <div className="footer-soc">
-                <a href='https://facebook.com' >
+                <a href='https://facebook.com'>
                   <FacebookIcon className='facebook-icon'/>
                 </a>
                 <a href='https://instagram.com'>
@@ -51,6 +50,33 @@ const Footer = () => {
                   <TwitterIcon className='twitter-icon'/>
                 </a>
               </div>
+            </>
+          ) : (
+            <>
+              <div className='footer-main'>
+                <div className='title'><NavLink to='/' exact>Главная</NavLink></div>
+                <div className='text'><NavLink to='/terms' exact>Условия пользования</NavLink></div>
+              </div>
+              <div className='footer-private'>
+                <div className='title'>
+                  <NavLink to='/profile' exact>Личный кабинет</NavLink>
+                </div>
+                <div className='text'>
+                  <NavLink to='/privacy' exact>Политика конфидициальности</NavLink>
+                </div>
+              </div>
+              <div className="footer-soc">
+                <a href='https://facebook.com'>
+                  <FacebookIcon className='facebook-icon'/>
+                </a>
+                <a href='https://instagram.com'>
+                  <InstagramIcon className='insta-icon'/>
+                </a>
+                <a href='https://twitter.com'>
+                  <TwitterIcon className='twitter-icon'/>
+                </a>
+              </div>
+            </>
           )
         }
       </div>
