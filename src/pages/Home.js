@@ -12,14 +12,10 @@ const MainPage = () => {
   }))
   return (
     <PageTemplate>
-        { loading ? 
-          <div className='loading'></div> : 
-          success ? 
-          <div className='home-main'>
-            <Slider />
-            <Events title='Расписание'/> 
-          </div> :
-          <div>Обновите</div> }
+      <div className='home-main'>
+        <Slider />
+        <Events title='Расписание'/>
+      </div>
     </PageTemplate>
   )
 }

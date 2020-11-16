@@ -1,13 +1,44 @@
 import React from 'react'
-import Logo from '../../assets/icons/logo.svg'
-import Vk from '../../assets/icons/vkontakte'
-import Tg from '../../assets/icons/telegram'
+import FacebookIcon from '@material-ui/icons/Facebook'
+import InstagramIcon from '@material-ui/icons/Instagram'
+import TwitterIcon from '@material-ui/icons/Twitter'
 
-const Footer = (props) => {
-  return(
-      <footer className={`footer`}>
-        
-      </footer>
+import Logo from '../../assets/icons/logo.svg'
+
+import {NavLink} from 'react-router-dom'
+
+const Footer = () => {
+  return (
+    <footer className='footer'>
+      <div className="container-footer">
+        <div className='footer-logo'>
+          <img src={Logo} alt='#'/>
+        </div>
+        <div className='footer-main'>
+          <div className='title'><NavLink to='/' exact>Главная</NavLink></div>
+          <div className='text'><NavLink to='/terms' exact>Условия пользования</NavLink></div>
+        </div>
+        <div className='footer-private'>
+          <div className='title'>
+            <NavLink to='/profile' exact>Личный кабинет</NavLink>
+          </div>
+          <div className='text'>
+            <NavLink to='/privacy' exact>Политика конфидициальности</NavLink>
+          </div>
+        </div>
+        <div className="footer-soc">
+          <a href='https://facebook.com' >
+            <FacebookIcon className='facebook-icon'/>
+          </a>
+          <a href='https://instagram.com'>
+            <InstagramIcon className='insta-icon'/>
+          </a>
+          <a href='https://twitter.com'>
+            <TwitterIcon className='twitter-icon'/>
+          </a>
+        </div>
+      </div>
+    </footer>
   )
 }
 

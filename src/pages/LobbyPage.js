@@ -17,12 +17,11 @@ const Lobby = () => {
     isLoading: state.lobbies.isLoading,
   }))
 
-
+  const [loading, setLoading] = React.useState(false)
+  const [success, setSuccess] = React.useState(false)
   const [lobby, setLobby] = React.useState({
     date: '0000-00-00T00:00:00+06:00'
   })
-  const [loading, setLoading] = React.useState(false)
-  const [success, setSuccess] = React.useState(false)
   const [error, setError] = React.useState(false)
 
   const dispatch = useDispatch()
@@ -38,8 +37,6 @@ const Lobby = () => {
         setLoading(false)
         setSuccess(true)
         setLobby(data)
-        console.log(data)
-        console.log('lobby', lobby)
         dispatch(setPlayers(data.player_list))
         dispatch(setLoadingAction(false))
       })
@@ -59,13 +56,14 @@ const Lobby = () => {
           success ?
           <LobbyPage 
             id={lobby.id}
-            title={lobby.name}
-            name_mode={lobby.map}
+            name={lobby.name}
+            map={lobby.map}
             date={lobby.date}
             time={lobby.time}
             priceGame={lobby.price}
             priceKill={lobby.kill_award}
             playerCount={lobby.playerCount}
+            pass={lobby.passcode}
             players={lobby.player_list}
           /> :
           <div className='error-fetch'>Обновите</div> 

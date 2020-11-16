@@ -48,6 +48,7 @@ const RegTemplate = () => {
         dispatch(showRegister())
         console.log(response)
       })
+      .catch(e => console.log(e))
   }
 
   const dispatchShowRegister = () => {

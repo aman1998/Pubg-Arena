@@ -38,8 +38,8 @@ export const fetchLoginActionCreator = (body) => dispatch => {
   )
     .then( response => {
       if( response.data.token !== '') {
-        localStorage.setItem('token', `${response.data.user.token}` )
-        dispatch(setToken(`${response.data.user.token}`))
+        localStorage.setItem('token', `Token ${response.data.token}` )
+        dispatch(setToken(`Token ${response.data.token}`))
       } 
       dispatch(logIn())
       dispatch(showState())

@@ -9,7 +9,7 @@ const Register = (props) => {
       initialValues={
         {
           name: '',
-          player_id: '',
+          pubg_id: '',
           phone: props.phone,
           password: '',
           confirmPassword: '',
@@ -17,7 +17,7 @@ const Register = (props) => {
       }
       validationSchema={
         Yup.object().shape({
-          player_id: Yup.string()
+          pubg_id: Yup.string()
             .required('pubg id'),
           name: Yup.string()
             .required('user name'),
@@ -35,7 +35,7 @@ const Register = (props) => {
         fields => {
           props.handleRegister({
             name: fields.name,
-            player_id: fields.player_id,
+            pubg_id: fields. pubg_id,
             phone: fields.phone,
             password: fields.password,
           })
@@ -47,8 +47,8 @@ const Register = (props) => {
           <ErrorMessage name="phone" component="div" className='error'/>
           <Field type="text" name="name" placeholder='name'/>
           <ErrorMessage name="name" component="div" className='error'/>
-          <Field type="text" name="player_id" placeholder='pubg id'/>
-          <ErrorMessage name="player_id" component="div" className='error'/>
+          <Field type="text" name="pubg_id" placeholder='pubg id'/>
+          <ErrorMessage name="pubg_id" component="div" className='error'/>
           <Field type="password" name="password" placeholder='Пароль'/>
           <ErrorMessage name="password" component="div" className='error'/>
           <Field type="password" name="confirmPassword" placeholder='Повторите пароль'/>
