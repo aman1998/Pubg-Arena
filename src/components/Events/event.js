@@ -1,5 +1,5 @@
 import React from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import {getDate} from '../../axios/dateFormatter'
@@ -40,7 +40,7 @@ const Event = () => {
                 </span>
               </p>
             </div>
-            <div className='price price-title'>Цена за участия</div>
+            <div className='price price-title'>Цена за участие</div>
             <div className='price'>{item.price} сомов</div>
             <div className='price price-title'>Цена за убийство</div>
             <div className='price'>{item.kill_award} сомов</div>

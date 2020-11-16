@@ -52,7 +52,7 @@ const LobbyContainer = (props) => {
                         Правилами игры
                     </NavLink>
               </span></div>
-            <div className='price'>Цена участия: <span>{props.priceGame} сомов</span></div>
+            <div className='price'>Цена участие: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}
             <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
