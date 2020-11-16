@@ -51,9 +51,9 @@ const LobbyContainer = (props) => {
             <div className='name'>{props.name}</div>
             <div className='rule'>Я соглашаюсь с <span>
                     <NavLink
-                        to={`/rules`}
-                        exact
-                      >
+                      to={`/rules`}
+                      exact
+                    >
                         Правилами игры
                     </NavLink>
               </span></div>

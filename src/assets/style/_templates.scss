@@ -96,3 +96,16 @@
   border-bottom: 1px solid white;
   width: 300px;
 }
+
+@mixin forFooterAdaptive{
+  font-size: 24px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  @include _768{
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  .text{
+    font-size: 14px;
+  }
+}
