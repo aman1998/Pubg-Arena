@@ -3,47 +3,41 @@
 
 .footer{
   background-color: $bgHrFr;
-  .container-footer{
-    width: 85%;
-    margin: 0 auto;
+  .container{
     padding-top: 30px;
     padding-bottom: 30px;
     @include flexSpaceBetween;
     @include _768{
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    }
+    .less{
+      display: flex;
+      justify-content: space-around;
     }
     .footer-main{
       .title{
-        font-size: 24px;
-        font-weight: bolder;
-        margin-bottom: 20px;
-        @include _768{
-          margin-top: 20px;
-        }
+        @include forFooterAdaptive;
       }
     }
     .footer-private{
       .title{
-        font-size: 24px;
-        font-weight: bolder;
-        margin-bottom: 20px;
-        @include _768{
-          margin-top: 20px;
-        }
+        @include forFooterAdaptive;
       }
     }
     .footer-soc{
       width: 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      margin-right: 20px;
+      @include flexCenter;
       @include _768{
-        margin-top: 20px;
         width: 50%;
+        margin: 20px auto 0 auto;
+      }
+      .face-box{
+        margin-right: 40px;
+      }
+      .insta-box{
+        margin-right: 40px;
       }
     }
   }
