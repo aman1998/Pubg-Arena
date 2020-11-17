@@ -1,24 +1,22 @@
 import React from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import {getDate} from '../../axios/dateFormatter'
 
 import avatar from '../../assets/img/pubg.jpg'
 
-const Event = (props) => {
+const Event = () => {
   const {lobbies} = useSelector(state => ({
     lobbies: state.lobbies.list,
   }))
-
-  const dispatch = useDispatch()
 
   return (
     <div className='wrapper container'>
       {
         lobbies ? lobbies.map(item => (
           <section className='event' key={item.id}>
-            <img src={lobbies.image} alt='image' className='avatar'/>
+            <img src={`${item.image}`} alt='image' className='avatar'/>
             <div className='name'>{item.name}</div>
             <div className='map'>{item.map}</div>
             <div className='date'>{getDate(item.date)}</div>
@@ -42,7 +40,7 @@ const Event = (props) => {
                 </span>
               </p>
             </div>
-            <div className='price price-title'>Цена за участия</div>
+            <div className='price price-title'>Цена за участие</div>
             <div className='price'>{item.price} сомов</div>
             <div className='price price-title'>Цена за убийство</div>
             <div className='price'>{item.kill_award} сомов</div>

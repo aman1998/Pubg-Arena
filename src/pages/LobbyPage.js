@@ -5,10 +5,8 @@ import {useParams} from 'react-router'
 import {setPlayers} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
 import {setLoading as setLoadingAction} from '../store/actions/lobbies'
-import {fetchLobbiesActionCreator} from '../store/actions/lobbies'
 
 const ENDOPOINT = 'http://195.38.164.24:8080'
-const ENDOPOINT2 = 'http://localhost:1717'
 
 const Lobby = () => {
   let {id} = useParams()
@@ -58,6 +56,7 @@ const Lobby = () => {
             name={lobby.name}
             map={lobby.map}
             date={lobby.date}
+            image={lobby.image}
             time={lobby.time}
             priceGame={lobby.price}
             priceKill={lobby.kill_award}

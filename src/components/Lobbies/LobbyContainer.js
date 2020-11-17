@@ -44,7 +44,7 @@ const LobbyContainer = (props) => {
     <div className='container wrapper'>
       <section className='lobby'>
         <div className='lobby-left'>
-          <img src={PubgPhoto} alt='#' className='avatar'/>
+          <img src={`${props.image}`} alt='#' className='avatar'/>
           <div className='lobby-content'>
             <div className='map'>Карта: {props.map}</div>
             <div className='date'>{getDate(props.date)}</div>
@@ -57,7 +57,7 @@ const LobbyContainer = (props) => {
                         Правилами игры
                     </NavLink>
               </span></div>
-            <div className='price'>Цена участия: <span>{props.priceGame} сомов</span></div>
+            <div className='price'>Цена участие: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}
             <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
