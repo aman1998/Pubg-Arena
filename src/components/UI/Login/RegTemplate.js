@@ -41,16 +41,6 @@ const RegTemplate = () => {
       .catch(e => console.log(e))
   }
 
-  const handleRegister = (body) => {
-    console.log('register')
-    axios.post('/register/', body)
-      .then(response => {
-        dispatch(showRegister())
-        console.log(response)
-      })
-      .catch(e => console.log(e))
-  }
-
   const dispatchShowRegister = () => {
     dispatch(showRegister())
   }
@@ -64,7 +54,7 @@ const RegTemplate = () => {
         ) : showActivate ? (
           <Activate handleActivate={handleActivate} phone={phone}/>
         ) : showRegisterContainer ?
-          <Register handleRegister={handleRegister} phone={phone}/> : null
+          <Register phone={phone}/> : null
       }
     </div>
   )

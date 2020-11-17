@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
+import {useSelector} from 'react-redux'
 import PageTemplate from '../components/templates/PageTemplate'
 import Sidebar from '../components/layout/Sidebar'
 import UserRating from '../components/User/UserRating'
@@ -7,21 +8,33 @@ import UserRating from '../components/User/UserRating'
 import CardOut from '../components/Card/CardOut'
 
 const Profile = () => {
+  const {loading, success} = useSelector(state => ({
+    loading: state.profile.get.loading,
+    success: state.profile.get.success,
+  }))
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   return (
     <PageTemplate class='footer-profile'>
-      <div className='container profile'>
-        <Sidebar />
-        <div className='content'>
-          <Route path='/profile' exact>
-            <UserRating />
-          </Route>
-          <Route path='/profile/settings' exact>
-            Настройки
-          </Route>
-          {/*<CardIn />*/}
-          <CardOut />
-        </div>
-      </div>
+      { loading ? <div className='loading'>sdsd</div> :
+        success ?
+        <div className='container profile'>
+          <Sidebar />
+          <div className='content'>
+            <Route path='/profile' exact>
+              <UserRating />
+            </Route>
+            <Route path='/profile/settings' exact>
+              Настройки
+            </Route>
+            {/*<CardIn />*/}
+            <CardOut />
+          </div>
+        </div> : <div>Обновите</div> 
+      }
     </PageTemplate>
   )
 }

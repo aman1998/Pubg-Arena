@@ -40,22 +40,27 @@ const LoginUserInfo = (props) => {
           width <= 800 ? (
             <>
               <div className='phone'>
-                {props.phone}
+                Тел: {props.phone}
               </div>
               <div className='username'>
-                {props.name}
+                Имя: {props.name}
               </div>
               <div className='money'>
-                balance: {props.balance}
+                Баланс: {props.balance} сомов
               </div>
             </>
           ) : null
         }
         <div className='sidebar-mobile'>
+          <div className='line'></div>
           <div><NavLink to='/profile/' exact>Личные данные</NavLink></div>
+          <div className='line'></div>
           <div><NavLink to='/profile/settings/' exact>Настройки</NavLink></div>
+          <div className='line'></div>
           <div><NavLink to='/profile/cardIn/' exact>Пополнить счет</NavLink></div>
+          <div className='line'></div>
           <div><NavLink to='/profile/cardOut/' exact>Вывести со счета</NavLink></div>
+          <div className='line'></div>
         </div>
         <div className='userMoney'>
           <Link to={'/'} onClick={props.handleLogout}>

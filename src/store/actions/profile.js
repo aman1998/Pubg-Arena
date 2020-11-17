@@ -1,4 +1,12 @@
-import {SET_TOKEN, IS_LOG, SET_PROFILE} from "../actionTypes"
+import {
+  SET_TOKEN, 
+  IS_LOG, 
+  SET_PROFILE,
+  GET_PROFILE_FAILED, 
+  GET_PROFILE_LOADING, 
+  GET_PROFILE_SUCCESS
+} from "../actionTypes"
+
 import {isLoading, loading, notLoading} from "./isLoading"
 import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
@@ -11,6 +19,7 @@ export const setProfile = (payload) => ({
 
 export const fetchProfileActionCreator = () => dispatch => {
   dispatch(loading())
+  dispatch({ type: GET_PROFILE_LOADING })
   const token = localStorage.getItem('token')
   axios.get('/profile/', {
     headers: {
@@ -22,6 +31,7 @@ export const fetchProfileActionCreator = () => dispatch => {
       dispatch(logIn())
       dispatch(checkIsLog(true))
       dispatch(notLoading())
+      dispatch({ type: GET_PROFILE_SUCCESS})
     })
     .catch((e) => {
       console.log(e.message)
@@ -29,6 +39,7 @@ export const fetchProfileActionCreator = () => dispatch => {
       dispatch(logOut())
       dispatch(notLoading())
       dispatch(setToken(''))
+      dispatch({ type: GET_PROFILE_FAILED })
     })
 }
 

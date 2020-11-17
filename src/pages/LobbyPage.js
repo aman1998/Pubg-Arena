@@ -25,6 +25,7 @@ const Lobby = () => {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
+    window.scrollTo(0, 0)
     setLoading(true)
     fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
       // fetch(`${ENDOPOINT2}/list/${id}/`, {

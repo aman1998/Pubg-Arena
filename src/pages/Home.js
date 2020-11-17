@@ -18,6 +18,7 @@ const MainPage = () => {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
+    window.scrollTo(0, 0);
     if(lobbies.length === 0) {
       dispatch(fetchLobbiesActionCreator())
     }
