@@ -58,6 +58,7 @@ const Lobby = () => {
             date={lobby.date}
             image={lobby.image}
             time={lobby.time}
+            players={lobby.player_list}
             priceGame={lobby.price}
             priceKill={lobby.kill_award}
             playerCount={lobby.playerCount}
