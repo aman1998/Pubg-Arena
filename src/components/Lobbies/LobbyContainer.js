@@ -3,17 +3,12 @@ import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import { setLoading} from '../../store/actions/lobbies'
-import {setPlayers} from '../../store/actions/lobbies'
 
 import axios from '../../axios/axios'
 import Timer from '../UI/Timer'
 import Players from './Players'
 
-import PubgPhoto from '../../assets/img/pubg.png'
 import {getDate} from "../../axios/dateFormatter";
-
-const ENDOPOINT = 'http://195.38.164.24:8080'
-
 
 const LobbyContainer = (props) => {
   const [password, setPassword] = useState(false)
