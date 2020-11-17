@@ -21,7 +21,7 @@ header {
         width: fit-content;
       }
       .home, .profile {
-        @media screen and (max-width: 500px){
+        @media screen and (max-width: 560px){
           display: none;
         }
       }
@@ -30,7 +30,7 @@ header {
         height: 30px;
         background-color: $lineColor;
         margin: 0 20px;
-        @media screen and (max-width: 500px){
+        @media screen and (max-width: 560px){
           display: none;
         }
       }
@@ -39,12 +39,12 @@ header {
       .itemsLoginDesktop {
         display: flex;
         justify-content: flex-end;
-        @media screen and (max-width: 500px){
+        @media screen and (max-width: 560px){
           display: none;
         }
       }
       width: 250px;
-      @media screen and (max-width: 500px){
+      @media screen and (max-width: 560px){
         width: auto;
       }
       &.loggedIn{
@@ -107,10 +107,23 @@ header {
           }
           @include popups();
           &.down{
-            transform: translateY(80px);
+            background: #2D9069;
             right: 0;
+            transform: translateY(68px);
+            div {
+              margin-bottom: 8px;
+              .line {
+                border: 1px solid rgba(255, 255, 255, 0.4);
+              }
+            }
+            .userMoney {
+              margin-bottom: 0;
+            }
+            @media screen and (max-width: 800px){
+              transform: translateY(110px);
+            }
             @media screen and (max-width: 560px){
-              transform: translateY(120px);
+              transform: translateY(195px);
             }
           }
           &.up{
