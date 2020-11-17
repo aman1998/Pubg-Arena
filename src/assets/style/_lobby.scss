@@ -98,6 +98,7 @@
       @include btn2();
     }
     &-right {
+      position: relative;
       padding: 10px;
       overflow: auto;
       width: 200px;
@@ -115,6 +116,18 @@
         line-height: 28px;
         margin-bottom: 10px;
       }
+        .players-loading {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          // border: 10px solid #f3f3f3; 
+          border-top: 10px solid  #2D9069; /* Blue */
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          animation: spin 2s linear infinite;
+        }
     }
   }
   .password-block {

@@ -27,24 +27,23 @@ const Lobby = () => {
   React.useEffect(() => {
     setLoading(true)
     fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
-    // fetch(`${ENDOPOINT2}/list/${id}/`, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setLoading(false)
-        setSuccess(true)
-        setLobby(data)
-        dispatch(setPlayers(data.player_list))
-        dispatch(setLoadingAction(false))
+      // fetch(`${ENDOPOINT2}/list/${id}/`, {
+        method: 'GET',
       })
-      .catch(() => {
-        setLoading(false)
-        setError(true)
-      })
-  }, [isLoading])
+        .then((response) => response.json())
+        .then((data) => {
+          setLoading(false)
+          setSuccess(true)
+          setLobby(data)
+          dispatch(setPlayers(data.player_list))
+          dispatch(setLoadingAction(false))
+        })
+        .catch(() => {
+          setLoading(false)
+          setError(true)
+        })
+  }, [])
 
-  console.log('lobby', lobby)
 
   return (
     <PageTemplate>
@@ -63,7 +62,7 @@ const Lobby = () => {
             priceKill={lobby.kill_award}
             playerCount={lobby.playerCount}
             pass={lobby.passcode}
-            players={lobby.player_list}
+            lobby_id={id}
           /> :
           <div className='error-fetch'>Обновите</div> 
         }
