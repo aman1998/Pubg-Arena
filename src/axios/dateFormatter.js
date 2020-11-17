@@ -6,6 +6,6 @@ export const getDate = (date) => {
   ar.splice(2,3)
   let timeZone = ar[1].split('')
   timeZone.splice(timeZone.length - 2, 0, ':')
-  let time = timeZone.join('')
+  let time = ar[0] + ' ' + timeZone.join('')
   return `${newDay}/${newMonth}/${newYear}  ${time}`
 }
