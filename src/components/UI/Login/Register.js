@@ -1,8 +1,25 @@
 import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
+import {useDispatch} from "react-redux"
+import {fetchLoginActionCreator} from "../../../store/actions/profile"
+import {showRegister} from "../../../store/actions/modalRegister"
+
+import axios from "../../../axios/axios";
 
 const Register = (props) => {
+  const dispatch = useDispatch()
+
+  const handleRegister = ({name, pubg_id, phone, password}) => {
+    console.log('register')
+    axios.post('/register/', {name, pubg_id, phone, password})
+      .then(response => {
+        dispatch(showRegister())
+        console.log(response)
+        dispatch(fetchLoginActionCreator({phone, password}))
+      })
+      .catch(e => console.log(e))
+  }
 
   return (
     <Formik
@@ -33,7 +50,7 @@ const Register = (props) => {
       }
       onSubmit ={
         fields => {
-          props.handleRegister({
+          handleRegister({
             name: fields.name,
             pubg_id: fields. pubg_id,
             phone: fields.phone,
