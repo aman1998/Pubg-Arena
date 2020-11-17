@@ -2,6 +2,9 @@ import React from 'react'
 import PageTemplate from '../components/templates/PageTemplate'
 
 const Rules = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
   return (
     <PageTemplate>
       <section className='privacy container'>

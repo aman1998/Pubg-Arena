@@ -13,6 +13,10 @@ const Profile = () => {
     success: state.profile.get.success,
   }))
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   return (
     <PageTemplate class='footer-profile'>
       { loading ? <div className='loading'>sdsd</div> :
