@@ -4,8 +4,6 @@ import {NavLink} from 'react-router-dom'
 
 import {getDate} from '../../axios/dateFormatter'
 
-import avatar from '../../assets/img/pubg.jpg'
-
 const Event = () => {
   const {lobbies} = useSelector(state => ({
     lobbies: state.lobbies.list,
