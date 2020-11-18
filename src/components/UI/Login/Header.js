@@ -1,21 +1,16 @@
 import React from 'react'
 import Cancel from '../../../assets/icons/cancel'
-import Logo from '../../../assets/icons/logo.svg'
+import {NavLink} from 'react-router-dom'
 
 const Header = (props) => {
   return (
     <div>
-      <div className= {`loginHeader ${props.class}`}>
-        <div>
-          +400 хп за регистрацию
-        </div>
-        <div className='cancel' onClick={props.close}><Cancel /></div>
-      </div>
+      <div className='cancel' onClick={props.close}><Cancel /></div>
       <div className='loginHeaderContent'>
-        <img src={Logo} alt='#'/>
-        <div>Добро пожаловать в Arenum</div>
-        <div style={{marginBottom: '10px'}}>Нажимая кнопку, вы соглашаетесь с Условиями использования и Политикой конфиденциальности
-          и подтверждаете, что вам есть 18 лет.
+        <div className='login-title'>Добро пожаловать в Arenum</div>
+        <div className='login-text'>Нажимая кнопку, вы соглашаетесь   
+          <p>с <NavLink to='/terms' exact>Условиями использования</NavLink></p> <p>и <NavLink to='/rules' exact>Политикой конфиденциальности</NavLink></p>
+          подтверждаете, что вам есть 18 лет.
         </div>
       </div>
     </div>

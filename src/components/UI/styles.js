@@ -1,0 +1,18 @@
+export const buttonStyle = (loading, error) => ({
+  cursor: "pointer",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '240px',
+  height: '50px',
+  background: '#2D9069',
+  bordeRradius: '10px',
+  fonWweight: 500,
+  fontSize: '20px',
+  lineHeight: '24px',
+  transition: "all 150ms ease-in-out",
+  border: '1px solid inherit',
+  borderColor: error ? "red" : loading ? "blue" : "black",
+  color: error ? "red" : loading ? "blue" : "black",
+  transform: error ? "scale(1.2)" : "scale(1.0)",
+});

@@ -1,78 +1,127 @@
-.login{
-  background: #5c5e66;
-  max-width: 414px;
-  width: 100%;
-  border-radius: 6px;
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
-  &HeaderContent {
-    text-align: center;
-    padding: 30px 20px 0px 20px;
-    font-size: 15px;
-    img {
-      width: 60px;
-      height: 60px;
-    }
-    div {
-      &:nth-child(3) {
-        color: #aca7a7;
-        font-size: 11px;
-        margin: 5px 15px 30px 15px;
+@import './variables';
+@import './templates';
+
+  .login{
+    color: $colorBtn;
+    background:url('../../img//login.png') rgba(203, 203, 203, 1) center/cover;
+    max-width: 370px;
+    width: 100%;
+    border-radius: 6px;
+    position: fixed;
+    animation: showForm .5s forwards;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    z-index: 100;
+    &HeaderContent {
+      text-align: center;
+      padding: 30px 20px 0px 20px;
+      font-size: 15px;
+      div {
+        &:nth-child(3) {
+          color: #aca7a7;
+          font-size: 11px;
+          margin: 5px 15px 30px 15px;
+        }
+      }
+      .login-title {
+        text-align: center;
+        margin: 40px 0 15px 0;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 20px;
+        color: #0A0816;
+      }
+      .login-text {
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 140%;
+        text-align: center;
+        color: #0A0816;
+        a {
+          text-decoration: underline;
+        }
       }
     }
-  }
-  .reg {
-    background: linear-gradient(200.85deg, #48c691 14.07%, #26835f 93%);
-  }
-  .log {
-    background: linear-gradient(200.85deg,#0054ff 14.07%, #27225a 93%);
-  }
-  &Header{
-    text-transform: uppercase;
-    font-size: 11px;
-    border-radius: 6px 6px 0 0;
-    display: flex;
-    padding: 6px 14px;
-    justify-content: space-between;
-  }
-  &Form {
-    padding: 0 20px 10px 20px;
-    display: flex;
-    flex-direction: column;
-    input {
-      padding: 10px;
-      width: 100%;
-      margin-top: 10px;
-      border-radius: 6px;
-      border: none;
-      outline: none;
+    .reg {
+      background: $mainBg;
     }
-    &Btn {
-      color: inherit;
-      margin-top: 10px;
+    .log {
+      background: $mainBg;
+    }
+    &Header{
+      text-transform: uppercase;
+      font-size: 11px;
+      border-radius: 6px 6px 0 0;
+      display: flex;
+      padding: 6px 14px;
+      justify-content: space-between;
+    }
+    &Form {
+      padding: 0 20px 10px 20px;
+      display: flex;
+      flex-direction: column;
+      input {
+        padding: 12px 10px;
+        width: 100%;
+        margin-top: 15px;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+      }
+      .check-wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        .check-input {
+          margin: 0 15px 0 0;
+          width: 18px;
+          height: 18px;
+          border: 1px solid rgba(0, 0, 0, 0.8);
+        }
+      }
+      &Btn {
+        padding: 1px 0;
+        font-weight: 500;
+        padding: 15px 0;
+        color: inherit;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+        border-radius: 6px;
+      }
+    }
+    .cancel {
+      position: absolute;
+      top: 10px;
+      right: 10px;
       cursor: pointer;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      outline: none;
-      transition: 0.4s;
-      border-radius: 6px;
+    }
+    .cancel:hover {
+      color: rgb(56, 53, 53);
+    }
+    .error {
+      display: block;
+      margin-top: 0px;
+      font-size: 12px;
+      color: #D8000C;
+      font-style: italic;
     }
   }
-  .cancel {
-    cursor: pointer;
-  }
-  .cancel:hover {
-    color: rgb(56, 53, 53);
-  }
-  .error {
-    display: block;
-    margin-top: 0px;
-    font-size: 12px;
-    color: #D8000C;
-    font-style: italic;
-  }
-}
+  
+  @keyframes showForm {
+    0% {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    100% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }  

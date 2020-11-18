@@ -17,6 +17,7 @@
     "react-bootstrap-dropdown-menu": "^1.1.15",
     "react-dom": "^17.0.1",
     "react-intl-tel-input": "^8.0.4",
+    "react-nested-loader": "^2.2.1",
     "react-phone-number-input": "^3.1.5",
     "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
@@ -29,7 +30,7 @@
     "yup": "^0.29.3"
   },
   "scripts": {
-    "start": "PORT=3030 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

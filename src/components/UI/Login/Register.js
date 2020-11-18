@@ -30,6 +30,7 @@ const Register = (props) => {
           phone: props.phone,
           password: '',
           confirmPassword: '',
+          acceptTerms: false
         }
       }
       validationSchema={
@@ -46,6 +47,7 @@ const Register = (props) => {
           confirmPassword: Yup.string()
             .oneOf([Yup.ref('password'), null], 'Пароли должны совпадать')
             .required('Подтвердите пароль'),
+          acceptTerms: Yup.bool().oneOf([true], 'Поставьте галочку!')
         })
       }
       onSubmit ={
@@ -70,7 +72,12 @@ const Register = (props) => {
           <ErrorMessage name="password" component="div" className='error'/>
           <Field type="password" name="confirmPassword" placeholder='Повторите пароль'/>
           <ErrorMessage name="confirmPassword" component="div" className='error'/>
-          <button type="submit" className='loginFormBtn reg' style={{background: '#26835f'}}>
+          <div className='check-wrapper'>
+            <Field type="checkbox" name="acceptTerms" className='check-input'/>
+            <label htmlFor="acceptTerms" className="check">Я ознакомлен и согласен</label>
+          </div>
+          <ErrorMessage name="acceptTerms" component="div"className='error'/>
+          <button type="submit" className='loginFormBtn reg'>
             Регистрация
           </button>
         </Form>

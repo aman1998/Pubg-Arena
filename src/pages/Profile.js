@@ -21,19 +21,20 @@ const Profile = () => {
     <PageTemplate class='footer-profile'>
       { loading ? <div className='loading'>sdsd</div> :
         success ?
-        <div className='container profile'>
-          <Sidebar />
-          <div className='content'>
-            <Route path='/profile' exact>
-              <UserRating />
-            </Route>
-            <Route path='/profile/settings' exact>
-              Настройки
-            </Route>
-            {/*<CardIn />*/}
-            <CardOut />
-          </div>
-        </div> : <div>Обновите</div> 
+          <div key='1' className='container profile'>
+            <Sidebar/>
+            <div className='content'>
+              <Route path='/profile' exact>
+                <UserRating/>
+              </Route>
+              <Route path='/profile/settings' exact>
+                <div>Настройки</div>
+              </Route>
+              {/*<CardIn />*/}
+              <CardOut />
+            </div>
+          </div> 
+        : <div>Обновите</div> 
       }
     </PageTemplate>
   )

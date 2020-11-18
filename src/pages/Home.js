@@ -1,10 +1,8 @@
 import React from 'react'
 // import {useSelector} from 'react-redux'
-
 import Slider from "../container/Slider";
 import PageTemplate from '../components/templates/PageTemplate'
 import Events from '../components/Events/event'
-
 import {fetchLobbiesActionCreator} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
 
