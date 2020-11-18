@@ -9,7 +9,6 @@ import Timer from '../UI/Timer'
 import Players from './Players'
 
 import {getDate} from "../../axios/dateFormatter";
-import {loading} from "../../store/actions/isLoading";
 
 const LobbyContainer = (props) => {
   const dispatch = useDispatch()

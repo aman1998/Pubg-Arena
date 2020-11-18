@@ -28,11 +28,12 @@ export const setLoading = (isLoading) => ({
 export const fetchLobbiesActionCreator = () => dispatch => {
   dispatch({ type: GET_LOBBIES_LOADING })
   axios.get('/lobby/rates/')
-  // axios.get('/list/')
     .then(response => {
+      response.data.sort((a, b) => {
+        return new Date(a.date) - new Date(b.date)
+      })
       dispatch(setLobbiesList(response.data))
       dispatch({ type: GET_LOBBIES_SUCCESS })
-      // console.log(response.data)
     })
     .catch(error => {
       dispatch({ type: GET_LOBBIES_FAILED })
