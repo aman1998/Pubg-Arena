@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
@@ -9,31 +9,52 @@ import Timer from '../UI/Timer'
 import Players from './Players'
 
 import {getDate} from "../../axios/dateFormatter";
+import {loading} from "../../store/actions/isLoading";
 
 const LobbyContainer = (props) => {
+  const dispatch = useDispatch()
+  const [isPlaying, setIsPlaying] = useState(false)
   const [password, setPassword] = useState(false)
 
-  const {myProfile} = useSelector(state => ({
+  const {myProfile, isLoading} = useSelector(state => ({
     myProfile: state.profile.myProfile,
+    isLoading: state.isLoading
   }))
 
-  const dispatch = useDispatch()
+  const isUserIsPlaying = () => {
+    for (let i = 0; i < props.players.length; i++) {
+      if (props.players[i].id === myProfile.pk) {
+        return true
+      }
+    }
+    return false
+  }
 
   const enterGame = () => {
     axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk, balance: myProfile.balance})
       .then(() => {
         dispatch(setLoading(true))
+        // setIsPlaying(true)
       })
       .catch(e => console.log(e))
   }
 
   const showPass = () => {
+    console.log('start of function')
     for (let i = 0; i < props.players.length; i++) {
       if (props.players[i].id === myProfile.pk) {
         setPassword(true)
+        console.log('set pass')
       }
+      console.log('player:', props.players[i])
     }
   }
+
+  useEffect(() => {
+    if(props.players){
+      setIsPlaying(isUserIsPlaying())
+    }
+  }, [props.players, isLoading])
 
   return (
     <div className='container wrapper'>
@@ -55,8 +76,8 @@ const LobbyContainer = (props) => {
             <div className='price'>Цена участие: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}
-            <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button>
-            <button className='lobby-content__btn btn' onClick={showPass}>Пароль</button>
+            {isPlaying ? null : <button className='lobby-content__btn btn' onClick={enterGame}>Вступить</button> }
+            {isPlaying ? <button className='lobby-content__btn btn' onClick={showPass}>Пароль</button> : null}
           </div>
         </div>
         <Players id={props.lobby_id}/>
