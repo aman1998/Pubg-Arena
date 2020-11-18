@@ -34,19 +34,15 @@ const LobbyContainer = (props) => {
     axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk, balance: myProfile.balance})
       .then(() => {
         dispatch(setLoading(true))
-        // setIsPlaying(true)
       })
       .catch(e => console.log(e))
   }
 
   const showPass = () => {
-    console.log('start of function')
     for (let i = 0; i < props.players.length; i++) {
       if (props.players[i].id === myProfile.pk) {
         setPassword(true)
-        console.log('set pass')
       }
-      console.log('player:', props.players[i])
     }
   }
 
