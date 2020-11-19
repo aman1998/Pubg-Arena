@@ -4,7 +4,8 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import { fetchProfileActionCreator} from './store/actions/profile'
 
-import MainPage from './pages/Home'
+import HomePage from './pages/Home'
+import LobbiesPage from './pages/Lobbies'
 import ProfilePage from './pages/Profile'
 import LobbyPage from './pages/LobbyPage'
 import PrivacyPage from './pages/Privacy'
@@ -31,7 +32,8 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/' component={MainPage} exact/>
+        <Route path='/' component={HomePage} exact/>
+        <Route path='/tournaments' component={LobbiesPage} exact/>
         <Route path='/lobby/:id' component = {LobbyPage}/>
         <Route path='/privacy' component = {PrivacyPage}/>
         <Route path='/terms' component = {TermsPage}/>

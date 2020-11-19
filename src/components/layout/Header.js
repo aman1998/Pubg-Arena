@@ -16,7 +16,7 @@ const Header = () => {
       <div className='container'>
         <nav className='block'>
           <div className='blockLeft'>
-            <NavLink to='/' className='items' activeClassName='active' >
+            <NavLink to='/' className='items item-logo' activeClassName='active' >
               <img src={Logo} alt='#' className='logo'/>
             </NavLink>
             <div className='line-vert'></div>
@@ -28,7 +28,30 @@ const Header = () => {
             >
               Главная
             </NavLink>
-            <div className='line-vert'></div>
+            <NavLink
+              to='/tournaments'
+              className='items tournaments'
+              activeClassName='active'
+              exact
+            >
+              Турниры
+            </NavLink>
+            <NavLink
+              to='/rates'
+              className='items rates'
+              activeClassName='active'
+              exact
+            >
+              Рейтинги
+            </NavLink>
+            {/* <NavLink
+              to='/rules'
+              className='items rules'
+              activeClassName='active'
+              exact
+            >
+              Правила игры
+            </NavLink> */}
             { isLogged ?
             <NavLink
               to='/profile'
@@ -39,6 +62,7 @@ const Header = () => {
             </NavLink> :
               null}
           </div>
+
           <LoginController />
         </nav>
       </div>
