@@ -21,6 +21,28 @@
       display: block;
       width: 100%;
     }
+    .enter{
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: popup 0.5s forwards;
+    }
+    @keyframes popup{
+      0% {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      100% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
     &-left {
       display: flex;
       margin-bottom: 30px;

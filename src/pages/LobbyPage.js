@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PageTemplate from '../components/templates/PageTemplate'
 import LobbyPage from '../components/Lobbies/LobbyContainer'
 import {useParams} from 'react-router'
@@ -28,7 +28,6 @@ const Lobby = () => {
     window.scrollTo(0, 0)
     setLoading(true)
     fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
-      // fetch(`${ENDOPOINT2}/list/${id}/`, {
         method: 'GET',
       })
         .then((response) => response.json())
@@ -43,7 +42,7 @@ const Lobby = () => {
           setLoading(false)
           setError(true)
         })
-  }, [])
+  }, [isLoading])
 
 
   return (
