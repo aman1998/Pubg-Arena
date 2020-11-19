@@ -26,7 +26,7 @@ const Header = () => {
               activeClassName='active'
               exact
             >
-              Главное
+              Главная
             </NavLink>
             <div className='line-vert'></div>
             { isLogged ?
