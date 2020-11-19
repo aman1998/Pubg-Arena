@@ -19,9 +19,13 @@ header {
       align-items: center;
       .items{
         width: fit-content;
+        margin-right: 18px;
       }
-      .home, .profile {
-        @media screen and (max-width: 560px){
+      .item-logo {
+        margin: 0;
+      }
+      .home, .profile, .tournaments, .rates, .rules {
+        @media screen and (max-width: 768px){
           display: none;
         }
       }
@@ -30,33 +34,25 @@ header {
         height: 30px;
         background-color: $lineColor;
         margin: 0 20px;
-        @media screen and (max-width: 560px){
+        @media screen and (max-width: 768px){
           display: none;
         }
       }
     }
     &Right{
+      padding: 10px 0;
       .itemsLoginDesktop {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         @media screen and (max-width: 560px){
           display: none;
         }
       }
-      width: 250px;
       @media screen and (max-width: 560px){
         width: auto;
       }
-      &.loggedIn{
-        justify-content: right;
-      }
-      .items {
-        width: fit-content;
-        display: flex;
-        align-items: center;
-      }
       .itemsLogin {
-        @include flexCenter;
+        @include flexSpaceBetween;
         padding: 6px 16px;
         color: $colorBtn;
         background: $mainBg;
@@ -64,40 +60,46 @@ header {
         border-radius: 4px;
         cursor: pointer;
         margin-right: 10px;
-        // &:hover {
-        //   background: linear-gradient(200.85deg,#0054ff 14.07%, #27225a 93%);
-        // }
       }
       .register{
         color: $colorBtn;
         margin-right: 0;
-        background: $mainBg;
-        // &:hover{
-        //   background: linear-gradient(200.85deg, #48c691 14.07%, #26835f 93%);
-        // }
+        background: linear-gradient(210.53deg, #FF0000 45.6%, #FFDD00 78.36%);
       }
       .loginUserInfo{
         position: relative;
-        @include flexCenter;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         box-sizing: border-box;
+        .cardIn {
+          @include btnCard;
+          margin-right: 28px;
+          @media screen and (max-width: 1000px){
+            margin-right: 20px;
+          }
+        }
         .userAvatar{
           display: flex;
+          align-items: center;
           .username{
-            @include flexCenter;
+            @include flexSpaceBetween;
+            align-items: center;
             div{
               margin-right: 10px;
             }
           }
           .balance{
-            @include flexCenter;
-            margin-right: 50px;
+            @include flexSpaceBetween;
+            align-items: center;
+            margin-right: 30px;
+            @media screen and (max-width: 1000px){
+              margin-right: 20px;
+            }
             div{
               margin-right: 10px;
             }
           }
-        }
-        .username{
-          margin-right: 20px;
         }
         .modalInfo{
           display: flex;
@@ -111,7 +113,7 @@ header {
           &.down{
             background: #2D9069;
             right: 0;
-            transform: translateY(68px);
+            transform: translateY(65px);
             div {
               margin-bottom: 8px;
               .line {
@@ -121,11 +123,11 @@ header {
             .userMoney {
               margin-bottom: 0;
             }
-            @media screen and (max-width: 800px){
-              transform: translateY(110px);
+            @media screen and (max-width: 1000px){
+              transform: translateY(125px);
             }
-            @media screen and (max-width: 560px){
-              transform: translateY(195px);
+            @media screen and (max-width: 768px){
+              transform: translateY(270px);
             }
           }
           &.up{
@@ -160,7 +162,7 @@ header {
   }
 }
 .modalReg {
-  @media screen and (min-width: 500px){
+  @media screen and (min-width: 560px){
     display: none;
   }
   &.down{
@@ -171,7 +173,7 @@ header {
 .incognito {
   cursor: pointer;
   display: none;
-  @media screen and (max-width: 500px){
+  @media screen and (max-width: 560px){
     display: inline-block;
   }
 }

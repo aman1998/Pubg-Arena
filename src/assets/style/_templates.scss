@@ -29,6 +29,14 @@
   outline: none;
 }
 
+@mixin btnCard{
+  padding: 12px 0;
+  width: 170px;
+  color: #0A0816;
+  border-radius: 10px;
+  background: #FFDD00;
+}
+
 @mixin btn2{
   display: flex;
   justify-content: center;

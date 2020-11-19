@@ -3,7 +3,6 @@ import {Link, NavLink} from "react-router-dom"
 import useWindowDimensions from "../Hooks/useWindowDimentions"
 
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
-import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
 
 const LoginUserInfo = (props) => {
@@ -12,12 +11,21 @@ const LoginUserInfo = (props) => {
 
   return (
     <div className='loginUserInfo'>
+      <div>
+        <NavLink
+          to='/profile/cardIn'
+          className='cardIn'
+          exact
+        >
+          Пополнить
+        </NavLink>
+      </div>
       <div
         className='userAvatar'
         onClick={() => setModalUserInfo(!modalUserInfo)}
       >
         {
-          width >= 800 ? (
+          width >= 1000 ? (
             <>
               <div className='balance'>
                 <div> {props.balance} </div>
@@ -37,7 +45,7 @@ const LoginUserInfo = (props) => {
       </div>
       <div className={modalUserInfo ? 'modalInfo down' : 'modalInfo up'}>
         {
-          width <= 800 ? (
+          width <= 1000 ? (
             <>
               <div className='phone'>
                 Тел: {props.phone}
@@ -53,6 +61,12 @@ const LoginUserInfo = (props) => {
         }
         <div className='sidebar-mobile'>
           <div className='line'></div>
+          <div><NavLink to='/tournaments/' exact>Турниры</NavLink></div>
+          <div className='line'></div>
+          <div><NavLink to='/rates/' exact>Рейтинги</NavLink></div>
+          <div className='line'></div>
+          <div><NavLink to='/rules/' exact>Правила игры</NavLink></div>
+          <div className='line'></div>
           <div><NavLink to='/profile/' exact>Личные данные</NavLink></div>
           <div className='line'></div>
           <div><NavLink to='/profile/settings/' exact>Настройки</NavLink></div>
@@ -63,9 +77,7 @@ const LoginUserInfo = (props) => {
           <div className='line'></div>
         </div>
         <div className='userMoney'>
-          <Link to={'/'} onClick={props.handleLogout}>
-            <ExitToAppIcon className='logout'/>
-          </Link>
+          <Link to={'/'} onClick={props.handleLogout}>Выйти</Link>
         </div>
       </div>
     </div>

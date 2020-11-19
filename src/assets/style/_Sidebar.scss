@@ -64,15 +64,15 @@
   }
   .active {
     font-weight: bold;
-    background-color: #2D9069;
-    color: #FFFFFF;
+    background-color: $mainBg;
+    color: #0A0816;
     .itemHint {
       display: block;
     }
   }
   &-mobile {
     display: none;
-    @media screen and (max-width: 560px){
+    @media screen and (max-width: 768px){
       display: block;
     }
   }
