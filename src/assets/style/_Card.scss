@@ -1,0 +1,89 @@
+.cardIn {
+  h2{
+    margin: 20px auto;
+    width: fit-content;
+  }
+  .text{
+    margin: 20px auto;
+    width: fit-content;
+    .important{
+      margin: 14px 0;
+    }
+  }
+  &Icons{
+    display: flex;
+    justify-content: center;
+    img{
+      margin: 5px 10px;
+    }
+  }
+
+  //input {
+  //  height: 38px;
+  //  padding: 5px;
+  //  &:focus {
+  //    border: 1px solid #fc0;
+  //  }
+  //}
+  //&-form {
+  //  margin-bottom: 10px;
+  //  border-radius: 8px;
+  //  background: #f0f0ee;
+  //  padding: 20px;
+  //  max-width: 338px;
+  //  box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  //  .num {
+  //    border: 1px solid #fc0;
+  //    width: 100%;
+  //    outline: none;
+  //  }
+  //  .date {
+  //    display: flex;
+  //    justify-content: space-between;
+  //    margin-top: 10px;
+  //    div {
+  //      display: flex;
+  //      input {
+  //        &:nth-child(2) {
+  //          margin-left: 5px;
+  //        }
+  //      }
+  //    }
+  //    input {
+  //      border: 1px solid #778a9b;
+  //      display: block;
+  //      width: 20%;
+  //      outline: none;
+  //      &:focus {
+  //        border: 1px solid #fc0;
+  //      }
+  //    }
+  //  }
+  //}
+  //.icons {
+  //  display: flex;
+  //  justify-content: flex-end;
+  //  img {
+  //    width: 30px;
+  //    height: 30px;
+  //    &:nth-child(1) {
+  //      margin-right: 5px;
+  //    }
+  //  }
+  //}
+  //.sum {
+  //  text-align: center;
+  //  outline: none;
+  //  &:focus {
+  //    border: 1px solid #fc0;
+  //  }
+  //}
+  //button {
+  //  width: 120px;
+  //  cursor: pointer;
+  //  padding: 5px;
+  //  background: #ffd633;
+  //  outline: none;
+  //  border: none;
+  //}
+}

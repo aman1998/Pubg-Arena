@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom'
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined'
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined'
 import RemoveCircleOutlineOutlinedIcon from '@material-ui/icons/RemoveCircleOutlineOutlined'
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 
 const Sidebar = () => {
   return (
@@ -22,7 +23,6 @@ const Sidebar = () => {
                 <div className='sidebarItemText'>Личные Данные</div>
               </div>
             </NavLink>
-
             <NavLink
               to='/profile/settings/'
               className='sidebarItem'
@@ -34,7 +34,17 @@ const Sidebar = () => {
                 <div className='sidebarItemText'>Настройки аккаунта</div>
               </div>
             </NavLink>
-
+            <NavLink
+              to='/profile/cardIn/'
+              className='sidebarItem'
+              activeClassName='active'
+              exact
+            >
+              <div>
+                <AddCircleOutlineIcon className='sidebarItemIcon'/>
+                <div className='sidebarItemText'>Пополнить счета</div>
+              </div>
+            </NavLink>
             <NavLink
               to='/profile/cardOut/'
               className='sidebarItem'

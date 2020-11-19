@@ -53,13 +53,13 @@ const LoginUserInfo = (props) => {
         }
         <div className='sidebar-mobile'>
           <div className='line'></div>
-          <div><NavLink to='/profile/' exact>Личные данные</NavLink></div>
+          <div><NavLink to='/profile' >Личные данные</NavLink></div>
           <div className='line'></div>
-          <div><NavLink to='/profile/settings/' exact>Настройки</NavLink></div>
+          <div><NavLink to='/profile/settings' >Настройки</NavLink></div>
           <div className='line'></div>
-          <div><NavLink to='/profile/cardIn/' exact>Пополнить счет</NavLink></div>
+          <div><NavLink to='/profile/cardIn' >Пополнить счет</NavLink></div>
           <div className='line'></div>
-          <div><NavLink to='/profile/cardOut/' exact>Вывести со счета</NavLink></div>
+          <div><NavLink to='/profile/cardOut' >Вывести со счета</NavLink></div>
           <div className='line'></div>
         </div>
         <div className='userMoney'>
