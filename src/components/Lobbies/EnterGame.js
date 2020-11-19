@@ -3,6 +3,8 @@ import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import { setLoading } from '../../store/actions/lobbies'
 import axios from '../../axios/axios'
+import Login from '../UI/Login/Login'
+import {showLogin} from "../../store/actions/modalLogin"
 
 const EnterGame = (props) => {
   const {myProfile, isLog} = useSelector(state => ({
@@ -24,10 +26,10 @@ const EnterGame = (props) => {
       {
         myProfile.balance >= props.priceGame && isLog ? 
         <div>
-          <div>Вы точно хотите вступить?</div>
+          <div>Вы действительно желаете вступить в игру?</div>
           <div>{`С вашего баланса спишут ${props.priceGame} сомов`}</div>
-          <button onClick={enterGame}>Да</button>
-          <button onClick={props.closePopup}>Нет</button>
+          <button onClick={enterGame} className='enter-btn yes'>Да</button>
+          <button onClick={props.closePopup} className='enter-btn no'>Нет</button>
         </div> :
         myProfile.balance < props.priceGame && isLog ? 
         <div>
@@ -38,11 +40,7 @@ const EnterGame = (props) => {
             </NavLink>
           </div>
           <button onClick={props.closePopup}>Отмена</button>
-        </div> : 
-        <div>
-          <div>Вы не авторизованы</div>
-          <button onClick={props.closePopup}>Отмена</button>
-        </div>
+        </div> : null
       }
     </div>
   )

@@ -5,6 +5,7 @@ import {useParams} from 'react-router'
 import {setPlayers} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
 import {setLoading as setLoadingAction} from '../store/actions/lobbies'
+import LobbyLoading from '../components/Loadings/lobby'
 
 const ENDOPOINT = 'http://195.38.164.24:8080'
 
@@ -49,7 +50,8 @@ const Lobby = () => {
     <PageTemplate>
       <div style={{minHeight: '50vh', position: 'relative'}}>
         { loading ? 
-          <div className='loading'></div> : 
+          // <div className='loading'></div> :  
+          <LobbyLoading /> :  
           success ?
           <LobbyPage 
             id={lobby.id}

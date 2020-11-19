@@ -64,7 +64,7 @@ header {
       .register{
         color: $colorBtn;
         margin-right: 0;
-        background: linear-gradient(210.53deg, #FF0000 45.6%, #FFDD00 78.36%);
+        background: $bg-red;
       }
       .loginUserInfo{
         position: relative;
@@ -74,6 +74,8 @@ header {
         box-sizing: border-box;
         .cardIn {
           @include btnCard;
+          display: inline-block;
+          text-align: center;
           margin-right: 28px;
           @media screen and (max-width: 1000px){
             margin-right: 20px;
