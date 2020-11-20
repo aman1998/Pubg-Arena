@@ -67,7 +67,7 @@ const Event = () => {
           className='info-bottom__btn btn'
           style={{background: '#F2C00F'}}
         >
-          Игра окончена
+          Игра началась
         </NavLink>
       )
     } else if (distance < -1800000) {
