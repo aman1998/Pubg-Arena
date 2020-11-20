@@ -3,47 +3,64 @@
 
 .footer{
   background-color: $bgHrFr;
+  font-size: 16px;
+  line-height: 19px;
   .container{
     padding-top: 30px;
     padding-bottom: 30px;
-    @include flexSpaceBetween;
-    @include _768{
+    @media screen and (max-width: 768px) {
+      padding-bottom: 5px;
+    }
+  }
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    .footer-logo {
+      margin-bottom: 30px;
+      @media screen and (max-width: 768px) {
+        margin-bottom: 10px;
+      }
+    }
+    .footer-soc {
+      a {
+        margin-right: 20px;
+        @media screen and (max-width: 768px) {
+          margin-right: 8px;
+        }
+      }
+    }
+    nav, &--rate {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
-    .less{
-      display: flex;
-      justify-content: space-around;
-    }
-    .footer-main{
-      display: flex;
-      flex-direction: column;
-      .title{
-        @include forFooterAdaptive;
-      }
-    }
-    .footer-private{
-      display: flex;
-      flex-direction: column;
-      .title{
-        @include forFooterAdaptive;
+    &--rate {
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #FFFFFF;
+        @media screen and (max-width: 768px) {
+          margin-bottom: 8px;
+        }
       }
     }
-    .footer-soc{
-      width: 10%;
-      display: flex;
-      margin-right: 40px;
-      justify-content: space-around;
-      @include _768{
-        width: 30%;
-        margin: 20px auto 0 auto;
-      }
-      .face-box{
-        margin-right: 40px !important;
-      }
-      .insta-box{
-        margin-right: 40px !important;
-      }
+  }
+  &-text {
+    text-align: center;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  &-footer {
+    padding: 20px 0 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    text-align: center;
+    @media screen and (max-width: 768px) {
+      padding: 10px 0;
     }
   }
 }

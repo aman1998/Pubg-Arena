@@ -7,6 +7,7 @@ import Timer from '../UI/Timer'
 import Players from './Players'
 import {getDate} from "../../axios/dateFormatter"
 import Popup from './EnterGame'
+import {showLogin} from '../../store/actions/modalLogin'
 
 const LobbyContainer = (props) => {
   const dispatch = useDispatch()
@@ -14,10 +15,11 @@ const LobbyContainer = (props) => {
   const [password, setPassword] = useState(false)
   const [popup, setPopup] = useState(false)
 
-  const {myProfile, isLoadingPlayers, isLoading} = useSelector(state => ({
+  const {myProfile, isLoadingPlayers, isLoading, isLog} = useSelector(state => ({
     myProfile: state.profile.myProfile,
     isLoadingPlayers: state.lobbies.isLoading,
-    isLoading: state.isLoading
+    isLoading: state.isLoading,
+    isLog: state.isLogged
   }))
 
   const isUserIsPlaying = () => {
@@ -30,7 +32,12 @@ const LobbyContainer = (props) => {
   }
 
   const openPopup = () => {
-    setPopup(true)
+    if(isLog === false) {
+      dispatch(showLogin())
+    }
+    else {
+      setPopup(true)
+    }
   }
   const closePopup = () => {
     setPopup(false)

@@ -7,7 +7,7 @@ const Header = (props) => {
     <div>
       <div className='cancel' onClick={props.close}><Cancel /></div>
       <div className='loginHeaderContent'>
-        <div className='login-title'>Добро пожаловать в Arenum</div>
+        <div className='login-title'>Добро пожаловать в Arena Games</div>
         <div className='login-text'>Нажимая кнопку, вы соглашаетесь   
           <p>с <NavLink to='/terms' exact>Условиями использования</NavLink></p> <p>и <NavLink to='/rules' exact>Политикой конфиденциальности</NavLink></p>
           подтверждаете, что вам есть 18 лет.

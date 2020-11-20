@@ -81,11 +81,13 @@
       }
     }
     .price {
+      font-style: italic;
       font-size: 16px;
       line-height: 19px;
-      color: #2D9069;
+      // color: #2D9069;
     }
     .price-title {
+      font-style: normal;
       margin: 6px 0;
       color: #FFFFFF;
     }

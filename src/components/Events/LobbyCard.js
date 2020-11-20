@@ -14,22 +14,6 @@ const LobbyCard = (props) => {
       <div className='name'>{props.name}</div>
       <div className='map'>{props.map}</div>
       <div className='date'>{getDate(props.date)}</div>
-      <div className='rule'>
-        Я ознакомлен с
-        <span>
-          <NavLink to={`/terms`} exact>
-            Условиями пользования
-          </NavLink>
-        </span>
-        <p>
-          и с
-          <span>
-            <NavLink to={`/privacy`} exact>
-              Политикой конфиденциальности
-            </NavLink>
-          </span>
-        </p>
-      </div>
       <div className='price price-title'>Цена за участие</div>
       <div className='price'>{props.price} сомов</div>
       <div className='price price-title'>Цена за килл</div>
