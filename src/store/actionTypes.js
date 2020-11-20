@@ -39,5 +39,4 @@ export const CHANGE_FIELD = 'CHANGE_FIELD'
 
 export const GET_TIME= 'GET_TIME'
 
-
-
+export const ALL_RATES = 'ALL_RATES'

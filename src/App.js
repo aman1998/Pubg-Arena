@@ -11,6 +11,7 @@ import LobbyPage from './pages/LobbyPage'
 import PrivacyPage from './pages/Privacy'
 import TermsPage from './pages/Terms'
 import RulesPage from './pages/Rules'
+import Rates from "./pages/Rates"
 
 import './assets/style/style.scss'
 
@@ -38,7 +39,8 @@ function App() {
         <Route path='/privacy' component = {PrivacyPage}/>
         <Route path='/terms' component = {TermsPage}/>
         <Route path='/rules' component = {RulesPage}/>
-        {isLog ? 
+        <Route path='/rates' component = {Rates} />
+        {isLog ?
         <Switch>
           <Route path='/profile' component={ProfilePage} exact/>
           <Route path = '/profile/settings' component = {ProfilePage} exact/>

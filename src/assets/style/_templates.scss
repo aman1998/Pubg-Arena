@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin flexCenter{
   display: flex;
   justify-content: center;
@@ -13,8 +15,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-
-@import './variables';;
 
 @mixin btn{
   margin-top: 10px;
@@ -63,6 +63,11 @@
 
 @mixin more_1350{
   @media (min-width: 1350px) {
+    @content;
+  }
+}
+@mixin more_1200{
+  @media (min-width: 1200px) {
     @content;
   }
 }
