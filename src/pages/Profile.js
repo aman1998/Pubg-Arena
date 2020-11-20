@@ -6,6 +6,7 @@ import Sidebar from '../components/layout/Sidebar'
 import UserRating from '../components/User/UserRating'
 // import CardIn from '../components/Card/CardIn'
 import CardOut from '../components/Card/CardOut'
+import CardIn from "../components/Card/CardIn";
 
 const Profile = () => {
   const {loading, success} = useSelector(state => ({
@@ -30,7 +31,7 @@ const Profile = () => {
               <Route path='/profile/settings' exact>
                 <div>Настройки</div>
               </Route>
-              {/*<CardIn />*/}
+              <CardIn />
               <CardOut />
             </div>
           </div> 

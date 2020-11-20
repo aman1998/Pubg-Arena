@@ -32,7 +32,7 @@ const LobbyCard = (props) => {
       </div>
       <div className='price price-title'>Цена за участие</div>
       <div className='price'>{props.price} сомов</div>
-      <div className='price price-title'>Цена за убийство</div>
+      <div className='price price-title'>Цена за килл</div>
       <div className='price'>{props.kill_award} сомов</div>
       {props.checkIsTime(props.date, props.id)}
     </section>
