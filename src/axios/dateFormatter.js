@@ -9,3 +9,11 @@ export const getDate = (date) => {
   let time = ar[0] + ' ' + timeZone.join('')
   return `${newDay}/${newMonth}/${newYear}  ${time}`
 }
+
+export const getJustDate = (date) => {
+  let newMonth = (new Date(date)).getMonth() + 1
+  let newDay = (new Date(date)).getDate()
+  let newYear = (new Date(date)).getFullYear()
+  return `${newDay}/${newMonth}/${newYear}`
+
+}

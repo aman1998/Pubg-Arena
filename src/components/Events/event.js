@@ -3,21 +3,27 @@ import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import LobbyCard from './LobbyCard'
+import TournamentSlider from "../../container/TournamentSlider";
 
 const Event = () => {
   const {lobbies} = useSelector(state => ({
     lobbies: state.lobbies.list,
   }))
-  const [twoDays] = useState([])
+  const [toDay] = useState([])
+  const [immediate] = useState([])
   const [done] = useState([])
   const [others] = useState([])
 
   const lobbySort = (lobby) => {
     const today = new Date()
     const tomorrow = new Date()
-    tomorrow.setDate(today.getDate() + 1)
-    if(today <= (new Date(lobby)) && tomorrow >= (new Date(lobby)))
-      return 'nearly'
+    tomorrow.setDate(today.getDate() + 2)
+    if (today.getDate() === (new Date(lobby)).getDate() &&
+      today.getMonth() === (new Date(lobby)).getMonth() &&
+      today.getFullYear() === (new Date(lobby)).getFullYear())
+      return 'today'
+    else if (today < (new Date(lobby)) && tomorrow >= (new Date(lobby)))
+      return 'immediate'
     else if(today > (new Date(lobby)))
       return 'done'
     else
@@ -29,15 +35,17 @@ const Event = () => {
       for (let i = 0; i < lobbies.length; i++) {
         const to = lobbySort(lobbies[i].date)
         switch (to) {
-          case 'nearly':
-            console.log('h')
-            twoDays.push(lobbies[i])
-            break
-          case 'done':
-            done.push(lobbies[i])
+          case 'today':
+            toDay.push(lobbies[i])
             break
           case 'others':
             others.push(lobbies[i])
+            break
+          case 'immediate':
+            immediate.push(lobbies[i])
+            break
+          case 'done':
+            done.push(lobbies[i])
             break
           default:
             others.push(lobbies[i])
@@ -59,7 +67,7 @@ const Event = () => {
           className='info-bottom__btn btn'
           style={{background: '#F2C00F'}}
         >
-          Игра уже началась
+          Игра окончена
         </NavLink>
       )
     } else if (distance < -1800000) {
@@ -70,7 +78,7 @@ const Event = () => {
           className='info-bottom__btn btn'
           style={{background: ' rgba(45, 144, 105, 0.4)'}}
         >
-          Игра уже закончилась
+          Игра окончена
         </NavLink>
       )
     } else {
@@ -91,11 +99,23 @@ const Event = () => {
   }, [lobbies])
 
   return (
-    <>
-      <h2>Ближайшие</h2>
-      <div className='wrapper container'>
+    <div className='container'>
+      <h2>Турниры на сегодня</h2>
+      <div className='wrapper'>
+        <TournamentSlider
+          list={toDay && toDay}
+        />
+      </div>
+      <h2>Турниры на ближайшие дни</h2>
+      <div className='wrapper'>
+        <TournamentSlider
+          list={immediate && immediate}
+        />
+      </div>
+      <h2>Все</h2>
+      <div className='wrapper'>
         {
-          twoDays ? twoDays.map(item => (
+          toDay ? toDay.map(item => (
             <LobbyCard
               key={item.id}
               id={item.id}
@@ -107,11 +127,23 @@ const Event = () => {
               kill_award={item.kill_award}
               checkIsTime={checkIsTime}
             />
-          )) : <div>loading ...</div>
+          )) : null
         }
-      </div>
-      <h2>Остальные</h2>
-      <div className='wrapper container'>
+        {
+          immediate ? immediate.map(item => (
+            <LobbyCard
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              name={item.name}
+              map={item.map}
+              date={item.date}
+              price={item.price}
+              kill_award={item.kill_award}
+              checkIsTime={checkIsTime}
+            />
+          )) : null
+        }
         {
           others ? others.map(item => (
             <LobbyCard
@@ -125,29 +157,28 @@ const Event = () => {
               kill_award={item.kill_award}
               checkIsTime={checkIsTime}
             />
-          )) : <div>loading ...</div>
+          )) : null
         }
       </div>
       <h2>Законченные</h2>
-      <div className='wrapper container'>
-        {
-          done ? done.map(item => (
-            <LobbyCard
-              key={item.id}
-              id={item.id}
-              image={item.image}
-              name={item.name}
-              map={item.map}
-              date={item.date}
-              price={item.price}
-              kill_award={item.kill_award}
-              checkIsTime={checkIsTime}
-            />
-          )) : <div>loading ...</div>
-        }
+      <div className='wrapper'>
+      {
+        done ? done.map(item => (
+          <LobbyCard
+            key={item.id}
+            id={item.id}
+            image={item.image}
+            name={item.name}
+            map={item.map}
+            date={item.date}
+            price={item.price}
+            kill_award={item.kill_award}
+            checkIsTime={checkIsTime}
+          />
+        )) : null
+      }
       </div>
-
-    </>
+    </div>
   )
 }
 

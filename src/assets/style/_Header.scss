@@ -75,6 +75,8 @@ header {
         .cardIn {
           @include btnCard;
           margin-right: 28px;
+          display: inline-block;
+          text-align: center;
           @media screen and (max-width: 1000px){
             margin-right: 20px;
           }
