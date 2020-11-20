@@ -32,14 +32,15 @@ const EnterGame = (props) => {
           <button onClick={props.closePopup} className='enter-btn no'>Нет</button>
         </div> :
         myProfile.balance < props.priceGame && isLog ? 
-        <div>
-          <div>На вашем счету нету денег</div>
+        <div className='enter-cardIn'>
+          <div>У вас не достаточно средст для вступления в игру</div>
+          <div>Пожалуйста пополните баланс</div>
           <div>
-            <NavLink to='/cardIn' exact>
+            <NavLink to='/profile/cardIn' exact>
               Пополнить
             </NavLink>
           </div>
-          <button onClick={props.closePopup}>Отмена</button>
+          {/* <button onClick={props.closePopup}>Отмена</button> */}
         </div> : null
       }
     </div>
