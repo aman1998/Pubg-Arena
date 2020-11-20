@@ -100,19 +100,19 @@ const Event = () => {
 
   return (
     <div className='container'>
-      <h2>Турниры на сегодня</h2>
+      <h2 className='event-title'>Турниры на сегодня</h2>
       <div className='wrapper'>
         <TournamentSlider
           list={toDay && toDay}
         />
       </div>
-      <h2>Турниры на ближайшие дни</h2>
+      <h2 className='event-title'>Турниры на ближайшие дни</h2>
       <div className='wrapper'>
         <TournamentSlider
           list={immediate && immediate}
         />
       </div>
-      <h2>Все</h2>
+      <h2 className='event-title'>Все</h2>
       <div className='wrapper'>
         {
           toDay ? toDay.map(item => (
@@ -160,7 +160,7 @@ const Event = () => {
           )) : null
         }
       </div>
-      <h2>Законченные</h2>
+      <h2 className='event-title more'>Законченные</h2>
       <div className='wrapper'>
       {
         done ? done.map(item => (

@@ -1,6 +1,12 @@
 @import "./templates";
 
-//.tournament-slider{
+.event-title{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  &.more{
+    margin-top: 40px;
+  }
+}
 .tournament-slide {
   width: 385px;
   height: 160px;
