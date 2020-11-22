@@ -26,6 +26,9 @@
     font-size: 22px;
     border: none;
     margin-top: 15px;
+    &:hover{
+      cursor: pointer;
+    }
   }
   .error{
     color: red;
