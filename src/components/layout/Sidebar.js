@@ -10,6 +10,7 @@ const Sidebar = () => {
   return (
     <aside>
       <nav className='sidebar'>
+        <h2>Личный кабинет</h2>
         <div>
           <ul className={'sidebarItems'}>
             <NavLink

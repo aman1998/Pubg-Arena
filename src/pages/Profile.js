@@ -7,6 +7,7 @@ import UserRating from '../components/User/UserRating'
 // import CardIn from '../components/Card/CardIn'
 import CardOut from '../components/Card/CardOut'
 import CardIn from "../components/Card/CardIn";
+import UserSettings from "../components/User/UserSettings";
 
 const Profile = () => {
   const {loading, success} = useSelector(state => ({
@@ -29,7 +30,7 @@ const Profile = () => {
                 <UserRating/>
               </Route>
               <Route path='/profile/settings' exact>
-                <div>Настройки</div>
+                <UserSettings />
               </Route>
               <CardIn />
               <CardOut />

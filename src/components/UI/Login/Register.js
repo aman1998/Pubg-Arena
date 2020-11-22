@@ -5,13 +5,12 @@ import {useDispatch} from "react-redux"
 import {fetchLoginActionCreator} from "../../../store/actions/profile"
 import {showRegister} from "../../../store/actions/modalRegister"
 
-import axios from "../../../axios/axios";
+import axios from "../../../axios/axios"
 
 const Register = (props) => {
   const dispatch = useDispatch()
 
   const handleRegister = ({name, pubg_id, phone, password}) => {
-    console.log('register')
     axios.post('/register/', {name, pubg_id, phone, password})
       .then(response => {
         dispatch(showRegister())
@@ -76,7 +75,7 @@ const Register = (props) => {
             <Field type="checkbox" name="acceptTerms" className='check-input'/>
             <label htmlFor="acceptTerms" className="check">Я ознакомлен и согласен</label>
           </div>
-          <ErrorMessage name="acceptTerms" component="div"className='error'/>
+          <ErrorMessage name="acceptTerms" component="div" className='error'/>
           <button type="submit" className='loginFormBtn reg'>
             Регистрация
           </button>
