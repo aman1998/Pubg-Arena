@@ -102,15 +102,20 @@ const Event = () => {
     <div className='container'>
       <h2 className='event-title'>Турниры на сегодня</h2>
       <div className='wrapper'>
-        <TournamentSlider
-          list={toDay && toDay}
-        />
+        {
+          toDay.length !== 0 ? <TournamentSlider
+            list={toDay && toDay}
+          /> : <div className='tournament-doesnt'>На сегодня нету турниров</div>
+        }
       </div>
       <h2 className='event-title'>Турниры на ближайшие дни</h2>
       <div className='wrapper'>
-        <TournamentSlider
-          list={immediate && immediate}
-        />
+        {
+
+          immediate.length !== 0 ? <TournamentSlider
+            list={immediate && immediate}
+          /> : <div className='tournament-doesnt'>Нету ближайших турниров</div>
+        }
       </div>
       <h2 className='event-title'>Все</h2>
       <div className='wrapper'>
