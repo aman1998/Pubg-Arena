@@ -8,6 +8,7 @@ import UserRating from '../components/User/UserRating'
 import CardOut from '../components/Card/CardOut'
 import CardIn from "../components/Card/CardIn";
 import UserSettings from "../components/User/UserSettings";
+import LanguageSettings from "../components/User/LanguageSettings";
 
 const Profile = () => {
   const {loading, success} = useSelector(state => ({
@@ -34,6 +35,9 @@ const Profile = () => {
               </Route>
               <CardIn />
               <CardOut />
+              <Route path='/profile/language' exact>
+                <LanguageSettings />
+              </Route>
             </div>
           </div> 
         : <div>Обновите</div> 
