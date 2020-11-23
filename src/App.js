@@ -12,6 +12,7 @@ import PrivacyPage from './pages/Privacy'
 import TermsPage from './pages/Terms'
 import RulesPage from './pages/Rules'
 import Rates from "./pages/Rates"
+import PageNotFound from "./pages/404Page"
 
 import './assets/style/style.scss'
 
@@ -49,8 +50,10 @@ function App() {
           <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
           <Route path='/profile/language' component={ProfilePage} exact />
           <Route path='/profile/rating' component={ProfilePage} exact />
+          <Route component={PageNotFound} />
         </Switch> :
         null}
+        <Route component={PageNotFound} />
       </Switch>
     </BrowserRouter>
   )
