@@ -1,0 +1,19 @@
+@import "./templates";
+
+.user-kills{
+  margin: 0 auto;
+  width: max-content;
+  h2{
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .kills, .kills-item{
+    width: 340px;
+  }
+  .kills-item{
+    @include flexSpaceBetween;
+    padding: 5px 10px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 14px;
+  }
+}

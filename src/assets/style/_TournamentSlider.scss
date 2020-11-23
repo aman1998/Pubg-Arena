@@ -17,6 +17,7 @@
     position: relative;
     opacity: 0.5;
     border-radius: 10px;
+    object-fit: cover;
     &:hover{
       opacity: 0.86;
     }

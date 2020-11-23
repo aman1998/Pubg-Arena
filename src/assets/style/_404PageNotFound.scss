@@ -1,0 +1,30 @@
+.page-not-found{
+  position: relative;
+  &-image{
+    width: 100%;
+    height: 700px;
+    position: relative;
+    object-fit: cover;
+  }
+  &-text{
+    position: absolute;
+    text-align: center;
+    top: 8%;
+    left: 8%;
+    .texts{
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+    .number{
+      font-size: 75px;
+    }
+  }
+  &-btn{
+    padding: 10px 100px;
+    background-color: #FFDD00;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: black;
+    font-size: 24px;
+  }
+}
