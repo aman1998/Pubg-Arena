@@ -44,14 +44,6 @@ const Header = () => {
             >
               Рейтинги
             </NavLink>
-            {/* <NavLink
-              to='/rules'
-              className='items rules'
-              activeClassName='active'
-              exact
-            >
-              Правила игры
-            </NavLink> */}
             { isLogged ?
             <NavLink
               to='/profile'

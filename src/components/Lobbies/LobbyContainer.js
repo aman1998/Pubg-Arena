@@ -14,6 +14,7 @@ const LobbyContainer = (props) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [password, setPassword] = useState(false)
   const [popup, setPopup] = useState(false)
+  const [passValue, setPassValue] = useState('')
 
   const {myProfile, isLoadingPlayers, isLoading, isLog} = useSelector(state => ({
     myProfile: state.profile.myProfile,
@@ -54,14 +55,25 @@ const LobbyContainer = (props) => {
   const showPass = () => {
     for (let i = 0; i < props.players.length; i++) {
       if (props.players[i].id === myProfile.pk) {
-        setPassword(true)
+        setPassword(!password)
       }
     }
   }
 
+
   useEffect(() => {
     if(props.players){
       setIsPlaying(isUserIsPlaying())
+    }
+    const countdownDateFormat = `${props.date}`.split("+")[0]
+    const countdownDate = new Date(countdownDateFormat).getTime()
+    const now = new Date().getTime()
+    const distance = countdownDate - now;
+    if(distance < 600000) {
+        setPassValue(props.pass)
+    }
+    else {
+      setPassValue('Ваш код будет доступен за 10 минут до начала игры')
     }
   }, [props.players, isLoading])
 
@@ -86,7 +98,7 @@ const LobbyContainer = (props) => {
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}
             {isPlaying ? null : <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
-            {isPlaying ? <button className='lobby-content__btn btn' onClick={showPass}>Пароль</button> : null}
+            {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>Пароль</button> : null}
           </div>
         </div>
         <Players id={props.lobby_id}/>
@@ -100,7 +112,7 @@ const LobbyContainer = (props) => {
       {password === true ?
         <div className='password-block'>
           <div>Ваш код для участия в игре</div>
-          <div className='password'>{props.pass}</div>
+          <div className='password'>{passValue}</div>
         </div> : null}
     </div>
   )
