@@ -17,13 +17,16 @@
         position: relative;
         width: 25%;
         transition: 0.7s;
+        object-fit: cover;
         @include more_1350{
           height: 700px;
         }
         @include flexCenter();
         .img{
           width: 100%;
+          height: 100%;
           opacity: 0.60;
+          object-fit: cover;
         }
         .content{
           position: absolute;
