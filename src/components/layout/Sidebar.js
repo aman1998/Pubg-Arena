@@ -6,6 +6,7 @@ import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined'
 import RemoveCircleOutlineOutlinedIcon from '@material-ui/icons/RemoveCircleOutlineOutlined'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
 import LanguageIcon from '@material-ui/icons/Language'
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline'
 
 const Sidebar = () => {
   return (
@@ -56,6 +57,17 @@ const Sidebar = () => {
               <div>
                 <RemoveCircleOutlineOutlinedIcon className='sidebarItemIcon'/>
                 <div className='sidebarItemText'>Вывести со счета</div>
+              </div>
+            </NavLink>
+            <NavLink
+              to='/profile/rating/'
+              className='sidebarItem'
+              activeClassName='active'
+              exact
+            >
+              <div>
+                <PersonOutlineIcon className='sidebarItemIcon'/>
+                <div className='sidebarItemText'>Личный рейтинг</div>
               </div>
             </NavLink>
             <NavLink

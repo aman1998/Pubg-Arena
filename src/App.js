@@ -48,6 +48,7 @@ function App() {
           <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
           <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
           <Route path='/profile/language' component={ProfilePage} exact />
+          <Route path='/profile/rating' component={ProfilePage} exact />
         </Switch> :
         null}
       </Switch>
