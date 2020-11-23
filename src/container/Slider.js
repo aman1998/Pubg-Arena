@@ -18,7 +18,7 @@ const Slider = () => {
             <img src={pubg1} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                PLAY TODAY ON XBOX, PC, PS4, AND STADIA
+                Играй виртуально, зарабатывай реально!
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@ const Slider = () => {
             <img src={pubg2} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                SURVIVED WILL BE GOD, ANOTHER DEAD
+                Арена! обучает, развлекает, заработать помогает!
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ const Slider = () => {
             <img src={pubg1} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                PLAY TODAY ON XBOX, PC, PS4, AND STADIA
+                Не так важно, как тебя ударили, - важно, как ты встал и ответил.
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ const Slider = () => {
             <img src={pubg2} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                WE ARE GOING TO PLAY TOURNAMENTS
+                ВЫИГРЫВАЙ И ЗАРАБАТЫВАЙ ДЕЛАЯ ЧТО ЛЮБИШЬ!
               </div>
             </div>
           </div>
