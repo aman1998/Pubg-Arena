@@ -1,18 +1,18 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom' 
 
-const CardIn = () => {
+const CardIn = ({text}) => {
   return (
     <section className='cardIn container'>
       <h1>Найди свое место в киберспорте</h1>
-      <p>Живи игрой. Побеждай красиво</p>
+      <p>{text}</p>
       <div>
           <NavLink
-            to='/profile/cardIn'
+            to='/tournaments'
             className='home-btn'
             exact
           >
-          Пополнить
+          Играть сейчас
           </NavLink>
         </div>
     </section>

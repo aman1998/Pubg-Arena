@@ -50,8 +50,23 @@ const Footer = () => {
             <img src={Pay24} alt='#'/>
           </div>
         </div>
+        <div className="footer-soc-mobile">
+          <a href='https://facebook.com'>
+            <FacebookIcon className='facebook-icon'/>
+          </a>
+          <a href='https://instagram.com'>
+            <InstagramIcon className='insta-icon'/>
+          </a>
+          <a href='https://twitter.com'>
+            <TwitterIcon className='twitter-icon'/>
+          </a>
+        </div>
         <div className='footer-text container'>
           Платформа Arena не одобрена, не связана, не поддерживается и не спонсируется Apple Inc, Garena Online Private Limited, PUBG CORPORATION, Activision Publishing, Inc., Supercell Oy или Nintendo Co., Ltd, а также иными владельцами иных игр. Весь контент, названия игр, торговые наименования и / или коммерческий внешний вид, товарные знаки, произведения искусства и связанные изображения являются товарными знаками и / или материалами, защищенными авторским правом соответствующих правообладателей.
+        </div>
+        <div className='rate-mobile'>
+          <img src={Pay24} alt='#'/>
+          <div>+18</div>
         </div>
         <div className='footer-footer'>
           © 2020  Все права защищены

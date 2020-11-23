@@ -13,9 +13,10 @@ const Home = () => {
       <div className='home'>
         <HeaderContent />
         <HomeInfo1 />
-        <CardIn />
+        <CardIn text='Живи игрой. Побеждай красиво'/>
         <HomeInfo2 />
         <Questions />
+        <CardIn text='Готов к игре? Начни сейчас'/>
       </div>
     </PageTemplate>
   )
