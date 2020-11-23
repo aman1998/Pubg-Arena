@@ -63,6 +63,7 @@ header {
       }
       .register{
         color: $colorBtn;
+        color: #ffffff;
         margin-right: 0;
         background: $bg-red;
       }
@@ -115,7 +116,8 @@ header {
           }
           @include popups();
           &.down{
-            background: #2D9069;
+            background: url('../img/login2.png') center/cover;
+            color: #000000;
             right: 0;
             transform: translateY(65px);
             div {
@@ -166,6 +168,7 @@ header {
   }
 }
 .modalReg {
+  color: #ffffff;
   @media screen and (min-width: 561px){
     display: none;
   }

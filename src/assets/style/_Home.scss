@@ -221,6 +221,9 @@
           p {
             text-align: center;
             font-size: 16px;
+            @media screen and (max-width: 560px) {
+              font-size: 14px;
+            }
           }
         }
       }
