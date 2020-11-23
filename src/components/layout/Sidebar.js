@@ -5,11 +5,13 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined'
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined'
 import RemoveCircleOutlineOutlinedIcon from '@material-ui/icons/RemoveCircleOutlineOutlined'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
+import LanguageIcon from '@material-ui/icons/Language'
 
 const Sidebar = () => {
   return (
     <aside>
       <nav className='sidebar'>
+        <h2>Личный кабинет</h2>
         <div>
           <ul className={'sidebarItems'}>
             <NavLink
@@ -54,6 +56,17 @@ const Sidebar = () => {
               <div>
                 <RemoveCircleOutlineOutlinedIcon className='sidebarItemIcon'/>
                 <div className='sidebarItemText'>Вывести со счета</div>
+              </div>
+            </NavLink>
+            <NavLink
+              to='/profile/language/'
+              className='sidebarItem'
+              activeClassName='active'
+              exact
+            >
+              <div>
+                <LanguageIcon  className='sidebarItemIcon'/>
+                <div className='sidebarItemText'>Выбор языка</div>
               </div>
             </NavLink>
           </ul>

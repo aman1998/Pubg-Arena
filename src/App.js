@@ -14,6 +14,7 @@ import RulesPage from './pages/Rules'
 import Rates from "./pages/Rates"
 
 import './assets/style/style.scss'
+import LanguageSettings from "./components/User/LanguageSettings";
 
 function App() {
   const dispatch = useDispatch()
@@ -47,6 +48,7 @@ function App() {
           <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
           <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
           <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
+          <Route path='/profile/language' component={LanguageSettings} exact />
         </Switch> :
         null}
       </Switch>
