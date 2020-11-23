@@ -1,6 +1,6 @@
 import React from 'react'
 
-import pubg1 from '../assets/img/pubg-slide1.webp'
+import pubg1 from '../assets/img/main-pubg.png'
 import pubg2 from '../assets/img/pubg-slide2.jpg'
 
 const Slider = () => {
