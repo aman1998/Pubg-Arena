@@ -22,16 +22,12 @@ const RegTemplate = () => {
         setShowPhone(false)
       })
       .catch(e => console.log(e))
-      // setPhone(body.phone)
-      // setShowActivate(true)
-      // setShowPhone(false)
   }
 
   const handleActivate = (body) => {
     axios.post('/verify/', body)
       .then((response) => {
-        console.log('res', response)
-        if(response.data.details !== 'OTP incorrect, please try again' && 
+        if(response.data.details !== 'OTP incorrect, please try again' &&
         response.data.details !== 'Phone not recognised. Kindly request a new otp with this number'
         ) {
           setShowActivate(false)
