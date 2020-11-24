@@ -44,14 +44,6 @@ const LobbyContainer = (props) => {
     setPopup(false)
   }
 
-  // const enterGame = () => {
-  //   axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk, balance: myProfile.balance})
-  //     .then(() => {
-  //       dispatch(setLoading(true))
-  //     })
-  //     .catch(e => console.log(e))
-  // }
-
   const showPass = () => {
     for (let i = 0; i < props.players.length; i++) {
       if (props.players[i].id === myProfile.pk) {
@@ -98,7 +90,9 @@ const LobbyContainer = (props) => {
             <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}
             {isPlaying ? null : <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
-            {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>Пароль</button> : null}
+            {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>{
+              password ? 'Скрыть' : 'Пароль'
+            }</button> : null}
           </div>
         </div>
         <Players id={props.lobby_id}/>

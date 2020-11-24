@@ -2,13 +2,15 @@ import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import { setLoading } from '../../store/actions/lobbies'
+import {getBalance} from '../../store/actions/profile'
 import axios from '../../axios/axios'
 import Login from '../UI/Login/Login'
 import {showLogin} from "../../store/actions/modalLogin"
 
 const EnterGame = (props) => {
-  const {myProfile, isLog} = useSelector(state => ({
+  const {myProfile, isLog, balance} = useSelector(state => ({
     myProfile: state.profile.myProfile,
+    balance: state.profile.balance,
     isLog: state.isLogged
   }))
   const dispatch = useDispatch()
@@ -19,19 +21,22 @@ const EnterGame = (props) => {
         dispatch(setLoading(true))
         props.closePopup()
       })
+      .then(() => {
+        dispatch(getBalance(balance-props.priceGame))
+      })
       .catch(e => console.log(e))
   }
   return (
     <div className='enter'>
       {
-        myProfile.balance >= props.priceGame && isLog ? 
+        balance >= props.priceGame && isLog ? 
         <div>
           <div>Вы действительно желаете вступить в игру?</div>
           <div>{`С вашего баланса спишут ${props.priceGame} сомов`}</div>
           <button onClick={enterGame} className='enter-btn yes'>Да</button>
           <button onClick={props.closePopup} className='enter-btn no'>Нет</button>
         </div> :
-        myProfile.balance < props.priceGame && isLog ? 
+        balance < props.priceGame && isLog ? 
         <div className='enter-cardIn'>
           <div>У вас не достаточно средст для вступления в игру</div>
           <div>Пожалуйста пополните баланс</div>

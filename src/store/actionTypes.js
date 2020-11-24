@@ -2,6 +2,7 @@ export const GET_USER = 'GET_USER'
 export const GET_TOKEN = 'GET_TOKEN'
 export const SET_TOKEN = 'SET_TOKEN'
 export const GET_PROFILE = 'GET_PROFILE'
+export const GET_BALANCE = 'GET_BALANCE'
 export const SET_PROFILE = 'SET_PROFILE'
 export const IS_LOG = 'IS_LOG'
 

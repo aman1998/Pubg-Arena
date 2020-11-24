@@ -44,12 +44,10 @@
   border-radius: 10px;
   background: #FFDD00;
   box-shadow: inset 0 0 20px #dbc00c;
-  text-shadow: none;
   transition: all 950ms cubic-bezier(0.19, 1, 0.22, 1);
   cursor: pointer;
   &:hover {
     box-shadow: inset 0 0 20px #b69e03, 0 0 20px #ccb105;
-    text-shadow: 1px 1px 2px #dbc00c; 
   }
 }
 
@@ -66,12 +64,10 @@
   font-size: 20px;
   line-height: 24px;
   box-shadow: inset 0 0 20px #dbc00c;
-  text-shadow: none;
   transition: all 750ms cubic-bezier(0.19, 1, 0.22, 1);
   cursor: pointer;
   &:hover {
     box-shadow: inset 0 0 20px #b69e03, 0 0 20px #ccb105;
-    text-shadow: 1px 1px 2px #dbc00c; 
   }
 }
 

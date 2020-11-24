@@ -2,6 +2,7 @@ import {
   SET_TOKEN, 
   IS_LOG, 
   SET_PROFILE,
+  GET_BALANCE,
   GET_PROFILE_FAILED, 
   GET_PROFILE_LOADING, 
   GET_PROFILE_SUCCESS
@@ -15,6 +16,11 @@ import {hideState, showState} from "./isAuthState";
 export const setProfile = (payload) => ({
   type: SET_PROFILE,
   payload
+})
+
+export const getBalance = (balance) => ({
+  type: GET_BALANCE,
+  balance
 })
 
 export const fetchProfileActionCreator = () => dispatch => {
@@ -32,6 +38,7 @@ export const fetchProfileActionCreator = () => dispatch => {
       dispatch(checkIsLog(true))
       dispatch(notLoading())
       dispatch({ type: GET_PROFILE_SUCCESS})
+      dispatch(getBalance(response.data.balance))
     })
     .catch((e) => {
       console.log(e.message)
@@ -78,3 +85,4 @@ export const checkIsLog = (isLog) => ({
   type: IS_LOG,
   isLog
 })
+

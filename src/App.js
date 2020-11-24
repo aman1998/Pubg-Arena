@@ -19,7 +19,7 @@ import './assets/style/style.scss'
 function App() {
   const dispatch = useDispatch()
 
-  const { token, isLog} = useSelector(state => ({
+  const { token, isLog } = useSelector(state => ({
     token: state.profile.token,
     myProfile: state.profile.myProfile,
     isLog: state.profile.isLog,
@@ -30,6 +30,8 @@ function App() {
       dispatch(fetchProfileActionCreator())
     }
   }, [token])
+
+  console.log(token)
   
   return (
     <BrowserRouter>
