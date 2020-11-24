@@ -30,8 +30,6 @@ function App() {
       dispatch(fetchProfileActionCreator())
     }
   }, [token])
-
-  console.log(token)
   
   return (
     <BrowserRouter>
@@ -56,7 +54,7 @@ function App() {
         </Switch> :
         null}
         <Route component={PageNotFound} />
-      </Switch>
+        </Switch>
     </BrowserRouter>
   )
 }

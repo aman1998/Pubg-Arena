@@ -17,7 +17,7 @@ const EnterGame = (props) => {
 
   const enterGame = () => {
     axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk, balance: myProfile.balance})
-      .then(() => {
+      .then((res) => {
         dispatch(setLoading(true))
         props.closePopup()
       })
