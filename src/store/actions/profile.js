@@ -7,7 +7,7 @@ import {
   GET_PROFILE_SUCCESS
 } from "../actionTypes"
 
-import {isLoading, loading, notLoading} from "./isLoading"
+import { loading, notLoading} from "./isLoading"
 import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
 import {hideState, showState} from "./isAuthState";
