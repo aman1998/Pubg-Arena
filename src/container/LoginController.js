@@ -31,7 +31,7 @@ const LoginController = () => {
     isLogged: state.isLogged,
     isLoading: state.isLoading,
     name: state.profile.myProfile.name,
-    balance: state.profile.myProfile.balance,
+    balance: state.profile.balance,
     phone: state.profile.myProfile.phone,
     token: state.profile.token
   }))

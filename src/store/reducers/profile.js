@@ -4,15 +4,17 @@ import {
   SET_PROFILE, 
   SET_TOKEN, 
   IS_LOG, 
+  GET_BALANCE,
   GET_PROFILE_SUCCESS, 
   GET_PROFILE_LOADING, 
   GET_PROFILE_FAILED
 } from "../actionTypes";
 
 const initialState = {
-  token: localStorage.getItem('token'),
+  token: localStorage.getItem('token') || false,
   myProfile: {
   },
+  balance: '',
   isLog: false,
   get: {
     success: false,
@@ -34,6 +36,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         token: localStorage.getItem('token'),
+      }
+    case GET_BALANCE:
+      return {
+        ...state,
+        balance: action.balance,
       }
     case SET_TOKEN:
       return {
