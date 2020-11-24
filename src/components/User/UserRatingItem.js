@@ -8,7 +8,7 @@ const UserRatingItem = (props) => {
     <div className='rates-item'>
       <div className='item-info'>
         <div>
-          <img src={login} alt='avatar-for-user' className='item-img'/>
+          <img src={props.img ? `http://195.38.164.24:8080/media/${props.img}` : login} alt='avatar-for-user' className='item-img'/>
         </div>
         <div className='item-names'>
           <div className='item-names-name'>{props.name}</div>
