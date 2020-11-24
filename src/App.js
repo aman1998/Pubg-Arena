@@ -52,7 +52,7 @@ function App() {
           <Route path='/profile/rating' component={ProfilePage} exact />
           <Route component={PageNotFound} />
         </Switch> :
-        null}
+        <div className='loading'></div>}
         <Route component={PageNotFound} />
         </Switch>
     </BrowserRouter>
