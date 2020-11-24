@@ -31,8 +31,6 @@ function App() {
     }
   }, [token])
 
-  console.log(token)
-  
   return (
     <BrowserRouter>
       <Switch>
@@ -53,8 +51,7 @@ function App() {
           <Route path='/profile/language' component={ProfilePage} exact />
           <Route path='/profile/rating' component={ProfilePage} exact />
           <Route component={PageNotFound} />
-        </Switch> :
-        <div className='loading'></div>}
+        </Switch> : null}
         <Route component={PageNotFound} />
       </Switch>
     </BrowserRouter>
