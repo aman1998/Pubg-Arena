@@ -106,6 +106,16 @@ header {
               margin-right: 10px;
             }
           }
+          .userIcon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            fill: #0A0816;
+            width: 30px;
+            height: 30px;
+            background: $mainBg;
+            border-radius: 100%;
+          }
           .balance{
             @include flexSpaceBetween;
             align-items: center;
