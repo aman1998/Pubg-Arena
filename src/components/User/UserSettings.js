@@ -16,8 +16,7 @@ const UserSettings = () => {
 
   const handleSendPhone = (body) => {
     axios.post('/reset-otp/', body)
-      .then(response => {
-        console.log(response)
+      .then(() => {
         setSendPhone(false)
         setActivateOtp(true)
       })
@@ -25,9 +24,8 @@ const UserSettings = () => {
   }
   const handleActivateOtp = (body) => {
     axios.post('/reset-otp/verify/', body)
-      .then(response => {
+      .then(() => {
         setOtp(body.otp)
-        console.log(response)
         setActivateOtp(false)
         setChangePassword(true)
       })
@@ -39,9 +37,7 @@ const UserSettings = () => {
   }
   const handleChangePassword = (body) => {
     axios.post('/pass-change/', body)
-      .then(response => {
-        console.log(body)
-        console.log(response)
+      .then(() => {
         setChangePassword(false)
         setSuccess(true)
       })
