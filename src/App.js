@@ -50,6 +50,7 @@ function App() {
           <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
           <Route path='/profile/language' component={ProfilePage} exact />
           <Route path='/profile/rating' component={ProfilePage} exact />
+          <Route component={PageNotFound} />
         </Switch> :
         <div className='loading'></div>}
         <Route component={PageNotFound} />
