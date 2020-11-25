@@ -11,8 +11,24 @@ const Header = () => {
     isPhone: state.register.isPhone,
     isActivate: state.register.isActivate
   }))
+
+  window.onscroll = function () {
+    myFunction()
+  }
+
+  const myFunction = () => {
+    const header = document.getElementById('header')
+    if (
+      document.body.scrollTop > 70 ||
+      document.documentElement.scrollTop > 70
+    ) {
+      header.classList.add('headerScrolled')
+    } else {
+      header.classList.remove('headerScrolled')
+    }
+  }
   return (
-    <header>
+    <header id='header' className='header position-fixed'>
       <div className='container'>
         <nav className='block'>
           <div className='blockLeft'>

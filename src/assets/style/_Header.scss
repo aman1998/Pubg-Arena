@@ -1,9 +1,10 @@
 @import './variables';
 @import './templates';
 
-header {
-  border-bottom: 1px solid $lineColor;
-  background: $bgHrFr;
+#header{
+  position: fixed;
+  width: 100%;
+  z-index: 200;
   .block {
     @include flexSpaceBetween;
     display: flex;
@@ -56,20 +57,17 @@ header {
         padding: 6px 16px;
         color: $colorBtn;
         background: $mainBg;
-        transition: 0.4s;
         border-radius: 4px;
         cursor: pointer;
         margin-right: 10px;
         box-shadow: inset 0 0 20px #dbc00c;
         transition: all 950ms cubic-bezier(0.19, 1, 0.22, 1);
-        cursor: pointer;
         &:hover {
           box-shadow: inset 0 0 20px #b69e03, 0 0 20px #ccb105;
         }
       }
       .register{
         color: $colorBtn;
-        color: #ffffff;
         margin-right: 0;
         background: $bg-red;
         box-shadow: inset 0 0 20px #d30c0cde;
@@ -90,8 +88,6 @@ header {
           display: inline-block;
           text-align: center;
           margin-right: 28px;
-          display: inline-block;
-          text-align: center;
           @media screen and (max-width: 1000px){
             margin-right: 20px;
           }
@@ -174,7 +170,6 @@ header {
   }
 }
 
-
 .modalInfo{
   display: flex;
   flex-direction: column;
@@ -207,5 +202,16 @@ header {
   display: none;
   @media screen and (max-width: 560px){
     display: inline-block;
+  }
+}
+
+.header{
+  border-bottom: 1px solid $lineColor;
+  background: $bgHrFr;
+  &.headerScrolled{
+    background-color: rgba(0,0,0, 0.5);
+    transition: 0.3s ;
+    z-index: 100;
+    width: 100%;
   }
 }
