@@ -93,6 +93,11 @@ const LobbyContainer = (props) => {
             {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>{
               password ? 'Скрыть' : 'Пароль'
             }</button> : null}
+            {password === true ?
+            <div className='password-block'>
+              <div>Ваш код для участия в игре</div>
+              <div className='password'>{passValue}</div>
+            </div> : null}
           </div>
         </div>
         <Players id={props.lobby_id}/>
@@ -103,11 +108,6 @@ const LobbyContainer = (props) => {
           closePopup={closePopup}
           /> : null}
       </section>
-      {password === true ?
-        <div className='password-block'>
-          <div>Ваш код для участия в игре</div>
-          <div className='password'>{passValue}</div>
-        </div> : null}
     </div>
   )
 }

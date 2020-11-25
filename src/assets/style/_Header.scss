@@ -206,6 +206,11 @@ header {
   cursor: pointer;
   display: none;
   @media screen and (max-width: 560px){
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 4px;;
+    background: $mainBg;
+    border-radius: 100%;
   }
 }

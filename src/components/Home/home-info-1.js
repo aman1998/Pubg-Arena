@@ -11,10 +11,6 @@ const HomeInfo1 = () => {
       <h1 className='title'>Оставь свой след в киберспорте</h1>
       <div className='info-content'>
         <div className='info-content--left'>
-          <div className='info-statistics'>
-            <div>100+ <p>Турниров ежедневно</p></div>
-            <div>24 часа <p>Играй в любое удобное время</p></div>
-          </div>
           <div>
             <div className='info-text'>
               <img src={ImgOk} alt='#' />
