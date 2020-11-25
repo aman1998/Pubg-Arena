@@ -1,10 +1,18 @@
 import React, {useState, useRef, useEffect} from 'react'
+import {isPlayed as checkIsPlayed} from '../../store/actions/lobbies'
+import {useSelector, useDispatch} from 'react-redux'
 
 const Timer = (props) => {
   const [timerDays, setTimerDays] = useState('00');
   const [timerHours, setTimerHours] = useState('00');
   const [timerMinutes, setTimerMinutes] = useState('00');
   const [timerSeconds, setTimerSeconds] = useState('00');
+
+  const {isPlayed} = useSelector((state) => ({
+    isPlayed: state.lobbies.isPlayed
+  }))
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const  countdownDateFormat = `${props.date}`.split("+")[0]
@@ -19,8 +27,10 @@ const Timer = (props) => {
       let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       let seconds = Math.floor((distance % (1000 * 60)) / 1000);
       if(distance < 0) {
+        dispatch(checkIsPlayed(true))
         clearInterval(timer)
       } else {
+        dispatch(checkIsPlayed(false))
         setTimerDays(days)
         setTimerHours(hours)
         setTimerMinutes(minutes)
@@ -31,6 +41,7 @@ const Timer = (props) => {
       window.clearInterval(timer);
     };
   }, [timerSeconds]);
+
 
   return (
     <section className='timer'>
