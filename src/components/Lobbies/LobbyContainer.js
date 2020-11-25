@@ -14,10 +14,11 @@ const LobbyContainer = (props) => {
   const [popup, setPopup] = useState(false)
   const [passValue, setPassValue] = useState('')
 
-  const {myProfile,  isLoading, isLog} = useSelector(state => ({
+  const {myProfile,  isLoading, isLog, isPlayed} = useSelector(state => ({
     myProfile: state.profile.myProfile,
     isLoading: state.isLoading,
-    isLog: state.isLogged
+    isLog: state.isLogged,
+    isPlayed: state.lobbies.isPlayed
   }))
 
   const isUserIsPlaying = () => {
@@ -86,10 +87,15 @@ const LobbyContainer = (props) => {
             <div className='price'>Цена участие: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 килл: <span>{props.priceKill} сомов</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}
-            {isPlaying ? null : <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
+            {isPlaying || isPlayed ? null : <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
             {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>{
               password ? 'Скрыть' : 'Пароль'
             }</button> : null}
+            {password === true ?
+            <div className='password-block'>
+              <div>Ваш код для участия в игре</div>
+              <div className='password'>{passValue}</div>
+            </div> : null}
           </div>
         </div>
         <Players id={props.lobby_id}/>
@@ -101,11 +107,6 @@ const LobbyContainer = (props) => {
           closePopup={closePopup}
           /> : null}
       </section>
-      {password === true ?
-        <div className='password-block'>
-          <div>Ваш код для участия в игре</div>
-          <div className='password'>{passValue}</div>
-        </div> : null}
     </div>
   )
 }

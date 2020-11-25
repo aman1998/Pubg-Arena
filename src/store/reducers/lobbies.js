@@ -1,9 +1,10 @@
-import { SET_LOBBY_LIST, SET_PLAYERS, SET_LOADING, GET_LOBBIES_SUCCESS, GET_LOBBIES_FAILED, GET_LOBBIES_LOADING } from "../actionTypes";
+import { SET_LOBBY_LIST, SET_PLAYERS, SET_LOADING, GET_LOBBIES_SUCCESS, GET_LOBBIES_FAILED, GET_LOBBIES_LOADING, IS_PLAYED } from "../actionTypes";
 
 const initialState = {
   list: [],
   players: [],
   isLoading: false,
+  isPlayed: '',
   get: {
     success: false,
     loading: false,
@@ -28,6 +29,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: action.isLoading
+      }
+    case IS_PLAYED:
+      return {
+        ...state,
+        isPlayed: action.isPlayed
       }
       case GET_LOBBIES_SUCCESS:
       return {

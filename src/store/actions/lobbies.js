@@ -6,6 +6,7 @@ import {
   GET_LOBBIES_FAILED, 
   GET_LOBBIES_LOADING, 
   GET_LOBBIES_SUCCESS,
+  IS_PLAYED
 } from "../actionTypes";
 
 import axios from "../../axios/axios";
@@ -23,6 +24,11 @@ export const setPlayers = (players) => ({
 export const setLoading = (isLoading) => ({
   type: SET_LOADING,
   isLoading
+})
+
+export const isPlayed = (isPlayed) => ({
+  type: IS_PLAYED,
+  isPlayed
 })
 
 export const fetchLobbiesActionCreator = () => dispatch => {

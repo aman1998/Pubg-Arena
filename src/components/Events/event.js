@@ -76,7 +76,7 @@ const Event = () => {
           to={`/lobby/${id}`}
           exact
           className='info-bottom__btn btn'
-          style={{background: ' rgba(45, 144, 105, 0.4)'}}
+          style={{background: '#FF0000', boxShadow: 'none', color: '#ffffff'}}
         >
           Игра окончена
         </NavLink>

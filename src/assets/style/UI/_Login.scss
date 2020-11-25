@@ -3,12 +3,12 @@
 
   .login{
     color: $colorBtn;
-    background:url('../../img//login.png') rgba(203, 203, 203, 1) center/cover;
+    background:url('../../img/login.png') rgba(203, 203, 203, 1) center/cover;
     max-width: 370px;
     width: 100%;
     border-radius: 6px;
     position: fixed;
-    animation: showForm .5s forwards;
+    animation: showForm .5s forwards linear;
     // top: 50%;
     // left: 50%;
     // transform: translate(-50%, -50%);
@@ -124,7 +124,7 @@
   
   @keyframes showForm {
     0% {
-      top: 0;
+      top: -100%;
       left: 50%;
       transform: translateX(-50%);
     }
