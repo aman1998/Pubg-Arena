@@ -17,15 +17,15 @@ const Event = () => {
   const lobbySort = (lobby) => {
     const today = new Date()
     const tomorrow = new Date()
-    tomorrow.setDate(today.getDate() + 2)
-    if (today.getDate() === (new Date(lobby)).getDate() &&
+    tomorrow.setDate(today.getDate() + 3)
+    if(today > (new Date(lobby)))
+      return 'done'
+    else if (today.getDate() === (new Date(lobby)).getDate() &&
       today.getMonth() === (new Date(lobby)).getMonth() &&
       today.getFullYear() === (new Date(lobby)).getFullYear())
       return 'today'
     else if (today < (new Date(lobby)) && tomorrow >= (new Date(lobby)))
       return 'immediate'
-    else if(today > (new Date(lobby)))
-      return 'done'
     else
       return 'others'
   }
