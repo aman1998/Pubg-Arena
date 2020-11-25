@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 import Timer from '../UI/Timer'
 import Players from './Players'
 import {getDate} from "../../axios/dateFormatter"
-import Popup from './EnterGame'
+import Popup from '../UI/EnterGame'
 import {showLogin} from '../../store/actions/modalLogin'
 
 const LobbyContainer = (props) => {
@@ -95,7 +95,8 @@ const LobbyContainer = (props) => {
         <Players id={props.lobby_id}/>
         {popup ? 
         <Popup
-          id={props.id} 
+          id={props.id}
+          show={popup}
           priceGame={props.priceGame} 
           closePopup={closePopup}
           /> : null}

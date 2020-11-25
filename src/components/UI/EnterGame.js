@@ -4,8 +4,9 @@ import {NavLink} from 'react-router-dom'
 import { setLoading } from '../../store/actions/lobbies'
 import {getBalance} from '../../store/actions/profile'
 import axios from '../../axios/axios'
-import Login from '../UI/Login/Login'
+import Login from './Login/Login'
 import {showLogin} from "../../store/actions/modalLogin"
+import BackDrop from "./BackDrop";
 
 const EnterGame = (props) => {
   const {myProfile, isLog, balance} = useSelector(state => ({
@@ -27,6 +28,8 @@ const EnterGame = (props) => {
       .catch(e => console.log(e))
   }
   return (
+    <>
+      <BackDrop show={props.show} close={props.closePopup} />
     <div className='enter'>
       {
         balance >= props.priceGame && isLog ? 
@@ -49,6 +52,7 @@ const EnterGame = (props) => {
         </div> : null
       }
     </div>
+      </>
   )
 }
 
