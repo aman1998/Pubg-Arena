@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
-import { setLoading} from '../../store/actions/lobbies'
-import axios from '../../axios/axios'
 import Timer from '../UI/Timer'
 import Players from './Players'
 import {getDate} from "../../axios/dateFormatter"
@@ -16,9 +14,8 @@ const LobbyContainer = (props) => {
   const [popup, setPopup] = useState(false)
   const [passValue, setPassValue] = useState('')
 
-  const {myProfile, isLoadingPlayers, isLoading, isLog} = useSelector(state => ({
+  const {myProfile,  isLoading, isLog} = useSelector(state => ({
     myProfile: state.profile.myProfile,
-    isLoadingPlayers: state.lobbies.isLoading,
     isLoading: state.isLoading,
     isLog: state.isLogged
   }))
@@ -87,7 +84,7 @@ const LobbyContainer = (props) => {
                     </NavLink>
               </span></div>
             <div className='price'>Цена участие: <span>{props.priceGame} сомов</span></div>
-            <div className='price'>Цена 1 убийства: <span>{props.priceKill} сомов</span></div>
+            <div className='price'>Цена 1 килл: <span>{props.priceKill} сомов</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}
             {isPlaying ? null : <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
             {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>{

@@ -1,7 +1,5 @@
 import React from 'react'
 
-import useWindowDimensions from "../Hooks/useWindowDimentions"
-
 import FacebookIcon from '@material-ui/icons/Facebook'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TwitterIcon from '@material-ui/icons/Twitter'
@@ -13,7 +11,6 @@ import {NavLink} from 'react-router-dom'
 
 
 const Footer = () => {
-  const {width} = useWindowDimensions()
   return (
     <footer className='footer'>
         <div className='footer-header container'>
@@ -42,8 +39,8 @@ const Footer = () => {
           <nav>
             <ul><NavLink to='/terms' exact>Условиями пользования</NavLink></ul>
             <ul><NavLink to='/privacy' exact>Политика конфидициальности</NavLink></ul>
-            <ul><NavLink to='/privacy' exact>Политика возвратов</NavLink></ul>
-            <ul><NavLink to='/privacy' exact>Техподдержка</NavLink></ul>
+            <ul><NavLink to='#' exact>Политика возвратов</NavLink></ul>
+            <ul><NavLink to='#' exact>Техподдержка</NavLink></ul>
           </nav>
           <div className='footer-header--rate'>
             <div>+18</div>
