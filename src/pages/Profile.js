@@ -7,7 +7,7 @@ import UserRating from '../components/User/UserRating'
 // import CardIn from '../components/Card/CardIn'
 import CardOut from '../components/Card/CardOut'
 import CardIn from "../components/Card/CardIn";
-import UserSettings from "../components/User/UserSettings";
+import PasswordSettings from "./PasswordSettings";
 import LanguageSettings from "../components/User/LanguageSettings";
 import UserRatingKills from "../components/User/UserRatingKills";
 
@@ -32,7 +32,7 @@ const Profile = () => {
                 <UserRating/>
               </Route>
               <Route path='/profile/settings' exact>
-                <UserSettings />
+                <PasswordSettings />
               </Route>
               <CardIn />
               <CardOut />

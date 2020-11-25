@@ -15,6 +15,7 @@ import Rates from "./pages/Rates"
 import PageNotFound from "./pages/404Page"
 
 import './assets/style/style.scss'
+import PasswordSettings from "./pages/PasswordSettings";
 
 function App() {
   const dispatch = useDispatch()
@@ -41,10 +42,10 @@ function App() {
         <Route path='/terms' component = {TermsPage}/>
         <Route path='/rules' component = {RulesPage}/>
         <Route path='/rates' component = {Rates} />
+        <Route path = '/change-password' component ={PasswordSettings} exact/>
         {isLog ?
         <Switch>
           <Route path='/profile' component={ProfilePage} exact/>
-          <Route path = '/profile/settings' component = {ProfilePage} exact/>
           <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
           <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
           <Route path = '/profile/createLobbie' component = {ProfilePage} exact />

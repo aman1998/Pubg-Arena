@@ -1,24 +1,25 @@
 import React, {useState} from 'react'
-import axios from "../../axios/axios"
-import {useSelector} from "react-redux"
+import axios from "../axios/axios"
 
-import SendPhone from "./ChangePassword/SendPhone"
-import ActivateOtp from "./ChangePassword/ActivateOtp"
-import ChangePassword from "./ChangePassword/ChangePassword"
+import SendPhone from "../components/User/ChangePassword/SendPhone"
+import ActivateOtp from "../components/User/ChangePassword/ActivateOtp"
+import ChangePassword from "../components/User/ChangePassword/ChangePassword"
+import PageTemplate from "../components/templates/PageTemplate";
 
-const UserSettings = () => {
-  const myProfile = useSelector(state => state.profile.myProfile)
+const PasswordSettings = () => {
   const [sendPhone, setSendPhone] = useState(true)
   const [activateOtp, setActivateOtp] = useState(false)
   const [changePassword, setChangePassword] = useState(false)
   const [success, setSuccess] = useState(false)
   const [otp, setOtp] = useState('')
+  const [phone, setPhone] = useState('')
 
   const handleSendPhone = (body) => {
     axios.post('/reset-otp/', body)
       .then(() => {
         setSendPhone(false)
         setActivateOtp(true)
+        setPhone(body.phone)
       })
       .catch(e => console.log(e))
   }
@@ -49,25 +50,27 @@ const UserSettings = () => {
   }
 
   return(
-    <div className='user-settings'>
-      {
-        sendPhone && <SendPhone handleSendPhone={handleSendPhone} phone={myProfile.phone} />
-      }
-      {
-        activateOtp && <ActivateOtp handleActivateOtp={handleActivateOtp} phone={myProfile.phone} />
-      }
-      {
-        changePassword && <ChangePassword handleChangePassword={handleChangePassword} phone={myProfile.phone} otp={otp} />
-      }
-      {
-        success && (
-          <div className='change-form'>
-            <h2>Поздровляем, вы изменили пароль</h2>
-          </div>
-        )
-      }
-    </div>
+    <PageTemplate>
+      <div className='user-settings'>
+        {
+          sendPhone && <SendPhone handleSendPhone={handleSendPhone} />
+        }
+        {
+          activateOtp && <ActivateOtp handleActivateOtp={handleActivateOtp} phone={phone} />
+        }
+        {
+          changePassword && <ChangePassword handleChangePassword={handleChangePassword} phone={phone} otp={otp} />
+        }
+        {
+          success && (
+            <div className='change-form'>
+              <h2>Поздровляем, вы изменили пароль</h2>
+            </div>
+          )
+        }
+      </div>
+    </PageTemplate>
   )
 }
 
-export default UserSettings
+export default PasswordSettings
