@@ -30,7 +30,7 @@ function App() {
       dispatch(fetchProfileActionCreator())
     }
   }, [token])
-  
+
   return (
     <BrowserRouter>
       <Switch>
@@ -51,9 +51,9 @@ function App() {
           <Route path='/profile/language' component={ProfilePage} exact />
           <Route path='/profile/rating' component={ProfilePage} exact />
           <Route component={PageNotFound} />
-        </Switch> : null }
+        </Switch> : null}
         <Route component={PageNotFound} />
-        </Switch>
+      </Switch>
     </BrowserRouter>
   )
 }
