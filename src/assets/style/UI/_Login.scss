@@ -94,13 +94,19 @@
           border: 1px solid rgba(0, 0, 0, 0.8);
         }
       }
+      .check {
+        @media screen and (max-width: 560px) {
+          font-size: 14px;
+          line-height: 15px;
+        }
+      }
       &Btn {
         padding: 1px 0;
         font-weight: 500;
         padding: 15px 0;
         color: inherit;
         margin-top: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         cursor: pointer;
         width: 100%;
         border: none;

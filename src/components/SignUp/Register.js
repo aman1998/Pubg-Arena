@@ -2,10 +2,10 @@ import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {useDispatch} from "react-redux"
-import {fetchLoginActionCreator} from "../../../store/actions/profile"
-import {showRegister} from "../../../store/actions/modalRegister"
+import {fetchLoginActionCreator} from "../../store/actions/profile"
+import {showRegister} from "../../store/actions/modalRegister"
 
-import axios from "../../../axios/axios"
+import axios from "../../axios/axios"
 
 const Register = (props) => {
   const dispatch = useDispatch()
@@ -13,9 +13,9 @@ const Register = (props) => {
   const handleRegister = ({name, pubg_id, phone, password}) => {
     axios.post('/register/', {name, pubg_id, phone, password})
       .then(response => {
-        dispatch(showRegister())
         console.log(response)
         dispatch(fetchLoginActionCreator({phone, password}))
+        
       })
       .catch(e => console.log(e))
   }
@@ -67,7 +67,7 @@ const Register = (props) => {
           <ErrorMessage name="confirmPassword" component="div" className='error'/>
           <div className='check-wrapper'>
             <Field type="checkbox" name="acceptTerms" className='check-input'/>
-            <label htmlFor="acceptTerms" className="check">Я ознакомлен и согласен</label>
+            <label htmlFor="acceptTerms" className="check">Я ознакомлен и согласен с условиями</label>
           </div>
           <ErrorMessage name="acceptTerms" component="div" className='error'/>
           <button type="submit" className='loginFormBtn reg'>

@@ -11,7 +11,8 @@ import LobbyPage from './pages/LobbyPage'
 import PrivacyPage from './pages/Privacy'
 import TermsPage from './pages/Terms'
 import RulesPage from './pages/Rules'
-import Rates from "./pages/Rates"
+import RatesPage from "./pages/Rates"
+import SignUpPage from './pages/SignUp'
 import PageNotFound from "./pages/404Page"
 
 import './assets/style/style.scss'
@@ -41,7 +42,8 @@ function App() {
         <Route path='/privacy' component = {PrivacyPage}/>
         <Route path='/terms' component = {TermsPage}/>
         <Route path='/rules' component = {RulesPage}/>
-        <Route path='/rates' component = {Rates} />
+        <Route path='/rates' component = {RatesPage} />
+        <Route path='/signUp' component = {SignUpPage} />
         <Route path = '/change-password' component ={PasswordSettings} exact/>
         {isLog ?
         <Switch>

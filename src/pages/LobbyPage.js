@@ -6,7 +6,7 @@ import Logo from '../assets/icons/logo.svg'
 import {setPlayers} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
 import {setLoading as setLoadingAction} from '../store/actions/lobbies'
-import LobbyLoading from '../components/Loadings/lobby'
+import Loading from '../components/Loadings/Loading'
 
 const ENDOPOINT = 'http://195.38.164.24:8080'
 
@@ -52,7 +52,7 @@ const Lobby = () => {
       <div style={{minHeight: '50vh', position: 'relative'}}>
         { loading ? 
           // <img src={Logo} alt='#' className='loading' /> :   
-          <LobbyLoading /> :   
+          <Loading /> :   
           success ?
           <LobbyPage 
             id={lobby.id}

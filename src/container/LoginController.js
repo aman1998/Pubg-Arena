@@ -3,10 +3,10 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import Login from "../components/UI/Login/Login";
 import LoginUserInfo from "../components/User/LoginUserInfo";
-
+import {NavLink} from 'react-router-dom'
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
-import RegTemplate from '../components/UI/Login/RegTemplate';
+import RegTemplate from '../components/SignUp/RegTemplate';
 import {checkIsLog, setProfile, setToken} from "../store/actions/profile";
 import {logOut} from "../store/actions/logInOut";
 import axios from "../axios/axios";
@@ -80,18 +80,22 @@ const LoginController = () => {
                 <div className='item itemsLogin ' onClick={showLog}>
                   Войти
                 </div>
-                <div className='item itemsLogin register' onClick={showReg}>
-                  Регистрация
-                </div>
+                <NavLink 
+                  to='/signUp'
+                  className='item itemsLogin register' 
+                  exact>Регистрация
+                </NavLink>
               </div>
               <img src={IncognitoIcon} alt='#' className='incognito' onClick={() => setModalUserInfo(!modalUserInfo)}/>
               <div className={modalUserInfo ? 'modalInfo modalReg down' : 'modalInfo modalReg up'}>
                 <div className='item itemsLogin' onClick={showLog} style={{margin: '0 0 10px 0'}}>
                   Войти
                 </div>
-                <div className='item itemsLogin register' onClick={showReg}>
-                  Регистрация
-                </div>
+                <NavLink 
+                  to='/signUp'
+                  className='item itemsLogin register' 
+                  exact>Регистрация
+                </NavLink>
               </div>
             </>
           )

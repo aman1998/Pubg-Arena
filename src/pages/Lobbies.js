@@ -1,11 +1,10 @@
 import React from 'react'
-// import {useSelector} from 'react-redux'
 import Slider from "../container/Slider";
 import PageTemplate from '../components/templates/PageTemplate'
 import Events from '../components/Events/event'
 import {fetchLobbiesActionCreator} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
-import Logo from '../assets/icons/logo.svg'
+import Loading from '../components/Loadings/Loading'
 
 const MainPage = () => {
   const {loading, success, lobbies} = useSelector(state => ({
@@ -26,7 +25,7 @@ const MainPage = () => {
   return (
     <PageTemplate>
       {
-        loading ? <img src={Logo} alt='#' className='loading' /> :
+        loading ? <Loading /> :
         success ? 
         <div className='home-main'>
           <Slider />

@@ -7,7 +7,7 @@ import {NavLink} from 'react-router-dom'
 import {showLogin} from "../../../store/actions/modalLogin"
 import {fetchLoginActionCreator} from "../../../store/actions/profile"
 
-import Header from './Header'
+import Header from '../../SignUp/Header'
 import BackDrop from "../BackDrop";
 
 const Login = () => {
