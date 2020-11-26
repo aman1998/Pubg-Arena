@@ -58,6 +58,7 @@ const RegTemplate = () => {
         )
       }
     </div>
+  )
 }
 
 export default RegTemplate
