@@ -30,6 +30,12 @@
       left: 50%;
       transform: translate(-50%, -50%);
       animation: popup 0.5s forwards;
+      @media screen and (max-width: 768px) {
+        top: 40%;
+      }
+      @media screen and (max-width: 560px) {
+        top: 30%;
+      }
       .enter-cardIn {
         text-align: center;
         a {
@@ -58,14 +64,20 @@
     }
     @keyframes popup{
       0% {
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      100% {
-        top: 50%;
+        top: -100%;
         left: 50%;
         transform: translate(-50%, -50%);
+      }
+      100% {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @media screen and (max-width: 768px) {
+          top: 40%;
+        }
+        @media screen and (max-width: 560px) {
+          top: 30%;
+        }
       }
     }
     &-left {

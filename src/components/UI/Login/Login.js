@@ -36,7 +36,7 @@ const Login = () => {
           validationSchema={
             Yup.object().shape({
               phone: Yup.string()
-                .required('Введите никнейм!'),
+                .required('Введите номер!'),
               password: Yup.string()
                 .min(6, 'Минимум 6 символов')
                 .required('Введите пароль!'),

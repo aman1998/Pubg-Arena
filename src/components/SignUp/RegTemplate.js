@@ -3,11 +3,11 @@ import Register from './Register'
 import Phone from '../UI/Login/Phone'
 import Activate from './Activate'
 import {useDispatch} from "react-redux"
-import axios from "../../axios/axios";
+import axios from "../../axios/axios"
 import Header from './Header'
 
 const RegTemplate = () => {
-  const [phone, setPhone] = React.useState('')
+  const [phone, getPhone] = React.useState('')
   const [showPhone, setShowPhone] = React.useState(true)
   const [showActivate, setShowActivate] = React.useState(false)
   const [showRegisterContainer, setShowRegisterContainer] = useState(false)
@@ -17,23 +17,28 @@ const RegTemplate = () => {
     window.scrollTo(0, 0);
   }, [])
 
-  const handlePhone = (body) => {
-    axios.post('/validate/', body)
-      .then((res) => {
-        console.log(res)
-        setPhone(body.phone)
-        setShowActivate(true)
-        setShowPhone(false)
-      })
-      .catch(e => console.log(e))
-  }
+  // const handlePhone = (body) => {
+  //   axios.post('/validate/', body)
+  //     .then((res) => {
+  //       console.log(res.data)
+  //       setPhone(body.phone)
+  //       setShowActivate(true)
+  //       setShowPhone(false)
+  //     })
+  //     .catch(e => console.log(e))
+  // }
 
   return (
     <div className='signUp'>
       <Header title='Регистрация' />
       {
         showPhone ? (
-          <Phone handlePhone={handlePhone}/>
+          <Phone 
+            // handlePhone={handlePhone}
+            getPhone={getPhone}
+            showActivate={ setShowActivate}
+            showPhone={setShowPhone}
+            />
         ) : showActivate ? (
           <Activate  
             phone={phone}

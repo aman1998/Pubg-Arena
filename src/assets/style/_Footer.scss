@@ -5,6 +5,9 @@
   background-color: $bgHrFr;
   font-size: 16px;
   line-height: 19px;
+  a {
+    cursor: pointer;
+  }
   @media screen and (max-width: 768px) {
     font-size: 15px;
     }
