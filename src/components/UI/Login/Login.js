@@ -2,11 +2,12 @@ import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {useDispatch, useSelector} from "react-redux"
+import {NavLink} from 'react-router-dom'
 
 import {showLogin} from "../../../store/actions/modalLogin"
 import {fetchLoginActionCreator} from "../../../store/actions/profile"
 
-import Header from './Header'
+import Header from '../../SignUp/Header'
 import BackDrop from "../BackDrop";
 
 const Login = () => {
@@ -54,6 +55,7 @@ const Login = () => {
               <ErrorMessage name="phone" component="div" className='error'/>
               <Field type="password" name="password" placeholder='Пароль'/>
               <ErrorMessage name="password" component="div" className='error'/>
+              <NavLink to='/change-password' className='change-pass' exact onClick={showLog}>Забыли пароль?</NavLink>
               <button type="submit" className='loginFormBtn log'>
                 Вход
               </button>

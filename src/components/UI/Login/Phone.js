@@ -1,38 +1,39 @@
 import React from 'react'
-import {Formik, Form, Field, ErrorMessage} from 'formik'
-import * as Yup from 'yup'
+// import PhoneInput from 'react-phone-number-input'
+// import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 const Register = (props) => {
+  const [phone, setPhone] = React.useState('')
+  const [error, setError] = React.useState(false)
+
+  const sendPhone = (e) => {
+    e.preventDefault()
+    if (phone) {
+      props.handlePhone({phone})
+      console.log(phone)
+    }
+    else {
+      setError(true)
+    }
+  }
 
   return (
-    <Formik
-      initialValues={
-        {
-          phone: ''
-        }
-      }
-      validationSchema={
-        Yup.object().shape({
-          phone: Yup.number('Введите номер!')
-            .required('Заполинте поле!')
-        })
-      }
-      onSubmit={
-        fields => {
-          props.handlePhone(fields)
-        }
-      }
-    >
-      {() => (
-        <Form className='loginForm'>
-          <Field type="text" name="phone" placeholder='phone' />
-          <ErrorMessage name="phone" component="div" className='error'/>
-          <button type="submit" className='loginFormBtn reg'>
-            Далее
-          </button>
-        </Form>
-      )}
-    </Formik>
+    <form>
+      <PhoneInput
+        country='kg'
+        onlyCountries={['kg', 'kz', 'ru']}
+        // disableDropdown
+        containerClass='phone'
+        placeholder="Введите свой номер"
+        value={phone}
+        onChange={setPhone}
+        onFocus={() => setError(false)}
+      />
+      {error ?  <div className='error'>Ошибка ввода</div> : null}
+      <button onClick={sendPhone}  className='loginFormBtn reg'>Отправить</button>
+    </form>
   )
 }
 

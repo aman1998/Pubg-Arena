@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
 import Register from './Register'
-import Phone from './Phone'
+import Phone from '../UI/Login/Phone'
 import Activate from './Activate'
 import {useDispatch} from "react-redux"
+import axios from "../../axios/axios";
 import Header from './Header'
-import {showRegister} from "../../../store/actions/modalRegister";
-import axios from "../../../axios/axios";
 
 const RegTemplate = () => {
   const [phone, setPhone] = React.useState('')
@@ -14,9 +13,14 @@ const RegTemplate = () => {
   const [showRegisterContainer, setShowRegisterContainer] = useState(false)
   const dispatch = useDispatch()
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   const handlePhone = (body) => {
     axios.post('/validate/', body)
-      .then(() => {
+      .then((res) => {
+        console.log(res)
         setPhone(body.phone)
         setShowActivate(true)
         setShowPhone(false)
@@ -24,31 +28,18 @@ const RegTemplate = () => {
       .catch(e => console.log(e))
   }
 
-  const handleActivate = (body) => {
-    axios.post('/verify/', body)
-      .then((response) => {
-        if(response.data.details !== 'OTP incorrect, please try again' &&
-        response.data.details !== 'Phone not recognised. Kindly request a new otp with this number'
-        ) {
-          setShowActivate(false)
-          setShowRegisterContainer(true)
-        }
-      })
-      .catch(e => console.log(e))
-  }
-
-  const dispatchShowRegister = () => {
-    dispatch(showRegister())
-  }
-
   return (
-    <div className='login'>
-      <Header title='Регистрация' class='reg' close={dispatchShowRegister}/>
+    <div className='signUp'>
+      <Header title='Регистрация' />
       {
         showPhone ? (
           <Phone handlePhone={handlePhone}/>
         ) : showActivate ? (
-          <Activate handleActivate={handleActivate} phone={phone}/>
+          <Activate  
+            phone={phone}
+            showActivate={setShowActivate}
+            showReg={setShowRegisterContainer}
+            />
         ) : showRegisterContainer ?
           <Register phone={phone}/> : null
       }
