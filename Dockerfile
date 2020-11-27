@@ -16,4 +16,3 @@ COPY . ./
 EXPOSE 3030
 # start app
 CMD ["npm", "start"]
-
