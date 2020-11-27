@@ -8,6 +8,9 @@ import CardIn from '../components/Home/cardIn'
 import Questions from '../components/Home/questions'
 
 const Home = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <PageTemplate>
       <div className='home'>

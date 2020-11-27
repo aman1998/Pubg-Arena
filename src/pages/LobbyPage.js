@@ -7,6 +7,7 @@ import {setPlayers} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
 import {setLoading as setLoadingAction} from '../store/actions/lobbies'
 import Loading from '../components/Loadings/Loading'
+import Error from './500Page'
 
 const ENDOPOINT = 'http://195.38.164.24:8080'
 
@@ -68,7 +69,7 @@ const Lobby = () => {
             pass={lobby.passcode}
             lobby_id={id}
           /> :
-          <div className='error-fetch'>Обновите</div> 
+          <Error />
         }
       </div>
     </PageTemplate>

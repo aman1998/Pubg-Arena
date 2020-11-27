@@ -17,24 +17,12 @@ const RegTemplate = () => {
     window.scrollTo(0, 0);
   }, [])
 
-  // const handlePhone = (body) => {
-  //   axios.post('/validate/', body)
-  //     .then((res) => {
-  //       console.log(res.data)
-  //       setPhone(body.phone)
-  //       setShowActivate(true)
-  //       setShowPhone(false)
-  //     })
-  //     .catch(e => console.log(e))
-  // }
-
   return (
     <div className='signUp'>
       <Header title='Регистрация' />
       {
         showPhone ? (
           <Phone 
-            // handlePhone={handlePhone}
             getPhone={getPhone}
             showActivate={ setShowActivate}
             showPhone={setShowPhone}

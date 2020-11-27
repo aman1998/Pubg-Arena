@@ -5,6 +5,7 @@ import Events from '../components/Events/event'
 import {fetchLobbiesActionCreator} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
 import Loading from '../components/Loadings/Loading'
+import Error from './500Page'
 
 const MainPage = () => {
   const {loading, success, lobbies} = useSelector(state => ({
@@ -30,7 +31,7 @@ const MainPage = () => {
         <div className='home-main'>
           <Slider />
           <Events title='Расписание'/>
-        </div> : <div>Ошибка сервера, обновите</div>
+        </div> : <Error />
       }
     </PageTemplate>
   )
