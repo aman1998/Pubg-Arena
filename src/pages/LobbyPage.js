@@ -1,8 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import PageTemplate from '../components/templates/PageTemplate'
 import LobbyPage from '../components/Lobbies/LobbyContainer'
 import {useParams} from 'react-router'
-import Logo from '../assets/icons/logo.svg'
 import {setPlayers} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
 import {setLoading as setLoadingAction} from '../store/actions/lobbies'
@@ -52,8 +51,7 @@ const Lobby = () => {
     <PageTemplate>
       <div style={{minHeight: '50vh', position: 'relative'}}>
         { loading ? 
-          // <img src={Logo} alt='#' className='loading' /> :   
-          <Loading /> :   
+          <Loading /> :
           success ?
           <LobbyPage 
             id={lobby.id}

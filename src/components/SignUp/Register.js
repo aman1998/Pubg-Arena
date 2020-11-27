@@ -3,7 +3,6 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {useDispatch} from "react-redux"
 import {fetchLoginActionCreator} from "../../store/actions/profile"
-import {showRegister} from "../../store/actions/modalRegister"
 
 import axios from "../../axios/axios"
 
@@ -15,7 +14,7 @@ const Register = (props) => {
       .then(response => {
         console.log(response)
         dispatch(fetchLoginActionCreator({phone, password}))
-        
+        props.showRegistered(true)
       })
       .catch(e => console.log(e))
   }

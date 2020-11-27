@@ -1,9 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
-import {setLoading} from '../../store/actions/lobbies'
-import {getBalance} from '../../store/actions/profile'
-import axios from '../../axios/axios'
+import {enterGameActionCreator} from '../../store/actions/lobbies'
 import BackDrop from "./BackDrop";
 
 const EnterGame = (props) => {
@@ -15,16 +13,9 @@ const EnterGame = (props) => {
   const dispatch = useDispatch()
 
   const enterGame = () => {
-    axios.post('/lobby/users/', {rates: props.id, user: myProfile.pk, balance: myProfile.balance})
-      .then(() => {
-        dispatch(setLoading(true))
-        props.closePopup()
-      })
-      .then(() => {
-        dispatch(getBalance(balance - props.priceGame))
-      })
-      .catch(e => console.log(e))
+    dispatch(enterGameActionCreator(props.id, myProfile.pk, myProfile.balance, props.priceGame, props.closePopup))
   }
+
   return (
     <>
       <BackDrop show={props.show} close={props.closePopup}/>
