@@ -3,9 +3,13 @@ import Cancel from '../../assets/icons/cancel'
 import {NavLink} from 'react-router-dom'
 
 const Header = (props) => {
+  const closeModal = () => {
+    props.close()
+    props.down(true)
+  }
   return (
     <div>
-      {props.title === 'Регистрация' ? null : <div className='cancel' onClick={props.close}><Cancel /></div>}
+      {props.title === 'Регистрация' ? null : <div className='cancel' onClick={closeModal}><Cancel /></div>}
       <div className='loginHeaderContent'>
         <div className={`${props.title !== 'Регистрация' ? 'login-title ' :' signUp-title'}`}>Добро пожаловать в Arena Games</div>
         {props.title === 'Регистрация' ? 

@@ -8,10 +8,10 @@
     width: 100%;
     border-radius: 6px;
     position: fixed;
-    animation: showForm .5s forwards linear;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
+    // animation: showForm .5s forwards linear;
+    top: -100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 100;
     .change-pass {
       display: block;
@@ -142,7 +142,10 @@
     }
   }
   .login-down {
-      animation: deleteForm .5s forwards;
+      animation: deleteForm .5s forwards linear;
+    }
+  .login-up {
+    animation: showForm .5s forwards ease;
     }
   
   @keyframes showForm {
@@ -165,7 +168,7 @@
       transform: translate(-50%, -50%);
     }
     100% {
-      top: 0;
+      top: 500%;
       left: 50%;
       transform: translateX(-50%);
     }

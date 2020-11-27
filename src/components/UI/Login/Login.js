@@ -11,6 +11,7 @@ import Header from '../../SignUp/Header'
 import BackDrop from "../BackDrop";
 
 const Login = () => {
+  const [down, setDown] = React.useState(false)
   const dispatch = useDispatch()
   const loginModal = useSelector(state => state.modalLogin)
 
@@ -21,11 +22,12 @@ const Login = () => {
   const handleLogin = (body) => {
     dispatch(fetchLoginActionCreator(body))
   }
+
   return (
     <>
-      <BackDrop show={loginModal} close={showLog} />
-      <div className='login'>
-        <Header title='Вход' class='log' close={showLog}/>
+      <BackDrop show={loginModal} close={showLog} down={setDown} />
+      <div className={`login ${loginModal ? 'login-up' : down ? 'login-down' : ''}`}>
+        <Header title='Вход' class='log' close={showLog} down={setDown}/>
         <Formik
           initialValues={
             {

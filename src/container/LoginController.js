@@ -102,17 +102,9 @@ const LoginController = () => {
         )
       }
       {
-        loginModal ? (
-          <Login login={loginModal} showBack={loginModal}/>
-        ) : null
-      }
-      {
-        registerModal ? (
-          <RegTemplate
-            register={registerModal}
-            showBack={registerModal}
-          />
-        ) : null
+        // loginModal ? (
+          <Login/>
+        // ) : null
       }
     </div>
   )

@@ -1,5 +1,6 @@
 import React from 'react'
 import Chevron from '../../assets/icons/chevron'
+import { ThemeProvider } from "styled-components"
 
 const Questions = () => {
   const [answer1, setAnswer1] = React.useState(false)
