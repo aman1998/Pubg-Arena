@@ -1,14 +1,29 @@
 import React, {useState} from 'react'
-import axios from "../../axios/axios";
+import axios from "../../axios/axios"
+import {useDispatch, useSelector} from 'react-redux'
+import {
+  FETCH_FAILED,
+  FETCH_SUCCESS,
+  FETCH_LOADING
+} from "../../store/actionTypes"
 
 const Activate = (props) => {
   const [otp, setOtp] = useState('')
   const [error, setError] = useState(false)
 
+  const {loading, failed} = useSelector(state => ({
+    loading: state.fetch.post.loading,
+    failed: state.fetch.post.failed,
+  }))
+
+  const dispatch = useDispatch()
+
   const handleActivate = (body) => {
+    dispatch({ type: FETCH_LOADING })
     axios.post('/verify/', body)
       .then(({data}) => {
         if(data.status) {
+          dispatch({ type: FETCH_SUCCESS})
           console.log(data)
           props.showActivate(false)
           props.showReg(true)
@@ -16,9 +31,13 @@ const Activate = (props) => {
         else {
           console.log(data)
           setError(true)
+          dispatch({ type: FETCH_FAILED})
         }
       })
-      .catch(e => console.log(e))
+      .catch(e => {
+        setError(true)
+        dispatch({ type: FETCH_FAILED})
+      })
   }
 
   return (
@@ -38,7 +57,11 @@ const Activate = (props) => {
         />
       {error ? <div className='error'>Неправильный код</div> : null}
       <button type="submit" className='loginFormBtn reg'>
-            Активировать
+      {loading ? 
+        <div className='login-loading'></div> : 
+      failed ? 
+        <div className='btn-error'>повторить</div> : 
+        'Активировать'}
       </button>
     </form>
   )

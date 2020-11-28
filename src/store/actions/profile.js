@@ -5,13 +5,17 @@ import {
   GET_BALANCE,
   GET_PROFILE_FAILED, 
   GET_PROFILE_LOADING, 
-  GET_PROFILE_SUCCESS
+  GET_PROFILE_SUCCESS,
+  FETCH_FAILED,
+  FETCH_SUCCESS,
+  FETCH_LOADING
 } from "../actionTypes"
 
 import { loading, notLoading} from "./isLoading"
 import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
 import {hideState, showState} from "./isAuthState";
+import {showLogin} from "./modalLogin";
 
 export const setProfile = (payload) => ({
   type: SET_PROFILE,
@@ -39,6 +43,7 @@ export const fetchProfileActionCreator = () => dispatch => {
       dispatch(notLoading())
       dispatch({ type: GET_PROFILE_SUCCESS})
       dispatch(getBalance(response.data.balance))
+      dispatch(showLogin())
     })
     .catch((e) => {
       console.log(e.message)
@@ -51,6 +56,7 @@ export const fetchProfileActionCreator = () => dispatch => {
 }
 
 export const fetchLoginActionCreator = (body) => dispatch => {
+  dispatch({ type: FETCH_LOADING })
   axios.post('/login/',
     body
   )
@@ -59,6 +65,7 @@ export const fetchLoginActionCreator = (body) => dispatch => {
         localStorage.setItem('token', `Token ${response.data.token}` )
         dispatch(setToken(`Token ${response.data.token}`))
       } 
+      dispatch({ type: FETCH_SUCCESS })
       dispatch(logIn())
       dispatch(showState())
       dispatch(fetchProfileActionCreator({...response.data}))
@@ -67,6 +74,7 @@ export const fetchLoginActionCreator = (body) => dispatch => {
       }, 3000)
     })
     .catch(e => {
+      dispatch({ type: FETCH_FAILED })
       dispatch(showState())
       dispatch(logOut())
       setTimeout(() => {

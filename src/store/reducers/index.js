@@ -10,6 +10,7 @@ import isAuthState from './isAuthState'
 import lobby from './lobby'
 import timer from './timer'
 import rates from './rates'
+import fetch from './fetch'
 
 export default combineReducers({
   profile,
@@ -22,5 +23,6 @@ export default combineReducers({
   isAuthState,
   lobby,
   timer,
-  rates
+  rates,
+  fetch
 })

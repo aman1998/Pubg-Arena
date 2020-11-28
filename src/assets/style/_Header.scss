@@ -180,6 +180,9 @@
     width: 200px;
   }
   @include popups();
+  .home, .tournaments, .rates {
+    margin-bottom: 8px;
+  }
   &.down{
     right: 0;
   }
