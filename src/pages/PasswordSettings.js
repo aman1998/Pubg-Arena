@@ -3,13 +3,15 @@ import React, {useState} from 'react'
 import SendPhone from "../components/User/ChangePassword/SendPhone"
 import ActivateOtp from "../components/User/ChangePassword/ActivateOtp"
 import ChangePassword from "../components/User/ChangePassword/ChangePassword"
-import PageTemplate from "../components/templates/PageTemplate";
-import {useDispatch} from "react-redux";
+import PageTemplate from "../components/templates/PageTemplate"
+
+import {useDispatch} from "react-redux"
+
 import {
   activateOtpActionCreator,
   changePasswordActionCreator,
   sendPhoneActionCreator
-} from "../store/actions/changePassword";
+} from "../store/actions/changePassword"
 
 const PasswordSettings = () => {
   const [sendPhone, setSendPhone] = useState(true)
