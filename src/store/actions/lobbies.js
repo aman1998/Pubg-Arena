@@ -67,7 +67,7 @@ export const enterGameActionCreator = (id, pk, balance, priceGame, closePopup) =
     .catch(e => console.log(e))
 }
 
-export const setOneLobbyActionCreator = (setLoading, setLobby, setError, setSuccess) => dispatch => {
+export const setOneLobbyActionCreator = (id, setLoading, setLobby, setError, setSuccess) => dispatch => {
   const ENDOPOINT = 'http://195.38.164.24:8080'
   fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
     method: 'GET',

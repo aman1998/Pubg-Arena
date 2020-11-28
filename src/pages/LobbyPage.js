@@ -26,7 +26,7 @@ const Lobby = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
     setLoading(true)
-    dispatch(setOneLobbyActionCreator(setLoading, setLobby, setError, setSuccess))
+    dispatch(setOneLobbyActionCreator(id, setLoading, setLobby, setError, setSuccess))
   }, [isLoading])
 
 
