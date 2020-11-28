@@ -1,24 +1,14 @@
 import React, {useState} from 'react'
-import axios from "../../axios/axios";
+import {useDispatch} from "react-redux"
+import {activateActionCreator} from "../../store/actions/modalRegister";
 
 const Activate = (props) => {
   const [otp, setOtp] = useState('')
   const [error, setError] = useState(false)
+  const dispatch = useDispatch()
 
   const handleActivate = (body) => {
-    axios.post('/verify/', body)
-      .then(({data}) => {
-        if(data.status) {
-          console.log(data)
-          props.showActivate(false)
-          props.showReg(true)
-        }
-        else {
-          console.log(data)
-          setError(true)
-        }
-      })
-      .catch(e => console.log(e))
+    dispatch(activateActionCreator(body, props.showActivate, props.showReg, setError))
   }
 
   return (

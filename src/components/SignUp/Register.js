@@ -2,21 +2,13 @@ import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {useDispatch} from "react-redux"
-import {fetchLoginActionCreator} from "../../store/actions/profile"
-
-import axios from "../../axios/axios"
+import {registerActionCreator} from "../../store/actions/modalRegister";
 
 const Register = (props) => {
   const dispatch = useDispatch()
 
   const handleRegister = ({name, pubg_id, phone, password}) => {
-    axios.post('/register/', {name, pubg_id, phone, password})
-      .then(response => {
-        console.log(response)
-        dispatch(fetchLoginActionCreator({phone, password}))
-        props.showRegistered(true)
-      })
-      .catch(e => console.log(e))
+    dispatch(registerActionCreator({name, pubg_id, phone, password}, props.showRegistered))
   }
 
   return (

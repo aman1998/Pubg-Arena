@@ -4,7 +4,6 @@ import {useSelector} from 'react-redux'
 import PageTemplate from '../components/templates/PageTemplate'
 import Sidebar from '../components/layout/Sidebar'
 import UserRating from '../components/User/UserRating'
-// import CardIn from '../components/Card/CardIn'
 import CardOut from '../components/Card/CardOut'
 import CardIn from "../components/Card/CardIn";
 import PasswordSettings from "./PasswordSettings";

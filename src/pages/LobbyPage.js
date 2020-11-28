@@ -2,13 +2,10 @@ import React from 'react'
 import PageTemplate from '../components/templates/PageTemplate'
 import LobbyPage from '../components/Lobbies/LobbyContainer'
 import {useParams} from 'react-router'
-import {setPlayers} from '../store/actions/lobbies'
+import {setOneLobbyActionCreator} from '../store/actions/lobbies'
 import {useDispatch, useSelector} from 'react-redux'
-import {setLoading as setLoadingAction} from '../store/actions/lobbies'
 import Loading from '../components/Loadings/Loading'
 import Error from './500Page'
-
-const ENDOPOINT = 'http://195.38.164.24:8080'
 
 const Lobby = () => {
   let {id} = useParams()
@@ -29,21 +26,7 @@ const Lobby = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
     setLoading(true)
-    fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
-        method: 'GET',
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setLoading(false)
-          setSuccess(true)
-          setLobby(data)
-          dispatch(setPlayers(data.player_list))
-          dispatch(setLoadingAction(false))
-        })
-        .catch(() => {
-          setLoading(false)
-          setError(true)
-        })
+    dispatch(setOneLobbyActionCreator(setLoading, setLobby, setError, setSuccess))
   }, [isLoading])
 
 

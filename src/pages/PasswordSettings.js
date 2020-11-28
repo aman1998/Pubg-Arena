@@ -1,10 +1,15 @@
 import React, {useState} from 'react'
-import axios from "../axios/axios"
 
 import SendPhone from "../components/User/ChangePassword/SendPhone"
 import ActivateOtp from "../components/User/ChangePassword/ActivateOtp"
 import ChangePassword from "../components/User/ChangePassword/ChangePassword"
 import PageTemplate from "../components/templates/PageTemplate";
+import {useDispatch} from "react-redux";
+import {
+  activateOtpActionCreator,
+  changePasswordActionCreator,
+  sendPhoneActionCreator
+} from "../store/actions/changePassword";
 
 const PasswordSettings = () => {
   const [sendPhone, setSendPhone] = useState(true)
@@ -13,40 +18,16 @@ const PasswordSettings = () => {
   const [success, setSuccess] = useState(false)
   const [otp, setOtp] = useState('')
   const [phone, setPhone] = useState('')
+  const dispatch = useDispatch()
 
   const handleSendPhone = (body) => {
-    axios.post('/reset-otp/', body)
-      .then(() => {
-        setSendPhone(false)
-        setActivateOtp(true)
-        setPhone(body.phone)
-      })
-      .catch(e => console.log(e))
+    dispatch(sendPhoneActionCreator(body, setSendPhone, setActivateOtp, setPhone))
   }
   const handleActivateOtp = (body) => {
-    axios.post('/reset-otp/verify/', body)
-      .then(() => {
-        setOtp(body.otp)
-        setActivateOtp(false)
-        setChangePassword(true)
-      })
-      .catch(e => {
-        console.log(e)
-        setActivateOtp(true)
-        setChangePassword(false)
-      })
+    dispatch(activateOtpActionCreator(body, setOtp, setActivateOtp, setChangePassword))
   }
   const handleChangePassword = (body) => {
-    axios.post('/pass-change/', body)
-      .then(() => {
-        setChangePassword(false)
-        setSuccess(true)
-      })
-      .catch(e => {
-        console.log(e)
-        setChangePassword(true)
-        setSuccess(false)
-      })
+    dispatch(changePasswordActionCreator(body, setChangePassword, setSuccess))
   }
 
   return(

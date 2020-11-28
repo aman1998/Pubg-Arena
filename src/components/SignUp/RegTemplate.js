@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import Register from './Register'
 import Phone from '../UI/Login/Phone'
 import Activate from './Activate'
-import axios from "../../axios/axios";
 import Header from './Header'
 
 const RegTemplate = () => {
