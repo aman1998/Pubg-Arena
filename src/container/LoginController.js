@@ -5,11 +5,7 @@ import Login from "../components/UI/Login/Login";
 import LoginUserInfo from "../components/User/LoginUserInfo";
 import {NavLink} from 'react-router-dom'
 import {showLogin} from "../store/actions/modalLogin";
-import {showRegister} from "../store/actions/modalRegister";
-import RegTemplate from '../components/SignUp/RegTemplate';
-import {checkIsLog, setProfile, setToken} from "../store/actions/profile";
-import {logOut} from "../store/actions/logInOut";
-import axios from "../axios/axios";
+import { logoutActionCreator } from "../store/actions/profile";
 
 import IncognitoIcon from '../assets/icons/incognito.svg'
 
@@ -17,23 +13,17 @@ const LoginController = () => {
   const [modalUserInfo, setModalUserInfo] = React.useState(false)
   const dispatch = useDispatch()
   const {
-    loginModal,
-    registerModal,
     isLogged,
     isLoading,
     name,
     balance,
     phone,
-    token
   } = useSelector(state => ({
-    loginModal: state.modalLogin,
-    registerModal: state.modalRegister,
     isLogged: state.isLogged,
     isLoading: state.isLoading,
     name: state.profile.myProfile.name,
     balance: state.profile.balance,
     phone: state.profile.myProfile.phone,
-    token: state.profile.token
   }))
 
   const showLog = () => {
@@ -41,26 +31,8 @@ const LoginController = () => {
     dispatch(showLogin())
   }
 
-  const showReg = () => {
-    setModalUserInfo(false)
-    dispatch(showRegister())
-  }
-
   const handleLogout = () => {
-    axios.post('/logout/',{},  {
-      headers:{
-        'Authorization': token
-      }
-    })
-      .then(response => {
-        console.log(response)
-        localStorage.removeItem('token')
-        dispatch(setToken(null))
-        dispatch(logOut())
-        dispatch(setProfile({}))
-        dispatch(checkIsLog(false))
-      })
-      .catch(e => console.log(e))
+		dispatch(logoutActionCreator())
   }
 
   return (

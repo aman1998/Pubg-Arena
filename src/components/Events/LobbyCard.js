@@ -1,6 +1,5 @@
 import React from "react"
 import {getDate} from "../../axios/dateFormatter"
-import {NavLink} from "react-router-dom"
 
 const LobbyCard = (props) => {
   return (

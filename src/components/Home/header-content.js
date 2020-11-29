@@ -23,7 +23,7 @@ const Header = () => {
         </div>
         <div className='header-footer'>Присоединись к самой быстрорастущей киберспортивной платформе</div>
         <div className="header-icons">
-          <div className='header-line'></div>
+          <div className='header-line'> </div>
           <a href='https://facebook.com'>
             <FacebookIcon className='facebook-icon'/>
           </a>
@@ -33,7 +33,7 @@ const Header = () => {
           <a href='https://twitter.com'>
             <TwitterIcon className='twitter-icon'/>
           </a>
-          <div className='header-line'></div>
+          <div className='header-line'> </div>
         </div>
       </div>
     </section>

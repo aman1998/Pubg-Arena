@@ -11,7 +11,8 @@ import {
 import { loading, notLoading} from "./isLoading"
 import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
-import {hideState, showState} from "./isAuthState";
+import {hideState, showState} from "./isAuthState"
+import {useSelector} from "react-redux"
 
 export const setProfile = (payload) => ({
   type: SET_PROFILE,
@@ -86,3 +87,35 @@ export const checkIsLog = (isLog) => ({
   isLog
 })
 
+export const logoutActionCreator = () => dispatch  => {
+	const token = useSelector(state => state.profile.token)
+	axios.post('/logout/',{},  {
+		headers:{
+			'Authorization': token
+		}
+	})
+		.then(response => {
+			localStorage.removeItem('token')
+			dispatch(setToken(null))
+			dispatch(logOut())
+			dispatch(setProfile({}))
+			dispatch(checkIsLog(false))
+		})
+		.catch(e => console.log(e))
+}
+
+export const handlePhoneActionCreator = (body, getPhone, showActivate, showPhone, setError2) => dispatch => {
+  axios.post('/validate/', body)
+    .then(({data}) => {
+      if (data.status) {
+        getPhone(body.phone)
+        showActivate(true)
+        showPhone(false)
+      }
+      else {
+        setError2(true)
+      }
+
+    })
+    .catch(e => console.log(e))
+}

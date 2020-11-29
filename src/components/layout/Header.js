@@ -35,7 +35,7 @@ const Header = () => {
             <NavLink to='/' className='items item-logo' activeClassName='active' >
               <img src={Logo} alt='#' className='logo'/>
             </NavLink>
-            <div className='line-vert'></div>
+            <div className='line-vert'> </div>
             <NavLink
               to='/'
               className='items home'

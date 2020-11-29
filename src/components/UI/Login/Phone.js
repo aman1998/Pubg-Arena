@@ -1,35 +1,24 @@
 import React from 'react'
-import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import axios from "../../../axios/axios"
+import {useDispatch} from "react-redux"
+
+import PhoneInput from 'react-phone-input-2'
+import {handlePhoneActionCreator} from "../../../store/actions/profile";
 
 const Register = (props) => {
   const [phone, setPhone] = React.useState('')
   const [error, setError] = React.useState(false)
   const [error2, setError2] = React.useState(false)
+  const dispatch = useDispatch()
 
   const handlePhone = (body) => {
-    axios.post('/validate/', body)
-      .then(({data}) => {
-        console.log(data)
-        if (data.status) {
-          props.getPhone(body.phone)
-          props.showActivate(true)
-          props.showPhone(false)
-        }
-        else {
-          setError2(true)
-        }
-        
-      })
-      .catch(e => console.log(e))
+    dispatch(handlePhoneActionCreator(body, props.getPhone, props.showActivate, props.showPhone, setError2))
   }
 
   const sendPhone = (e) => {
     e.preventDefault()
     if (phone) {
       handlePhone({phone})
-      console.log(phone)
     }
     else {
       setError(true)

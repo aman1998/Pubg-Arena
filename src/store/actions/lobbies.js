@@ -13,6 +13,8 @@ import axios from "../../axios/axios"
 import {getBalance} from "./profile"
 import {setLoading as setLoadingAction} from './lobbies'
 
+const ENDOPOINT = 'http://195.38.164.24:8080'
+
 export const setLobbiesList = (list) => ({
   type: SET_LOBBY_LIST,
   list
@@ -68,7 +70,6 @@ export const enterGameActionCreator = (id, pk, balance, priceGame, closePopup) =
 }
 
 export const setOneLobbyActionCreator = (id, setLoading, setLobby, setError, setSuccess) => dispatch => {
-  const ENDOPOINT = 'http://195.38.164.24:8080'
   fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
     method: 'GET',
   })
@@ -83,5 +84,16 @@ export const setOneLobbyActionCreator = (id, setLoading, setLobby, setError, set
     .catch(() => {
       setLoading(false)
       setError(true)
+    })
+}
+
+export const setPlayersActionCreator = (id) => dispatch => {
+  fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
+    method: 'GET',
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      dispatch(setPlayers(data.player_list))
+      dispatch(setLoading(false))
     })
 }
