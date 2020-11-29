@@ -1,11 +1,6 @@
 import React, {useState} from 'react'
-import axios from "../../axios/axios"
 import {useDispatch, useSelector} from 'react-redux'
-import {
-  FETCH_FAILED,
-  FETCH_SUCCESS,
-  FETCH_LOADING
-} from "../../store/actionTypes"
+import {activateActionCreator} from "../../store/actions/modalRegister"
 
 const Activate = (props) => {
   const [otp, setOtp] = useState('')
@@ -19,25 +14,7 @@ const Activate = (props) => {
   const dispatch = useDispatch()
 
   const handleActivate = (body) => {
-    dispatch({ type: FETCH_LOADING })
-    axios.post('/verify/', body)
-      .then(({data}) => {
-        if(data.status) {
-          dispatch({ type: FETCH_SUCCESS})
-          console.log(data)
-          props.showActivate(false)
-          props.showReg(true)
-        }
-        else {
-          console.log(data)
-          setError(true)
-          dispatch({ type: FETCH_FAILED})
-        }
-      })
-      .catch(e => {
-        setError(true)
-        dispatch({ type: FETCH_FAILED})
-      })
+    dispatch(activateActionCreator(body, props.showActivate, props.showReg, setError))
   }
 
   return (

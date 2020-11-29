@@ -6,7 +6,6 @@ import LoginUserInfo from "../components/User/LoginUserInfo";
 import {NavLink} from 'react-router-dom'
 import {showLogin} from "../store/actions/modalLogin";
 import {showRegister} from "../store/actions/modalRegister";
-import RegTemplate from '../components/SignUp/RegTemplate';
 import {checkIsLog, setProfile, setToken} from "../store/actions/profile";
 import {logOut} from "../store/actions/logInOut";
 import axios from "../axios/axios";

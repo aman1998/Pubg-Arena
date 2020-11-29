@@ -2,14 +2,7 @@ import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {useDispatch, useSelector} from "react-redux"
-import {fetchLoginActionCreator} from "../../store/actions/profile"
-import {
-  FETCH_FAILED,
-  FETCH_SUCCESS,
-  FETCH_LOADING
-} from "../../store/actionTypes"
-
-import axios from "../../axios/axios"
+import {registerActionCreator} from "../../store/actions/modalRegister";
 
 const Register = (props) => {
   const {loading, failed} = useSelector(state => ({
@@ -20,17 +13,7 @@ const Register = (props) => {
   const dispatch = useDispatch()
 
   const handleRegister = ({name, pubg_id, phone, password}) => {
-    dispatch({ type: FETCH_LOADING })
-    axios.post('/register/', {name, pubg_id, phone, password})
-      .then(response => {
-        console.log(response)
-        dispatch({ type: FETCH_SUCCESS })
-        dispatch(fetchLoginActionCreator({phone, password}))
-        props.showRegistered(true)
-      })
-      .catch(e => {
-        dispatch({ type: FETCH_FAILED })
-      })
+    dispatch(registerActionCreator({name, pubg_id, phone, password}, props.showRegistered))
   }
 
   return (

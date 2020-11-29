@@ -43,7 +43,6 @@ export const fetchProfileActionCreator = () => dispatch => {
       dispatch(notLoading())
       dispatch({ type: GET_PROFILE_SUCCESS})
       dispatch(getBalance(response.data.balance))
-      dispatch(showLogin())
     })
     .catch((e) => {
       console.log(e.message)
@@ -72,6 +71,7 @@ export const fetchLoginActionCreator = (body) => dispatch => {
       setTimeout(() => {
         dispatch(hideState())
       }, 3000)
+      dispatch(showLogin())
     })
     .catch(e => {
       dispatch({ type: FETCH_FAILED })
