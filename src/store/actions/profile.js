@@ -54,10 +54,10 @@ export const fetchProfileActionCreator = () => dispatch => {
     })
 }
 
-export const fetchLoginActionCreator = (body) => dispatch => {
+export const fetchLoginActionCreator = ({phone, password, reg}) => dispatch => {
   dispatch({ type: FETCH_LOADING })
   axios.post('/login/',
-    body
+    {phone, password}
   )
     .then( response => {
       if( response.data.token !== '') {
@@ -71,7 +71,12 @@ export const fetchLoginActionCreator = (body) => dispatch => {
       setTimeout(() => {
         dispatch(hideState())
       }, 3000)
-      dispatch(showLogin())
+      if(reg) {
+        return null
+      }
+      else {
+        dispatch(showLogin())
+      }
     })
     .catch(e => {
       dispatch({ type: FETCH_FAILED })

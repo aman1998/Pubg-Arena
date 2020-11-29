@@ -36,12 +36,15 @@ export const activateActionCreator = (body,showActivate, showReg, setError) => d
 
 export const registerActionCreator = ({name, pubg_id, phone, password}, showRegistered) => dispatch => {
   dispatch({ type: FETCH_LOADING })
+  const reg = true;
   axios.post('/register/', {name, pubg_id, phone, password})
     .then(response => {
       console.log(response)
       dispatch({ type: FETCH_SUCCESS })
-      dispatch(fetchLoginActionCreator({phone, password}))
       showRegistered(true)
+    })
+    .then(() => {
+      dispatch(fetchLoginActionCreator({phone, password, reg}))
     })
     .catch(e => {
       dispatch({ type: FETCH_FAILED })
