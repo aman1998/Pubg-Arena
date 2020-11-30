@@ -15,7 +15,6 @@ import { loading, notLoading} from "./isLoading"
 import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
 import {hideState, showState} from "./isAuthState"
-import {useSelector} from "react-redux"
 import {showLogin} from "./modalLogin";
 
 export const setProfile = (payload) => ({
@@ -117,17 +116,22 @@ export const logoutActionCreator = (token) => dispatch  => {
 }
 
 export const handlePhoneActionCreator = (body, getPhone, showActivate, showPhone, setError2) => dispatch => {
+  dispatch({ type: FETCH_LOADING })
   axios.post('/validate/', body)
     .then(({data}) => {
+      console.log(data)
       if (data.status) {
+        dispatch({ type: FETCH_SUCCESS })
         getPhone(body.phone)
         showActivate(true)
         showPhone(false)
       }
       else {
+        dispatch({ type: FETCH_FAILED})
         setError2(true)
       }
-
     })
-    .catch(e => console.log(e))
+    .catch(e => {
+      dispatch({ type: FETCH_FAILED})
+    })
 }

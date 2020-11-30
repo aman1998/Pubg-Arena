@@ -1,13 +1,8 @@
 import React from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import axios from "../../../axios/axios"
-import {
-  FETCH_FAILED,
-  FETCH_SUCCESS,
-  FETCH_LOADING
-} from "../../../store/actionTypes"
 import {useDispatch, useSelector} from 'react-redux'
+import {handlePhoneActionCreator} from "../../../store/actions/profile";
 
 const Register = (props) => {
   const [phone, setPhone] = React.useState('')
@@ -21,25 +16,7 @@ const Register = (props) => {
   }))
 
   const handlePhone = (body) => {
-    dispatch({ type: FETCH_LOADING })
-    axios.post('/validate/', body)
-      .then(({data}) => {
-        console.log(data)
-        if (data.status) {
-          dispatch({ type: FETCH_SUCCESS })
-          props.getPhone(body.phone)
-          props.showActivate(true)
-          props.showPhone(false)
-        }
-        else {
-          dispatch({ type: FETCH_FAILED})
-          setError2(true)
-        }
-
-      })
-      .catch(e => {
-        dispatch({ type: FETCH_FAILED})
-      })
+    dispatch(handlePhoneActionCreator(body, props.getPhone, props.showActivate, props.showPhone, setError2))
   }
 
   const sendPhone = (e) => {
