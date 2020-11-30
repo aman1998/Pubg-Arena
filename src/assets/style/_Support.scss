@@ -1,0 +1,72 @@
+@import "./templates";
+@import "./variables";
+
+.support {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  @media screen and (max-width: 560px) {
+    width: 300px;
+  }
+  &-title {
+    font-size: 18px;
+    text-align: center;
+    @media screen and (max-width: 560px) {
+      font-size: 16px;
+    }
+  }
+  &-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    margin-top: 20px;
+    background: #ffffff;
+    color: #0A0816;
+    border-radius: 10px;
+    @media screen and (max-width: 560px) {
+      height: 40px;
+      margin-top: 10px;
+    }
+    a {
+      display: block;
+      margin-right: 25px;
+    }
+    .message {
+      fill: #ffffff;
+    }
+    &:hover {
+      cursor: pointer;
+      .message {
+        fill: #0A0816;
+      }
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      .facebook, .instagram, .telegram {
+        width: 40px;
+        height: 40px;
+        @media screen and (max-width: 560px) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .facebook {
+        fill: #3b5998;
+      }
+      .telegram {
+        fill:  #0088cc;
+      }
+      .instagram {
+        fill: #d6249f;
+        fill: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+      }
+    }
+  }
+}

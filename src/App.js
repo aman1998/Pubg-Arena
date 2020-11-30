@@ -14,6 +14,7 @@ import RulesPage from './pages/Rules'
 import RatesPage from "./pages/Rates"
 import SignUpPage from './pages/SignUp'
 import PageNotFound from "./pages/404Page"
+import SupportPage from "./pages/Support"
 
 import './assets/style/style.scss'
 import PasswordSettings from "./pages/PasswordSettings";
@@ -45,6 +46,7 @@ function App() {
         <Route path='/rates' component = {RatesPage} />
         <Route path='/signUp' component = {SignUpPage} />
         <Route path = '/change-password' component ={PasswordSettings} exact/>
+        <Route path = '/support' component ={SupportPage} exact/>
         {isLog ?
         <Switch>
           <Route path='/profile' component={ProfilePage} exact/>

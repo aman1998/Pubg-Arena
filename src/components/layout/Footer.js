@@ -2,7 +2,7 @@ import React from 'react'
 
 import FacebookIcon from '@material-ui/icons/Facebook'
 import InstagramIcon from '@material-ui/icons/Instagram'
-import TwitterIcon from '@material-ui/icons/Twitter'
+import TelegramIcon from '@material-ui/icons/Telegram'
 
 import Logo from '../../assets/icons/logo.svg'
 import Pay24 from '../../assets/icons/pay24.svg'
@@ -18,15 +18,15 @@ const Footer = () => {
             <div className='footer-logo'>
               <img src={Logo} alt='#'/>
             </div> 
-            <div className="footer-soc">
+            <div className="https://www.facebook.com/Arena-Games-104788511481561">
               <a href='https://facebook.com'>
                 <FacebookIcon className='facebook-icon'/>
               </a>
-              <a href='https://instagram.com'>
+              <a href='https://www.instagram.com/arenagames.io/'>
                 <InstagramIcon className='insta-icon'/>
               </a>
-              <a href='https://twitter.com'>
-                <TwitterIcon className='twitter-icon'/>
+              <a href='https://t.me/arenagamesio'>
+                <TelegramIcon className='twitter-icon'/>
               </a>
             </div>
           </div>
@@ -40,7 +40,7 @@ const Footer = () => {
             <ul><NavLink to='/terms' exact>Условиями пользования</NavLink></ul>
             <ul><NavLink to='/privacy' exact>Политика конфидициальности</NavLink></ul>
             <ul><a>Политика возвратов</a></ul>
-            <ul><a>Техподдержка</a></ul>
+            <ul><NavLink to='/support' exact>Техподдержка</NavLink></ul>
           </nav>
           <div className='footer-header--rate'>
             <div>+18</div>
@@ -54,8 +54,8 @@ const Footer = () => {
           <a href='https://instagram.com'>
             <InstagramIcon className='insta-icon'/>
           </a>
-          <a href='https://twitter.com'>
-            <TwitterIcon className='twitter-icon'/>
+          <a href='https://t.me/arenagamesio'>
+            <TelegramIcon className='twitter-icon'/>
           </a>
         </div>
         <div className='footer-text container'>
