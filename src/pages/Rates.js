@@ -6,6 +6,8 @@ import UserRatingItem from "../components/User/UserRatingItem";
 
 import {setRatingsCreator} from "../store/actions/rates";
 
+import backImg from '../assets/img/pubg-slide3.jpg'
+
 const Rates = () => {
   const dispatch = useDispatch()
   const rates = useSelector(state => state.rates)
@@ -18,7 +20,10 @@ const Rates = () => {
 
   return(
     <PageTemplate>
-      <div className='rates-main-image-box'>
+      <div className='rates-main'>
+        <div className='rates-image-box'>
+          <img src={backImg} alt='background image' className='rates-main-image' />
+        </div>
         <h2 className='rating-title'>Рейтинг игроков</h2>
         <div className='container'>
           <div className='rates-page'>
