@@ -2,6 +2,8 @@ import React from 'react'
 
 import pubg1 from '../assets/img/main-pubg.png'
 import pubg2 from '../assets/img/pubg-slide2.jpg'
+import pubg4 from '../assets/img/pubg-slide4.jpg'
+import pubg5 from '../assets/img/pubg-slide5.jpg'
 
 const Slider = () => {
 
@@ -15,7 +17,7 @@ const Slider = () => {
           <input type='radio' name='radio-btn' id='radio4'/>
 
           <div className='slide first' >
-            <img src={pubg1} alt="alt" className='img' />
+            <img src={pubg2} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
                 Играй виртуально, зарабатывай реально!
@@ -23,7 +25,7 @@ const Slider = () => {
             </div>
           </div>
           <div className='slide' >
-            <img src={pubg2} alt="alt" className='img' />
+            <img src={pubg4} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
                 Арена! обучает, развлекает, заработать помогает!
@@ -39,7 +41,7 @@ const Slider = () => {
             </div>
           </div>
           <div className='slide' >
-            <img src={pubg2} alt="alt" className='img' />
+            <img src={pubg5} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
                 ВЫИГРЫВАЙ И ЗАРАБАТЫВАЙ ДЕЛАЯ ЧТО ЛЮБИШЬ!

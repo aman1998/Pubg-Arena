@@ -26,30 +26,31 @@
   }
 }
 
-.rates-page {
+
+.rates-page{
   width: max-content;
   margin: 0 auto;
-  .rates-item {
+  .rates-item{
     width: 330px;
     height: 100px;
     color: white;
     @include flexSpaceBetween;
     align-items: center;
     border-bottom: 1px solid black;
-    .star-icon {
+    .star-icon{
       color: #F2C00F !important;
     }
-    .item-info {
+    .item-info{
       display: flex;
       align-items: center;
-      .item-img {
+      .item-img{
         border-radius: 50%;
         width: 70px;
         height: 70px;
       }
-      .item-names {
+      .item-names{
         margin-left: 30px;
-        &-name {
+        &-name{
           font-weight: bold;
           margin-bottom: 16px;
         }

@@ -14,9 +14,10 @@ import LoadingPage from '../components/Loadings/Loading'
 import ErrorPage from './500Page'
 
 const Profile = () => {
-  const {loading, success} = useSelector(state => ({
+  const {loading, success, isLogged} = useSelector(state => ({
     loading: state.profile.get.loading,
     success: state.profile.get.success,
+    isLog: state.isLogged
   }))
 
   React.useEffect(() => {
@@ -47,7 +48,7 @@ const Profile = () => {
               </Route>
             </div>
           </div> 
-        : <ErrorPage />
+        : !isLogged ? <div className='container' style={{marginTop: '10px'}}>Вы не авторизированы</div> : <ErrorPage />
       }
     </PageTemplate>
   )
