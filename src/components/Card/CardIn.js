@@ -7,7 +7,7 @@ const CardIn = () => {
   return (
     <Route path='/profile/cardIn' exact>
       <section className='cardIn'>
-        <h2>Пополнене счета</h2>
+        <h2>Пополнение счета</h2>
         <div className='text'>
           <p className='important'>Расширяем горизонты заработков для своих клиентов!</p>
           <p>Теперь вы можете пополнять счета и зарабатывать играя просто в свою любимую игру.</p>

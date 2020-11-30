@@ -21,11 +21,24 @@
       .items{
         width: fit-content;
         margin-right: 18px;
+        @media screen and (max-width: 768px){
+          margin-right: 10px;
+        }
       }
       .item-logo {
         margin: 0;
       }
-      .home, .profile, .tournaments, .rates, .rules {
+      .tournaments, .rates, .rules {
+        @media screen and (max-width: 560px){
+          display: none;
+        }
+      }
+      .home {
+        @media screen and (max-width: 768px){
+          display: none;
+        }
+      }
+      .profile {
         @media screen and (max-width: 768px){
           display: none;
         }
@@ -36,6 +49,9 @@
         background-color: $lineColor;
         margin: 0 20px;
         @media screen and (max-width: 768px){
+          margin: 0 10px;
+        }
+        @media screen and (max-width: 560px){
           display: none;
         }
       }
@@ -154,8 +170,12 @@
             @media screen and (max-width: 768px){
               transform: translateY(270px);
             }
-            @media screen and (min-width: 1001px){
-              background: $mainBg
+            @media screen and (min-width: 769px){
+              background: rgb(172, 168, 168);
+            }
+            @media screen and (min-width: 769px){
+              // background: rgb(172, 168, 168);
+              background: $mainBg;
             }
           }
           &.up{

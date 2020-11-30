@@ -14,6 +14,7 @@ import RulesPage from './pages/Rules'
 import RatesPage from "./pages/Rates"
 import SignUpPage from './pages/SignUp'
 import PageNotFound from "./pages/404Page"
+import SupportPage from "./pages/Support"
 
 import './assets/style/style.scss'
 import PasswordSettings from "./pages/PasswordSettings";
@@ -22,10 +23,8 @@ import PageTemplate from "./components/templates/PageTemplate";
 function App() {
   const dispatch = useDispatch()
 
-  const { token, isLog } = useSelector(state => ({
+  const { token } = useSelector(state => ({
     token: state.profile.token,
-    myProfile: state.profile.myProfile,
-    isLog: state.profile.isLog,
   }))
 
   useEffect(() => {
@@ -50,17 +49,15 @@ function App() {
             <PasswordSettings />
           </PageTemplate>
         </Route>
-        {isLog ?
-        <Switch>
-          <Route path='/profile' component={ProfilePage} exact/>
-          <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
-          <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
-          <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
-          <Route path='/profile/language' component={ProfilePage} exact />
-          <Route path='/profile/rating' component={ProfilePage} exact />
-          <Route path='/profile/settings' component={ProfilePage} exact />
-          <Route component={PageNotFound} />
-        </Switch> : null}
+        <Route path = '/change-password' component ={PasswordSettings} exact/>
+        <Route path = '/support' component ={SupportPage} exact/>
+        <Route path='/profile' component={ProfilePage} exact/>
+        <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
+        <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
+        <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
+        <Route path='/profile/language' component={ProfilePage} exact />
+        <Route path='/profile/rating' component={ProfilePage} exact />
+        <Route path='/profile/settings' component={ProfilePage} exact />
         <Route component={PageNotFound} />
       </Switch>
     </BrowserRouter>
