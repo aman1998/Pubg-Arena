@@ -47,16 +47,13 @@ function App() {
         <Route path='/signUp' component = {SignUpPage} />
         <Route path = '/change-password' component ={PasswordSettings} exact/>
         <Route path = '/support' component ={SupportPage} exact/>
-        {isLog ?
-        <Switch>
-          <Route path='/profile' component={ProfilePage} exact/>
-          <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
-          <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
-          <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
-          <Route path='/profile/language' component={ProfilePage} exact />
-          <Route path='/profile/rating' component={ProfilePage} exact />
-          <Route component={PageNotFound} />
-        </Switch> : null}
+        <Route path='/profile' component={ProfilePage} exact/>
+        <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
+        <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
+        <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
+        <Route path='/profile/language' component={ProfilePage} exact />
+        <Route path='/profile/rating' component={ProfilePage} exact />
+        <Route component={PageNotFound} />
         <Route component={PageNotFound} />
       </Switch>
     </BrowserRouter>

@@ -6,11 +6,16 @@
   margin-right: 15px;
   width: max-content;
   box-sizing: border-box;
+  h2 {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
   @include _560{
     display: none;
   }
   @include _768{
-    width: fit-content;
+    width: auto;
   }
   &Title {
     display: flex;
@@ -46,6 +51,13 @@
     font-size: 14px;
     line-height: 17px;
     color:  #fff;
+    @media screen and (max-width: 768px) {
+      width: 50px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .itemHint {
       display: none;
     }
@@ -55,6 +67,11 @@
     &Icon {
       @include flexCenter;
       margin-right: 10px;
+      @media screen and (max-width: 768px) {
+      margin: 0;
+      width: 20px;
+      height: 20px;
+    }
     }
     &Text {
       @include flexCenter;

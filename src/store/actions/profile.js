@@ -11,7 +11,7 @@ import {
   FETCH_LOADING
 } from "../actionTypes"
 
-import { loading, notLoading} from "./isLoading"
+// import { loading, notLoading} from "./isLoading"
 import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
 import {hideState, showState} from "./isAuthState";
@@ -28,7 +28,7 @@ export const getBalance = (balance) => ({
 })
 
 export const fetchProfileActionCreator = () => dispatch => {
-  dispatch(loading())
+  // dispatch(loading())
   dispatch({ type: GET_PROFILE_LOADING })
   const token = localStorage.getItem('token')
   axios.get('/profile/', {
@@ -40,7 +40,7 @@ export const fetchProfileActionCreator = () => dispatch => {
       dispatch(setProfile(response.data))
       dispatch(logIn())
       dispatch(checkIsLog(true))
-      dispatch(notLoading())
+      // dispatch(notLoading())
       dispatch({ type: GET_PROFILE_SUCCESS})
       dispatch(getBalance(response.data.balance))
     })
@@ -48,7 +48,7 @@ export const fetchProfileActionCreator = () => dispatch => {
       console.log(e.message)
       dispatch(checkIsLog(false))
       dispatch(logOut())
-      dispatch(notLoading())
+      // dispatch(notLoading())
       dispatch(setToken(''))
       dispatch({ type: GET_PROFILE_FAILED })
     })

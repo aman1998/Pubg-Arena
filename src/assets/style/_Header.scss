@@ -28,12 +28,17 @@
       .item-logo {
         margin: 0;
       }
-      .home, .profile, .tournaments, .rates, .rules {
+      .tournaments, .rates, .rules {
         @media screen and (max-width: 560px){
           display: none;
         }
       }
       .home {
+        @media screen and (max-width: 768px){
+          display: none;
+        }
+      }
+      .profile {
         @media screen and (max-width: 768px){
           display: none;
         }
@@ -167,6 +172,10 @@
             }
             @media screen and (min-width: 769px){
               background: rgb(172, 168, 168);
+            }
+            @media screen and (min-width: 769px){
+              // background: rgb(172, 168, 168);
+              background: $mainBg;
             }
           }
           &.up{

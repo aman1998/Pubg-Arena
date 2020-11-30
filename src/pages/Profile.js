@@ -9,6 +9,8 @@ import CardIn from "../components/Card/CardIn";
 import PasswordSettings from "./PasswordSettings";
 import LanguageSettings from "../components/User/LanguageSettings";
 import UserRatingKills from "../components/User/UserRatingKills";
+import LoadingPage from '../components/Loadings/Loading'
+import ErrorPage from './500Page'
 
 const Profile = () => {
   const {loading, success} = useSelector(state => ({
@@ -22,7 +24,7 @@ const Profile = () => {
 
   return (
     <PageTemplate class='footer-profile'>
-      { loading ? <div className='loading'>sdsd</div> :
+      { loading ? <LoadingPage /> :
         success ?
           <div key='1' className='container profile'>
             <Sidebar/>
@@ -43,7 +45,7 @@ const Profile = () => {
               </Route>
             </div>
           </div> 
-        : <div>Обновите</div> 
+        : <ErrorPage /> 
       }
     </PageTemplate>
   )
