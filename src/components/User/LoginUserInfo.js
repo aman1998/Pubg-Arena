@@ -33,12 +33,24 @@ const LoginUserInfo = (props) => {
               </div>
               <div className='username'>
                 <div>{props.name}</div>
-                <PersonOutlineOutlinedIcon className='userIcon'/>
+                {
+                  props.avatar ? (
+                    <img className='userIcon' src={props.avatar} alt='users avatar' />
+                  ) : (
+                    <PersonOutlineOutlinedIcon className='userIcon'/>
+                  )
+                }
               </div>
             </>
           ) : (
             <div className='username'>
-              <PersonOutlineOutlinedIcon className='userIcon'/>
+              {
+                props.avatar ? (
+                  <img className='userIcon' src={props.avatar} alt='users avatar' />
+                ) : (
+                  <PersonOutlineOutlinedIcon className='userIcon'/>
+                )
+              }
             </div>
           )
         }
