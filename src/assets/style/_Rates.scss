@@ -4,21 +4,6 @@
   padding-top: 40px;
   width: 100%;
   position: relative;
-  &::after{
-    content: '';
-    background: url("../img/pubg-slide3.jpg") no-repeat center;
-    background-size: cover;
-    opacity: 0.27;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-  }
-  @include more_1200{
-    height: 700px;
-  }
   .rating-title{
     margin: auto;
     width: max-content;
