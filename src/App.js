@@ -54,7 +54,6 @@ function App() {
         <Route path='/profile/language' component={ProfilePage} exact />
         <Route path='/profile/rating' component={ProfilePage} exact />
         <Route component={PageNotFound} />
-        <Route component={PageNotFound} />
       </Switch>
     </BrowserRouter>
   )

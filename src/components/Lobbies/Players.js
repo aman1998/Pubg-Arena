@@ -1,9 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import { setLoading} from '../../store/actions/lobbies'
-import {setPlayers} from '../../store/actions/lobbies'
-
-const ENDOPOINT = 'http://195.38.164.24:8080'
+import { setPlayersActionCreator} from '../../store/actions/lobbies'
 
 const Players = (props) => {
 
@@ -16,14 +13,7 @@ const Players = (props) => {
 
   React.useEffect(() => {
     if(isLoadingPlayers === true) {
-      fetch(`${ENDOPOINT}/lobby/rates/${props.id}/`, {
-        method: 'GET',
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(setPlayers(data.player_list))
-          dispatch(setLoading(false))
-        })
+      dispatch(setPlayersActionCreator(props.id))
     }
   }, [isLoadingPlayers])
 

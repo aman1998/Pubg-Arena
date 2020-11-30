@@ -13,13 +13,12 @@ const Register = (props) => {
   const [phone, setPhone] = React.useState('')
   const [error, setError] = React.useState(false)
   const [error2, setError2] = React.useState(false)
+  const dispatch = useDispatch()
 
   const {loading, failed} = useSelector(state => ({
     loading: state.fetch.post.loading,
     failed: state.fetch.post.failed,
   }))
-
-  const dispatch = useDispatch()
 
   const handlePhone = (body) => {
     dispatch({ type: FETCH_LOADING })
@@ -36,7 +35,7 @@ const Register = (props) => {
           dispatch({ type: FETCH_FAILED})
           setError2(true)
         }
-        
+
       })
       .catch(e => {
         dispatch({ type: FETCH_FAILED})
@@ -74,10 +73,10 @@ const Register = (props) => {
       {error ?  <div className='error'>Ошибка ввода</div> : null}
       {error2 ? <div className='error'>Этот номер уже зарегистирован</div> : null}
       <button onClick={sendPhone}  className='loginFormBtn reg'>
-      {loading ? 
-        <div className='login-loading'></div> : 
-      failed ? 
-        <div className='btn-error'>повторить</div> : 
+      {loading ?
+        <div className='login-loading'></div> :
+      failed ?
+        <div className='btn-error'>повторить</div> :
         'Отправить'}
       </button>
     </form>

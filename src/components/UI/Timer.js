@@ -1,16 +1,12 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import {isPlayed as checkIsPlayed} from '../../store/actions/lobbies'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 const Timer = (props) => {
   const [timerDays, setTimerDays] = useState('00');
   const [timerHours, setTimerHours] = useState('00');
   const [timerMinutes, setTimerMinutes] = useState('00');
   const [timerSeconds, setTimerSeconds] = useState('00');
-
-  const {isPlayed} = useSelector((state) => ({
-    isPlayed: state.lobbies.isPlayed
-  }))
 
   const dispatch = useDispatch()
 

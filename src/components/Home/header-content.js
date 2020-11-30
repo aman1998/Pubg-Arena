@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TelegramIcon from '@material-ui/icons/Telegram'
-// import TelegramIcon from '../../assets/icons/telegram'
 
 const Header = () => {
   return (
@@ -34,7 +33,7 @@ const Header = () => {
           <a href='https://t.me/arenagamesio'>
             <TelegramIcon className='twitter-icon'/>
           </a>
-          <div className='header-line'></div>
+          <div className='header-line'> </div>
         </div>
       </div>
     </section>
