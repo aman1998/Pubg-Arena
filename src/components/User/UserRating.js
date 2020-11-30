@@ -13,7 +13,7 @@ const UserRating = () => {
         <div className='userInfo'>
           <div className='phone-box'>
             <div className='phone-subtitle'>
-              Номер телефона
+              Номер счета
             </div>
             <div className='phone'>
               {myProfile.phone}
