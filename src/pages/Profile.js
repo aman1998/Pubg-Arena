@@ -35,7 +35,7 @@ const Profile = () => {
                 <UserRating/>
               </Route>
               <Route path='/profile/settings' exact>
-                <ChangeAvatar />
+                {/*<ChangeAvatar />*/}
                 <PasswordSettings />
               </Route>
               <CardIn />
