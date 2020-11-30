@@ -1,39 +1,30 @@
 @import "./templates";
 
 .rates-main-image-box{
+  padding-top: 40px;
   width: 100%;
   position: relative;
-  overflow: hidden;
-  @include flexCenter;
+  &::after{
+    content: '';
+    background: url("../img/pubg-slide3.jpg") no-repeat center;
+    background-size: cover;
+    opacity: 0.27;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
   @include more_1200{
     height: 700px;
   }
-  .rates-main-image{
-    width: 100%;
-    opacity: 0.6;
-  }
-  .title{
-    position: absolute;
-    top: 40px;
-    text-shadow: 2px 2px #000;
-    color: #fff;
-    text-align: center;
-    @include _768{
-      font-size: 24px;
-    }
-    @include _600{
-      font-size: 22px;
-    }
-    @include _480{
-      font-size: 18px;
-    }
+  .rating-title{
+    margin: auto;
+    width: max-content;
   }
 }
 
-.rating-title{
-  margin: 40px auto;
-  width: max-content;
-}
 
 .rates-page{
   width: max-content;

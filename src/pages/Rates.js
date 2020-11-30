@@ -17,23 +17,21 @@ const Rates = () => {
   return(
     <PageTemplate>
       <div className='rates-main-image-box'>
-        <img src={mainImage} className='rates-main-image' alt='main-image' />
-        <h1 className='title'>Выигрывай, зарабатывай и будь в топе</h1>
-      </div>
-      <h2 className='rating-title'>Рейтинг игроков</h2>
-      <div className='container'>
-        <div className='rates-page'>
-          {
-            rates && rates.map(item => (
-              <UserRatingItem
-                key={item.id}
-                id={item.id}
-                img={item.avatar}
-                name={item.name}
-                kills={item.total_kills}
-              />
-            ))
-          }
+        <h2 className='rating-title'>Рейтинг игроков</h2>
+        <div className='container'>
+          <div className='rates-page'>
+            {
+              rates && rates.map(item => (
+                <UserRatingItem
+                  key={item.id}
+                  id={item.id}
+                  img={item.avatar}
+                  name={item.name}
+                  kills={item.total_kills}
+                />
+              ))
+            }
+          </div>
         </div>
       </div>
     </PageTemplate>
