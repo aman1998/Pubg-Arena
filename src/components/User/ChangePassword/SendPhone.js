@@ -30,7 +30,7 @@ const SendPhone = (props) => {
       <div className='change-text'>Введите свой номер телефона для восстановления пароля</div>
       <PhoneInput
         country='kg'
-        onlyCountries={['kg']}
+        onlyCountries={['kg', 'ru', 'kz', 'tr' ]}
         disableDropdown
         containerClass='phone'
         placeholder="Введите свой номер"
