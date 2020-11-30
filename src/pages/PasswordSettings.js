@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
 
 import SendPhone from "../components/User/ChangePassword/SendPhone"
 import ActivateOtp from "../components/User/ChangePassword/ActivateOtp"
 import ChangePassword from "../components/User/ChangePassword/ChangePassword"
 import PageTemplate from "../components/templates/PageTemplate"
-
-import {useDispatch} from "react-redux"
 
 import {
   activateOtpActionCreator,
@@ -20,7 +19,13 @@ const PasswordSettings = () => {
   const [success, setSuccess] = useState(false)
   const [otp, setOtp] = useState('')
   const [phone, setPhone] = useState('')
+  const [error, setError] = useState(false)
+
   const dispatch = useDispatch()
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const handleSendPhone = (body) => {
     dispatch(sendPhoneActionCreator(body, setSendPhone, setActivateOtp, setPhone))
@@ -36,7 +41,7 @@ const PasswordSettings = () => {
     <PageTemplate>
       <div className='user-settings'>
         {
-          sendPhone && <SendPhone handleSendPhone={handleSendPhone} />
+          sendPhone && <SendPhone handleSendPhone={handleSendPhone} error={error} setError={setError} />
         }
         {
           activateOtp && <ActivateOtp handleActivateOtp={handleActivateOtp} phone={phone} />

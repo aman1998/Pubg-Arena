@@ -5,7 +5,10 @@ import {
   GET_BALANCE,
   GET_PROFILE_FAILED, 
   GET_PROFILE_LOADING, 
-  GET_PROFILE_SUCCESS
+  GET_PROFILE_SUCCESS,
+  FETCH_FAILED,
+  FETCH_SUCCESS,
+  FETCH_LOADING
 } from "../actionTypes"
 
 import { loading, notLoading} from "./isLoading"
@@ -13,6 +16,7 @@ import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
 import {hideState, showState} from "./isAuthState"
 import {useSelector} from "react-redux"
+import {showLogin} from "./modalLogin";
 
 export const setProfile = (payload) => ({
   type: SET_PROFILE,
@@ -51,23 +55,32 @@ export const fetchProfileActionCreator = () => dispatch => {
     })
 }
 
-export const fetchLoginActionCreator = (body) => dispatch => {
+export const fetchLoginActionCreator = ({phone, password, reg}) => dispatch => {
+  dispatch({ type: FETCH_LOADING })
   axios.post('/login/',
-    body
+    {phone, password}
   )
     .then( response => {
       if( response.data.token !== '') {
         localStorage.setItem('token', `Token ${response.data.token}` )
         dispatch(setToken(`Token ${response.data.token}`))
       } 
+      dispatch({ type: FETCH_SUCCESS })
       dispatch(logIn())
       dispatch(showState())
       dispatch(fetchProfileActionCreator({...response.data}))
       setTimeout(() => {
         dispatch(hideState())
       }, 3000)
+      if(reg) {
+        return null
+      }
+      else {
+        dispatch(showLogin())
+      }
     })
     .catch(e => {
+      dispatch({ type: FETCH_FAILED })
       dispatch(showState())
       dispatch(logOut())
       setTimeout(() => {

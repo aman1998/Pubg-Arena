@@ -13,7 +13,11 @@ import BackDrop from "../BackDrop";
 const Login = () => {
   const [down, setDown] = React.useState(false)
   const dispatch = useDispatch()
-  const loginModal = useSelector(state => state.modalLogin)
+  const {loginModal, loading, success} = useSelector(state => ({
+    loginModal: state.modalLogin,
+    loading: state.fetch.post.loading,
+    success: state.fetch.post.success
+  }))
 
   const showLog = () => {
     dispatch(showLogin())
@@ -47,7 +51,7 @@ const Login = () => {
           onSubmit={
             fields => {
               handleLogin(fields)
-              dispatch(showLogin())
+              // dispatch(showLogin())
             }
           }
         >
@@ -59,7 +63,7 @@ const Login = () => {
               <ErrorMessage name="password" component="div" className='error'/>
               <NavLink to='/change-password' className='change-pass' exact onClick={showLog}>Забыли пароль?</NavLink>
               <button type="submit" className='loginFormBtn log'>
-                Вход
+                {loading ? <div className='login-loading'></div> : 'Вход'}
               </button>
             </Form>
           )}

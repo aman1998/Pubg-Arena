@@ -60,6 +60,30 @@ const LoginController = () => {
               </div>
               <img src={IncognitoIcon} alt='#' className='incognito' onClick={() => setModalUserInfo(!modalUserInfo)}/>
               <div className={modalUserInfo ? 'modalInfo modalReg down' : 'modalInfo modalReg up'}>
+                <NavLink
+                  to='/'
+                  className='item home'
+                  activeClassName='active'
+                  exact
+                >
+                Главная
+                </NavLink>
+                <NavLink
+                  to='/tournaments'
+                  className='item tournaments'
+                  activeClassName='active'
+                  exact
+                >
+                  Турниры
+                </NavLink>
+                <NavLink
+                  to='/rates'
+                  className='item rates'
+                  activeClassName='active'
+                  exact
+                >
+                  Рейтинги
+                </NavLink>
                 <div className='item itemsLogin' onClick={showLog} style={{margin: '0 0 10px 0'}}>
                   Войти
                 </div>
@@ -74,9 +98,7 @@ const LoginController = () => {
         )
       }
       {
-        // loginModal ? (
           <Login/>
-        // ) : null
       }
     </div>
   )

@@ -1,10 +1,15 @@
 import React from 'react'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import {registerActionCreator} from "../../store/actions/modalRegister";
 
 const Register = (props) => {
+  const {loading, failed} = useSelector(state => ({
+    loading: state.fetch.post.loading,
+    failed: state.fetch.post.failed,
+  }))
+
   const dispatch = useDispatch()
 
   const handleRegister = ({name, pubg_id, phone, password}) => {
@@ -62,7 +67,11 @@ const Register = (props) => {
           </div>
           <ErrorMessage name="acceptTerms" component="div" className='error'/>
           <button type="submit" className='loginFormBtn reg'>
-            Регистрация
+            {loading ? 
+              <div className='login-loading'></div> : 
+            failed ? 
+              <div className='btn-error'>повторить</div> : 
+              'Регистрация'}
           </button>
         </Form>
       )}

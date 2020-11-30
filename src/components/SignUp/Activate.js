@@ -1,10 +1,16 @@
 import React, {useState} from 'react'
-import {useDispatch} from "react-redux"
-import {activateActionCreator} from "../../store/actions/modalRegister";
+import {useDispatch, useSelector} from 'react-redux'
+import {activateActionCreator} from "../../store/actions/modalRegister"
 
 const Activate = (props) => {
   const [otp, setOtp] = useState('')
   const [error, setError] = useState(false)
+
+  const {loading, failed} = useSelector(state => ({
+    loading: state.fetch.post.loading,
+    failed: state.fetch.post.failed,
+  }))
+
   const dispatch = useDispatch()
 
   const handleActivate = (body) => {
@@ -28,7 +34,11 @@ const Activate = (props) => {
         />
       {error ? <div className='error'>Неправильный код</div> : null}
       <button type="submit" className='loginFormBtn reg'>
-            Активировать
+      {loading ? 
+        <div className='login-loading'></div> : 
+      failed ? 
+        <div className='btn-error'>повторить</div> : 
+        'Активировать'}
       </button>
     </form>
   )
