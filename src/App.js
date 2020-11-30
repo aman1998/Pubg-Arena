@@ -17,6 +17,7 @@ import PageNotFound from "./pages/404Page"
 
 import './assets/style/style.scss'
 import PasswordSettings from "./pages/PasswordSettings";
+import PageTemplate from "./components/templates/PageTemplate";
 
 function App() {
   const dispatch = useDispatch()
@@ -44,7 +45,11 @@ function App() {
         <Route path='/rules' component = {RulesPage}/>
         <Route path='/rates' component = {RatesPage} />
         <Route path='/signUp' component = {SignUpPage} />
-        <Route path = '/change-password' component ={PasswordSettings} exact/>
+        <Route path = '/change-password' exact>
+          <PageTemplate>
+            <PasswordSettings />
+          </PageTemplate>
+        </Route>
         {isLog ?
         <Switch>
           <Route path='/profile' component={ProfilePage} exact/>
@@ -53,6 +58,7 @@ function App() {
           <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
           <Route path='/profile/language' component={ProfilePage} exact />
           <Route path='/profile/rating' component={ProfilePage} exact />
+          <Route path='/profile/settings' component={ProfilePage} exact />
           <Route component={PageNotFound} />
         </Switch> : null}
         <Route component={PageNotFound} />
