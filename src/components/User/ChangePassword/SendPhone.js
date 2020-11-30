@@ -19,7 +19,6 @@ const SendPhone = (props) => {
     e.preventDefault()
     if (phone) {
       props.handleSendPhone({phone})
-      console.log(phone)
     }
     else {
       props.setError(true)

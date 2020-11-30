@@ -9,6 +9,7 @@ import CardIn from "../components/Card/CardIn";
 import PasswordSettings from "./PasswordSettings";
 import LanguageSettings from "../components/User/LanguageSettings";
 import UserRatingKills from "../components/User/UserRatingKills";
+import ChangeAvatar from "../components/User/ChangeAvatar/ChangeAvatar";
 
 const Profile = () => {
   const {loading, success} = useSelector(state => ({
@@ -31,6 +32,7 @@ const Profile = () => {
                 <UserRating/>
               </Route>
               <Route path='/profile/settings' exact>
+                <ChangeAvatar />
                 <PasswordSettings />
               </Route>
               <CardIn />

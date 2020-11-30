@@ -8,7 +8,7 @@ import {
 export const sendPhoneActionCreator = (body, setSendPhone, setActivateOtp, setPhone) => dispatch => {
   dispatch({ type: FETCH_LOADING })
     axios.post('/reset-otp/', body)
-      .then(() => {
+      .then((response) => {
         dispatch({ type: FETCH_SUCCESS })
         setSendPhone(false)
         setActivateOtp(true)
