@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import PageTemplate from "../components/templates/PageTemplate";
 import UserRatingItem from "../components/User/UserRatingItem";
 
-import mainImage from '../assets/img/pubg-slide3.jpg'
 import {setRatingsCreator} from "../store/actions/rates";
 
 const Rates = () => {
@@ -12,8 +11,11 @@ const Rates = () => {
   const rates = useSelector(state => state.rates)
 
   useEffect(() => {
-    dispatch(setRatingsCreator())
+    if(rates.length === 0){
+      dispatch(setRatingsCreator())
+    }
   }, [])
+
   return(
     <PageTemplate>
       <div className='rates-main-image-box'>
