@@ -100,9 +100,8 @@ export const checkIsLog = (isLog) => ({
   isLog
 })
 
-export const logoutActionCreator = () => dispatch  => {
-	const token = useSelector(state => state.profile.token)
-	axios.post('/logout/',{},  {
+export const logoutActionCreator = (token) => dispatch  => {
+	axios.post('/logout/', {} ,{
 		headers:{
 			'Authorization': token
 		}

@@ -1,29 +1,32 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
-import Login from "../components/UI/Login/Login";
-import LoginUserInfo from "../components/User/LoginUserInfo";
+import Login from "../components/UI/Login/Login"
+import LoginUserInfo from "../components/User/LoginUserInfo"
 import {NavLink} from 'react-router-dom'
-import {showLogin} from "../store/actions/modalLogin";
-import { logoutActionCreator } from "../store/actions/profile";
+import {showLogin} from "../store/actions/modalLogin"
+import { logoutActionCreator } from "../store/actions/profile"
 
 import IncognitoIcon from '../assets/icons/incognito.svg'
 
 const LoginController = () => {
   const [modalUserInfo, setModalUserInfo] = React.useState(false)
   const dispatch = useDispatch()
+
   const {
     isLogged,
     isLoading,
     name,
     balance,
     phone,
+    token
   } = useSelector(state => ({
     isLogged: state.isLogged,
     isLoading: state.isLoading,
     name: state.profile.myProfile.name,
     balance: state.profile.balance,
     phone: state.profile.myProfile.phone,
+    token: state.profile.token
   }))
 
   const showLog = () => {
@@ -32,7 +35,7 @@ const LoginController = () => {
   }
 
   const handleLogout = () => {
-		dispatch(logoutActionCreator())
+		dispatch(logoutActionCreator(token))
   }
 
   return (

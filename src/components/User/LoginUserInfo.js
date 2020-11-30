@@ -60,21 +60,21 @@ const LoginUserInfo = (props) => {
           ) : null
         }
         <div className='sidebar-mobile'>
-          <div className='line'></div>
+          <div className='line'> </div>
           <div><NavLink to='/tournaments/' exact>Турниры</NavLink></div>
-          <div className='line'></div>
+          <div className='line'> </div>
           <div><NavLink to='/rates/' exact>Рейтинги</NavLink></div>
-          <div className='line'></div>
+          <div className='line'> </div>
           <div><NavLink to='/rules/' exact>Правила игры</NavLink></div>
-          <div className='line'></div>
+          <div className='line'> </div>
           <div><NavLink to='/profile/' exact>Личные данные</NavLink></div>
-          <div className='line'></div>
+          <div className='line'> </div>
           <div><NavLink to='/profile/settings/' exact>Настройки</NavLink></div>
-          <div className='line'></div>
+          <div className='line'> </div>
           <div><NavLink to='/profile/cardIn/' exact>Пополнить счет</NavLink></div>
-          <div className='line'></div>
+          <div className='line'> </div>
           <div><NavLink to='/profile/cardOut/' exact>Вывести со счета</NavLink></div>
-          <div className='line'></div>
+          <div className='line'> </div>
         </div>
         <div className='userMoney'>
           <Link to={'/'} onClick={props.handleLogout}>Выйти</Link>
