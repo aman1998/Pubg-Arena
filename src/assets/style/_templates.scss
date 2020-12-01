@@ -91,7 +91,11 @@
     @content;
   }
 }
-
+@mixin more_1000{
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
 @mixin _1170{
   @media (max-width: 1170px) {
     @content;

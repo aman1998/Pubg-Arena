@@ -1,10 +1,26 @@
 @import "./templates";
 
-.rates-main-image-box{
+.rates-main {
   padding-top: 40px;
   width: 100%;
   position: relative;
-  .rating-title{
+  .rates-image-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    .rates-main-image {
+      width: 100%;
+      opacity: 0.7;
+    }
+    @include more_1000{
+      height: 600px;
+    }
+  }
+  .rating-title {
     margin: auto;
     width: max-content;
   }
