@@ -27,7 +27,7 @@ const Lobby = () => {
     window.scrollTo(0, 0)
     setLoading(true)
     dispatch(setOneLobbyActionCreator(id, setLoading, setLobby, setError, setSuccess))
-  }, [isLoading])
+  }, [isLoading, dispatch, id ])
 
 
   return (
@@ -49,8 +49,8 @@ const Lobby = () => {
             playerCount={lobby.playerCount}
             pass={lobby.passcode}
             lobby_id={id}
-          /> :
-          <Error />
+          /> : error ?
+          <Error /> : null
         }
       </div>
     </PageTemplate>

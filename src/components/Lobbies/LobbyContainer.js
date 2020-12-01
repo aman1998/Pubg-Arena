@@ -22,15 +22,6 @@ const LobbyContainer = (props) => {
     isPlayed: state.lobbies.isPlayed
   }))
 
-  const isUserIsPlaying = () => {
-    for (let i = 0; i < props.players.length; i++) {
-      if (props.players[i].id === myProfile.pk) {
-        return true
-      }
-    }
-    return false
-  }
-
   const openPopup = () => {
     if(isLog === false) {
       dispatch(showLogin())
@@ -53,6 +44,14 @@ const LobbyContainer = (props) => {
 
 
   useEffect(() => {
+    const isUserIsPlaying = () => {
+      for (let i = 0; i < props.players.length; i++) {
+        if (props.players[i].id === myProfile.pk) {
+          return true
+        }
+      }
+      return false
+    }
     if(props.players){
       setIsPlaying(isUserIsPlaying())
     }
@@ -66,7 +65,7 @@ const LobbyContainer = (props) => {
     else {
       setPassValue('Ваш код будет доступен за 10 минут до начала игры')
     }
-  }, [props.players, isLoading, showPassword])
+  }, [props.players, isLoading, showPassword, props.pass, props.date, myProfile.pk])
   
 
   return (

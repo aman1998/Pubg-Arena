@@ -1,9 +1,7 @@
 import React from 'react'
 import Chevron from '../../assets/icons/chevron'
-import { SwitchTransition, CSSTransition } from 'react-transition-group'
 
 const Questions = () => {
-  const [mode, setMode] = React.useState('out-in')
   const [answer1, setAnswer1] = React.useState(false)
   const [answer2, setAnswer2] = React.useState(false)
   const [answer3, setAnswer3] = React.useState(false)

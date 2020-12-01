@@ -21,7 +21,7 @@ const MainPage = () => {
     if(lobbies.length === 0) {
       dispatch(fetchLobbiesActionCreator())
     }
-  }, [])
+  }, [dispatch, lobbies.length])
 
   return (
     <PageTemplate>

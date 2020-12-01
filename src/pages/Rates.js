@@ -16,13 +16,13 @@ const Rates = () => {
     if(rates.length === 0){
       dispatch(setRatingsCreator())
     }
-  }, [])
+  }, [dispatch, rates.length])
 
   return(
     <PageTemplate>
       <div className='rates-main'>
         <div className='rates-image-box'>
-          <img src={backImg} alt='background image' className='rates-main-image' />
+          <img src={backImg} alt='#' className='rates-main-image' />
         </div>
         <h2 className='rating-title'>Рейтинг игроков</h2>
         <div className='container'>

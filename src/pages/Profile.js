@@ -9,7 +9,7 @@ import CardIn from "../components/Card/CardIn";
 import PasswordSettings from "./PasswordSettings";
 import LanguageSettings from "../components/User/LanguageSettings";
 import UserRatingKills from "../components/User/UserRatingKills";
-import ChangeAvatar from "../components/User/ChangeAvatar/ChangeAvatar";
+// import ChangeAvatar from "../components/User/ChangeAvatar/ChangeAvatar";
 import LoadingPage from '../components/Loadings/Loading'
 import ErrorPage from './500Page'
 

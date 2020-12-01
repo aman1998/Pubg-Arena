@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {isPlayed as checkIsPlayed} from '../../store/actions/lobbies'
 import {useDispatch} from 'react-redux'
 
-const Timer = (props) => {
+const Timer = ({date, showPass}) => {
   const [timerDays, setTimerDays] = useState('00');
   const [timerHours, setTimerHours] = useState('00');
   const [timerMinutes, setTimerMinutes] = useState('00');
@@ -10,8 +10,9 @@ const Timer = (props) => {
 
   const dispatch = useDispatch()
 
+
   useEffect(() => {
-    const  countdownDateFormat = `${props.date}`.split("+")[0]
+    const  countdownDateFormat = `${date}`.split("+")[0]
     const countdownDate = new Date(countdownDateFormat).getTime();
 
     const now = new Date().getTime();
@@ -27,7 +28,7 @@ const Timer = (props) => {
         clearInterval(timer)
       } 
       else if(distance <= 600000) {
-        props.showPass(true)
+        showPass()
         dispatch(checkIsPlayed(false))
         setTimerDays(days)
         setTimerHours(hours)
@@ -45,7 +46,7 @@ const Timer = (props) => {
     return () => { // Return callback to run on unmount.
       window.clearInterval(timer);
     };
-  }, [timerSeconds]);
+  }, [timerSeconds, dispatch, showPass, date]);
 
 
   return (

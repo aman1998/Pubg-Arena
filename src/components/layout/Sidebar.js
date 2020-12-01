@@ -5,7 +5,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined'
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined'
 import RemoveCircleOutlineOutlinedIcon from '@material-ui/icons/RemoveCircleOutlineOutlined'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
-import LanguageIcon from '@material-ui/icons/Language'
+// import LanguageIcon from '@material-ui/icons/Language'
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline'
 
 const Sidebar = () => {
