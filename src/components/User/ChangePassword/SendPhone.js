@@ -31,7 +31,6 @@ const SendPhone = (props) => {
       <PhoneInput
         country='kg'
         onlyCountries={['kg', 'ru', 'kz', 'tr' ]}
-        disableDropdown
         containerClass='phone'
         placeholder="Введите свой номер"
         value={phone}

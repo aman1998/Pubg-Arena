@@ -28,7 +28,7 @@ const Activate = (props) => {
       <input 
         type='text' 
         name='otp' 
-        placeholder='Введите ключ активации' 
+        placeholder='activate code' 
         value={otp} onChange={e => setOtp(e.target.value)} 
         onFocus={() => setError(false)}
         />

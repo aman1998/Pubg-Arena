@@ -42,7 +42,7 @@ const Register = (props) => {
         onlyCountries={['kg', 'ru', 'kz', 'tr' ]}
         // disableDropdown
         containerClass='phone'
-        placeholder="Введите свой номер"
+        placeholder="phone"
         value={phone}
         onChange={setPhone}
         onFocus={removeError}

@@ -30,7 +30,7 @@ const Register = (props) => {
       validationSchema={
         Yup.object().shape({
           name: Yup.string()
-            .required('user name'),
+            .required('username'),
           phone: Yup.string()
             .required('Введите phone!'),
           password: Yup.string()
@@ -55,11 +55,11 @@ const Register = (props) => {
         <Form className='loginForm'>
           <Field type="text" name="phone" placeholder='phone' value={props.phone} disabled/>
           <ErrorMessage name="phone" component="div" className='error'/>
-          <Field type="text" name="name" placeholder='name'/>
+          <Field type="text" name="name" placeholder='account name from PUBG Mobile'/>
           <ErrorMessage name="name" component="div" className='error'/>
-          <Field type="password" name="password" placeholder='Пароль'/>
+          <Field type="password" name="password" placeholder='password'/>
           <ErrorMessage name="password" component="div" className='error'/>
-          <Field type="password" name="confirmPassword" placeholder='Повторите пароль'/>
+          <Field type="password" name="confirmPassword" placeholder='repeat password'/>
           <ErrorMessage name="confirmPassword" component="div" className='error'/>
           <div className='check-wrapper'>
             <Field type="checkbox" name="acceptTerms" className='check-input'/>

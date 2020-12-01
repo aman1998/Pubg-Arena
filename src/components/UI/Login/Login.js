@@ -3,6 +3,7 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {useDispatch, useSelector} from "react-redux"
 import {NavLink} from 'react-router-dom'
+import PhoneInput from 'react-phone-input-2'
 
 import {showLogin} from "../../../store/actions/modalLogin"
 import {fetchLoginActionCreator} from "../../../store/actions/profile"
@@ -12,6 +13,9 @@ import BackDrop from "../BackDrop";
 
 const Login = () => {
   const [down, setDown] = React.useState(false)
+  const [phone, setPhone] = React.useState('')
+  const [error, setError] = React.useState(false)
+  
   const dispatch = useDispatch()
   const {loginModal, loading, success} = useSelector(state => ({
     loginModal: state.modalLogin,
@@ -27,6 +31,10 @@ const Login = () => {
     dispatch(fetchLoginActionCreator(body))
   }
 
+    const removeError = () => {
+    setError(false)
+  }
+
   return (
     <>
       <BackDrop show={loginModal} close={showLog} />
@@ -35,14 +43,11 @@ const Login = () => {
         <Formik
           initialValues={
             {
-              phone: '',
               password: '',
             }
           }
           validationSchema={
             Yup.object().shape({
-              phone: Yup.string()
-                .required('Введите номер!'),
               password: Yup.string()
                 .min(6, 'Минимум 6 символов')
                 .required('Введите пароль!'),
@@ -50,15 +55,29 @@ const Login = () => {
           }
           onSubmit={
             fields => {
-              handleLogin(fields)
-              // dispatch(showLogin())
+              if(phone) {
+                fields.phone = phone;
+                handleLogin(fields)
+              }
+              else {
+                setError(true)
+              }
             }
           }
         >
           {() => (
             <Form className='loginForm'>
-              <Field type="text" name="phone" placeholder='phone'/>
-              <ErrorMessage name="phone" component="div" className='error'/>
+              <PhoneInput
+                country='kg'
+                onlyCountries={['kg', 'ru', 'kz', 'tr' ]}
+                containerClass='phone'
+                placeholder="Введите свой номер"
+                value={phone}
+                onChange={setPhone}
+                onFocus={removeError}
+                className='loginPhone'
+              />
+              {error ? <div className='error'>Ошибка ввода</div> : null}
               <Field type="password" name="password" placeholder='Пароль'/>
               <ErrorMessage name="password" component="div" className='error'/>
               <NavLink to='/change-password' className='change-pass' exact onClick={showLog}>Забыли пароль?</NavLink>
