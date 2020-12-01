@@ -28,6 +28,11 @@ const Timer = (props) => {
       } 
       else if(distance <= 600000) {
         props.showPass(true)
+        dispatch(checkIsPlayed(false))
+        setTimerDays(days)
+        setTimerHours(hours)
+        setTimerMinutes(minutes)
+        setTimerSeconds(seconds)
       }
       else if (distance > 0) {
         dispatch(checkIsPlayed(false))
