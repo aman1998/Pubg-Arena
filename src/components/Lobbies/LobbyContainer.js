@@ -13,6 +13,7 @@ const LobbyContainer = (props) => {
   const [password, setPassword] = useState(false)
   const [popup, setPopup] = useState(false)
   const [passValue, setPassValue] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
   const {myProfile,  isLoading, isLog, isPlayed} = useSelector(state => ({
     myProfile: state.profile.myProfile,
@@ -59,13 +60,14 @@ const LobbyContainer = (props) => {
     const countdownDate = new Date(countdownDateFormat).getTime()
     const now = new Date().getTime()
     const distance = countdownDate - now;
-    if(distance < 600000) {
+    if(distance <= 600000) {
         setPassValue(props.pass)
     }
     else {
       setPassValue('Ваш код будет доступен за 10 минут до начала игры')
     }
-  }, [props.players, isLoading])
+  }, [props.players, isLoading, showPassword])
+  
 
   return (
     <div className='container wrapper'>
@@ -86,7 +88,11 @@ const LobbyContainer = (props) => {
               </span></div>
             <div className='price'>Цена участие: <span>{props.priceGame} сомов</span></div>
             <div className='price'>Цена 1 килл: <span>{props.priceKill} сомов</span></div>
-            {props.date !== '0000-00-00T00:00:00+06:00' ? <Timer date={props.date}/> : ' '}
+            {props.date !== '0000-00-00T00:00:00+06:00' ? 
+              <Timer 
+                date={props.date}
+                showPass={setShowPassword}
+                /> : ' '}
             {isPlaying || isPlayed ? null : <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
             {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>{
               password ? 'Скрыть' : 'Пароль'

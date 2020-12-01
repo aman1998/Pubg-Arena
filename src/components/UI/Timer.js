@@ -25,7 +25,11 @@ const Timer = (props) => {
       if(distance < 0) {
         dispatch(checkIsPlayed(true))
         clearInterval(timer)
-      } else {
+      } 
+      else if(distance <= 600000) {
+        props.showPass(true)
+      }
+      else if (distance > 0) {
         dispatch(checkIsPlayed(false))
         setTimerDays(days)
         setTimerHours(hours)
