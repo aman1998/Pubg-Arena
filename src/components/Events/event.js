@@ -165,7 +165,7 @@ const Event = () => {
           )) : null
         }
       </div>
-      <h2 className='event-title more'>Законченные</h2>
+      <h2 className='event-title more'>Время истекло</h2>
       <div className='wrapper'>
       {
         done ? done.map(item => (

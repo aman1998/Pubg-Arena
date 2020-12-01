@@ -70,7 +70,7 @@ const Sidebar = () => {
                 <div className='sidebarItemText'>Личный рейтинг</div>
               </div>
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to='/profile/language/'
               className='sidebarItem'
               activeClassName='active'
@@ -80,7 +80,7 @@ const Sidebar = () => {
                 <LanguageIcon  className='sidebarItemIcon'/>
                 <div className='sidebarItemText'>Выбор языка</div>
               </div>
-            </NavLink>
+            </NavLink> */}
           </ul>
         </div>
       </nav>

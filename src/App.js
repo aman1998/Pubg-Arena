@@ -12,6 +12,7 @@ import PrivacyPage from './pages/Privacy'
 import TermsPage from './pages/Terms'
 import RulesPage from './pages/Rules'
 import RatesPage from "./pages/Rates"
+import RefundPage from "./pages/Refund"
 import SignUpPage from './pages/SignUp'
 import PageNotFound from "./pages/404Page"
 import SupportPage from "./pages/Support"
@@ -42,6 +43,7 @@ function App() {
         <Route path='/privacy' component = {PrivacyPage}/>
         <Route path='/terms' component = {TermsPage}/>
         <Route path='/rules' component = {RulesPage}/>
+        <Route path='/refund' component = {RefundPage}/>
         <Route path='/rates' component = {RatesPage} />
         <Route path='/signUp' component = {SignUpPage} />
         <Route path = '/change-password' exact>
@@ -55,7 +57,7 @@ function App() {
         <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
         <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
         <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
-        <Route path='/profile/language' component={ProfilePage} exact />
+        {/* <Route path='/profile/language' component={ProfilePage} exact /> */}
         <Route path='/profile/rating' component={ProfilePage} exact />
         <Route path='/profile/settings' component={ProfilePage} exact />
         <Route component={PageNotFound} />
