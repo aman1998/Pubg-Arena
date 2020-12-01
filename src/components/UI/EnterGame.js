@@ -30,8 +30,8 @@ const EnterGame = (props) => {
             </div> :
             balance < props.priceGame && isLog ?
               <div className='enter-cardIn'>
-                <div>У вас не достаточно средст для вступления в игру</div>
-                <div>Пожалуйста пополните баланс</div>
+                <div>У вас не достаточно средст для вступления в игру.</div>
+                <div>Пожалуйста пополните баланс.</div>
                 <div>
                   <NavLink to='/profile/cardIn' exact>
                     Пополнить
