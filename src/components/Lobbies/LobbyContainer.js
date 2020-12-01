@@ -93,7 +93,9 @@ const LobbyContainer = (props) => {
                 date={props.date}
                 showPass={setShowPassword}
                 /> : ' '}
-            {isPlaying || isPlayed ? null : <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
+            {isPlaying || isPlayed ? 
+            <button className='lobby-content__btn btn-disabled' disabled>Вступить</button> : 
+            <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
             {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>{
               password ? 'Скрыть' : 'Пароль'
             }</button> : null}

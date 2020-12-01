@@ -70,6 +70,7 @@ export const enterGameActionCreator = (id, pk, balance, priceGame, closePopup) =
 }
 
 export const setOneLobbyActionCreator = (id, setLoading, setLobby, setError, setSuccess) => dispatch => {
+  dispatch(isPlayed(true))
   fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
     method: 'GET',
   })
