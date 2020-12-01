@@ -56,12 +56,9 @@ export const setLobby = (lobby) => ({
   lobby
 })
 
-export const enterGameActionCreator = (id, pk, balance, priceGame, closePopup) => dispatch => {
+export const enterGameActionCreator = (id, pk, balance, priceGame) => dispatch => {
   dispatch(setLoading(true))
   axios.post('/lobby/users/', {rates: id, user: pk, balance: balance})
-    .then(() => {
-      closePopup()
-    })
     .then(() => {
       dispatch(getBalance(balance - priceGame))
       dispatch(setLoading(false))

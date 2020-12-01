@@ -29,7 +29,7 @@ const Login = () => {
 
   return (
     <>
-      <BackDrop show={loginModal} close={showLog} down={setDown} />
+      <BackDrop show={loginModal} close={showLog} />
       <div className={`login ${loginModal ? 'login-up' : down ? 'login-down' : ''}`}>
         <Header title='Вход' class='log' close={showLog} down={setDown}/>
         <Formik

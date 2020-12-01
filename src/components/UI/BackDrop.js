@@ -3,7 +3,6 @@ import React from 'react'
 const BackDrop = (props) => {
   const closeModal = () => {
     props.close()
-    props.down(true)
   }
   return(
     props.show ? (

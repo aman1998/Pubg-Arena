@@ -13,7 +13,7 @@ const EnterGame = (props) => {
   const dispatch = useDispatch()
 
   const enterGame = () => {
-    dispatch(enterGameActionCreator(props.id, myProfile.pk, myProfile.balance, props.priceGame, props.closePopup))
+    dispatch(enterGameActionCreator(props.id, myProfile.pk, myProfile.balance, props.priceGame))
   }
 
   return (
