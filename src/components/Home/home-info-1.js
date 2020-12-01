@@ -13,13 +13,6 @@ const HomeInfo1 = () => {
         <div className='info-content--left'>
           <div>
             <div className='info-text'>
-              <img src={ImgOk} alt='#' />
-              <div>Arena Античит</div>
-              <p>
-                Мы верим только в честную игру. Мы разработали свой собственный античтит, который забанил уже 6000 читеров      
-              </p>
-            </div>
-            <div className='info-text'>
               <img src={ImgXm} alt='#' />
               <div>Самые популярные игры</div>
               <p>
