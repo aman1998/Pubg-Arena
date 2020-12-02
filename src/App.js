@@ -15,7 +15,7 @@ import RatesPage from "./pages/Rates"
 import RefundPage from "./pages/Refund"
 import SignUpPage from './pages/SignUp'
 import PageNotFound from "./pages/404Page"
-import SupportPage from "./pages/Support"
+import SupportPage from "./pages/Supports"
 
 import './assets/style/style.scss'
 import PasswordSettings from "./pages/PasswordSettings";

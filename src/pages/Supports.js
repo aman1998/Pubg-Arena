@@ -6,11 +6,10 @@ import InstagramIcon from '@material-ui/icons/Instagram'
 import TelegramIcon from '@material-ui/icons/Telegram'
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 
-const Support = () => {
+const Terms = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, [])
-
   return (
     <PageTemplate>
       <section className='support container'>
@@ -50,4 +49,4 @@ const Support = () => {
   )
 }
 
-export default Support
+export default Terms 
