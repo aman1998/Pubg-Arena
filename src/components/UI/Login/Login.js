@@ -80,7 +80,8 @@ const Login = () => {
               {error ? <div className='error'>Ошибка ввода</div> : null}
               <Field type="password" name="password" placeholder='Пароль'/>
               <ErrorMessage name="password" component="div" className='error'/>
-              <NavLink to='/change-password' className='link-change-pass' exact onClick={showLog}>Забыли пароль?</NavLink>
+              <NavLink to='/change-password' className='link-change-pass' activeClassName="link-change-pass" exact onClick={showLog}>Забыли пароль?</NavLink>
+              <NavLink to='/signUp' className='link-change-pass' activeClassName="link-change-pass" onClick={showLog} exact>Вы не зарегистрированы?</NavLink>
               <button type="submit" className='loginFormBtn log'>
                 {loading ? <div className='login-loading'></div> : 'Вход'}
               </button>
