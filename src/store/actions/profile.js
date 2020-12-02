@@ -43,6 +43,7 @@ export const fetchProfileActionCreator = () => dispatch => {
       // dispatch(notLoading())
       dispatch({ type: GET_PROFILE_SUCCESS})
       dispatch(getBalance(response.data.balance))
+      console.log(response)
     })
     .catch((e) => {
       console.log(e.message)
@@ -105,7 +106,7 @@ export const logoutActionCreator = (token) => dispatch  => {
 			'Authorization': token
 		}
 	})
-		.then(response => {
+		.then(() => {
 			localStorage.removeItem('token')
 			dispatch(setToken(null))
 			dispatch(logOut())
@@ -131,13 +132,13 @@ export const handlePhoneActionCreator = (body, getPhone, showActivate, showPhone
         setError2(true)
       }
     })
-    .catch(e => {
+    .catch(() => {
       dispatch({ type: FETCH_FAILED})
     })
 }
 
 
-export const handleChangeInfoActionCreator = (body, id, token) => dispatch => {
+export const handleChangeInfoActionCreator = (body, id, token) => () => {
   console.log(body)
   axios.put(`/update-profile/${id}/`, body, {
     headers:{
