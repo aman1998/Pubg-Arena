@@ -1,8 +1,8 @@
-import {SHOW_REGISTER_MODAL} from "../actionTypes";
+import {SHOW_MODAL} from "../actionTypes"
 
 const modalReducer = (state = false, action) => {
   switch (action.type){
-    case SHOW_REGISTER_MODAL:
+    case SHOW_MODAL:
       return state = !state
     default:
       return state

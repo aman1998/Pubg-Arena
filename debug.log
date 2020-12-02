@@ -22,3 +22,4 @@
 [1130/102140.607:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
 [1130/162347.122:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
 [1202/101954.335:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1202/160827.172:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0

@@ -1,4 +1,4 @@
-import {SHOW_REGISTER_MODAL} from "../actionTypes";
+import {SHOW_MODAL} from "../actionTypes";
 import axios from "../../axios/axios";
 import {fetchLoginActionCreator} from "./profile";
 
@@ -8,9 +8,16 @@ import {
   FETCH_LOADING
 } from "../actionTypes"
 
-export const showRegister = () => ({
-  type: SHOW_REGISTER_MODAL
+export const showModal = () => ({
+  type: SHOW_MODAL
 })
+
+export const showModalActionCreator = () => dispatch => {
+  dispatch(showModal())
+  setTimeout(() => {
+    dispatch(showModal())
+  }, 3000)
+}
 
 export const activateActionCreator = (body,showActivate, showReg, setError) => dispatch => {
   dispatch({ type: FETCH_LOADING })
