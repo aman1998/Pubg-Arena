@@ -37,7 +37,7 @@ const Footer = () => {
             <ul><NavLink to='/rules' exact>Правила игры</NavLink></ul>
           </nav>
           <nav>
-            <ul><NavLink to='/terms' exact>Условиями пользования</NavLink></ul>
+            <ul><NavLink to='/terms' exact>Условия пользования</NavLink></ul>
             <ul><NavLink to='/privacy' exact>Политика конфидициальности</NavLink></ul>
             <ul><NavLink to='/refund' exact>Политика возвратов</NavLink></ul>
             <ul><NavLink to='/support' exact>Техподдержка</NavLink></ul>
