@@ -22,13 +22,15 @@ const EnterGame = (props) => {
       <div className='enter'>
         {
           balance >= props.priceGame && isLog ?
-            <div>
-              <div>Вы действительно желаете вступить в игру?</div>
-              <div>{`С вашего баланса спишут ${props.priceGame} сомов`}</div>
-              <button onClick={enterGame} className='enter-btn yes'>Да</button>
-              <button onClick={props.closePopup} className='enter-btn no'>Нет</button>
-            </div> :
-            balance < props.priceGame && isLog ?
+            (
+              <div>
+                <div>Вы действительно желаете вступить в игру?</div>
+                <div>{`С вашего баланса спишут ${props.priceGame} сомов`}</div>
+                <button onClick={enterGame} className='enter-btn yes'>Да</button>
+                <button onClick={props.closePopup} className='enter-btn no'>Нет</button>
+              </div>
+            ) : balance < props.priceGame && isLog ?
+            (
               <div className='enter-cardIn'>
                 <div>У вас не достаточно средст для вступления в игру.</div>
                 <div>Пожалуйста пополните баланс.</div>
@@ -37,7 +39,8 @@ const EnterGame = (props) => {
                     Пополнить
                   </NavLink>
                 </div>
-              </div> : null
+              </div>
+            ) : null
         }
       </div>
     </>

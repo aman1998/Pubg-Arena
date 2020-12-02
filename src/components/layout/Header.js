@@ -2,14 +2,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {useSelector} from "react-redux"
 import Logo from '../../assets/icons/logo.svg'
-import LoginController from "../../container/LoginController";
+import LoginController from "../../container/LoginController"
 import IsAuth from '../UI/IsAuthState'
+import Modal from "../UI/Modal";
 
 const Header = () => {
-  const {isLogged, isPhone, isActivate} = useSelector(state => ({
+  const {isLogged, isPhone, isActivate, modal} = useSelector(state => ({
     isLogged: state.isLogged,
     isPhone: state.register.isPhone,
-    isActivate: state.register.isActivate
+    isActivate: state.register.isActivate,
+    modal: state.modalRegister
   }))
 
   window.onscroll = function () {
@@ -35,6 +37,9 @@ const Header = () => {
             <NavLink to='/' className='items item-logo' activeClassName='active' >
               <img src={Logo} alt='#' className='logo'/>
             </NavLink>
+            {
+              modal ? <Modal show={modal} detail='Много игроков, или какая то ошибка' /> : null
+            }
             <div className='line-vert'> </div>
             <NavLink
               to='/'

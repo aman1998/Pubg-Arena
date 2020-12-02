@@ -12,6 +12,7 @@ import {
 import axios from "../../axios/axios"
 import {getBalance} from "./profile"
 import {setLoading as setLoadingAction} from './lobbies'
+import {showModalActionCreator} from "./modalRegister"
 
 export const setLobbiesList = (list) => ({
   type: SET_LOBBY_LIST,
@@ -57,9 +58,14 @@ export const setLobby = (lobby) => ({
 export const enterGameActionCreator = (id, pk, balance, priceGame) => dispatch => {
   dispatch(setLoading(true))
   axios.post('/lobby/users/', {rates: id, user: pk, balance: balance})
-    .then(() => {
-      dispatch(getBalance(balance - priceGame))
-      dispatch(setLoading(false))
+    .then((response) => {
+      if(response.data.status === 201){
+        dispatch(getBalance(balance - priceGame))
+        dispatch(setLoading(false))
+      }else {
+        dispatch(setLoading(false))
+        dispatch(showModalActionCreator())
+      }
     })
     .catch(e => console.log(e))
 }

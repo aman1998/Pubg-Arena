@@ -1,0 +1,40 @@
+@import "../variables";
+
+.error-for-more-gamers{
+  width: max-content;
+  padding: 5px 10px;
+  position: absolute;
+  background-color: $bg-red;
+  border-radius: 5px;
+  color: white;
+  &.up{
+    animation: upModal .5s forwards linear;
+  }
+  &.down{
+    animation: downModal .5s forwards ease;
+  }
+  @keyframes upModal {
+    0% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      top: 500%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes downModal {
+    0% {
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    100% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -1,4 +1,3 @@
-export const GET_USER = 'GET_USER'
 export const GET_TOKEN = 'GET_TOKEN'
 export const SET_TOKEN = 'SET_TOKEN'
 export const GET_PROFILE = 'GET_PROFILE'
@@ -47,3 +46,5 @@ export const GET_TIME= 'GET_TIME'
 
 export const ALL_RATES = 'ALL_RATES'
 export const SET_RATINGS = 'SET_RATINGS'
+
+export const SHOW_MODAL = 'SHOW_MODAL'
