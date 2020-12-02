@@ -16,7 +16,7 @@ const UserRatingKills = () => {
           <div>Уровень игрока</div>
           <div>
             {
-              profileKills < 40 ? 'легкий' : profileKills < 80 && profileKills >= 40 ? 'нормальный' : profileKills >= 80 ? 'эксперт' : 'ведется посчет'
+              profileKills < 40 ? 'легкий' : profileKills < 80 && profileKills >= 40 ? 'нормальный' : profileKills >= 80 ? 'эксперт' : 'ведется подсчет'
             }
           </div>
         </div>
