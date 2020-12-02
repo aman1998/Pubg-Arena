@@ -65,7 +65,7 @@ const LobbyContainer = (props) => {
     else {
       setPassValue('Ваш код будет доступен за 10 минут до начала игры')
     }
-  }, [props.players, isLoading, props.pass, props.date, myProfile.pk])
+  }, [props.players, isLoading, showPassword])
   
 
   return (
@@ -105,7 +105,7 @@ const LobbyContainer = (props) => {
             </div> : null}
           </div>
         </div>
-        <Players id={props.lobby_id}/>
+        <Players players={props.players} id={props.lobby_id}/>
         {popup ? 
         <Popup
           id={props.id}

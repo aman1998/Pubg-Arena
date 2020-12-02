@@ -4,6 +4,7 @@ import FacebookIcon from '@material-ui/icons/Facebook'
 import MessageIcon from '@material-ui/icons/Email'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import TelegramIcon from '@material-ui/icons/Telegram'
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail'
 
 const Support = () => {
   React.useEffect(() => {
@@ -37,6 +38,13 @@ const Support = () => {
           </div>
           <MessageIcon className='message'/>
         </a>
+        <div className='support-link'>
+          <div className='item'>
+            <AlternateEmailIcon className='email'/>
+            <div>support@arenagames.io</div>
+          </div>
+          <MessageIcon className='message'/>
+        </div>
       </section>
     </PageTemplate>
   )

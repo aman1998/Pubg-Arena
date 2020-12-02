@@ -20,7 +20,7 @@ const UserRatingKills = () => {
         <div className='kills-item'>
           <div>Рейтинг</div>
           <div>{
-            kills < 40 ? 3 : kills < 80 && kills >= 40 ? 5 : kills >= 80 ? 7 : 'ведется посчет'
+            kills < 40 ? 3 : kills < 80 && kills >= 40 ? 5 : kills >= 80 ? 7 : 'ведется подсчет'
           }</div>
         </div>
       </div>

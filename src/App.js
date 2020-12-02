@@ -32,7 +32,7 @@ function App() {
     if (token) {
       dispatch(fetchProfileActionCreator())
     }
-  }, [token, dispatch])
+  }, [token])
 
   return (
     <BrowserRouter>

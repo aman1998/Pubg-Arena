@@ -79,22 +79,11 @@ export const setOneLobbyActionCreator = (id, setLoading, setLobby, setError, set
       setLoading(false)
       setSuccess(true)
       setLobby(data)
-      dispatch(setPlayers(data.player_list))
+      // dispatch(setPlayers(data.player_list))
       dispatch(setLoadingAction(false))
     })
     .catch(() => {
       setLoading(false)
       setError(true)
-    })
-}
-
-export const setPlayersActionCreator = (id) => dispatch => {
-  fetch(`${ENDOPOINT}/lobby/rates/${id}/`, {
-    method: 'GET',
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      dispatch(setPlayers(data.player_list))
-      dispatch(setLoading(false))
     })
 }
