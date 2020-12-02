@@ -22,15 +22,6 @@ const LobbyContainer = (props) => {
     isPlayed: state.lobbies.isPlayed
   }))
 
-  const isUserIsPlaying = () => {
-    for (let i = 0; i < props.players.length; i++) {
-      if (props.players[i].id === myProfile.pk) {
-        return true
-      }
-    }
-    return false
-  }
-
   const openPopup = () => {
     if(isLog === false) {
       dispatch(showLogin())
@@ -53,6 +44,14 @@ const LobbyContainer = (props) => {
 
 
   useEffect(() => {
+    const isUserIsPlaying = () => {
+      for (let i = 0; i < props.players.length; i++) {
+        if (props.players[i].id === myProfile.pk) {
+          return true
+        }
+      }
+      return false
+    }
     if(props.players){
       setIsPlaying(isUserIsPlaying())
     }
@@ -93,7 +92,9 @@ const LobbyContainer = (props) => {
                 date={props.date}
                 showPass={setShowPassword}
                 /> : ' '}
-            {isPlaying || isPlayed ? null : <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
+            {isPlaying || isPlayed ? 
+            <button className='lobby-content__btn btn-disabled' disabled>Вступить</button> : 
+            <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
             {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>{
               password ? 'Скрыть' : 'Пароль'
             }</button> : null}
@@ -104,7 +105,7 @@ const LobbyContainer = (props) => {
             </div> : null}
           </div>
         </div>
-        <Players id={props.lobby_id}/>
+        <Players players={props.players} id={props.lobby_id}/>
         {popup ? 
         <Popup
           id={props.id}

@@ -39,7 +39,7 @@ const Footer = () => {
           <nav>
             <ul><NavLink to='/terms' exact>Условиями пользования</NavLink></ul>
             <ul><NavLink to='/privacy' exact>Политика конфидициальности</NavLink></ul>
-            <ul><a>Политика возвратов</a></ul>
+            <ul><NavLink to='/refund' exact>Политика возвратов</NavLink></ul>
             <ul><NavLink to='/support' exact>Техподдержка</NavLink></ul>
           </nav>
           <div className='footer-header--rate'>

@@ -36,7 +36,7 @@ const Slider = () => {
             <img src={pubg1} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                Не так важно, как тебя ударили, - важно, как ты встал и ответил.
+                Побеждай у нас каждый день!
               </div>
             </div>
           </div>

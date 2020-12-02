@@ -17,10 +17,9 @@ const Login = () => {
   const [error, setError] = React.useState(false)
   
   const dispatch = useDispatch()
-  const {loginModal, loading, success} = useSelector(state => ({
+  const {loginModal, loading} = useSelector(state => ({
     loginModal: state.modalLogin,
     loading: state.fetch.post.loading,
-    success: state.fetch.post.success
   }))
 
   const showLog = () => {

@@ -4,7 +4,7 @@ const initialState = {
   list: [],
   players: [],
   isLoading: false,
-  isPlayed: '',
+  isPlayed: true,
   get: {
     success: false,
     loading: false,

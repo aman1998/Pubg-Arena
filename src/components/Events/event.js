@@ -14,46 +14,6 @@ const Event = () => {
   const [done] = useState([])
   const [others] = useState([])
 
-  const lobbySort = (lobby) => {
-    const today = new Date()
-    const tomorrow = new Date()
-    tomorrow.setDate(today.getDate() + 3)
-    if(today > (new Date(lobby)))
-      return 'done'
-    else if (today.getDate() === (new Date(lobby)).getDate() &&
-      today.getMonth() === (new Date(lobby)).getMonth() &&
-      today.getFullYear() === (new Date(lobby)).getFullYear())
-      return 'today'
-    else if (today < (new Date(lobby)) && tomorrow >= (new Date(lobby)))
-      return 'immediate'
-    else
-      return 'others'
-  }
-
-  const setLobbyToState = () => {
-    if (lobbies.length) {
-      for (let i = 0; i < lobbies.length; i++) {
-        const to = lobbySort(lobbies[i].date)
-        switch (to) {
-          case 'today':
-            toDay.push(lobbies[i])
-            break
-          case 'others':
-            others.push(lobbies[i])
-            break
-          case 'immediate':
-            immediate.push(lobbies[i])
-            break
-          case 'done':
-            done.push(lobbies[i])
-            break
-          default:
-            others.push(lobbies[i])
-        }
-      }
-    }
-  }
-
   const checkIsTime = (time, id) => {
     const countdownDateFormat = `${time}`.split("+")[0]
     const countdownDate = new Date(countdownDateFormat).getTime()
@@ -94,9 +54,49 @@ const Event = () => {
     }
   }
 
+
   useEffect(() => {
+    const lobbySort = (lobby) => {
+      const today = new Date()
+      const tomorrow = new Date()
+      tomorrow.setDate(today.getDate() + 3)
+      if(today > (new Date(lobby)))
+        return 'done'
+      else if (today.getDate() === (new Date(lobby)).getDate() &&
+        today.getMonth() === (new Date(lobby)).getMonth() &&
+        today.getFullYear() === (new Date(lobby)).getFullYear())
+        return 'today'
+      else if (today < (new Date(lobby)) && tomorrow >= (new Date(lobby)))
+        return 'immediate'
+      else
+        return 'others'
+    }
+  
+    const setLobbyToState = () => {
+      if (lobbies.length) {
+        for (let i = 0; i < lobbies.length; i++) {
+          const to = lobbySort(lobbies[i].date)
+          switch (to) {
+            case 'today':
+              toDay.push(lobbies[i])
+              break
+            case 'others':
+              others.push(lobbies[i])
+              break
+            case 'immediate':
+              immediate.push(lobbies[i])
+              break
+            case 'done':
+              done.push(lobbies[i])
+              break
+            default:
+              others.push(lobbies[i])
+          }
+        }
+      }
+    }
     setLobbyToState()
-  }, [lobbies])
+  }, [lobbies, done, immediate, others, toDay])
 
   return (
     <div className='container'>
@@ -165,7 +165,7 @@ const Event = () => {
           )) : null
         }
       </div>
-      <h2 className='event-title more'>Законченные</h2>
+      <h2 className='event-title more'>Время истекло</h2>
       <div className='wrapper'>
       {
         done ? done.map(item => (

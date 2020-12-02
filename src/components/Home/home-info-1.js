@@ -1,6 +1,5 @@
 import React from 'react'
 import Phone from '../../assets/img/phone.png'
-import ImgOk from '../../assets/icons/ok.svg'
 import ImgXm from '../../assets/icons/XMLID.svg'
 import ImgHeadPhone from '../../assets/icons/headphones.svg'
 

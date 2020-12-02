@@ -5,7 +5,7 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined'
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined'
 import RemoveCircleOutlineOutlinedIcon from '@material-ui/icons/RemoveCircleOutlineOutlined'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
-import LanguageIcon from '@material-ui/icons/Language'
+// import LanguageIcon from '@material-ui/icons/Language'
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline'
 
 const Sidebar = () => {
@@ -70,7 +70,7 @@ const Sidebar = () => {
                 <div className='sidebarItemText'>Личный рейтинг</div>
               </div>
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to='/profile/language/'
               className='sidebarItem'
               activeClassName='active'
@@ -80,7 +80,7 @@ const Sidebar = () => {
                 <LanguageIcon  className='sidebarItemIcon'/>
                 <div className='sidebarItemText'>Выбор языка</div>
               </div>
-            </NavLink>
+            </NavLink> */}
           </ul>
         </div>
       </nav>

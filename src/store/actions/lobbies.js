@@ -65,12 +65,13 @@ export const enterGameActionCreator = (id, pk, balance, priceGame) => dispatch =
 }
 
 export const setOneLobbyActionCreator = (id, setLoading, setLobby, setError, setSuccess) => dispatch => {
+  dispatch(isPlayed(true))
   axios.get(`/lobby/rates/${id}/`)
     .then(({data}) => {
       setLoading(false)
       setSuccess(true)
       setLobby(data)
-      dispatch(setPlayers(data.player_list))
+      // dispatch(setPlayers(data.player_list))
       dispatch(setLoadingAction(false))
     })
     .catch(() => {

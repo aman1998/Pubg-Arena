@@ -5,10 +5,9 @@ const LobbyCard = (props) => {
   return (
     <section className='event' key={props.id}>
       <img
-        src={`${props.image}`}
-        alt='image'
+        src={props.image}
+        alt='#'
         className='avatar'
-        // style={avatarState ? {opacity: '0.4'} : {opacity: '1'}}
       />
       <div className='name'>{props.name}</div>
       <div className='map'>{props.map}</div>

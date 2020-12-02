@@ -36,6 +36,9 @@
       display: block;
       margin-right: 25px;
     }
+    // .email {
+    //   margin-right: 25px;
+    // }
     .message {
       fill: #ffffff;
     }
@@ -49,7 +52,7 @@
       display: flex;
       align-items: center;
       font-size: 12px;
-      .facebook, .instagram, .telegram {
+      .facebook, .instagram, .telegram, .email {
         width: 40px;
         height: 40px;
         @media screen and (max-width: 560px) {
