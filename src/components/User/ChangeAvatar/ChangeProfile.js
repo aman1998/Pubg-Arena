@@ -26,34 +26,38 @@ const ChangeProfile = () => {
 
   return(
     <form className='change-form'>
-      <label htmlFor='name-change' className='change-text'>Изменить имя:</label>
+      <h2>Изменить информацию</h2>
+      <label htmlFor='name-change' className='mini-title'>Изменить имя:</label>
       <input
         type='text'
         id='name-change'
+        className='input'
         name='name'
         placeholder='имя'
         value={name}
         onChange={e => setName(e.target.value)}
       />
-      <label htmlFor='phone-change' className='change-text'>Изменить номер(лицевой счет):</label>
+      <label htmlFor='phone-change' className='mini-title'>Изменить номер(лицевой счет):</label>
       <input
         type='text'
+        className='input'
         id='phone-change'
         name='phone'
         placeholder='лицевой счет'
         value={phone}
         onChange={e => setPhone(e.target.value)}
       />
-      <label htmlFor='avatar-change' className='change-text'>Выберите файл:</label>
+      <label htmlFor='avatar-change' className='mini-title'>Выберите файл:</label>
       <input
         id='avatar-change'
+        className='input'
         type='file'
         name='avatar'
         accept='image/x-png,image/jpeg'
         onChange={e => files.push(e.target.files)}
       />
-      <NavLink to='/change-password'>Изменить пароль?</NavLink>
-      <button className='change-btn' onClick={(e) => handleChangeAvatar(e)}>Изменить аватарку</button>
+      <NavLink to='/change-password' className='mini-title nav'>Изменить пароль?</NavLink>
+      <button className='change-btn' onClick={(e) => handleChangeAvatar(e)}>Изменить</button>
     </form>
   )
 }

@@ -150,3 +150,68 @@
     font-size: 14px;
   }
 }
+
+@mixin forChangingForms {
+  display: flex;
+  flex-direction: column;
+  width: 368px;
+  box-sizing: border-box;
+  @media screen and (max-width: 768px) {
+    width: 352px;
+  }
+  @media screen and (max-width: 560px) {
+    width: 320px;
+  }
+  @media screen and (max-width: 360px) {
+    width: 290px;
+  }
+  h2{
+    margin-top: 0;
+  }
+  .mini-title{
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 15px;
+    width: max-content;
+    &.nav{
+      color: $mainBg;
+    }
+  }
+  .change-text {
+    font-size: 16px;
+    line-height: 140%;
+    @media screen and (max-width: 560px) {
+      font-size: 13px;
+    }
+  }
+  .input{
+    border-radius: 10px;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+  }
+  .change-text {
+    font-size: 16px;
+    text-align: center;
+  }
+  .change-btn{
+    position: relative;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #FFDD00;
+    color: #0A0816;
+    font-size: 22px;
+    border: none;
+    margin-top: 15px;
+    box-sizing: border-box;
+    width: 100%;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .error{
+    color: red;
+    font-size: 14px;
+  }
+}

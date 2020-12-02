@@ -26,7 +26,7 @@ const SendPhone = (props) => {
   }
 
   return (
-    <form className='change-form'>
+    <form className='change-pass'>
       <div className='change-text'>Введите свой номер телефона для восстановления пароля</div>
       <PhoneInput
         country='kg'

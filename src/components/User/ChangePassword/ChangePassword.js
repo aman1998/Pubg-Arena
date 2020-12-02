@@ -32,7 +32,7 @@ const ChangePassword = (props) => {
         }
       }>
       {() => (
-        <Form className='change-form'>
+        <Form className='change-password'>
           <h2>Изменить пароль</h2>
           <div className='mini-title'>Ваш номер</div>
           <Field type="text" name="phone" placeholder='phone' value={props.phone} disabled/>

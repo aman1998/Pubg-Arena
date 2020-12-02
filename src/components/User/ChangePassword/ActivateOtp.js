@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 const ActivateOtp = (props) => {
   const [otp, setOtp] = useState('')
   return (
-    <form className='change-form' onSubmit={(e) => {
+    <form className='change-pass' onSubmit={(e) => {
       e.preventDefault()
       props.handleActivateOtp({
         phone: props.phone, otp
