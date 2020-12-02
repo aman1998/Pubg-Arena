@@ -135,3 +135,18 @@ export const handlePhoneActionCreator = (body, getPhone, showActivate, showPhone
       dispatch({ type: FETCH_FAILED})
     })
 }
+
+
+export const handleChangeInfoActionCreator = (body, id, token) => dispatch => {
+  console.log(body)
+  axios.put(`/update-profile/${id}/`, body, {
+    headers:{
+      'Authorization': token,
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+  .then(response => {
+    console.log(response)
+  })
+  .catch(e => console.log(e))
+}

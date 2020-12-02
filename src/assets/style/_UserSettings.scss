@@ -21,6 +21,16 @@
     font-weight: 300;
     margin-top: 15px;
   }
+  .change-text {
+    font-size: 16px;
+    line-height: 140%;
+    @media screen and (max-width: 560px) {
+      font-size: 13px;
+    }
+    a {
+      border-bottom: 1px solid #FFFFFF;
+    }
+  }
   .input{
     height: 50px;
     border-radius: 10px;

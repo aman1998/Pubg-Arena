@@ -9,7 +9,7 @@ import CardIn from "../components/Card/CardIn";
 import PasswordSettings from "./PasswordSettings";
 import LanguageSettings from "../components/User/LanguageSettings";
 import UserRatingKills from "../components/User/UserRatingKills";
-import ChangeAvatar from "../components/User/ChangeAvatar/ChangeAvatar";
+import ChangeProfile from "../components/User/ChangeAvatar/ChangeProfile";
 import LoadingPage from '../components/Loadings/Loading'
 import ErrorPage from './500Page'
 
@@ -35,8 +35,7 @@ const Profile = () => {
                 <UserRating/>
               </Route>
               <Route path='/profile/settings' exact>
-                {/*<ChangeAvatar />*/}
-                <PasswordSettings />
+                <ChangeProfile />
               </Route>
               <CardIn />
               <CardOut />
