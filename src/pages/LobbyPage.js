@@ -27,7 +27,7 @@ const Lobby = () => {
     window.scrollTo(0, 0)
     setLoading(true)
     dispatch(setOneLobbyActionCreator(id, setLoading, setLobby, setError, setSuccess))
-  }, [isLoading, dispatch, id ])
+  }, [isLoading, id ])
 
 
   return (

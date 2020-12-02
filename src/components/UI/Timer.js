@@ -46,7 +46,7 @@ const Timer = ({date, showPass}) => {
     return () => { // Return callback to run on unmount.
       window.clearInterval(timer);
     };
-  }, [timerSeconds, dispatch, showPass, date]);
+  }, [timerSeconds]);
 
 
   return (

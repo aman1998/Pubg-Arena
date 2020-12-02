@@ -15,7 +15,7 @@ const Players = (props) => {
     if(isLoadingPlayers === true) {
       dispatch(setPlayersActionCreator(props.id))
     }
-  }, [isLoadingPlayers, props.id, dispatch])
+  }, [isLoadingPlayers, props.id])
 
   return (
     <div className='lobby-right players-list'>

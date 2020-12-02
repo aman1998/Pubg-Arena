@@ -16,7 +16,7 @@ const Rates = () => {
     if(rates.length === 0){
       dispatch(setRatingsCreator())
     }
-  }, [dispatch, rates.length])
+  }, [rates.length])
 
   return(
     <PageTemplate>

@@ -6,6 +6,8 @@ const UserRating = () => {
     myProfile: state.profile.myProfile,
   }))
 
+  console.log(myProfile)
+
   return (
     <section className='block'>
       <div className='blockUser'>

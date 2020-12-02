@@ -65,7 +65,7 @@ const LobbyContainer = (props) => {
     else {
       setPassValue('Ваш код будет доступен за 10 минут до начала игры')
     }
-  }, [props.players, isLoading, showPassword, props.pass, props.date, myProfile.pk])
+  }, [props.players, isLoading, props.pass, props.date, myProfile.pk])
   
 
   return (
