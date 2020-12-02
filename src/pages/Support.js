@@ -38,13 +38,13 @@ const Support = () => {
           </div>
           <MessageIcon className='message'/>
         </a>
-        <div className='support-link'>
+        <a className='support-link' href='mailto:support@arenagames.io'>
           <div className='item'>
             <AlternateEmailIcon className='email'/>
             <div>support@arenagames.io</div>
           </div>
           <MessageIcon className='message'/>
-        </div>
+        </a>
       </section>
     </PageTemplate>
   )
