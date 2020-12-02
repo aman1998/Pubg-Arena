@@ -68,7 +68,8 @@ const Login = () => {
             <Form className='loginForm'>
               <PhoneInput
                 country='kg'
-                onlyCountries={['kg', 'ru', 'kz', 'tr' ]}
+                onlyCountries={['kg']}
+                disableDropdown
                 containerClass='phone'
                 placeholder="Введите свой номер"
                 value={phone}

@@ -39,8 +39,8 @@ const Register = (props) => {
     <form>
       <PhoneInput
         country='kg'
-        onlyCountries={['kg', 'ru', 'kz', 'tr' ]}
-        // disableDropdown
+        onlyCountries={['kg']}
+        disableDropdown
         containerClass='phone'
         placeholder="phone"
         value={phone}
