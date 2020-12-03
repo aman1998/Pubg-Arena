@@ -5,11 +5,10 @@ import PageTemplate from '../components/templates/PageTemplate'
 import Sidebar from '../components/layout/Sidebar'
 import UserRating from '../components/User/UserRating'
 import CardOut from '../components/Card/CardOut'
-import CardIn from "../components/Card/CardIn";
-import PasswordSettings from "./PasswordSettings";
-import LanguageSettings from "../components/User/LanguageSettings";
-import UserRatingKills from "../components/User/UserRatingKills";
-import ChangeProfile from "../components/User/ChangeAvatar/ChangeProfile";
+import CardIn from "../components/Card/CardIn"
+import LanguageSettings from "../components/User/LanguageSettings"
+import UserRatingKills from "../components/User/UserRatingKills"
+import ChangeProfile from "../components/User/ChangeAvatar/ChangeProfile"
 import LoadingPage from '../components/Loadings/Loading'
 import ErrorPage from './500Page'
 

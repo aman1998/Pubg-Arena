@@ -85,11 +85,3 @@ export const setOneLobbyActionCreator = (id, setLoading, setLobby, setError, set
       setError(true)
     })
 }
-
-export const setPlayersActionCreator = (id) => dispatch => {
-  axios.get(`/lobby/rates/${id}/`)
-    .then(({data}) => {
-      dispatch(setPlayers(data.player_list))
-      dispatch(setLoading(false))
-    })
-}

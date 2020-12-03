@@ -1,6 +1,7 @@
 import React from 'react'
 import Phone from '../../assets/img/phone.png'
 import ImgXm from '../../assets/icons/XMLID.svg'
+import ImgShiet from '../../assets/icons/shiet.svg'
 import ImgHeadPhone from '../../assets/icons/headphones.svg'
 
 
@@ -11,6 +12,13 @@ const HomeInfo1 = () => {
       <div className='info-content'>
         <div className='info-content--left'>
           <div>
+            <div className='info-text'>
+              <img src={ImgShiet} alt='#' />
+              <div>Античит</div>
+              <p>
+                Мы верим только в честную игру. Мы разработали свой собственный античит.
+              </p>
+            </div>
             <div className='info-text'>
               <img src={ImgXm} alt='#' />
               <div>Самые популярные игры</div>
