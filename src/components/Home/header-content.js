@@ -11,8 +11,8 @@ const Header = () => {
       <div  className='header-content container'>
         <h1>Играй здесь и сейчас</h1>
         <div className='best'>Стань лучшим </div>
-        <div>Соревнуйся и выигрывай</div>
-        <div>
+        <div className='best-2'>Соревнуйся и выигрывай</div>
+        <div className='header-btn-wrapper'>
           <NavLink
             to='/tournaments'
             className='header-btn'
@@ -21,7 +21,16 @@ const Header = () => {
           Играть
           </NavLink>
         </div>
-        <div className='header-footer'>Присоединись к самой быстрорастущей киберспортивной платформе</div>
+        <div className='header-footer'>
+          <div className='header-footer--up'>
+            <div>Sanhok</div>
+            <div>Miramar</div>
+            <div>Erangel</div>
+            <div>Vikendi</div>
+            <div>Livic</div>
+          </div>
+          <div className='header-footer--down'>Присоединись к самой быстрорастущей киберспортивной платформе</div>
+        </div>
         <div className="header-icons">
           <div className='header-line'></div>
           <a href='https://www.facebook.com/Arena-Games-104788511481561'>

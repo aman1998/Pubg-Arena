@@ -13,9 +13,9 @@ const LobbyCard = (props) => {
       <div className='map'>{props.map}</div>
       <div className='date'>{getDate(props.date)}</div>
       <div className='price price-title'>Цена за участие</div>
-      <div className='price'>{props.price} сомов</div>
+      <div className='price'>{`${props.price} сомов / ${props.price * 5} тенге`}</div>
       <div className='price price-title'>Цена за килл</div>
-      <div className='price'>{props.kill_award} сомов</div>
+      <div className='price'>{`${props.kill_award} сомов / ${props.kill_award * 5} тенге`}</div>
       {props.checkIsTime(props.date, props.id)}
     </section>
   )
