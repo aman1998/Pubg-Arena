@@ -2,7 +2,7 @@ import React from 'react'
 
 import pubg1 from '../assets/img/main-pubg.png'
 import pubg2 from '../assets/img/pubg-slide2.jpg'
-import pubg4 from '../assets/img/pubg-slide4.jpg'
+import pubg4 from '../assets/img/pubg-slide6.jpg'
 import pubg5 from '../assets/img/pubg-slide5.jpg'
 
 const Slider = () => {

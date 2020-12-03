@@ -77,7 +77,7 @@ export const setOneLobbyActionCreator = (id, setLoading, setLobby, setError, set
       setLoading(false)
       setSuccess(true)
       setLobby(data)
-      // dispatch(setPlayers(data.player_list))
+      dispatch(setPlayers(data.player_list))
       dispatch(setLoadingAction(false))
     })
     .catch(() => {

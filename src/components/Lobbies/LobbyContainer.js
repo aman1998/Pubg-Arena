@@ -64,6 +64,9 @@ const LobbyContainer = (props) => {
     }
   }, [isLoading])
 
+  console.log('isPlaying', isPlaying)
+  console.log('isPlayed', isPlayed)
+
 
   return (
     <div className='container wrapper'>
