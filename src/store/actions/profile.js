@@ -138,16 +138,22 @@ export const handlePhoneActionCreator = (body, getPhone, showActivate, showPhone
 }
 
 
-export const handleChangeInfoActionCreator = (body, id, token) => () => {
+export const handleChangeInfoActionCreator = (body, id, token, myProfile, loading, error) => dispatch => {
   console.log(body)
+  loading(true)
   axios.put(`/update-profile/${id}/`, body, {
     headers:{
       'Authorization': token,
       'Content-Type': 'multipart/form-data'
     }
   })
-  .then(response => {
-    console.log(response)
+  .then(res => {
+    dispatch(setProfile({...myProfile, avatar: res.data.avatar, phone: res.data.phone, name: res.data.name}))
+    loading(false)
   })
-  .catch(e => console.log(e))
+  .catch(e => {
+    loading(false)
+    error(true)
+    console.log(e)
+  })
 }
