@@ -7,7 +7,11 @@ import {getDate} from "../../axios/dateFormatter"
 import Popup from '../UI/EnterGame'
 import {showLogin} from '../../store/actions/modalLogin'
 
+import { useTranslation } from 'react-i18next'
+
 const LobbyContainer = (props) => {
+  const { t } = useTranslation()
+
   const dispatch = useDispatch()
   const [isPlaying, setIsPlaying] = useState(false)
   const [password, setPassword] = useState(false)
@@ -65,16 +69,9 @@ const LobbyContainer = (props) => {
       setPassValue(props.pass)
     }
     else {
-      setPassValue('Ваш код будет доступен за 10 минут до начала игры')
+      setPassValue(t('Events.code.2'))
     }
-    console.log('users:', props.players)
-    console.log('is user playing', isPlaying)
-    console.log('game playing', isPlayed)
   }, [props.players, myProfile, isLoading, showPassword])
-
-  console.log('isPlaying', isPlaying)
-  console.log('isPlayed', isPlayed)
-
 
   return (
     <div className='container wrapper'>
@@ -82,33 +79,41 @@ const LobbyContainer = (props) => {
         <div className='lobby-left'>
           <img src={`${props.image}`} alt='#' className='avatar'/>
           <div className='lobby-content'>
-            <div className='map'>Карта: {props.map}</div>
+            <div className='map'>{t('Events.1')}: {props.map}</div>
             <div className='date'>{getDate(props.date)}</div>
             <div className='name'>{props.name}</div>
-            <div className='rule'>Я соглашаюсь с <span>
+            <div className='rule'>{t('Events.2')} <span>
                     <NavLink
                       to={`/rules`}
                       exact
                     >
-                        Правилами игры
+                        {t('Events.3')}
                     </NavLink>
               </span></div>
-            <div className='price'>Цена участие: <span>{`${props.priceGame} сомов / ${props.priceGame * 5} тенге `}</span></div>
-            <div className='price'>Цена 1 килл: <span>{`${props.priceKill} сомов / ${props.priceKill * 5} тенге`}</span></div>
+            <div className='price'>{t('Events.4')}: 
+              <span>
+                {`  ${props.priceGame} ${t('Events.14')}`} / {`${props.priceGame * 5} ${t('Events.15')}`}
+              </span>
+            </div>
+            <div className='price'>{t('Events.5')}: 
+              <span>
+                {`  ${props.priceKill} ${t('Events.14')}`} / {`${props.priceKill * 5} ${t('Events.15')}`}
+              </span>
+            </div>
             {props.date !== '0000-00-00T00:00:00+06:00' ?
               <Timer
                 date={props.date}
                 showPass={setShowPassword}
               /> : ' '}
             {isPlaying || isPlayed ?
-              <button className='lobby-content__btn btn-disabled' disabled>Вступить</button> :
-              <button className='lobby-content__btn btn' onClick={openPopup}>Вступить</button> }
+              <button className='lobby-content__btn btn-disabled' disabled>{t('Events.btns.1')}</button> :
+              <button className='lobby-content__btn btn' onClick={openPopup}>{t('Events.btns.1')}</button> }
             {isPlaying ? <button className='lobby-content__btn pass' onClick={showPass}>{
-              password ? 'Скрыть' : 'Пароль'
+              password ? t('Events.btns.6') : t('Events.btns.5')
             }</button> : null}
             {password === true ?
               <div className='password-block'>
-                <div>Ваш код для участия в игре</div>
+                <div>{t('Events.code.1')}</div>
                 <div className='password'>{passValue}</div>
               </div> : null}
           </div>

@@ -3,9 +3,13 @@ import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 import LobbyCard from './LobbyCard'
-import TournamentSlider from "../../container/TournamentSlider";
+import TournamentSlider from "../../container/TournamentSlider"
+
+import { useTranslation } from 'react-i18next'
 
 const Event = () => {
+  const { t } = useTranslation()
+  
   const {lobbies} = useSelector(state => ({
     lobbies: state.lobbies.list,
   }))
@@ -27,7 +31,7 @@ const Event = () => {
           className='info-bottom__btn btn'
           style={{background: '#F2C00F'}}
         >
-          Игра началась
+          {t('Events.btns.3')}
         </NavLink>
       )
     } else if (distance < -1800000) {
@@ -38,7 +42,7 @@ const Event = () => {
           className='info-bottom__btn btn'
           style={{background: '#FF0000', boxShadow: 'none', color: '#ffffff'}}
         >
-          Игра окончена
+          {t('Events.btns.4')}
         </NavLink>
       )
     } else {
@@ -48,7 +52,7 @@ const Event = () => {
           exact
           className='info-bottom__btn btn'
         >
-          Подробнее
+          {t('Events.btns.2')}
         </NavLink>
       )
     }
@@ -100,24 +104,24 @@ const Event = () => {
 
   return (
     <div className='container'>
-      <h2 className='event-title'>Турниры на сегодня</h2>
+      <h2 className='event-title'>{t('Events.7')}</h2>
       <div className='wrapper'>
         {
           toDay.length !== 0 ? <TournamentSlider
             list={toDay && toDay}
-          /> : <div className='tournament-doesnt'>На сегодня нет турниров</div>
+          /> : <div className='tournament-doesnt'>{t('Events.8')}</div>
         }
       </div>
-      <h2 className='event-title'>Турниры на ближайшие дни</h2>
+      <h2 className='event-title'>{t('Events.9')}</h2>
       <div className='wrapper'>
         {
 
           immediate.length !== 0 ? <TournamentSlider
             list={immediate && immediate}
-          /> : <div className='tournament-doesnt'>Нет ближайших турниров</div>
+          /> : <div className='tournament-doesnt'>{t('Events.10')}</div>
         }
       </div>
-      <h2 className='event-title'>Все</h2>
+      <h2 className='event-title'>{t('Events.11')}</h2>
       <div className='wrapper'>
         {
           toDay ? toDay.map(item => (
@@ -165,7 +169,7 @@ const Event = () => {
           )) : null
         }
       </div>
-      <h2 className='event-title more'>Время истекло</h2>
+      <h2 className='event-title more'>{t('Events.12')}</h2>
       <div className='wrapper'>
       {
         done ? done.map(item => (

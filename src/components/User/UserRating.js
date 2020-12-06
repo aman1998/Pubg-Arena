@@ -1,7 +1,10 @@
 import React from 'react'
 import { useSelector} from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const UserRating = () => {
+  const { t } = useTranslation();
+
   const {myProfile} = useSelector(state => ({
     myProfile: state.profile.myProfile,
   }))
@@ -9,11 +12,11 @@ const UserRating = () => {
   return (
     <section className='block'>
       <div className='blockUser'>
-        <h2>Основная информация</h2>
+        <h2>{t('Profile.personal-data.1')}</h2>
         <div className='userInfo'>
           <div className='phone-box'>
             <div className='phone-subtitle'>
-              Лицевой счет
+            {t('Profile.personal-data.2')}
             </div>
             <div className='phone'>
               {myProfile.phone}
@@ -21,7 +24,7 @@ const UserRating = () => {
           </div>
           <div className='name-box'>
             <div className='name-subtitle'>
-              Имя
+            {t('Profile.personal-data.3')}
             </div>
             <div className='name'>
               {myProfile.name}
@@ -29,7 +32,7 @@ const UserRating = () => {
           </div>
           <div className='balance-box'>
             <div className='balance-subtitle'>
-              Баланс
+            {t('Profile.personal-data.4')}
             </div>
             <div className='balance'>
               {myProfile.balance}

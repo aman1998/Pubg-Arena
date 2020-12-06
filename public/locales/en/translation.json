@@ -1,0 +1,271 @@
+{
+  "Header": {
+    "1": "Main",
+    "2": "Tournaments",
+    "3": "Rates",
+    "4": "Profile"
+  },
+  "Sidebar": {
+    "1": "Personal data",
+    "2": "Settings",
+    "3": "Top up cash",
+    "4": "Withdraw cash",
+    "5": "Personal rating",
+    "6": "Language selection",
+    "7": "My profile"
+  },
+  "Footer": {
+    "1": "Main",
+    "2": "Profile",
+    "3": "Tournaments",
+    "4": "Rules of the Game",
+    "5": "Terms of Use",
+    "6": "Privacy policy",
+    "7": "Return Policy Technical",
+    "8": "Support",
+    "9": "The Arena platform is not approved, linked, supported or sponsored by PUBG CORPORATION. All content, game titles, trade names and/or commercial appearances, trademarks, artworks and related images are trademarks and/or copyrighted by the respective copyright holders.",
+    "10": "© 2020 All rights reserved"
+  },
+  "Burger": {
+    "1": "Logout",
+    "2": "Name",
+    "3": "Phone",
+    "4": "Balance",
+    "5": "som"
+  },
+  "Home": {
+    "header": {
+      "1": "Win, earn, and be the best!",
+      "2": "Become the best",
+      "3": "Compete and Win",
+      "4": "Play",
+      "5": "Sign in Registration Join the fastest growing cyber sports platform"
+    },
+    "info-1": {
+      "1": "Leave your mark on cyber sport",
+      "2": "Arena Anti-Cheat ",
+      "3": "We only believe in fair game. We developed our own anti-cheat system",
+      "4": "The most popular games providing tournaments for the most popular games",
+      "5": "We hold tournaments for the most popular games",
+      "6": "Responsive support team",
+      "7": "Our technical support team is available 24 hours a day. Our people are ready to help solve any of your problems"
+    },
+    "info-2": {
+      "1": "Life is - a game",
+      "2": "Registration",
+      "3": "Registration of an Account is created in a convenient way for you",
+      "4": "Play on your own or in a team",
+      "5": "We are providing lot of tournaments in all modes",
+      "6": "Multiple formats",
+      "7": "Tournaments for entry into the top tournaments on club root. There is always have a choice",
+      "8": "Rating",
+      "9": "Rating Games and take a place in the daily, weekly or monthly rating"
+    },
+    "card": {
+      "1": "Find your place in cybersports",
+      "2": "Live with the game",
+      "3": "Play Now",
+      "4": "Win beautifully"
+    },
+    "questions": {
+      "1": "FAQ",
+      "2": "How to participate in the tournament? ",
+      "3": "You have to register. Select the tournament in the tab which one you interesting «Tournaments» in the top left corner and click «Participate”. The system will offer you the tickets. Once you have done so, you will be considered a member of the tournament. The instructions for entering the tournament will be available on the Tournament page to which you have registered, 10-15 minutes before the beginning of the tournament.",
+      "4": "The cost of the tournament ",
+      "5": "The cost of the game from 100 som.",
+      "6": "How long does it take to get your winnings?",
+      "7": "Money will added to your balance in Arena within an hour in the end of the tournament.",
+      "8": "Is it possible to play a team or alone in this game?",
+      "9": "It is possible you can find the entire relevant schedule on the main page of the site."
+    }
+  },
+  "Events": {
+    "1": "Map",
+    "2": "I agree with",
+    "3": "the Game Rules",
+    "4": "Price per game",
+    "5": "Cost per kill",
+    "6": "Players",
+    "7": "Today",
+    "8": "No tournaments for today",
+    "9": "Tournaments for the coming days",
+    "10": "No tournaments for the coming days",
+    "11": "All",
+    "12": "Timeout",
+    "13": "Joined",
+    "14": "som",
+    "15": "tenge",
+    "slider": {
+      "1": "Play virtually, earn real!",
+      "2": "Arena Games! teaches, entertains, helps to earn!",
+      "3": "Win with us every day!",
+      "4": "WIN AND EARN DOING WHAT YOU LOVE!"
+    },
+    "timer": {
+      "1": "days",
+      "2": "hours",
+      "3": "minutes",
+      "4": "seconds"
+    },
+    "btns": {
+      "1": "Join",
+      "2": "Details",
+      "3": "Game started",
+      "4": "Game over",
+      "5": "Password",
+      "6": "Close"
+    },
+    "code": {
+      "1": "Your password for game",
+      "2": "Your password will be available 10 minutes before the start of the game"
+    }
+  },
+  "Rates": {
+    "1": "Players rates",
+    "2": "kills"
+  },
+  "Privacy": {
+    "1": "Privacy policy",
+    "2": "Date of last update: '01' December 2020",
+    "3": "This Privacy Policy identifies and ('Arena', 'we') processes your ('User', 'you') personal data and permissions granted to you in connection with the conclusion of this Agreement.",
+    "4": "Version: 1.00",
+    "privacy-1": {
+      "1": "1. Policy of User agreement",
+      "2": "1.1. This Policy applies to the collection and processing of personal data in connection with Arena's performance of its obligations under the Arena Platform Terms of Use (the 'Terms of Use'):",
+      "3": "to respond to your requests for technical support, other services and online chats (hereinafter referred to as 'Requests');",
+      "4": "to perform the proper legal obligations of Arena;",
+      "5": "to perform data processing in cases where you have consented to it.",
+      "6": "1.2. By giving you access to the software, Arena, acting reasonably and in good faith, believes that you (a) have all necessary rights to use the Platform; (b) keep your password and identity secure; © provide you with reliable information; (d) understand that by publishing your personal data where it is available to other users of the Platform, you have explicitly made the data publicly available and realize that such data may become available to third parties, may be copied and distributed by such third parties; (e) read and adopt this Policy.",
+      "7": "1.3. If you are not agree with this Policy, please do not use this Platform.",
+      "8": "1.4. This Policy does not apply to software and mobile applications, as well as third-party services, suppliers, advertisers or sponsors, social networks, services that may be available through or integrated with the Platform, or links to them (the 'Third-Party Services'). For example, when you pay, you can be redirected to the payment system website. Data processing in these cases is beyond Arena's control. Such Third-Party Services are independent data controllers and operate on the basis of their own policies, we recommend you to familiarize yourself with them. We are not responsible for the privacy policy of such Third Party Services and you use these services at your own risk.",
+      "9": "1.5. This agreement is inextricably linked to the Terms of Use and you must read and accept this document carefully. In case of any contradictions between this Policy and the Terms of Use, the agreement has the right to step in to force.",
+      "10": "1.6. We are strive to protect and respect your privacy. We are (Arena Platform) manage and determine the purpose, your data will processes which one provided through our platform."
+    },
+    "privacy-2": {
+      "1": "2. Data collection and processing ",
+      "2": "2.1. Arena can collect and process personal data, which means any data that may identify your identity, as well as other data (including anonymized) that is not directly related to personal data. For example, device specifications, connections, error reports, interface interactions (More Data).",
+      "3": "2.2. Arena collects and processes the following data:",
+      "4": "2.2.1. Data presented during registration. To access the closed sections of the Platform, you must provide the following information:",
+      "5": "Phone number, Pubg account name",
+      "6": "2.2.2. When you register or log on to the Platform, you must provide the following information:",
+      "7": "Phone number"
+    }
+  },
+  "Terms": {
+    "1": "Terms of Use of Platform",
+    "2": "Last updated date: '01' December 2020",
+    "3": "These Arena Terms of Use ('Terms of Use') constitute a legally binding agreement between you ('User', 'You') and Arena Games and governs the use of the Arena cyber sports streaming platform comprising a module for cyber sports tournaments, with features allowing users to compete in a cyber-sports games, upload user-generated content, including video and stream and so on. Terms of use also apply to Platform-related services currently or in the future provided by Arena or any of their affiliated person, as well as to software and applications in one way or another related to the Platform and operated by Arena or any of affiliated person.",
+    "4": "IMPORTANT NOTE: THE PLATFORM WORKS IN VERIFICATION MODE AS BETA SOFTWARE. ARENA IS NOT RESPONSIBLE FOR EVERYTHING THAT RELATES TO THE FUNCTIONALITY AND OPERATION OF THE PLATFORM, AS WELL AS THE PRESENCE OF ERRORS ON THE PLATFORM OR IN THE SOFTWARE. YOUR USE OF THE PLATFORM CONFIRMS THAT YOU HAVE CAREFULLY READ, UNDERSTAND AND ACCEPTED ALL TERMS OF USE.",
+    "5": "Version: 1.00",
+    "term-1": {
+      "1": "1. The procedure for adoption and amendment of the Terms of Use",
+      "2": "1.1. By getting access or using the Platform, registering on the Platform, participating in any tournament, you confirm that you have understood and unconditionally accepted all the terms and conditions of the latest version of these Terms of Use available to you on the site, without any exemptions and/or restrictions, and that you are acting in your own name and in your own interest. If you not agree to the Terms of Use, please do not use this Platform.",
+      "3": "1.2. By providing you with access to the Platform, Arena is acting reasonably and in good faith, you (a) have all necessary rights to use this Platform; (b) keep your password and identification secure; © provide reliable data; d) understand that by publishing your personal data where it may be available to third parties, you agree that your data will be publicly available and realize that it can be copied and distributed by third parties; (e) have read and agree to the terms of this agreement.",
+      "4": "1.3. Arena reserves the right to amend these Terms of Use at any time with notice to the User by publishing a new revision of the Terms of Use on the platform. At the same time, Arena guarantees and confirms that these changes in terms of use are valid from the moment of this approval by Arena. The approval date is indicated in the upper left corner of the “Agreement Policy”. You agree that only you are responsible for receiving information about this kind of changes and it is entirely under your responsibility. In case you continue to use the Platform after the relevant changes take effect, you will automatically agree to changes to the terms of this agreement regardless of the fact of receipt of notice. In case you disagree with any changes, you have to stop using this Platform.",
+      "5": "1.4. Arena does not process the personal data of persons who have not reached the age of 18 years. Any registration, use or access to the Platform by persons under the age of 18 years old is illegal, unlicensed and violates these Terms of Use. By using any of the services on this Platform, you declare and guaranteeing that you are 18 or more years old and that you agree and comply with all the terms and conditions of these Terms of Use and that you will comply with the age limits and rules associated with the game established in the country in where you are resident.",
+      "6": "1.5. Arena does not claim that this Platform operates in accordance with the laws or regulations of your country of residence. Using this Platform and participating in tournaments, you confirm that you meet the age and other requirements for this activity by the country of your residence. If you do not meet the age and other requirements, please stop using this Platform immediately."
+    },
+    "term-2": {
+      "1": "2. User Account",
+      "2": "2.1. Once you access the Platform, you create your account. You agree that the provided information to Arena upon registration and at any time will be correct, accurate, current and completed.",
+      "3": "2.2. You can only create and use one account. You cannot transfer your account to anyone else or allow others to use your account. You cannot use other's account, even if they had agreed to it. Arena keep the right to control all activities on the Platform, including, unlimited, any attempt to create multiple accounts. If Arena finds that you have created more than one account, all your accounts will be deleted without warning notice. As well 'Arena' have the right to deny access to anyone, including, not limited to, those players who use proxy servers and/or IP addresses related to certain geographical regions. All transactions are tracked for possible money-laundering and any suspicious activity in your account can result in a ban on using your account, as well as the transmission of information to law enforcement authorities. You can log in to your account at any time and view the statistics that show the latest transactions made with this account. If you notice any errors, you should notify Arena immediately at the following email address (INSERT MAIL ADDRESS). Arena have the right at own discretion to modify and/or suspend the action and/or block users with offensive names.",
+      "4": "2.3. You have no right disclose or share your account information with others. You are responsible for the privacy of your account and as well the security of your device. Arena is not responsible for the use of the account or for any interaction and activity on the Platform resulting from the use of the account by persons to whom you may have intentionally use or granted access in violation of the Terms of Use and the Privacy of Policy. Except in cases when it is the result of negligence or breach by Arena, Arena is not responsible if the account has been used fraudulently and without the permission of the user. If you find that your account has been compromised, please immediately notify the Arena at the following e-mail address (INSERT E-MAIL ADDRESS).",
+      "5": "2.4. Arena keep the right to immediately stop and/or remove the account of any User who violates these Terms of Use, Rules of tournaments  or Privacy of Policy. ATTENTION! Please note that if the user account is deleted due to violation of the Terms of Use, the Rules of tournament or the Privacy of Policy, Arena has keep the right to determine how the Account balance will be distributed to the users."
+    },
+    "term-3": {
+      "1": "3. Privacy policy",
+      "2": "3.1. The receipt, processing, use, storage and protection of personal data and other information obtained by Arena during the User's use of the Platform shall be in accordance with the Privacy Policy and in accordance with applicable law. The Privacy Policy is an integral part of the Terms of Use. Please read the Privacy Policy carefully to learn more about the collection, use and disclosure of your personal data.",
+      "3": "3.2. The user has the opportunity according to their wish to send an invitation to this platform to third parties. The User, as the conductor of the personal data of third parties, instructs Arena to save such personal data by using the necessary software and hardware protection with a view to the proper execution of the Terms of Use by the User. Arena is obliged to maintain the confidentiality of personal data and to ensure their safety during storage. At the same time, the User agrees in advance on their own to take the consent of third parties to receive their requests from the Platform."
+    }
+  },
+  "Refund": {
+    "1": "Refund policy OF The Arena Games",
+    "2": "Last updated: December 01, 2020",
+    "3": "The terms of this Refund policy govern the relationship between you (purchaser of the Digital Product) and «Arena Games») regarding the return of Digital Products.",
+    "4": "Version: 1.00",
+    "5": "1.Our digital products",
+    "6": "We provides you with access to all modules of the Arena Games Platform, mobile apps and additional content which is delivered to you via internet only.",
+    "7": "2.Delivery",
+    "8": "After you have chosen and paid for the Product, it will be immediately delivered to your device or placed in your personal account.",
+    "9": "3.Fraud prevention",
+    "10": "We are attentive to any fraud facts, especially with cheating in the Arena Games platform usage process. Arena Games reserves the right to deny access to our servers if we establish the fact of illegal use of our Digital Products, or any other action aimed at obtaining Digital Products or additional benefits which the user is not entitled to claim. Please note that users whose accounts are banned do not have the right to demand the return of purchased Digital Products or any other refund.",
+    "11": "4.Where refunds apply",
+    "12": "If you have replenished your account, but within the promised period it has not been replenished on the platform, please contact our Support Service for help: a form indicating the details of your payment. Claims for non-receipt of funds must be submitted to the Support Service in writing within 72 hours from the date of payment. In the event that payment was valid on your part, you will be offered a refund. Please note that if you do not submit your claim within the specified time period, the deposit will be considered successful.",
+    "13": "5.Refund timelines",
+    "14": "The terms for refunds are from 2 to 10 days, however, the terms can be increased up to 30 days for certain payment methods.",
+    "15": "6.Representation and warranties",
+    "16": "Arena Games represents and warrants to you that we will take all action necessary to solve your issue in good faith. All refund disputes will be investigated taking into account the legislation of your country.",
+    "17": "7.Different",
+    "18": "All of your claims for a refund must be accompanied by a detailed explanation of why you are requesting a refund. If you have any additional questions or problems related to refunds, please contact our Technical Support for details."
+  },
+  "Support": {
+    "1": "If you have any problems, then write to our social networks, and we will be happy to help you.",
+    "2": "Message to"
+  },
+  "Login": {
+    "1": "Signin",
+    "2": "Signup",
+    "3": "Welcome to Arena Games", 
+    "4": "By registering on our site, you agree", 
+    "5": "to the ", 
+    "6": "Terms of Service", 
+    "7": "and",
+    "8": "Privacy Policy", 
+    "9": "and confirm that you are over 18 years old.",
+    "10": "Fight and earn!",
+    "11": "Forgot your password",
+    "12": "I have read and accept to the terms",
+    "13": "You have successfully registered",
+    "btns": {
+      "1": "Send",
+      "2": "Activate",
+      "3": "Login",
+      "4": "Signup",
+      "5": "Repeat"
+    }
+  },
+  "Validate": {
+    "1": "You are not registred",
+    "2": "Input Error",
+    "3": "Passwords must match",
+    "4": "Check the box!",
+    "5": "6 characters minimum",
+    "6": "Enter password",
+    "7": "Enter phone",
+    "8": "Enter your nickname from PUBG Mobile",
+    "9": "Incorrect code",
+    "10": "This number is already registered",
+    "11": "Confirm the password"
+  },
+  "Placeholder": {
+    "1": "Activation code",
+    "2": "Enter your phone number"
+  },
+  "Profile": {
+    "personal-data": {
+      "1": "Main info",
+      "2": "Business account",
+      "3": "Name",
+      "4": "Balance"
+    }, 
+    "settings": {
+      "1": "Change information",
+      "2": "Change name",
+      "3": "Change business account",
+      "4": "Choose photo",
+      "5": "Change password?",
+      "6": "Change",
+      "7": "Select language"
+    }, 
+    "personal-rating": {
+      "1": "Personal rating",
+      "2": "Kills count",
+      "3": "Rate",
+      "4": "Player level",
+      "5": "Beginner",
+      "6": "Normal",
+      "7": "Expert",
+      "8": "counting"
+    }
+  }
+}

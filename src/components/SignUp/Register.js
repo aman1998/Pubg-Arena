@@ -30,16 +30,16 @@ const Register = (props) => {
       validationSchema={
         Yup.object().shape({
           name: Yup.string()
-            .required('username'),
+            .required(props.nickValidate),
           phone: Yup.string()
-            .required('Введите phone!'),
+            .required(props.phoneValidate),
           password: Yup.string()
-            .min(6, 'Минимум 6 символов')
-            .required('Введите пароль!'),
+            .min(6, props.passValidate)
+            .required(props.phoneValidate2),
           confirmPassword: Yup.string()
-            .oneOf([Yup.ref('password'), null], 'Пароли должны совпадать')
-            .required('Подтвердите пароль'),
-          acceptTerms: Yup.bool().oneOf([true], 'Поставьте галочку!')
+            .oneOf([Yup.ref('password'), null], props.phoneValidate3)
+            .required(props.phoneValidate4),
+          acceptTerms: Yup.bool().oneOf([true], props.checkValidate)
         })
       }
       onSubmit ={
@@ -63,15 +63,15 @@ const Register = (props) => {
           <ErrorMessage name="confirmPassword" component="div" className='error'/>
           <div className='check-wrapper'>
             <Field type="checkbox" name="acceptTerms" className='check-input'/>
-            <label htmlFor="acceptTerms" className="check">Я ознакомлен и согласен с условиями</label>
+            <label htmlFor="acceptTerms" className="check">{props.accept}</label>
           </div>
           <ErrorMessage name="acceptTerms" component="div" className='error'/>
           <button type="submit" className='loginFormBtn reg'>
             {loading ? 
               <div className='login-loading'></div> : 
             failed ? 
-              <div className='btn-error'>повторить</div> : 
-              'Регистрация'}
+              <div className='btn-error'>{props.errorBtn}</div> : 
+              props.btn}
           </button>
         </Form>
       )}

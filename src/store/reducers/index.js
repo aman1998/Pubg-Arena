@@ -11,6 +11,7 @@ import lobby from './lobby'
 import timer from './timer'
 import rates from './rates'
 import fetch from './fetch'
+import language from './language'
 
 export default combineReducers({
   profile,
@@ -24,5 +25,6 @@ export default combineReducers({
   lobby,
   timer,
   rates,
-  fetch
+  fetch,
+  language
 })

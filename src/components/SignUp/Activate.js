@@ -28,17 +28,17 @@ const Activate = (props) => {
       <input 
         type='text' 
         name='otp' 
-        placeholder='activate code' 
+        placeholder={props.placeholder} 
         value={otp} onChange={e => setOtp(e.target.value)} 
         onFocus={() => setError(false)}
         />
-      {error ? <div className='error'>Неправильный код</div> : null}
+      {error ? <div className='error'>{props.errorInput}</div> : null}
       <button type="submit" className='loginFormBtn reg'>
       {loading ? 
         <div className='login-loading'></div> : 
       failed ? 
-        <div className='btn-error'>повторить</div> : 
-        'Активировать'}
+        <div className='btn-error'>{props.errorBtn}</div> : 
+        props.btn}
       </button>
     </form>
   )

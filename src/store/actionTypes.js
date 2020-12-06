@@ -48,3 +48,5 @@ export const ALL_RATES = 'ALL_RATES'
 export const SET_RATINGS = 'SET_RATINGS'
 
 export const SHOW_MODAL = 'SHOW_MODAL'
+
+export const SET_LANGUAGE = 'SET_LANGUAGE'
