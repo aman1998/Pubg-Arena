@@ -90,12 +90,12 @@ const LobbyContainer = (props) => {
                         {t('Events.3')}
                     </NavLink>
               </span></div>
-            <div className='price'>{t('Events.4')}: 
+            <div className='price'>{t('Events.4')}:
               <span>
                 {`  ${props.priceGame} ${t('Events.14')}`}
               </span>
             </div>
-            <div className='price'>{t('Events.5')}: 
+            <div className='price'>{t('Events.5')}:
               <span>
                 {`  ${props.priceKill} ${t('Events.14')}`}
               </span>
