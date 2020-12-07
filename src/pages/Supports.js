@@ -18,21 +18,21 @@ const Terms = () => {
     <PageTemplate>
       <section className='support container'>
         <div className='support-title'>{t('Support.1')}</div>
-        <a className='support-link' href='https://www.facebook.com/Arena-Games-104788511481561'>
+        <a className='support-link' href='https://www.facebook.com/Arena-Games-104788511481561' target='_blank'>
           <div className='item'>
             <FacebookIcon className='facebook'/>
             <div>{t('Support.2')} Facebook</div>
           </div>
           <MessageIcon className='message'/>
         </a>
-        <a className='support-link' href='https://www.instagram.com/arenagames.io/'>
+        <a className='support-link' href='https://www.instagram.com/arenagames.io/' target='_blank'>
           <div className='item'>
             <InstagramIcon className='instagram'/>
             <div>{t('Support.2')} Instagram</div>
           </div>
           <MessageIcon className='message'/>
         </a>
-        <a className='support-link' href='https://t.me/arenagamesio'>
+        <a className='support-link' href='https://t.me/arenagamesio' target='_blank'>
           <div className='item'>
             <TelegramIcon className='telegram'/>
             <div>{t('Support.2')} Telegram</div>

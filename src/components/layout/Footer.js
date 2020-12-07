@@ -22,13 +22,13 @@ const Footer = () => {
               <img src={Logo} alt='#'/>
             </div> 
             <div>
-              <a href='https://www.facebook.com/Arena-Games-104788511481561'>
+              <a href='https://www.facebook.com/Arena-Games-104788511481561' target='_blank'>
                 <FacebookIcon className='facebook-icon'/>
               </a>
-              <a href='https://www.instagram.com/arenagames.io/'>
+              <a href='https://www.instagram.com/arenagames.io/' target='_blank'>
                 <InstagramIcon className='insta-icon'/>
               </a>
-              <a href='https://t.me/arenagamesio'>
+              <a href='https://t.me/arenagamesio' target='_blank'>
                 <TelegramIcon className='twitter-icon'/>
               </a>
             </div>
@@ -51,13 +51,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-soc-mobile">
-          <a href='https://www.facebook.com/Arena-Games-104788511481561'>
+          <a href='https://www.facebook.com/Arena-Games-104788511481561'  target='_blank'>
             <FacebookIcon className='facebook-icon'/>
           </a>
-          <a href='https://www.instagram.com/arenagames.io/'>
+          <a href='https://www.instagram.com/arenagames.io/' target='_blank'>
             <InstagramIcon className='insta-icon'/>
           </a>
-          <a href='https://t.me/arenagamesio'>
+          <a href='https://t.me/arenagamesio' target='_blank'>
             <TelegramIcon className='twitter-icon'/>
           </a>
         </div>
@@ -65,7 +65,7 @@ const Footer = () => {
           {t('Footer.9')}
         </div>
         <div className='rate-mobile'>
-          <img src={Pay24} alt='#'/>
+          {/* <img src={Pay24} alt='#'/> */}
           <div>+18</div>
         </div>
         <div className='footer-footer'>

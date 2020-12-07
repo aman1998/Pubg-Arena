@@ -63,6 +63,8 @@ const LoginController = () => {
               balance={balance}
               avatar={avatar}
               handleLogout={handleLogout}
+              handleChange={handleChange}
+              language={language}
             />
           ) : (
             <>

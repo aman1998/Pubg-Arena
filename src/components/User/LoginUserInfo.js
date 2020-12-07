@@ -94,6 +94,12 @@ const LoginUserInfo = (props) => {
           <Link to={'/'} onClick={props.handleLogout}>{t('Burger.1')}</Link>
         </div>
       </div>
+      <div className='select select-mg'>
+        <select name = 'myfield' value={props.language} onChange={props.handleChange} className='language'>
+          <option value="ru">RU</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
     </div>
   )
 }
