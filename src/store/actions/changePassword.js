@@ -8,11 +8,17 @@ import {
 export const sendPhoneActionCreator = (body, setSendPhone, setActivateOtp, setPhone) => dispatch => {
   dispatch({ type: FETCH_LOADING })
     axios.post('/reset-otp/', body)
-      .then((response) => {
-        dispatch({ type: FETCH_SUCCESS })
-        setSendPhone(false)
-        setActivateOtp(true)
-        setPhone(body.phone)
+      .then(({data}) => {
+        console.log(data)
+        if(data.status) {
+          dispatch({ type: FETCH_SUCCESS })
+          setSendPhone(false)
+          setActivateOtp(true)
+          setPhone(body.phone)
+        }
+        else {
+          dispatch({ type: FETCH_FAILED })
+        }
       })
       .catch(e => {
         dispatch({ type: FETCH_FAILED })
@@ -23,11 +29,16 @@ export const sendPhoneActionCreator = (body, setSendPhone, setActivateOtp, setPh
 export const activateOtpActionCreator = (body, setOtp, setActivateOtp, setChangePassword) => dispatch => {
   dispatch({ type: FETCH_LOADING })
     axios.post('/reset-otp/verify/', body)
-      .then(() => {
-        dispatch({ type: FETCH_SUCCESS })
-        setOtp(body.otp)
-        setActivateOtp(false)
-        setChangePassword(true)
+      .then(({data}) => {
+        if (data.status && body.otp) {
+          dispatch({ type: FETCH_SUCCESS })
+          setOtp(body.otp)
+          setActivateOtp(false)
+          setChangePassword(true)
+        }
+        else {
+          dispatch({ type: FETCH_FAILED })
+        }
       })
       .catch(e => {
         dispatch({ type: FETCH_FAILED })
