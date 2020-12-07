@@ -81,6 +81,7 @@ const LoginController = () => {
                   <select name = 'myfield' value={language} onChange={handleChange}>
                       <option value="ru">RU</option>
                       <option value="en">EN</option>
+                      <option value="kg">KG</option>
                   </select>
                 </div>
               </div>
@@ -90,6 +91,7 @@ const LoginController = () => {
                   <select name = 'myfield' value={language} onChange={handleChange} className='language'>
                     <option value="ru">RU</option>
                     <option value="en">EN</option>
+                    <option value="kg">KG</option>
                   </select>
                 </div>
               </div>
