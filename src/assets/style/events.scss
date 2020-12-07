@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     //align-items: center;
-    padding: 30px 0px 40px 0px;
+    padding: 30px 0 40px 0;
     border-right: 1px solid rgba(214, 214, 214, 0.1);
     border-bottom: 1px solid rgba(214, 214, 214, 0.1);
     width: 373px;
@@ -35,7 +35,7 @@
       height: 145px;
       object-fit: cover;
       border-radius: 10px;
-			margin: 0 auto;
+      margin: 0 auto;
       @media screen and (max-width: 560px){
         width: 205px;
         height: 200px;
@@ -46,8 +46,8 @@
       font-weight: 500;
       font-size: 26px;
       line-height: 31px;
-			width: 100%;
-			text-align: center;
+      width: 100%;
+      text-align: center;
       @media screen and (max-width: 560px){
         font-size: 20px;
         line-height: 23px;
@@ -57,8 +57,8 @@
       font-style: italic;
       font-size: 24px;
       line-height: 26px;
-			width: 100%;
-			text-align: center;
+      width: 100%;
+      text-align: center;
       @media screen and (max-width: 560px){
         font-size: 18px;
         line-height: 21px;
@@ -69,8 +69,8 @@
       font-style: italic;
       font-size: 20px;
       line-height: 24px;
-			width: 100%;
-			text-align: center;
+      width: 100%;
+      text-align: center;
       @media screen and (max-width: 768px){
         font-size: 18px;
         line-height: 21px;
@@ -81,8 +81,7 @@
       font-weight: 300;
       font-size: 12px;
       line-height: 120%;
-			width: 100%;
-			text-align: center;
+      width: 100%;
       span {
         color: #F2C00F;
         text-decoration: underline;
@@ -92,16 +91,17 @@
       font-style: italic;
       font-size: 16px;
       line-height: 19px;
-			width: 100%;
-			text-align: center;
+      width: 100%;
+      text-align: center;
       // color: #2D9069;
     }
     .price-title {
       font-style: normal;
       margin: 6px 0;
       color: #FFFFFF;
-			width: 100%;
-			text-align: center;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
     }
     .btn {
       margin: 20px auto 0 auto;

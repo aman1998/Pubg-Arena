@@ -6,10 +6,14 @@ import LoginUserInfo from "../components/User/LoginUserInfo"
 import {NavLink} from 'react-router-dom'
 import {showLogin} from "../store/actions/modalLogin"
 import { logoutActionCreator } from "../store/actions/profile"
+import { getLanguage } from "../store/actions/language"
 
 import IncognitoIcon from '../assets/icons/incognito.svg'
 
+import { useTranslation } from 'react-i18next'
+
 const LoginController = () => {
+  const { t, i18n } = useTranslation();
   const [modalUserInfo, setModalUserInfo] = React.useState(false)
   const dispatch = useDispatch()
 
@@ -20,7 +24,8 @@ const LoginController = () => {
     balance,
     phone,
     token,
-    avatar
+    avatar,
+    language
   } = useSelector(state => ({
     isLogged: state.isLogged,
     isLoading: state.isLoading,
@@ -28,7 +33,8 @@ const LoginController = () => {
     balance: state.profile.balance,
     phone: state.profile.myProfile.phone,
     token: state.profile.token,
-    avatar: state.profile.myProfile.avatar
+    avatar: state.profile.myProfile.avatar,
+    language: state.language.language,
   }))
 
   const showLog = () => {
@@ -38,6 +44,12 @@ const LoginController = () => {
 
   const handleLogout = () => {
 		dispatch(logoutActionCreator(token))
+  }
+
+  const handleChange = (e) => {
+    dispatch(getLanguage(e.target.value))
+    console.log('language', language)
+    i18n.changeLanguage(e.target.value)
   }
 
   return (
@@ -56,15 +68,29 @@ const LoginController = () => {
             <>
               <div className='itemsLoginDesktop'>
                 <div className='item itemsLogin ' onClick={showLog}>
-                  Войти
+                {t('Login.1')}
                 </div>
                 <NavLink 
                   to='/signUp'
                   className='item itemsLogin register' 
-                  exact>Регистрация
+                  exact>{t('Login.2')}
                 </NavLink>
+                <div className='select'>
+                  <select name = 'myfield' value={language} onChange={handleChange}>
+                      <option value="ru">RU</option>
+                      <option value="en">EN</option>
+                  </select>
+                </div>
               </div>
-              <img src={IncognitoIcon} alt='#' className='incognito' onClick={() => setModalUserInfo(!modalUserInfo)}/>
+              <div className='itemsLoginMob'>
+                <img src={IncognitoIcon} alt='#' className='incognito' onClick={() => setModalUserInfo(!modalUserInfo)}/>
+                <div className='select'>
+                  <select name = 'myfield' value={language} onChange={handleChange} className='language'>
+                    <option value="ru">RU</option>
+                    <option value="en">EN</option>
+                  </select>
+                </div>
+              </div>
               <div className={modalUserInfo ? 'modalInfo modalReg down' : 'modalInfo modalReg up'}>
                 <NavLink
                   to='/'
@@ -72,7 +98,7 @@ const LoginController = () => {
                   activeClassName='active'
                   exact
                 >
-                Главная
+                {t('Header.1')}
                 </NavLink>
                 <NavLink
                   to='/tournaments'
@@ -80,7 +106,7 @@ const LoginController = () => {
                   activeClassName='active'
                   exact
                 >
-                  Турниры
+                  {t('Header.2')}
                 </NavLink>
                 <NavLink
                   to='/rates'
@@ -88,15 +114,15 @@ const LoginController = () => {
                   activeClassName='active'
                   exact
                 >
-                  Рейтинги
+                  {t('Header.3')}
                 </NavLink>
                 <div className='item itemsLogin' onClick={showLog} style={{margin: '0 0 10px 0'}}>
-                  Войти
+                {t('Login.1')}
                 </div>
                 <NavLink 
                   to='/signUp'
                   className='item itemsLogin register' 
-                  exact>Регистрация
+                  exact>{t('Login.2')}
                 </NavLink>
               </div>
             </>

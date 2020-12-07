@@ -7,7 +7,11 @@ import HomeInfo2 from '../components/Home/home-info-2'
 import CardIn from '../components/Home/cardIn'
 import Questions from '../components/Home/questions'
 
+import { useTranslation } from 'react-i18next'
+
 const Home = () => {
+  const { t } = useTranslation()
+
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -16,10 +20,10 @@ const Home = () => {
       <div className='home'>
         <HeaderContent />
         <HomeInfo1 />
-        <CardIn text='Живи игрой. Побеждай красиво'/>
+        <CardIn text={t('Home.card.2')}/>
         <HomeInfo2 />
         <Questions />
-        <CardIn text='Готов к игре? Начни сейчас'/>
+        <CardIn text={t('Home.card.4')}/>
       </div>
     </PageTemplate>
   )

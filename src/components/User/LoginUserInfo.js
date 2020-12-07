@@ -5,7 +5,11 @@ import useWindowDimensions from "../Hooks/useWindowDimentions"
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
 
+import { useTranslation } from 'react-i18next'
+
 const LoginUserInfo = (props) => {
+  const { t } = useTranslation()
+
   const [modalUserInfo, setModalUserInfo] = useState(false)
   const {width} = useWindowDimensions()
 
@@ -18,7 +22,7 @@ const LoginUserInfo = (props) => {
           className='cardIn'
           exact
         >
-          Пополнить
+          {t('Sidebar.3')}
         </NavLink>
       </div>
       <div
@@ -61,36 +65,34 @@ const LoginUserInfo = (props) => {
           width <= 1000 ? (
             <>
               <div className='phone'>
-                Тел: {props.phone}
+              {t('Burger.3')}: {props.phone}
               </div>
               <div className='username'>
-                Имя: {props.name}
+              {t('Burger.2')}: {props.name}
               </div>
               <div className='money'>
-                Баланс: {props.balance} сомов
+              {t('Burger.4')}: {props.balance} {t('Burger.5')}
               </div>
             </>
           ) : null
         }
         <div className='sidebar-mobile'>
           <div className='line'> </div>
-          <div><NavLink to='/tournaments/' exact>Турниры</NavLink></div>
+          <div><NavLink to='/tournaments/' exact>{t('Header.3')}</NavLink></div>
           <div className='line'> </div>
-          <div><NavLink to='/rates/' exact>Рейтинги</NavLink></div>
+          <div><NavLink to='/rates/' exact>{t('Header.2')}</NavLink></div>
           <div className='line'> </div>
-          <div><NavLink to='/rules/' exact>Правила игры</NavLink></div>
+          <div><NavLink to='/profile/' exact>{t('Sidebar.1')}</NavLink></div>
           <div className='line'> </div>
-          <div><NavLink to='/profile/' exact>Личные данные</NavLink></div>
+          <div><NavLink to='/profile/settings/' exact>{t('Sidebar.2')}</NavLink></div>
           <div className='line'> </div>
-          <div><NavLink to='/profile/settings/' exact>Настройки</NavLink></div>
+          <div><NavLink to='/profile/cardIn/' exact>{t('Sidebar.3')}</NavLink></div>
           <div className='line'> </div>
-          <div><NavLink to='/profile/cardIn/' exact>Пополнить счет</NavLink></div>
-          <div className='line'> </div>
-          <div><NavLink to='/profile/cardOut/' exact>Вывести со счета</NavLink></div>
+          <div><NavLink to='/profile/cardOut/' exact>{t('Sidebar.4')}</NavLink></div>
           <div className='line'> </div>
         </div>
         <div className='userMoney'>
-          <Link to={'/'} onClick={props.handleLogout}>Выйти</Link>
+          <Link to={'/'} onClick={props.handleLogout}>{t('Burger.1')}</Link>
         </div>
       </div>
     </div>

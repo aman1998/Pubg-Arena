@@ -5,7 +5,10 @@ import pubg2 from '../assets/img/pubg-slide2.jpg'
 import pubg4 from '../assets/img/pubg-slide4.jpg'
 import pubg5 from '../assets/img/pubg-slide5.jpg'
 
+import { useTranslation } from 'react-i18next'
+
 const Slider = () => {
+  const { t } = useTranslation()
 
   return (
     <div className='slider-box'>
@@ -20,7 +23,7 @@ const Slider = () => {
             <img src={pubg2} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                Играй виртуально, зарабатывай реально!
+              {t('Events.slider.1')}
               </div>
             </div>
           </div>
@@ -28,7 +31,7 @@ const Slider = () => {
             <img src={pubg4} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                Арена! обучает, развлекает, заработать помогает!
+              {t('Events.slider.2')}
               </div>
             </div>
           </div>
@@ -36,7 +39,7 @@ const Slider = () => {
             <img src={pubg1} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                Побеждай у нас каждый день!
+              {t('Events.slider.3')}
               </div>
             </div>
           </div>
@@ -44,7 +47,7 @@ const Slider = () => {
             <img src={pubg5} alt="alt" className='img' />
             <div className='content'>
               <div className='text'>
-                ВЫИГРЫВАЙ И ЗАРАБАТЫВАЙ ДЕЛАЯ ЧТО ЛЮБИШЬ!
+              {t('Events.slider.4')}
               </div>
             </div>
           </div>

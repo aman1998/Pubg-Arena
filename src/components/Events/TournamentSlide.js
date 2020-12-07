@@ -2,7 +2,11 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import {getJustDate} from "../../axios/dateFormatter"
 
+import { useTranslation } from 'react-i18next'
+
 const TournamentSlide = (props) => {
+  const { t } = useTranslation()
+
   return (
     <div className='tournament-slide'>
       <NavLink to={`/lobby/${props.id}`}>
@@ -10,7 +14,7 @@ const TournamentSlide = (props) => {
         <div className='text'>
           <p>{getJustDate(props.date)}</p>
           <p>{props.name}</p>
-          <p>Вступили {props.players.length}/100</p>
+          <p>{t('Events.13')} {props.players.length}/100</p>
         </div>
       </NavLink>
     </div>

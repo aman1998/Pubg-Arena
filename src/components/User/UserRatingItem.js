@@ -12,7 +12,7 @@ const UserRatingItem = (props) => {
         </div>
         <div className='item-names'>
           <div className='item-names-name'>{props.name}</div>
-          <div className='item-names-kills'>{props.kills} киллов</div>
+          <div className='item-names-kills'>{props.kills}</div>
         </div>
       </div>
       <div>

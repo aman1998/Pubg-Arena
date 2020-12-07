@@ -8,9 +8,12 @@ import Logo from '../../assets/icons/logo.svg'
 import Pay24 from '../../assets/icons/pay24.svg'
 
 import {NavLink} from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 
 const Footer = () => {
+  const { t } = useTranslation()
+
   return (
     <footer className='footer'>
         <div className='footer-header container'>
@@ -31,16 +34,16 @@ const Footer = () => {
             </div>
           </div>
           <nav>
-            <ul><NavLink to='/' exact>Главная</NavLink></ul>
-            <ul><NavLink to='/profile' exact>Личный кабинет</NavLink></ul>
-            <ul><NavLink to='/tournaments' exact>Турниры</NavLink></ul>
-            <ul><NavLink to='/rules' exact>Правила игры</NavLink></ul>
+            <ul><NavLink to='/' exact>{t('Footer.1')}</NavLink></ul>
+            <ul><NavLink to='/profile' exact>{t('Footer.2')}</NavLink></ul>
+            <ul><NavLink to='/tournaments' exact>{t('Footer.3')}</NavLink></ul>
+            <ul><NavLink to='/rules' exact>{t('Footer.4')}</NavLink></ul>
           </nav>
           <nav>
-            <ul><NavLink to='/terms' exact>Условия пользования</NavLink></ul>
-            <ul><NavLink to='/privacy' exact>Политика конфидициальности</NavLink></ul>
-            <ul><NavLink to='/refund' exact>Политика возвратов</NavLink></ul>
-            <ul><NavLink to='/support' exact>Техподдержка</NavLink></ul>
+            <ul><NavLink to='/terms' exact>{t('Footer.5')}</NavLink></ul>
+            <ul><NavLink to='/privacy' exact>{t('Footer.6')}</NavLink></ul>
+            <ul><NavLink to='/refund' exact>{t('Footer.7')}</NavLink></ul>
+            <ul><NavLink to='/support' exact>{t('Footer.8')}</NavLink></ul>
           </nav>
           <div className='footer-header--rate'>
             <div>+18</div>
@@ -59,14 +62,14 @@ const Footer = () => {
           </a>
         </div>
         <div className='footer-text container'>
-          Платформа Arena не одобрена, не связана, не поддерживается и не спонсируется PUBG CORPORATION. Весь контент, названия игр, торговые наименования и / или коммерческий внешний вид, товарные знаки, произведения искусства и связанные изображения являются товарными знаками и / или материалами, защищенными авторским правом соответствующих правообладателей.
+          {t('Footer.9')}
         </div>
         <div className='rate-mobile'>
           <img src={Pay24} alt='#'/>
           <div>+18</div>
         </div>
         <div className='footer-footer'>
-          © 2020  Все права защищены
+          {t('Footer.10')}
         </div>
     </footer>
   )

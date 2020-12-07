@@ -42,19 +42,19 @@ const Register = (props) => {
         onlyCountries={['kg']}
         disableDropdown
         containerClass='phone'
-        placeholder="phone"
+        placeholder={props.placeholder}
         value={phone}
         onChange={setPhone}
         onFocus={removeError}
       />
-      {error ?  <div className='error'>Ошибка ввода</div> : null}
-      {error2 ? <div className='error'>Этот номер уже зарегистирован</div> : null}
+      {error ?  <div className='error'>{props.errorInput}</div> : null}
+      {error2 ? <div className='error'>{props.validate}</div> : null}
       <button onClick={sendPhone}  className='loginFormBtn reg'>
       {loading ?
         <div className='login-loading'></div> :
       failed ?
-        <div className='btn-error'>повторить</div> :
-        'Отправить'}
+        <div className='btn-error'>{props.errorBtn}</div> :
+        props.btn}
       </button>
     </form>
   )

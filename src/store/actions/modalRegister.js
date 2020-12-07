@@ -23,7 +23,7 @@ export const activateActionCreator = (body,showActivate, showReg, setError) => d
   dispatch({ type: FETCH_LOADING })
   axios.post('/verify/', body)
     .then(({data}) => {
-      if(data.status) {
+      if(data.status && body.otp) {
         dispatch({ type: FETCH_SUCCESS})
         console.log(data)
         showActivate(false)

@@ -1,8 +1,10 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import { setPlayersActionCreator} from '../../store/actions/lobbies'
 
-const Players = (props) => {
+import { useTranslation } from 'react-i18next'
+
+const Players = () => {
+  const { t } = useTranslation()
 
   const {players, isLoadingPlayers} = useSelector(state => ({
     players: state.lobbies.players,
@@ -11,7 +13,7 @@ const Players = (props) => {
 
   return (
     <div className='lobby-right players-list'>
-      <h2 className='title'>Участники</h2>
+      <h2 className='title'>{t('Events.6')}</h2>
       {
         isLoadingPlayers ? <div className='players-loading'></div> :
           players ? players.map((item, index) => {

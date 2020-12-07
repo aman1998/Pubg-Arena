@@ -2,7 +2,11 @@ import React, {useState, useEffect} from 'react'
 import {isPlayed as checkIsPlayed} from '../../store/actions/lobbies'
 import {useDispatch} from 'react-redux'
 
+import { useTranslation } from 'react-i18next'
+
 const Timer = ({date, showPass}) => {
+  const { t } = useTranslation()
+
   const [timerDays, setTimerDays] = useState('00');
   const [timerHours, setTimerHours] = useState('00');
   const [timerMinutes, setTimerMinutes] = useState('00');
@@ -53,22 +57,22 @@ const Timer = ({date, showPass}) => {
     <section className='timer'>
       <div className='block'>
         <div className='count'>{timerDays}</div>
-        <div className='value'>дней</div>
+        <div className='value'>{t('Events.timer.1')}</div>
       </div>
       <div>:</div>
       <div className='block'>
         <div className='count'>{timerHours}</div>
-        <div className='value'>часов</div>
+        <div className='value'>{t('Events.timer.2')}</div>
       </div>
       <div>:</div>
       <div className='block'>
         <div className='count'>{timerMinutes}</div>
-        <div className='value'>минут</div>
+        <div className='value'>{t('Events.timer.3')}</div>
       </div>
       <div>:</div>
       <div className='block'>
         <div className='count'>{timerSeconds}</div>
-        <div className='value'>секунд</div>
+        <div className='value'>{t('Events.timer.4')}</div>
       </div>
     </section>
   )

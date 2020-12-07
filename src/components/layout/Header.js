@@ -5,6 +5,7 @@ import Logo from '../../assets/icons/logo.svg'
 import LoginController from "../../container/LoginController"
 import IsAuth from '../UI/IsAuthState'
 import Modal from "../UI/Modal";
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const {isLogged, isPhone, isActivate, modal} = useSelector(state => ({
@@ -17,6 +18,9 @@ const Header = () => {
   window.onscroll = function () {
     myFunction()
   }
+
+  const { t, i18n } = useTranslation();
+
 
   const myFunction = () => {
     const header = document.getElementById('header')
@@ -47,7 +51,7 @@ const Header = () => {
               activeClassName='active'
               exact
             >
-              Главная
+              {t('Header.1')}
             </NavLink>
             <NavLink
               to='/tournaments'
@@ -55,7 +59,7 @@ const Header = () => {
               activeClassName='active'
               exact
             >
-              Турниры
+              {t('Header.2')}
             </NavLink>
             <NavLink
               to='/rates'
@@ -63,7 +67,7 @@ const Header = () => {
               activeClassName='active'
               exact
             >
-              Рейтинги
+              {t('Header.3')}
             </NavLink>
             { isLogged ?
             <NavLink
@@ -71,7 +75,7 @@ const Header = () => {
               className='items profile'
               activeClassName='active'
             >
-              Личный кабинет
+              {t('Header.4')}
             </NavLink> :
               null}
           </div>

@@ -5,14 +5,18 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined'
 import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined'
 import RemoveCircleOutlineOutlinedIcon from '@material-ui/icons/RemoveCircleOutlineOutlined'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
-// import LanguageIcon from '@material-ui/icons/Language'
+import LanguageIcon from '@material-ui/icons/Language'
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline'
 
+import { useTranslation } from 'react-i18next'
+
 const Sidebar = () => {
+  const { t } = useTranslation()
+
   return (
     <aside>
       <nav className='sidebar'>
-        <h2>Личный кабинет</h2>
+        <h2>{t('Sidebar.7')}</h2>
         <div>
           <ul className={'sidebarItems'}>
             <NavLink
@@ -23,7 +27,7 @@ const Sidebar = () => {
             >
               <div>
                 <ErrorOutlineOutlinedIcon className='sidebarItemIcon'/>
-                <div className='sidebarItemText'>Личные Данные</div>
+                <div className='sidebarItemText'>{t('Sidebar.1')}</div>
               </div>
             </NavLink>
             <NavLink
@@ -34,7 +38,7 @@ const Sidebar = () => {
             >
               <div>
                 <SettingsOutlinedIcon className='sidebarItemIcon'/>
-                <div className='sidebarItemText'>Настройки аккаунта</div>
+                <div className='sidebarItemText'>{t('Sidebar.2')}</div>
               </div>
             </NavLink>
             <NavLink
@@ -45,7 +49,7 @@ const Sidebar = () => {
             >
               <div>
                 <AddCircleOutlineIcon className='sidebarItemIcon'/>
-                <div className='sidebarItemText'>Пополнить счета</div>
+                <div className='sidebarItemText'>{t('Sidebar.3')}</div>
               </div>
             </NavLink>
             <NavLink
@@ -56,7 +60,7 @@ const Sidebar = () => {
             >
               <div>
                 <RemoveCircleOutlineOutlinedIcon className='sidebarItemIcon'/>
-                <div className='sidebarItemText'>Вывести со счета</div>
+                <div className='sidebarItemText'>{t('Sidebar.4')}</div>
               </div>
             </NavLink>
             <NavLink
@@ -67,10 +71,10 @@ const Sidebar = () => {
             >
               <div>
                 <PersonOutlineIcon className='sidebarItemIcon'/>
-                <div className='sidebarItemText'>Личный рейтинг</div>
+                <div className='sidebarItemText'>{t('Sidebar.5')}</div>
               </div>
             </NavLink>
-            {/* <NavLink
+            <NavLink
               to='/profile/language/'
               className='sidebarItem'
               activeClassName='active'
@@ -78,9 +82,9 @@ const Sidebar = () => {
             >
               <div>
                 <LanguageIcon  className='sidebarItemIcon'/>
-                <div className='sidebarItemText'>Выбор языка</div>
+                <div className='sidebarItemText'>{t('Sidebar.6')}</div>
               </div>
-            </NavLink> */}
+            </NavLink>
           </ul>
         </div>
       </nav>

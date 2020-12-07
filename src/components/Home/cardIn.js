@@ -1,10 +1,13 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom' 
+import { useTranslation } from 'react-i18next'
 
 const CardIn = ({text}) => {
+  const { t } = useTranslation()
+
   return (
     <section className='cardIn container'>
-      <h1>Найди свое место в киберспорте</h1>
+      <h1>{t('Home.card.1')}</h1>
       <p>{text}</p>
       <div>
           <NavLink
@@ -12,7 +15,7 @@ const CardIn = ({text}) => {
             className='home-btn'
             exact
           >
-          Играть сейчас
+          {t('Home.card.3')}
           </NavLink>
         </div>
     </section>

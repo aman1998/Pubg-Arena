@@ -11,7 +11,11 @@ import {fetchLoginActionCreator} from "../../../store/actions/profile"
 import Header from '../../SignUp/Header'
 import BackDrop from "../BackDrop";
 
+import { useTranslation } from 'react-i18next'
+
 const Login = () => {
+  const { t } = useTranslation();
+
   const [down, setDown] = React.useState(false)
   const [phone, setPhone] = React.useState('')
   const [error, setError] = React.useState(false)
@@ -48,8 +52,8 @@ const Login = () => {
           validationSchema={
             Yup.object().shape({
               password: Yup.string()
-                .min(6, 'Минимум 6 символов')
-                .required('Введите пароль!'),
+                .min(6, t('Validate.5'))
+                .required(t('Validate.6')),
             })
           }
           onSubmit={
@@ -71,19 +75,19 @@ const Login = () => {
                 onlyCountries={['kg']}
                 disableDropdown
                 containerClass='phone'
-                placeholder="Введите свой номер"
+                placeholder={t('Validate.7')}
                 value={phone}
                 onChange={setPhone}
                 onFocus={removeError}
                 className='loginPhone'
               />
               {error ? <div className='error'>Ошибка ввода</div> : null}
-              <Field type="password" name="password" placeholder='Пароль'/>
+              <Field type="password" name="password" placeholder={t('Validate.6')}/>
               <ErrorMessage name="password" component="div" className='error'/>
-              <NavLink to='/change-password' className='link-change-pass' activeClassName="link-change-pass" exact onClick={showLog}>Забыли пароль?</NavLink>
-              <NavLink to='/signUp' className='link-change-pass' activeClassName="link-change-pass" onClick={showLog} exact>Вы не зарегистрированы?</NavLink>
+              <NavLink to='/change-password' className='link-change-pass' activeClassName="link-change-pass" exact onClick={showLog}>{t('Login.11')}</NavLink>
+              <NavLink to='/signUp' className='link-change-pass' activeClassName="link-change-pass" onClick={showLog} exact>{t('Validate.1')}?</NavLink>
               <button type="submit" className='loginFormBtn log'>
-                {loading ? <div className='login-loading'></div> : 'Вход'}
+                {loading ? <div className='login-loading'></div> : t('Login.btns.3')}
               </button>
             </Form>
           )}
