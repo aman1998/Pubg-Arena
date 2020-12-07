@@ -118,6 +118,14 @@
     "code": {
       "1": "Your password for game",
       "2": "Your password will be available 10 minutes before the start of the game"
+    },
+    "modal": {
+      "1": "Do you really want to join the game?",
+      "2": "Yes",
+      "3": "No",
+      "4": "You don't have enough money to enter the game.",
+      "5": "Please top up your balance.",
+      "6": "Will write off you"
     }
   },
   "Rates": {
@@ -198,13 +206,87 @@
     "17": "7.Different",
     "18": "All of your claims for a refund must be accompanied by a detailed explanation of why you are requesting a refund. If you have any additional questions or problems related to refunds, please contact our Technical Support for details."
   },
+  "Rules": {
+    "1": "RULES FOR ARENA GAMES TOURNAMENTS",
+    "2": "This document sets out the rules for holding Tournaments.",
+    "3": "These rules are binding for all participants or teams of participants who take part in any Tournament whatsoever conducted on the Arena Games esports & streaming platform (Arena Games Platform). Your registration for a Tournament constitutes your full and unconditional acceptance of these rules.",
+    "4": "Tencent Games is not related to Tournaments, nor does it participate in, or sponsor any Tournaments.",
+    "rule-1": {
+      "1": "1. TOURNAMENT FORMAT",
+      "2": "1.1. There are solo tournaments and team tournaments.",
+      "3": "1.2. A Tournament can consist of one or several rounds depending on the maximum number of participants allowed by a particular game to add them to one games lobby of such a game. Each round of the Tournament can consist of one or several matches (games).",
+      "4": "1.3. The winner of a one-round Tournament is determined by the number of points scored in one or several matches. The winner or winners of a match (depending on the number of award-winning places in the Tournament) are determined by the largest number of points scored in accordance with the conditions of a particular Tournament.",
+      "5": "1.4. The winner of a multiple-round Tournament is determined at the end of the last (final) round by the number of points scored during the course of the last round, disregarding the points scored throughout the previous rounds, notably: by the sum of points scored in one or several final matches. Points are awarded as per placings in the game, for the number of defeated opponents and for other achievements, which (if any) are shown in Tournament Info."
+    },
+    "rule-2": {
+      "1": "2. TOURNAMENT INFO",
+      "2": "2.1. Each Tournament Info section contains information about the Tournament organizer, Tournament dates, Tournament type, tournament mode, requirements for the qualifications of participants, participation fee, registered participants, maximum permitted number of participants, size of prize pool and its distribution among the winners according to the number of award-winning places in the Tournament."
+    },
+    "rule-3": {
+      "1": "3. REGISTRATION",
+      "2": "3.1. Entering a Tournament requires registration from the Arena Games Platform. To do this, the participant shall select the desired Tournament in the Tournaments section and press the registration button. Where participation requires tickets, the participant shall purchase the required number of tickets in payment for Tournament entry.",
+      "3": "3.2. Registration for the tournament with team participation is carried out by the team captain. When registering for such a tournament, tickets are debited from each participant in proportion to the number of team members. The participant who joined the team agreed that the captain registers for the tournament on behalf of the entire team and that with such registration, tickets are deducted from all team members in proportion to the number of participants.",
+      "4": "3.3. The Tournament organizers reserve the right to refuse registration to any participant without explanation."
+    },
+    "rule-4": {
+      "1": "4. PREPARATION",
+      "2": "4.1. Once the registration is completed, the Tournament which the participant has registered for will be shown in the participant’s schedule, in their profile, and in the case of participation in a team tournament, after the team is registered by the captain, the tournament will appear in the calendar in the personal account of each team member.",
+      "3": "4.2. 10 minutes before the match starts, an active button will appear in the participant’s profile or Tournament Info. After checking for cheats and clicking a button, the participant will be redirected to the match authorization page, where they will be requested to enter their in-game nickname to be used in this particular match. Once this is done, the participant will automatically receive authorization data that is necessary to obtain access to the in-game lobby. The participant shall enter this data in the respective fields before the match starts, in order to be admitted to this match.",
+      "4": "4.3. In case of participation in a team tournament, the team will receive the necessary data to access the in-game lobby only after entering the nickname of each team member. If at least one of the team members does not enter his nickname, the team will not be able to participate in the tournament."
+    },
+    "rule-5": {
+      "1": "5. ANTI-CHEAT",
+      "2": "5.1. Before you get into the match authorization page, our Anti-cheat system will check your device for the presence of cheating software.",
+      "3": "5.2. If our Anti-Cheat mobile application is not installed on your device, the Platform will ask you to download, install, enter the required tournament and get match data.",
+      "4": "5.3. In the event that your device does not contain cheating software, you will be allowed into the match authorization page.",
+      "5": "5.4. If cheating software is found on your device, you will not be able to go to the match authorization page, and the possibility of withdrawing any prizes you won will be blocked until the investigation of the incident ends, even if these prizes were won by you before you were convicted of using cheating software.",
+      "6": "5.5. If as a result of the investigation it turns out that you used cheating software, your account will be blocked without the right to restore or create another account from this device."
+    },
+    "rule-6": {
+      "1": "6. START OF THE MATCH",
+      "2": "6.1. The match starts upon expiry of the game admission period and once the Tournament referee or commentator (appointed by the Tournament organizer) has pressed the game start button.",
+      "3": "6.2. If a team member of the team tournament is late by the start of the match, the team does not receive points for the match, while the team name and nicknames of the participants will be reflected in the final table of the Tournament results with a zero result."
+    },
+    "rule-7": {
+      "1": "7. CHANGES TO THE TOURNAMENT SCHEDULE",
+      "2": "7.1. The Tournament organizers reserve the right to make changes to the Tournament’s match schedule. Such changes will be shown immediately in Tournament Info, as well as in each participant’s schedule, in their profiles. Participants are informed of rescheduled matches or Tournaments and reasons of such changes with notifications."
+    },
+    "rule-8": {
+      "1": "8. VIOLATION OF TOURNAMENT RULES",
+      "2": "8.1. A participant who has violated the Tournament rules can be disqualified from participating in future Tournaments for 24 hours, 72 hours or permanently, to a ban on the withdrawal of prizes, or banned from using their account without the possibility of registering a new account.",
+      "3": "8.2. Violations include, inter alia:",
+      "4": "Abusing other participants, viewers, referees, commentators or Tournament organizers.",
+      "5": "Acting with the intent to disrupt the Tournament.",
+      "6": "Using a third-party account when participating in the Tournament, as well as the introduction in the registration form of a nickname different from the actual nickname in the game.",
+      "7": "Deliberately playing badly, or underusing their skills in order to correspond to the level of a less experienced participant.",
+      "8": "Using bots, programs, cheats or similar methods, using desktop emulators that enable mobile games to be played on a desktop device, when participating in Tournaments, or performing other fraudulent activities in relation to the Arena Games Platform (all together - cheating software). Any such attempt to do so will result in the participant being banned from accessing their account, as well as their prizes and tickets. The Tournament organizer reserves the right to terminate access to any account whose owner is suspected of having tampered with the results of their game for the purpose of participating in the Tournament or has otherwise violated these rules.",
+      "9": "Distribute the lobby ID and password, or invite third-party third parties not registered in the Tournament through the service of the game itself."
+    },
+    "rule-9": {
+      "1": "9. REFEREES AND DISPUTES",
+      "2": "9.1. In the event that the Tournament organizer has appointed a referee for the match, the referee is responsible for ensuring fair play and preventing violation",
+      "3": "9.2. All participants who wish to report a violation, should contact the Tournament organizer using the feedback form available in their profile, within 24 hours of the completion of the match.",
+      "4": "9.3. Disputes are resolved by the Tournament organizer within 48 hours of the completion of the match.",
+      "5": "9.4. A dispute decision is displayed in Match Info.",
+      "6": "9.5. The disqualified participant or team of participants are deprived of their right to receive the prizes for the Tournament that they were disqualified from.",
+      "7": "9.6. In the event that the participant fails to report a violation within the specified period, such a report will not be considered by the Tournament organizer.",
+      "8": "9.7. A dispute decision made by the Tournament organizer is final and may lead to disqualification of the participant or a team of participants, which means that their results in the disputable match will be zeroed out, as well as to their suspension from Tournaments for 24 hours, 72 hours or permanently, or a ban to use their account."
+    },
+    "rule-10": {
+      "1": "10. RESULTS",
+      "2": "10.1. The list of winners is published in Match Info and Tournament Info upon the completion of the respective match or Tournament within an hour after the end of the match or Tournament.",
+      "3": "10.2. The results and winners of each Tournament are determined automatically by the Arena Games based on the actual game data.",
+      "4": "Once the winner or the winning team is determined, their points will be awarded automatically and displayed in the tournament card in the 'Results' section.",
+      "5": "Last updated: December 01, 2020"
+    }
+  },
   "Support": {
     "1": "If you have any problems, then write to our social networks, and we will be happy to help you.",
     "2": "Message to"
   },
   "Login": {
-    "1": "Signin",
-    "2": "Signup",
+    "1": "SignIn",
+    "2": "SignUp",
     "3": "Welcome to Arena Games", 
     "4": "By registering on our site, you agree", 
     "5": "to the ", 
@@ -216,6 +298,7 @@
     "11": "Forgot your password",
     "12": "I have read and accept to the terms",
     "13": "You have successfully registered",
+    "14": "Enter your phone number to recover your password",
     "btns": {
       "1": "Send",
       "2": "Activate",
@@ -235,11 +318,13 @@
     "8": "Enter your nickname from PUBG Mobile",
     "9": "Incorrect code",
     "10": "This number is already registered",
-    "11": "Confirm the password"
+    "11": "Confirm the password",
+    "12": "An error occured, please try again"
   },
   "Placeholder": {
     "1": "Activation code",
-    "2": "Enter your phone number"
+    "2": "Enter your phone number",
+    "3": "password"
   },
   "Profile": {
     "personal-data": {
@@ -255,7 +340,8 @@
       "4": "Choose photo",
       "5": "Change password?",
       "6": "Change",
-      "7": "Select language"
+      "7": "Select language",
+      "8": "New password"
     }, 
     "personal-rating": {
       "1": "Personal rating",
@@ -266,6 +352,20 @@
       "6": "Normal",
       "7": "Expert",
       "8": "counting"
+    },
+    "cardin": {
+      "1": "Top up Personal account",
+      "2": "Expanding the horizons of earnings for our clients",
+      "3": "Теперь вы можете пополнять счета и зарабатывать играя просто в свою любимую игру.",
+      "4": "Now you can replenish your accounts and earn by simply playing your favorite game.",
+      "5": "To top up your account you need to find:",
+      "6": "- banking and financial services",
+      "7": "- top up;",
+      "8": "- enter the phone number associated with the account;",
+      "9": "- deposit the required amount into the bill acceptor;",
+      "10": "Easy and fast!",
+      "11": "Arena Games - play and earn!",
+      "12": "To participate in games, you can top up your balance in the terminals."
     }
   }
 }

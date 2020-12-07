@@ -92,12 +92,12 @@ const LobbyContainer = (props) => {
               </span></div>
             <div className='price'>{t('Events.4')}:
               <span>
-                {`  ${props.priceGame} ${t('Events.14')}`} / {`${props.priceGame * 5} ${t('Events.15')}`}
+                {`  ${props.priceGame} ${t('Events.14')}`}
               </span>
             </div>
             <div className='price'>{t('Events.5')}:
               <span>
-                {`  ${props.priceKill} ${t('Events.14')}`} / {`${props.priceKill * 5} ${t('Events.15')}`}
+                {`  ${props.priceKill} ${t('Events.14')}`}
               </span>
             </div>
             {props.date !== '0000-00-00T00:00:00+06:00' ?

@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ActivateOtp = (props) => {
+  const { t } = useTranslation();
   const [otp, setOtp] = useState('')
   return (
     <form className='change-pass' onSubmit={(e) => {
@@ -9,19 +11,19 @@ const ActivateOtp = (props) => {
         phone: props.phone, otp
       })
     }}>
-      <h2>Активационный код</h2>
-      <div className='mini-title'>Ваш номер</div>
+      <h2>{t('Validate.1')}</h2>
+      <div className='mini-title'>{t('Placeholder.2')}</div>
       <input type='text' name='phone' value={props.phone} disabled/>
-      <div className='mini-title'>Активационный код</div>
+      <div className='mini-title'>{t('Validate.1')}</div>
       <input
         type='text'
         name='otp'
-        placeholder='Введите ключ активации'
+        placeholder={t('Validate.1')}
         value={otp}
         onChange={e => setOtp(e.target.value)}
       />
       <button type="submit" className='change-btn'>
-        Активировать
+        {t('Login.btns.2')}
       </button>
     </form>
   )
