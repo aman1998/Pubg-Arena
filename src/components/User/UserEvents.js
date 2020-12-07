@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import Events from '../Events/event'
 
 const UserEvents = () => {
+
   return (
     <Route path='/profile/events'>
       <section>

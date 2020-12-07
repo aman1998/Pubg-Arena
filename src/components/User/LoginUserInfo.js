@@ -9,6 +9,7 @@ const LoginUserInfo = (props) => {
   const [modalUserInfo, setModalUserInfo] = useState(false)
   const {width} = useWindowDimensions()
 
+
   return (
     <div className='loginUserInfo'>
       <div>

@@ -67,14 +67,7 @@ const LobbyContainer = (props) => {
     else {
       setPassValue('Ваш код будет доступен за 10 минут до начала игры')
     }
-    console.log('users:', props.players)
-    console.log('is user playing', isPlaying)
-    console.log('game playing', isPlayed)
   }, [props.players, myProfile, isLoading, showPassword])
-
-  console.log('isPlaying', isPlaying)
-  console.log('isPlayed', isPlayed)
-
 
   return (
     <div className='container wrapper'>
@@ -93,8 +86,8 @@ const LobbyContainer = (props) => {
                         Правилами игры
                     </NavLink>
               </span></div>
-            <div className='price'>Цена участие: <span>{`${props.priceGame} сомов / ${props.priceGame * 5} тенге `}</span></div>
-            <div className='price'>Цена 1 килл: <span>{`${props.priceKill} сомов / ${props.priceKill * 5} тенге`}</span></div>
+            <div className='price'>Стоимость участие: <span>{`${props.priceGame} сомов / ${props.priceGame * 5} тенге `}</span></div>
+            <div className='price'>За каждый килл: <span>{`${props.priceKill} сомов / ${props.priceKill * 5} тенге`}</span></div>
             {props.date !== '0000-00-00T00:00:00+06:00' ?
               <Timer
                 date={props.date}

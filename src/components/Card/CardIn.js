@@ -29,10 +29,10 @@ const CardIn = () => {
           <p>Для участия в играх, вы можете пополнить баланс в терминалах.</p>
         </div>
         <div className='cardInIcons'>
+					{/* <img src={payIcon} alt='Pay24' />
           <img src={payIcon} alt='Pay24' />
           <img src={payIcon} alt='Pay24' />
-          <img src={payIcon} alt='Pay24' />
-          <img src={payIcon} alt='Pay24' />
+					<img src={payIcon} alt='Pay24' /> */}
         </div>
         {/*<Formik*/}
         {/*  initialValues={*/}
