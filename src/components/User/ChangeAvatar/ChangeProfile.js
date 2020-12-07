@@ -3,8 +3,10 @@ import {useDispatch, useSelector} from "react-redux"
 import { NavLink } from 'react-router-dom'
 import { handleChangeInfoActionCreator } from '../../../store/actions/profile'
 import Logo from '../../../assets/icons/logo.svg'
+import { useTranslation } from 'react-i18next'
 
 const ChangeProfile = () => {
+  const { t } = useTranslation();
   const profile = useSelector(state => state.profile)
   const [name, setName] = useState(profile.myProfile.name)
   const [phone, setPhone] = useState(profile.myProfile.phone)
@@ -38,32 +40,32 @@ const ChangeProfile = () => {
         loading ? <img src={Logo} alt='#' className='loading change-loading'/> : 
         error ? 
         <div className='change-error'>
-          <div>Произошла ошибка, пожалуйста попробуйте снова</div>
-          <button className='change-error-btn' onClick={getReload}>Повторить попытку</button>
+          <div>{t('Validate.12')}</div>
+          <button className='change-error-btn' onClick={getReload}>{t('Login.btns.5')}</button>
         </div> :
         <form className='change-form'>
-          <h2>Изменить информацию</h2>
-          <label htmlFor='name-change' className='mini-title'>Изменить имя:</label>
+          <h2>{t('Profile.settings.1')}</h2>
+          <label htmlFor='name-change' className='mini-title'>{t('Profile.settings.2')}:</label>
           <input
             type='text'
             id='name-change'
             className='input'
             name='name'
-            placeholder='имя'
+            placeholder={t('Profile.personal-data.3')}
             value={name}
             onChange={e => setName(e.target.value)}
           />
-          <label htmlFor='phone-change' className='mini-title'>Изменить номер(лицевой счет):</label>
+          <label htmlFor='phone-change' className='mini-title'>{t('Profile.settings.3')}:</label>
           <input
             type='text'
             className='input'
             id='phone-change'
             name='phone'
-            placeholder='лицевой счет'
+            placeholder={t('Profile.personal-data.2')}
             value={phone}
             onChange={e => setPhone(e.target.value)}
           />
-          <label htmlFor='avatar-change' className='mini-title'>Выберите файл:</label>
+          <label htmlFor='avatar-change' className='mini-title'>{t('Profile.settings.4')}:</label>
           <input
             id='avatar-change'
             className='input'
@@ -72,8 +74,8 @@ const ChangeProfile = () => {
             accept='image/x-png,image/jpeg'
             onChange={e => files.push(e.target.files)}
           />
-          <NavLink to='/change-password' className='mini-title nav'>Изменить пароль?</NavLink>
-          <button className='change-btn' onClick={(e) => handleChangeAvatar(e)}>Изменить</button>
+          <NavLink to='/change-password' className='mini-title nav'>{t('Profile.settings.5')}</NavLink>
+          <button className='change-btn' onClick={(e) => handleChangeAvatar(e)}>{t('Profile.settings.6')}</button>
         </form>
       }
     </section>

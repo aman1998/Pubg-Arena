@@ -2,7 +2,10 @@ import React from 'react'
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 
+import { useTranslation } from 'react-i18next'
+
 const ChangePassword = (props) => {
+  const { t } = useTranslation();
 
   return (
     <Formik
@@ -16,10 +19,10 @@ const ChangePassword = (props) => {
       validationSchema={
         Yup.object().shape({
           phone: Yup.string()
-            .required('Введите номер!'),
+            .required(t('validate.7')),
           password: Yup.string()
-            .min(6, 'Минимум 6 символов')
-            .required('Введите пароль!'),
+            .min(6, t('validate.5'))
+            .required(t('validate.6')),
         })
       }
       onSubmit={
@@ -33,18 +36,18 @@ const ChangePassword = (props) => {
       }>
       {() => (
         <Form className='change-password'>
-          <h2>Изменить пароль</h2>
-          <div className='mini-title'>Ваш номер</div>
+          <h2>{t('Profile.settings.5')}</h2>
+          <div className='mini-title'>{t('Validate.7')}</div>
           <Field type="text" name="phone" placeholder='phone' value={props.phone} disabled/>
           <ErrorMessage name="phone" component="div" className='error'/>
-          <div className='mini-title'>Активационный код</div>
-          <Field type="text" name="otp" placeholder='активационный код' value={props.otp} disabled/>
+          <div className='mini-title'>{t('Placeholder.1')}</div>
+          <Field type="text" name="otp" placeholder={t('Placeholder.1')} value={props.otp} disabled/>
           <ErrorMessage name="otp" component="div" className='error'/>
-          <div className='mini-title'>Новый пароль</div>
-          <Field type="password" name="password" placeholder='Пароль'/>
+          <div className='mini-title'>{t('Profile.settings.8')}</div>
+          <Field type="password" name="password" placeholder={t('Placeholder.3')}/>
           <ErrorMessage name="password" component="div" className='error'/>
           <button type="submit" className='change-btn'>
-            Изменить
+            {t('Profile.settings.6')}
           </button>
         </Form>
       )}

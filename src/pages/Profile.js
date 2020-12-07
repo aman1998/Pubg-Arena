@@ -46,7 +46,7 @@ const Profile = () => {
               </Route>
             </div>
           </div> 
-        : !isLogged ? <div className='container' style={{marginTop: '10px'}}>Вы не авторизированы</div> : <ErrorPage />
+        : !isLogged ? <div className='container' style={{marginTop: '10px'}}></div> : <ErrorPage />
       }
     </PageTemplate>
   )

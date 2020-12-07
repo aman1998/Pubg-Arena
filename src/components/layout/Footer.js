@@ -21,8 +21,8 @@ const Footer = () => {
             <div className='footer-logo'>
               <img src={Logo} alt='#'/>
             </div> 
-            <div className="https://www.facebook.com/Arena-Games-104788511481561">
-              <a href='https://facebook.com'>
+            <div>
+              <a href='https://www.facebook.com/Arena-Games-104788511481561'>
                 <FacebookIcon className='facebook-icon'/>
               </a>
               <a href='https://www.instagram.com/arenagames.io/'>
@@ -47,14 +47,14 @@ const Footer = () => {
           </nav>
           <div className='footer-header--rate'>
             <div>+18</div>
-            <img src={Pay24} alt='#'/>
+            {/* <img src={Pay24} alt='#'/> */}
           </div>
         </div>
         <div className="footer-soc-mobile">
-          <a href='https://facebook.com'>
+          <a href='https://www.facebook.com/Arena-Games-104788511481561'>
             <FacebookIcon className='facebook-icon'/>
           </a>
-          <a href='https://instagram.com'>
+          <a href='https://www.instagram.com/arenagames.io/'>
             <InstagramIcon className='insta-icon'/>
           </a>
           <a href='https://t.me/arenagamesio'>

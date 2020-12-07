@@ -1,9 +1,11 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import PhoneInput from 'react-phone-input-2'
+import { useTranslation } from 'react-i18next'
 
 
 const SendPhone = (props) => {
+  const { t } = useTranslation();
   const [phone, setPhone] = React.useState('')
 
   const {loading, failed} = useSelector(state => ({
@@ -27,24 +29,24 @@ const SendPhone = (props) => {
 
   return (
     <form className='change-pass'>
-      <div className='change-text'>Введите свой номер телефона для восстановления пароля</div>
+      <div className='change-text'>{t('Login.14')}</div>
       <PhoneInput
         country='kg'
         onlyCountries={['kg']}
         disableDropdown
         containerClass='phone'
-        placeholder="Введите свой номер"
+        placeholder={t('Validate.7')}
         value={phone}
         onChange={setPhone}
         onFocus={removeError}
       />
-      {props.error ? <div className='error'>Ошибка ввода</div> : null}
+      {props.error ? <div className='error'>{t('Validate.2')}</div> : null}
       <button onClick={handleSendPhone}  className='change-btn'>
       {loading ? 
         <div className='login-loading'></div> : 
       failed ? 
-        <div className='btn-error'>повторить</div> : 
-        'Отправить'}
+        <div className='btn-error'>{t('Login.btns.5')}</div> : 
+        t('Login.btns.1')}
       </button>
     </form>
   )

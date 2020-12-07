@@ -3,8 +3,11 @@ import {useSelector, useDispatch} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import {enterGameActionCreator} from '../../store/actions/lobbies'
 import BackDrop from "./BackDrop";
+import { useTranslation } from 'react-i18next'
 
 const EnterGame = (props) => {
+  const { t } = useTranslation();
+
   const {myProfile, isLog, balance} = useSelector(state => ({
     myProfile: state.profile.myProfile,
     balance: state.profile.balance,
@@ -24,19 +27,19 @@ const EnterGame = (props) => {
           balance >= props.priceGame && isLog ?
             (
               <div>
-                <div>Вы действительно желаете вступить в игру?</div>
-                <div>{`С вашего баланса спишут ${props.priceGame} сомов`}</div>
-                <button onClick={enterGame} className='enter-btn yes'>Да</button>
-                <button onClick={props.closePopup} className='enter-btn no'>Нет</button>
+                <div>{t('Events.modal.1')}</div>
+                <div>{`${t('Events.modal.6')} ${props.priceGame} ${t('Burger.5')}`}</div>
+                <button onClick={enterGame} className='enter-btn yes'>{t('Events.modal.2')}</button>
+                <button onClick={props.closePopup} className='enter-btn no'>{t('Events.modal.3')}</button>
               </div>
             ) : balance < props.priceGame && isLog ?
             (
               <div className='enter-cardIn'>
-                <div>У вас не достаточно средст для вступления в игру.</div>
-                <div>Пожалуйста пополните баланс.</div>
+                <div>{t('Events.modal.4')}</div>
+                <div>{t('Events.modal.5')}</div>
                 <div>
                   <NavLink to='/profile/cardIn' exact>
-                    Пополнить
+                  {t('Sidebar.3')}
                   </NavLink>
                 </div>
               </div>
