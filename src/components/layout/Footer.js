@@ -22,13 +22,13 @@ const Footer = () => {
               <img src={Logo} alt='#'/>
             </div> 
             <div>
-              <a href='https://www.facebook.com/Arena-Games-104788511481561' target='_blank'>
+              <a href='https://www.facebook.com/Arena-games-100198175303535' target='_blank' rel="noreferrer">
                 <FacebookIcon className='facebook-icon'/>
               </a>
-              <a href='https://www.instagram.com/arenagames.io/' target='_blank'>
+              <a href='https://www.instagram.com/arenagames.io/' target='_blank' rel="noreferrer">
                 <InstagramIcon className='insta-icon'/>
               </a>
-              <a href='https://t.me/arenagamesio' target='_blank'>
+              <a href='https://t.me/arenagamesio' target='_blank' rel="noreferrer">
                 <TelegramIcon className='twitter-icon'/>
               </a>
             </div>
@@ -51,13 +51,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-soc-mobile">
-          <a href='https://www.facebook.com/Arena-Games-104788511481561'  target='_blank'>
+          <a href='https://www.facebook.com/Arena-games-100198175303535'  target='_blank' rel="noreferrer">
             <FacebookIcon className='facebook-icon'/>
           </a>
-          <a href='https://www.instagram.com/arenagames.io/' target='_blank'>
+          <a href='https://www.instagram.com/arenagames.io/' target='_blank' rel="noreferrer">
             <InstagramIcon className='insta-icon'/>
           </a>
-          <a href='https://t.me/arenagamesio' target='_blank'>
+          <a href='https://t.me/arenagamesio' target='_blank' rel="noreferrer">
             <TelegramIcon className='twitter-icon'/>
           </a>
         </div>
