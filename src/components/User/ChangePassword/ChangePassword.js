@@ -19,10 +19,10 @@ const ChangePassword = (props) => {
       validationSchema={
         Yup.object().shape({
           phone: Yup.string()
-            .required(t('validate.7')),
+            .required(t('Validate.7')),
           password: Yup.string()
-            .min(6, t('validate.5'))
-            .required(t('validate.6')),
+            .min(6, t('Validate.5'))
+            .required(t('Validate.6')),
         })
       }
       onSubmit={
@@ -35,7 +35,7 @@ const ChangePassword = (props) => {
         }
       }>
       {() => (
-        <Form className='change-password'>
+        <Form className='change-pass loginForm'>
           <h2>{t('Profile.settings.5')}</h2>
           <div className='mini-title'>{t('Validate.7')}</div>
           <Field type="text" name="phone" placeholder='phone' value={props.phone} disabled/>

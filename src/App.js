@@ -46,11 +46,6 @@ function App() {
         <Route path='/refund' component = {RefundPage}/>
         <Route path='/rates' component = {RatesPage} />
         <Route path='/signUp' component = {SignUpPage} />
-        <Route path = '/change-password' exact>
-          <PageTemplate>
-            <PasswordSettings />
-          </PageTemplate>
-        </Route>
         <Route path = '/change-password' component ={PasswordSettings} exact/>
         <Route path = '/support' component ={SupportPage} exact/>
         <Route path='/profile' component={ProfilePage} exact/>

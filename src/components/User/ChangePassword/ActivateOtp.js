@@ -19,11 +19,9 @@ const ActivateOtp = (props) => {
   }
 
   return (
-    <form className='change-pass'>
+    <form className='change-pass loginForm'>
       <h2>{t('Placeholder.1')}</h2>
-      <div className='mini-title'>{t('Placeholder.2')}</div>
       <input type='text' name='phone' value={props.phone} disabled/>
-      <div className='mini-title'>{t('Placeholder.1')}</div>
       <input
         type='text'
         name='otp'
