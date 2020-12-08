@@ -78,7 +78,7 @@ const LoginController = () => {
                   exact>{t('Login.2')}
                 </NavLink>
                 <div className='select'>
-                  <select name = 'myfield' value={language} onChange={handleChange}>
+                  <select name = 'myfield' value={language ? language : 'ru'} onChange={handleChange}>
                       <option value="ru">RU</option>
                       <option value="en">EN</option>
                       <option value="kg">KG</option>
@@ -88,7 +88,7 @@ const LoginController = () => {
               <div className='itemsLoginMob'>
                 <img src={IncognitoIcon} alt='#' className='incognito' onClick={() => setModalUserInfo(!modalUserInfo)}/>
                 <div className='select'>
-                  <select name = 'myfield' value={language} onChange={handleChange} className='language'>
+                  <select name = 'myfield' value={language ? language : 'ru'} onChange={handleChange} className='language'>
                     <option value="ru">RU</option>
                     <option value="en">EN</option>
                     <option value="kg">KG</option>

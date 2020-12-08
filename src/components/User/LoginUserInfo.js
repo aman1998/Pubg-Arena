@@ -96,9 +96,10 @@ const LoginUserInfo = (props) => {
         </div>
       </div>
       <div className='select select-mg'>
-        <select name = 'myfield' value={props.language} onChange={props.handleChange} className='language'>
+        <select name = 'myfield' value={props.language ? props.language : 'ru'} onChange={props.handleChange} className='language'>
           <option value="ru">RU</option>
           <option value="en">EN</option>
+          <option value="kg">KG</option>
         </select>
       </div>
     </div>
