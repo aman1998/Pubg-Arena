@@ -12,16 +12,19 @@ const ChangeProfile = () => {
   const [phone, setPhone] = useState(profile.myProfile.phone)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+  const [fileName, setFileName] = useState(t('Profile.settings.9'))
+  const [files, setFiles] = useState([])
 
-  const files = []
   const dispatch = useDispatch()
   const getReload = () => {
     window.location.reload()
   }
+
+
   const handleChangeAvatar = async (e) => {
     e.preventDefault()
     // const defaultImage = await fetch(`${profile.myProfile.avatar}`)
-    let image = files[0]
+    let image = files
 
     let formData = new FormData()
     if(files.length !== 0){
@@ -32,6 +35,11 @@ const ChangeProfile = () => {
 
     dispatch(handleChangeInfoActionCreator(
       formData, profile.myProfile.pk, profile.token, profile.myProfile, setLoading, setError ))
+  }
+
+  const handleFile = (file, name) => {
+    setFiles([file])
+    setFileName(name)
   }
 
   return(
@@ -65,15 +73,21 @@ const ChangeProfile = () => {
             value={phone}
             onChange={e => setPhone(e.target.value)}
           />
-          <label htmlFor='avatar-change' className='mini-title'>{t('Profile.settings.4')}:</label>
-          <input
-            id='avatar-change'
-            className='input'
-            type='file'
-            name='avatar'
-            accept='image/x-png,image/jpeg'
-            onChange={e => files.push(e.target.files)}
-          />
+          <div className='avatar-change-wrapper'>
+            <label htmlFor='avatar-change' className='mini-title avatar-change'>
+              <div className='avatar-change-icon'></div>
+              <div className='avatar-change-text'>{t('Profile.settings.4')}</div>
+            </label>
+            <input
+              id='avatar-change'
+              className='input'
+              type='file'
+              name='avatar'
+              accept='image/x-png,image/jpeg'
+              onChange={(e) => handleFile(e.target.files[0], e.target.files[0].name)}
+            />
+            <div className='avatar-text'>{fileName}</div>
+          </div>
           <NavLink to='/change-password' className='mini-title nav'>{t('Profile.settings.5')}</NavLink>
           <button className='change-btn' onClick={(e) => handleChangeAvatar(e)}>{t('Profile.settings.6')}</button>
         </form>

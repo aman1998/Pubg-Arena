@@ -71,7 +71,7 @@ const LobbyContainer = (props) => {
     else {
       setPassValue(t('Events.code.2'))
     }
-  }, [props.players, myProfile, isLoading, showPassword])
+  }, [props.players, myProfile, isLoading, showPassword]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className='container wrapper'>

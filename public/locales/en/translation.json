@@ -341,7 +341,8 @@
       "5": "Change password?",
       "6": "Change",
       "7": "Select language",
-      "8": "New password"
+      "8": "New password",
+      "9": "You have not chosen a photo"
     }, 
     "personal-rating": {
       "1": "Personal rating",

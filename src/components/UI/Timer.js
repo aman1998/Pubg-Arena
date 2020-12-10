@@ -50,7 +50,7 @@ const Timer = ({date, showPass}) => {
     return () => { // Return callback to run on unmount.
       window.clearInterval(timer);
     };
-  }, [timerSeconds]);
+  }, [timerSeconds]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
   return (

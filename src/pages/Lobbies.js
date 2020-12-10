@@ -21,7 +21,7 @@ const MainPage = () => {
     if(lobbies.length === 0) {
       dispatch(fetchLobbiesActionCreator())
     }
-  }, [lobbies.length])
+  }, [lobbies.length]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <PageTemplate>

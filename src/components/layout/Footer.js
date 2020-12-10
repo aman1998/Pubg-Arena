@@ -5,7 +5,7 @@ import InstagramIcon from '@material-ui/icons/Instagram'
 import TelegramIcon from '@material-ui/icons/Telegram'
 
 import Logo from '../../assets/icons/logo.svg'
-import Pay24 from '../../assets/icons/pay24.svg'
+// import Pay24 from '../../assets/icons/pay24.svg'
 
 import {NavLink} from 'react-router-dom'
 import { useTranslation } from 'react-i18next'

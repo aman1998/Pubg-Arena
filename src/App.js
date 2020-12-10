@@ -19,7 +19,6 @@ import SupportPage from "./pages/Supports"
 
 import './assets/style/style.scss'
 import PasswordSettings from "./pages/PasswordSettings";
-import PageTemplate from "./components/templates/PageTemplate";
 
 function App() {
   const dispatch = useDispatch()
@@ -32,7 +31,7 @@ function App() {
     if (token) {
       dispatch(fetchProfileActionCreator())
     }
-  }, [token])
+  }, [token]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <BrowserRouter>

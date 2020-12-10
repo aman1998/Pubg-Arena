@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 
-import payIcon from '../../assets/icons/pay-24.svg'
+// import payIcon from '../../assets/icons/pay-24.svg'
 
 import { useTranslation } from 'react-i18next'
 

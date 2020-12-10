@@ -12,6 +12,38 @@
   }
 }
 
+input[type="file"] {
+    display: none;
+}
+
+.avatar-change-wrapper {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  .avatar-change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px !important;
+    height: 35px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+    background: $bg-red;
+    cursor: pointer;
+    &-icon {
+      background: url('../img/download.png') center/cover;
+      height: 15px;
+      width: 15px;
+      margin-right: 5px;
+    }
+  }
+  .avatar-text {
+    font-size: 12px;
+    font-style: italic;
+  }
+}
+
 .change-pass{
   @include forChangingForms;
   margin: 50px auto;

@@ -8,41 +8,54 @@ import {setRatingsCreator} from "../store/actions/rates";
 
 import backImg from '../assets/img/pubg-slide3.jpg'
 import { useTranslation } from 'react-i18next'
+import Loading from '../components/Loadings/Loading'
+import Error from './500Page'
 
 const Rates = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const rates = useSelector(state => state.rates)
+  const {users, loading, failed, success} = useSelector(state => ({
+    users: state.rates.users,
+    loading: state.rates.get.loading,
+    failed: state.rates.get.failed,
+    success: state.rates.get.success
+  }))
 
   useEffect(() => {
-    if(rates.length === 0){
+    if(users.length === 0){
       dispatch(setRatingsCreator())
     }
-  }, [rates.length])
+  }, [users.length]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return(
     <PageTemplate>
-      <div className='rates-main'>
-        <div className='rates-image-box'>
-          <img src={backImg} alt='#' className='rates-main-image' />
-        </div>
-        <h2 className='rating-title'>{t('Rates.1')}</h2>
-        <div className='container'>
-          <div className='rates-page'>
-            {
-              rates && rates.map(item => (
-                <UserRatingItem
-                  key={item.id}
-                  id={item.id}
-                  img={item.avatar}
-                  name={item.name}
-                  kills={`${item.total_kills} ${t('Rates.2')}`}
-                />
-              ))
-            }
+        { loading ? 
+          <Loading /> :
+          success ?
+          <div className='rates-main'>
+            <div className='rates-image-box'>
+              <img src={backImg} alt='#' className='rates-main-image' />
+            </div>
+            <h2 className='rating-title'>{t('Rates.1')}</h2>
+            <div className='container'>
+              <div className='rates-page'>
+                {
+                  users && users.map(item => (
+                    <UserRatingItem
+                      key={item.id}
+                      id={item.id}
+                      img={item.avatar}
+                      name={item.name}
+                      kills={`${item.total_kills} ${t('Rates.2')}`}
+                    />
+                  ))
+                }
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+          : failed ?
+          <Error /> : null
+        }
     </PageTemplate>
   )
 }
