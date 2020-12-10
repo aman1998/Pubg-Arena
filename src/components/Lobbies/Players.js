@@ -17,8 +17,8 @@ const Players = () => {
       {
         isLoadingPlayers ? <div className='players-loading'></div> :
           players ? players.map((item, index) => {
-            return <div className='player'>
-              <div key={item.id}> {index + 1}. {item.name}</div>
+            return <div className='player' key={item.id}>
+              <div> {index + 1}. {item.name}</div>
               <img src={item.avatar} className='player-avatar'/>
             </div>
           }) : null

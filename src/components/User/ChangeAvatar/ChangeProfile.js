@@ -12,7 +12,7 @@ const ChangeProfile = () => {
   const [phone, setPhone] = useState(profile.myProfile.phone)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
-  const [fileName, setFileName] = useState(t('Profile.settings.9'))
+  const [fileName, setFileName] = useState('')
   const [files, setFiles] = useState([])
 
   const dispatch = useDispatch()
@@ -86,7 +86,7 @@ const ChangeProfile = () => {
               accept='image/x-png,image/jpeg'
               onChange={(e) => handleFile(e.target.files[0], e.target.files[0].name)}
             />
-            <div className='avatar-text'>{fileName}</div>
+            <div className='avatar-text'>{fileName || t('Profile.settings.9')}</div>
           </div>
           <NavLink to='/change-password' className='mini-title nav'>{t('Profile.settings.5')}</NavLink>
           <button className='change-btn' onClick={(e) => handleChangeAvatar(e)}>{t('Profile.settings.6')}</button>
