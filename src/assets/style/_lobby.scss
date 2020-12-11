@@ -248,6 +248,12 @@
           object-fit: cover;
           border-radius: 50%;
         }
+        .player-avatar-failed {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: gray;
+        }
       }
     }
   }

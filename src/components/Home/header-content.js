@@ -37,7 +37,7 @@ const Header = () => {
         </div>
         <div className="header-icons">
           <div className='header-line'></div>
-          <a href='https://www.facebook.com/Arena-games-100198175303535' target='_blank' rel="noreferrer">
+          <a href='https://www.facebook.com/arenagames.io' target='_blank' rel="noreferrer">
             <FacebookIcon className='facebook-icon'/>
           </a>
           <a href='https://www.instagram.com/arenagames.io/' target='_blank' rel="noreferrer">

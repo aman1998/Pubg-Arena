@@ -19,7 +19,8 @@ const Players = () => {
           players ? players.map((item, index) => {
             return <div className='player' key={item.id}>
               <div> {index + 1}. {item.name}</div>
-              <img src={item.avatar} className='player-avatar'/>
+              {item.avatar ? <img src={item.avatar} className='player-avatar' alt='avatar'/> : 
+              <div className='player-avatar-failed'></div> }
             </div>
           }) : null
       }

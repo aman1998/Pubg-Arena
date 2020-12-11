@@ -18,7 +18,7 @@ const Terms = () => {
     <PageTemplate>
       <section className='support container'>
         <div className='support-title'>{t('Support.1')}</div>
-        <a className='support-link' href='https://www.facebook.com/Arena-games-100198175303535' target='_blank' rel="noreferrer">
+        <a className='support-link' href='https://www.facebook.com/arenagames.io' target='_blank' rel="noreferrer">
           <div className='item'>
             <FacebookIcon className='facebook'/>
             <div>{t('Support.2')} Facebook</div>

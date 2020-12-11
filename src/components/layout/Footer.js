@@ -22,7 +22,7 @@ const Footer = () => {
               <img src={Logo} alt='#'/>
             </div> 
             <div>
-              <a href='https://www.facebook.com/Arena-games-100198175303535' target='_blank' rel="noreferrer">
+              <a href='https://www.facebook.com/arenagames.io' target='_blank' rel="noreferrer">
                 <FacebookIcon className='facebook-icon'/>
               </a>
               <a href='https://www.instagram.com/arenagames.io/' target='_blank' rel="noreferrer">
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-soc-mobile">
-          <a href='https://www.facebook.com/Arena-games-100198175303535'  target='_blank' rel="noreferrer">
+          <a href='https://www.facebook.com/arenagames.io'  target='_blank' rel="noreferrer">
             <FacebookIcon className='facebook-icon'/>
           </a>
           <a href='https://www.instagram.com/arenagames.io/' target='_blank' rel="noreferrer">

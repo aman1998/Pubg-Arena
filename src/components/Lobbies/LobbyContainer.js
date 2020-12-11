@@ -104,6 +104,8 @@ const LobbyContainer = (props) => {
               <Timer
                 date={props.date}
                 showPass={setShowPassword}
+                pass={showPassword}
+                isPlayed={isPlayed}
               /> : ' '}
             {isPlaying || isPlayed ?
               <button className='lobby-content__btn btn-disabled' disabled>{t('Events.btns.1')}</button> :

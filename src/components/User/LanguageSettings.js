@@ -38,7 +38,7 @@ const LanguageSettings = () => {
           className={language === 'kg' ? 'language kg' : 'language'}
           onClick={() => handleClick('kg')}
         >
-          Кыргызсча
+          Кыргызча
         </div>
       </div>
     </div>

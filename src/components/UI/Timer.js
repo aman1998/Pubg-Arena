@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux'
 
 import { useTranslation } from 'react-i18next'
 
-const Timer = ({date, showPass}) => {
+const Timer = ({date, showPass, pass, isPlayed}) => {
   const { t } = useTranslation()
 
   const [timerDays, setTimerDays] = useState('00');
@@ -32,15 +32,21 @@ const Timer = ({date, showPass}) => {
         clearInterval(timer)
       } 
       else if(distance <= 600000) {
-        showPass()
-        dispatch(checkIsPlayed(false))
+        if (!pass) {
+          showPass()
+        }
+        if(isPlayed) {
+          dispatch(checkIsPlayed(false))
+        }
         setTimerDays(days)
         setTimerHours(hours)
         setTimerMinutes(minutes)
         setTimerSeconds(seconds)
       }
       else if (distance > 0) {
-        dispatch(checkIsPlayed(false))
+        if(isPlayed) {
+          dispatch(checkIsPlayed(false))
+        }
         setTimerDays(days)
         setTimerHours(hours)
         setTimerMinutes(minutes)
