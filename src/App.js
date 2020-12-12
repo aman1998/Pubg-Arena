@@ -16,6 +16,7 @@ import RefundPage from "./pages/Refund"
 import SignUpPage from './pages/SignUp'
 import PageNotFound from "./pages/404Page"
 import SupportPage from "./pages/Supports"
+import Pay24Page from './pages/Pay24'
 
 import './assets/style/style.scss'
 import PasswordSettings from "./pages/PasswordSettings";
@@ -49,6 +50,7 @@ function App() {
         <Route path = '/support' component ={SupportPage} exact/>
         <Route path='/profile' component={ProfilePage} exact/>
         <Route path = '/profile/cardIn' component = {ProfilePage} exact/>
+        <Route path = '/profile/cardIn/pay24' component = {Pay24Page} exact/>
         <Route path = '/profile/cardOut' component = {ProfilePage} exact/>
         <Route path = '/profile/createLobbie' component = {ProfilePage} exact />
         <Route path='/profile/language' component={ProfilePage} exact />

@@ -357,16 +357,17 @@
     "cardin": {
       "1": "Top up Personal account",
       "2": "Expanding the horizons of earnings for our clients",
-      "3": "Теперь вы можете пополнять счета и зарабатывать играя просто в свою любимую игру.",
-      "4": "Now you can replenish your accounts and earn by simply playing your favorite game.",
-      "5": "To top up your account you need to find:",
-      "6": "- banking and financial services",
-      "7": "- top up;",
-      "8": "- enter the phone number associated with the account;",
-      "9": "- deposit the required amount into the bill acceptor;",
-      "10": "Easy and fast!",
-      "11": "Arena Games - play and earn!",
-      "12": "To participate in games, you can top up your balance in the terminals."
+      "3": "Choose one of the options available below, which will contain detailed instructions for replenishing your balance."
+    }
+  },
+  "Money": {
+    "pay24": {
+      "1": "1. Enter the 'Игры и социальные сети' section",
+      "2": "2. Further in the 'Игры' section",
+      "3": "3. Go to the second page",
+      "4": "4. Select 'Arena Games'",
+      "5": "5. Enter the phone number",
+      "6": "6. Top up cash"
     }
   }
 }

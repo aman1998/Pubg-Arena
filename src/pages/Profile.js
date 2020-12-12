@@ -6,6 +6,7 @@ import Sidebar from '../components/layout/Sidebar'
 import UserRating from '../components/User/UserRating'
 import CardOut from '../components/Card/CardOut'
 import CardIn from "../components/Card/CardIn"
+import Pay24 from "../components/Card/Pay24"
 import LanguageSettings from "../components/User/LanguageSettings"
 import UserRatingKills from "../components/User/UserRatingKills"
 import ChangeProfile from "../components/User/ChangeAvatar/ChangeProfile"
@@ -36,7 +37,9 @@ const Profile = () => {
               <Route path='/profile/settings' exact>
                 <ChangeProfile />
               </Route>
-              <CardIn />
+              <Route path='/profile/cardIn' exact>
+                <CardIn />
+              </Route>
               <CardOut />
               <Route path='/profile/language' exact>
                 <LanguageSettings />
