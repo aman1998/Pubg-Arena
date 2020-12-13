@@ -97,7 +97,6 @@ const LoginController = () => {
                 </div>
               </div>
               <div className={modalUserInfo ? 'modalInfo modalReg down' : 'modalInfo modalReg up'}>
-                <BackDrop show={true} />
                 <NavLink
                   to='/'
                   className='item home'

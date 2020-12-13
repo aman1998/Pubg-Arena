@@ -17,7 +17,7 @@ const LoginUserInfo = (props) => {
 
   return (
     <>
-      <BackDrop  />
+      <BackDrop show={modalUserInfo} close={() => setModalUserInfo(false)} />
     <div className='loginUserInfo'>
       <div>
         <NavLink
