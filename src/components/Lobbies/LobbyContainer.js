@@ -67,7 +67,8 @@ const LobbyContainer = (props) => {
     const countdownDate = new Date(countdownDateFormat).getTime()
     const now = new Date().getTime()
     const distance = countdownDate - now;
-    setIdValue(props.pass.slice(0, props.pass.indexOf(' ')))
+    console.log(props.pass)
+    // setIdValue(props.pass.slice(0, props.pass.indexOf(' ')) || '')
     if(distance <= 600000) {
       setPassValue(props.pass.slice(props.pass.indexOf(' ')))
     }
