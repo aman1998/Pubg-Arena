@@ -369,5 +369,16 @@
       "5": "5. Enter the phone number",
       "6": "6. Top up cash"
     }
+  },
+  "Errors": {
+    "404": {
+      "1": "Error",
+      "2": "Page not found",
+      "3": "Main"
+    },
+    "500": {
+      "1": "Error retrieving data from server",
+      "2": "To retry"
+    }
   }
 }

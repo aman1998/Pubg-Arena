@@ -67,14 +67,12 @@ const LobbyContainer = (props) => {
     const countdownDate = new Date(countdownDateFormat).getTime()
     const now = new Date().getTime()
     const distance = countdownDate - now;
-    console.log(props.pass)
-    // setIdValue(props.pass.slice(0, props.pass.indexOf(' ')) || '')
+    if (props.pass) {
+      setIdValue(props.pass.slice(0, props.pass.indexOf(' ')) || '')
+    }
     if(distance <= 600000) {
       setPassValue(props.pass.slice(props.pass.indexOf(' ')))
     }
-    // else {
-    //   setPassValue(t('Events.code.2'))
-    // }
   }, [props.players, myProfile, isLoading, showPassword]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
