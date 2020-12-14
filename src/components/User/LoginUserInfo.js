@@ -6,6 +6,7 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined'
 
 import { useTranslation } from 'react-i18next'
+import BackDrop from "../UI/BackDrop";
 
 const LoginUserInfo = (props) => {
   const { t } = useTranslation()
@@ -15,6 +16,8 @@ const LoginUserInfo = (props) => {
 
 
   return (
+    <>
+      <BackDrop show={modalUserInfo} close={() => setModalUserInfo(false)} />
     <div className='loginUserInfo'>
       <div>
         <NavLink
@@ -78,9 +81,9 @@ const LoginUserInfo = (props) => {
         }
         <div className='sidebar-mobile'>
           <div className='line'> </div>
-          <div><NavLink to='/tournaments/' exact>{t('Header.3')}</NavLink></div>
+          <div><NavLink to='/tournaments/' exact>{t('Header.2')}</NavLink></div>
           <div className='line'> </div>
-          <div><NavLink to='/rates/' exact>{t('Header.2')}</NavLink></div>
+          <div><NavLink to='/rates/' exact>{t('Header.3')}</NavLink></div>
           <div className='line'> </div>
           <div><NavLink to='/profile/' exact>{t('Sidebar.1')}</NavLink></div>
           <div className='line'> </div>
@@ -103,6 +106,7 @@ const LoginUserInfo = (props) => {
         </select>
       </div>
     </div>
+      </>
   )
 }
 

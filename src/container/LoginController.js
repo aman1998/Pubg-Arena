@@ -11,6 +11,7 @@ import { getLanguage } from "../store/actions/language"
 import IncognitoIcon from '../assets/icons/incognito.svg'
 
 import { useTranslation } from 'react-i18next'
+import BackDrop from "../components/UI/BackDrop";
 
 const LoginController = () => {
   const { t, i18n } = useTranslation();
@@ -48,12 +49,12 @@ const LoginController = () => {
 
   const handleChange = (e) => {
     dispatch(getLanguage(e.target.value))
-    console.log('language', language)
     i18n.changeLanguage(e.target.value)
   }
 
   return (
-    <div className={isLogged ? 'blockRight loggedIn' : 'blockRight'}>
+    <>
+      <div className={isLogged ? 'blockRight loggedIn' : 'blockRight'}>
       {
         isLoading ? null : (
           isLogged ? (
@@ -137,6 +138,7 @@ const LoginController = () => {
           <Login/>
       }
     </div>
+    </>
   )
 }
 
