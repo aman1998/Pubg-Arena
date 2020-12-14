@@ -69,6 +69,7 @@ const LoginController = () => {
             />
           ) : (
             <>
+              <BackDrop show={modalUserInfo} close={() => setModalUserInfo(false)} />
               <div className='itemsLoginDesktop'>
                 <div className='item itemsLogin ' onClick={showLog}>
                 {t('Login.1')}
