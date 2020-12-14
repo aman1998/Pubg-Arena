@@ -13,10 +13,12 @@ const LobbyContainer = (props) => {
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
+  // const [distance, setDistance] = useState('')
   const [isPlaying, setIsPlaying] = useState(false)
   const [password, setPassword] = useState(false)
   const [popup, setPopup] = useState(false)
   const [passValue, setPassValue] = useState('')
+  const [idValue, setIdValue] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
   const {myProfile,  isLoading, isLog, isPlayed} = useSelector(state => ({
@@ -65,12 +67,13 @@ const LobbyContainer = (props) => {
     const countdownDate = new Date(countdownDateFormat).getTime()
     const now = new Date().getTime()
     const distance = countdownDate - now;
+    setIdValue(props.pass.slice(0, props.pass.indexOf(' ')))
     if(distance <= 600000) {
-      setPassValue(props.pass)
+      setPassValue(props.pass.slice(props.pass.indexOf(' ')))
     }
-    else {
-      setPassValue(t('Events.code.2'))
-    }
+    // else {
+    //   setPassValue(t('Events.code.2'))
+    // }
   }, [props.players, myProfile, isLoading, showPassword]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -115,8 +118,9 @@ const LobbyContainer = (props) => {
             }</button> : null}
             {password === true ?
               <div className='password-block'>
-                <div>{t('Events.code.1')}</div>
-                <div className='password'>{passValue}</div>
+                <div className='password-title'>{t('Events.code.1')}</div>
+                <div className='password'>ID Game: <span>{idValue}</span></div>
+                <div className='password'>Code Game: <span>{passValue || t('Events.code.2')}</span></div>
               </div> : null}
           </div>
         </div>
