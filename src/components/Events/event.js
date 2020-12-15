@@ -122,7 +122,7 @@ const Event = () => {
         }
       </div>
       <h2 className='event-title'>{t('Events.11')}</h2>
-      <div className='wrapper'>
+      <div className='wrapper tour-2'>
         {
           toDay ? toDay.map(item => (
             <LobbyCard

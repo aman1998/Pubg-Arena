@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import payIcon from '../../assets/icons/pay-24.svg'
+import payIcon from '../../assets/img/pay24.jpg'
 
 import { useTranslation } from 'react-i18next'
 

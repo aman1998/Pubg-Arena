@@ -19,7 +19,7 @@ const Header = () => {
         <div className='header-btn-wrapper'>
           <NavLink
             to='/tournaments'
-            className='header-btn'
+            className='header-btn tour-1'
             exact
           >
           {t('Home.header.4')}

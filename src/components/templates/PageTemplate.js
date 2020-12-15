@@ -3,7 +3,6 @@ import React from 'react'
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 
-
 // Обертка для всего сайта
 const PageTemplate = (props) => {
   return (

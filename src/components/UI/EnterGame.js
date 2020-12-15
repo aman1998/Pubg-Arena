@@ -16,7 +16,9 @@ const EnterGame = (props) => {
   const dispatch = useDispatch()
 
   const enterGame = () => {
-    dispatch(enterGameActionCreator(props.id, myProfile.pk, myProfile.balance, props.priceGame))
+    if(!props.isPlayed) {
+      dispatch(enterGameActionCreator(props.id, myProfile.pk, myProfile.balance, props.priceGame))
+    }
   }
 
   return (

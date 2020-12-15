@@ -130,6 +130,7 @@ const LobbyContainer = (props) => {
             show={popup}
             priceGame={props.priceGame}
             closePopup={closePopup}
+            isPlayed={isPlayed}
           /> : null}
       </section>
     </div>
