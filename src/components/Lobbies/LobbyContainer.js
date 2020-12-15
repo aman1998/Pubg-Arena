@@ -13,7 +13,6 @@ const LobbyContainer = (props) => {
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
-  // const [distance, setDistance] = useState('')
   const [isPlaying, setIsPlaying] = useState(false)
   const [password, setPassword] = useState(false)
   const [popup, setPopup] = useState(false)
@@ -51,7 +50,6 @@ const LobbyContainer = (props) => {
   const isUserIsPlaying = () => {
     for (let i = 0; i < props.players.length; i++) {
       if (props.players[i].id === myProfile.pk) {
-        console.log(myProfile.pk)
         return true
       }
     }
@@ -62,7 +60,6 @@ const LobbyContainer = (props) => {
     if(props.players){
       setIsPlaying(isUserIsPlaying())
     }
-    console.log('myProfile: ', myProfile)
     const countdownDateFormat = `${props.date}`.split("+")[0]
     const countdownDate = new Date(countdownDateFormat).getTime()
     const now = new Date().getTime()
