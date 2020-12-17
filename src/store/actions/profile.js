@@ -11,7 +11,6 @@ import {
   FETCH_LOADING
 } from "../actionTypes"
 
-// import { loading, notLoading} from "./isLoading"
 import {logIn, logOut} from "./logInOut"
 import axios from "../../axios/axios"
 import {hideState, showState} from "./isAuthState"
@@ -28,7 +27,6 @@ export const getBalance = (balance) => ({
 })
 
 export const fetchProfileActionCreator = () => dispatch => {
-  // dispatch(loading())
   dispatch({ type: GET_PROFILE_LOADING })
   const token = localStorage.getItem('token')
   axios.get('/profile/', {
@@ -43,7 +41,6 @@ export const fetchProfileActionCreator = () => dispatch => {
       // dispatch(notLoading())
       dispatch({ type: GET_PROFILE_SUCCESS})
       dispatch(getBalance(response.data.balance))
-      console.log(response)
     })
     .catch((e) => {
       console.log(e.message)
@@ -120,7 +117,6 @@ export const handlePhoneActionCreator = (body, getPhone, showActivate, showPhone
   dispatch({ type: FETCH_LOADING })
   axios.post('/validate/', body)
     .then(({data}) => {
-      console.log(data)
       if (data.status) {
         dispatch({ type: FETCH_SUCCESS })
         getPhone(body.phone)
@@ -139,7 +135,6 @@ export const handlePhoneActionCreator = (body, getPhone, showActivate, showPhone
 
 
 export const handleChangeInfoActionCreator = (body, id, token, myProfile, loading, error) => dispatch => {
-  console.log(body)
   loading(true)
   axios.put(`/update-profile/${id}/`, body, {
     headers:{
