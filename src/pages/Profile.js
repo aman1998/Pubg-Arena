@@ -6,7 +6,6 @@ import Sidebar from '../components/layout/Sidebar'
 import UserRating from '../components/User/UserRating'
 import CardOut from '../components/Card/CardOut'
 import CardIn from "../components/Card/CardIn"
-// import Pay24 from "../components/Card/Pay24"
 import UserRatingKills from "../components/User/UserRatingKills"
 import ChangeProfile from "../components/User/ChangeAvatar/ChangeProfile"
 import LoadingPage from '../components/Loadings/Loading'
@@ -46,7 +45,7 @@ const Profile = () => {
                 <UserRatingKills />
               </Route>
             </div>
-          </div> 
+          </div>
         : !isLogged ? <div className='container' style={{marginTop: '10px'}}></div> : <ErrorPage />
       }
     </PageTemplate>
