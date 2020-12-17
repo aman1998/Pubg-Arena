@@ -55,11 +55,12 @@ const Register = (props) => {
         <Form className='loginForm'>
           <Field type="text" name="phone" placeholder='phone' value={props.phone} disabled/>
           <ErrorMessage name="phone" component="div" className='error'/>
-          <Field type="text" name="name" placeholder='account name from PUBG Mobile'/>
+          <Field type="text" name="name" placeholder={props.placeholder3}/>
+          <div className='nickname'>{props.nickValidate2}</div>
           <ErrorMessage name="name" component="div" className='error'/>
-          <Field type="password" name="password" placeholder='password'/>
+          <Field type="password" name="password" placeholder={props.placeholder1}/>
           <ErrorMessage name="password" component="div" className='error'/>
-          <Field type="password" name="confirmPassword" placeholder='repeat password'/>
+          <Field type="password" name="confirmPassword" placeholder={props.placeholder2}/>
           <ErrorMessage name="confirmPassword" component="div" className='error'/>
           <div className='check-wrapper'>
             <Field type="checkbox" name="acceptTerms" className='check-input'/>

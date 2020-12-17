@@ -54,12 +54,16 @@ const RegTemplate = () => {
                   showRegistered={setIsLogged} 
                   phone={phone}
                   nickValidate={t('Validate.8')}
+                  nickValidate2={t('Validate.13')}
                   passValidate={t('Validate.5')}
                   passValidate2={t('Validate.6')}
                   passValidate3={t('Validate.3')}
                   passValidate4={t('Validate.11')}
                   checkValidate={t('Validate.4')}
                   phoneValidate={t('Placeholder.2')}
+                  placeholder1={t('Placeholder.3')}
+                  placeholder2={t('Placeholder.4')}
+                  placeholder3={t('Placeholder.7')}
                   accept={t('Login.12')}
                   errorBtn={t('Login.btns.5')}
                   btn={t('Login.btns.4')}
