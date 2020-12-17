@@ -47,6 +47,7 @@ const CardOut = () => {
         <input type="hidden" name="UserFieldName_2" value="Param name for value_2"/>
         <input type="submit" name="button" value="оплатить"/>
       </form>
+      <script></script>
     </Route>
   )
 }
