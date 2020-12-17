@@ -20,10 +20,10 @@ const Home = () => {
       <div className='home'>
         <HeaderContent />
         <HomeInfo1 />
-        <CardIn text={t('Home.card.2')}/>
+        <CardIn text={t('Home.instruction.3')} state='Инструкция'/>
         <HomeInfo2 />
         <Questions />
-        <CardIn text={t('Home.card.4')}/>
+        <CardIn text={t('Home.card.4')} state='Играть'/>
       </div>
     </PageTemplate>
   )

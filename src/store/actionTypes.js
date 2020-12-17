@@ -43,6 +43,7 @@ export const GET_RATES_LOADING = 'GET_RATES_LOADING'
 export const FETCH_SUCCESS = 'FETCH_SUCCESS'
 export const FETCH_FAILED = 'FETCH_FAILED'
 export const FETCH_LOADING = 'FETCH_LOADING'
+export const FETCH_RESET = 'FETCH_RESET'
 
 export const CHANGE_FIELD = 'CHANGE_FIELD'
 

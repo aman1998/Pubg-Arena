@@ -67,9 +67,21 @@
       "3": "Play Now",
       "4": "Win beautifully"
     },
+    "instruction": {
+      "1": "Instructions",
+      "2": "First time on the site?",
+      "3": "Read the instructions",
+      "4": "Instructions for participating in the game",
+      "5": "1. Register now",
+      "6": "2. Top up cash",
+      "7": "3. Go to the 'Tournaments' section ('Турниры')",
+      "8": "4. Select one of the available tournaments and click 'Details' ('Подробнее')",
+      "9": "5. Click on the 'Join' button and confirm the action ('Вступить')",
+      "10": "6. Hurrah! You are in the game!"
+    },
     "questions": {
       "1": "FAQ",
-      "2": "How to participate in the tournament? ",
+      "2": "How to participate in the tournament",
       "3": "You have to register. Select the tournament in the tab which one you interesting «Tournaments» in the top left corner and click «Participate”. The system will offer you the tickets. Once you have done so, you will be considered a member of the tournament. The instructions for entering the tournament will be available on the Tournament page to which you have registered, 10-15 minutes before the beginning of the tournament.",
       "4": "The cost of the tournament ",
       "5": "The cost of the game from 100 som.",
@@ -358,6 +370,18 @@
       "1": "Top up Personal account",
       "2": "Expanding the horizons of earnings for our clients",
       "3": "Choose one of the options available below, which will contain detailed instructions for replenishing your balance."
+    },
+    "cardOut": {
+      "1": "Money withdrawal",
+      "2": "To withdraw money, you need",
+      "3": "Select withdrawal method",
+      "4": "Deposit amount",
+      "5": "Click on the 'Withdraw' button",
+      "6": "After that, you will be transferred to the payment system website",
+      "7": "Commission",
+      "8": "Enter the amount",
+      "9": "Withdraw",
+      "10": "Enter an amount more than 100 soms"
     }
   },
   "Money": {
