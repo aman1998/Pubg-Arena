@@ -2,21 +2,37 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-const CardIn = ({text}) => {
+const CardIn = ({text, state}) => {
   const {t} = useTranslation()
 
   return (
     <section className='cardIn container'>
-      <h1>{t('Home.card.1')}</h1>
+      <h1>
+        {
+          state === 'Играть' ? 
+            t('Home.card.1') :
+            t('Home.instruction.2')
+        }
+      </h1>
       <p>{text}</p>
       <div>
-          <NavLink
-            to='/tournaments'
-            className='home-btn'
-            exact
-          >
-          {t('Home.card.3')}
-          </NavLink>
+          {
+            state === 'Играть' ? 
+            <NavLink
+              to='/tournaments'
+              className='home-btn'
+              exact
+            >
+            {t('Home.card.3')}
+            </NavLink> :
+            <NavLink
+              to='/instruction'
+              className='home-btn'
+              exact
+            >
+            {t('Home.instruction.1')}
+            </NavLink>
+          }
         </div>
     </section>
   )

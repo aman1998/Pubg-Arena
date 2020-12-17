@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import {useDispatch, useSelector} from 'react-redux'
 import {handlePhoneActionCreator} from "../../../store/actions/profile";
+import { FETCH_RESET } from '../../../store/actionTypes'
 
 const Register = (props) => {
   const [phone, setPhone] = React.useState('')
@@ -14,6 +15,12 @@ const Register = (props) => {
     loading: state.fetch.post.loading,
     failed: state.fetch.post.failed,
   }))
+
+  useEffect(() => {
+    if(failed) {
+      dispatch({ type: FETCH_RESET })
+    }
+  }, [])
 
   const handlePhone = (body) => {
     dispatch(handlePhoneActionCreator(body, props.getPhone, props.showActivate, props.showPhone, setError2))

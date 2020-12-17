@@ -1,7 +1,8 @@
-import React from 'react'
-import {useSelector} from 'react-redux'
+import React, {useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import PhoneInput from 'react-phone-input-2'
 import { useTranslation } from 'react-i18next'
+import { FETCH_RESET } from '../../../store/actionTypes'
 
 
 const SendPhone = (props) => {
@@ -12,6 +13,14 @@ const SendPhone = (props) => {
     loading: state.fetch.post.loading,
     failed: state.fetch.post.failed,
   }))
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if(failed) {
+      dispatch({ type: FETCH_RESET })
+    }
+  }, [])
 
   const removeError = () => {
     props.setError(false)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react'
 import { Route } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import PageTemplate from '../components/templates/PageTemplate'
@@ -6,7 +6,7 @@ import Sidebar from '../components/layout/Sidebar'
 import UserRating from '../components/User/UserRating'
 import CardOut from '../components/Card/CardOut'
 import CardIn from "../components/Card/CardIn"
-import Pay24 from "../components/Card/Pay24"
+// import Pay24 from "../components/Card/Pay24"
 import UserRatingKills from "../components/User/UserRatingKills"
 import ChangeProfile from "../components/User/ChangeAvatar/ChangeProfile"
 import LoadingPage from '../components/Loadings/Loading'
@@ -39,7 +39,9 @@ const Profile = () => {
               <Route path='/profile/cardIn' exact>
                 <CardIn />
               </Route>
-              <CardOut />
+              <Route path='/profile/cardOut' exact>
+                <CardOut />
+              </Route>
               <Route path='/profile/rating' exact>
                 <UserRatingKills />
               </Route>

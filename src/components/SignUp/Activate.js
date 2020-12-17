@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {activateActionCreator} from "../../store/actions/modalRegister"
 
@@ -16,7 +16,7 @@ const Activate = (props) => {
   const handleActivate = (body) => {
     dispatch(activateActionCreator(body, props.showActivate, props.showReg, setError))
   }
-
+  
   return (
     <form className='loginForm' onSubmit={(e) => {
       e.preventDefault()
@@ -29,7 +29,8 @@ const Activate = (props) => {
         type='text' 
         name='otp' 
         placeholder={props.placeholder} 
-        value={otp} onChange={e => setOtp(e.target.value)} 
+        value={otp} 
+        onChange={e => setOtp(e.target.value)} 
         onFocus={() => setError(false)}
         />
       {error ? <div className='error'>{props.errorInput}</div> : null}

@@ -17,6 +17,7 @@ import SignUpPage from './pages/SignUp'
 import PageNotFound from "./pages/404Page"
 import SupportPage from "./pages/Supports"
 import Pay24Page from './pages/Pay24'
+import InstructionPage from './pages/Instruction'
 
 import './assets/style/style.scss'
 import PasswordSettings from "./pages/PasswordSettings";
@@ -46,6 +47,7 @@ function App() {
         <Route path='/refund' component = {RefundPage}/>
         <Route path='/rates' component = {RatesPage} />
         <Route path='/signUp' component = {SignUpPage} />
+        <Route path='/instruction' component = {InstructionPage} />
         <Route path = '/change-password' component ={PasswordSettings} exact/>
         <Route path = '/support' component ={SupportPage} exact/>
         <Route path='/profile' component={ProfilePage} exact/>

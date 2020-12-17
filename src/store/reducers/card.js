@@ -1,16 +1,10 @@
-import {
-  FETCH_FAILED,
-  FETCH_LOADING,
-  FETCH_SUCCESS,
-  FETCH_RESET
-} from "../actionTypes";
+import {FETCH_SUCCESS, FETCH_LOADING, FETCH_FAILED} from '../actionTypes'
 
 const initialState = {
   post: {
-    success: false,
     loading: false,
-    failed: false,
-    error: '',
+    success: false,
+    failed: false
   }
 }
 
@@ -23,7 +17,6 @@ const reducer = (state = initialState, action) => {
           success: false,
           loading: true,
           failed: false,
-          error: '',
         },
       }
     case FETCH_SUCCESS:
@@ -33,7 +26,6 @@ const reducer = (state = initialState, action) => {
           success: true,
           loading: false,
           failed: false,
-          error: '',
         },
       }
     case FETCH_FAILED:
@@ -43,17 +35,6 @@ const reducer = (state = initialState, action) => {
           success: false,
           loading: false,
           failed: true,
-          error: '',
-        },
-      }
-    case FETCH_RESET:
-      return {
-        ...state,
-        post: {
-          success: false,
-          loading: false,
-          failed: false,
-          error: '',
         },
       }
     default: return state

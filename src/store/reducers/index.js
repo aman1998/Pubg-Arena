@@ -12,6 +12,7 @@ import timer from './timer'
 import rates from './rates'
 import fetch from './fetch'
 import language from './language'
+import card from './card'
 
 export default combineReducers({
   profile,
@@ -26,5 +27,6 @@ export default combineReducers({
   timer,
   rates,
   fetch,
-  language
+  language,
+  card
 })
