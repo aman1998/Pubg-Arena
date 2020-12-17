@@ -1,10 +1,30 @@
 version: "3"
 
 services:
+
   client:
-    container_name: pubg-ui
-    build: .
+    container_name: front
+    image: 996703411547/pubg-ui:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "3030:3030"
-    stdin_open: true 
+      - "3000:3000"
+    stdin_open: true
     tty: true
+
+  nginx:
+    image: nginx:1.16.0-alpine
+    container_name: production_nginx
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    volumes:
+      - /home/erlan/Documents/workspace/bbsoft/pubg-ui/nginx/nginx.conf
+    ports:
+      - 80:3000
+      - 443:80
+    depends_on:
+      - client
+    links:
+      - client
