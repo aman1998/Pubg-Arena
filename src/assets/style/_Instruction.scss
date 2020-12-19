@@ -17,11 +17,17 @@
       flex-direction: column;
     }
     .instr-text {
+      font-size: 18px;
+      font-weight: bold;
       @media screen and (max-width: 1000px) {
+        margin-top: 10px;
         margin-bottom: 10px;
+        font-size: 18px;
       }
       @media screen and (max-width: 560px) {
-        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 18px;
       }
     } 
     .instr-photo {
