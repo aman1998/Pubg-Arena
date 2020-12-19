@@ -21,6 +21,7 @@ const TournamentSlider = (props) => {
           <TournamentSlide
             key={item.id}
             id={item.id}
+            class={props.class}
             image={item.image}
             date={item.date}
             name={item.name}

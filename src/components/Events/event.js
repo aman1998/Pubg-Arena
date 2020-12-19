@@ -5,16 +5,20 @@ import {NavLink} from 'react-router-dom'
 import LobbyCard from './LobbyCard'
 import TournamentSlider from "../../container/TournamentSlider"
 
-import { useTranslation } from 'react-i18next'
+import {useTranslation} from 'react-i18next'
+import useWindowDimensions from "../Hooks/useWindowDimentions"
+import TournamentSlide from "./TournamentSlide";
 
 const Event = () => {
-  const { t } = useTranslation()
-  
+  const {t} = useTranslation()
+  const {width} = useWindowDimensions()
+
   const {lobbies} = useSelector(state => ({
     lobbies: state.lobbies.list,
   }))
   const [toDay] = useState([])
-  const [immediate] = useState([])
+  const [tomorrow] = useState([])
+  const [afterTomorrow] = useState([])
   const [done] = useState([])
   const [others] = useState([])
 
@@ -63,19 +67,23 @@ const Event = () => {
     const lobbySort = (lobby) => {
       const today = new Date()
       const tomorrow = new Date()
-      tomorrow.setDate(today.getDate() + 3)
-      if(today > (new Date(lobby)))
+      tomorrow.setDate(today.getDate() + 1)
+      const afterTomorrow = new Date()
+      afterTomorrow.setDate(today.getDate() + 2)
+      if (today > (new Date(lobby)))
         return 'done'
       else if (today.getDate() === (new Date(lobby)).getDate() &&
         today.getMonth() === (new Date(lobby)).getMonth() &&
         today.getFullYear() === (new Date(lobby)).getFullYear())
         return 'today'
-      else if (today < (new Date(lobby)) && tomorrow >= (new Date(lobby)))
-        return 'immediate'
+      else if (today.getDate() < (new Date(lobby)).getDate() && tomorrow.getDate() >= (new Date(lobby)).getDate())
+        return 'tomorrow'
+      else if (tomorrow.getDate() < (new Date(lobby)).getDate() && afterTomorrow.getDate() >= (new Date(lobby)).getDate())
+        return 'afterTomorrow'
       else
         return 'others'
     }
-  
+
     const setLobbyToState = () => {
       if (lobbies.length) {
         for (let i = 0; i < lobbies.length; i++) {
@@ -87,11 +95,14 @@ const Event = () => {
             case 'others':
               others.push(lobbies[i])
               break
-            case 'immediate':
-              immediate.push(lobbies[i])
+            case 'tomorrow':
+              tomorrow.push(lobbies[i])
               break
             case 'done':
               done.push(lobbies[i])
+              break
+            case 'afterTomorrow':
+              afterTomorrow.push(lobbies[i])
               break
             default:
               others.push(lobbies[i])
@@ -100,92 +111,114 @@ const Event = () => {
       }
     }
     setLobbyToState()
-  }, [lobbies, done, immediate, others, toDay])
+  }, [lobbies, done, tomorrow, afterTomorrow, others, toDay])
 
   return (
     <div className='container'>
       <h2 className='event-title'>{t('Events.7')}</h2>
       <div className='wrapper'>
         {
-          toDay.length !== 0 ? <TournamentSlider
-            list={toDay && toDay}
-          /> : <div className='tournament-doesnt'>{t('Events.8')}</div>
+          width > 500 ? (
+            toDay.length !== 0 ? (
+              <TournamentSlider
+                class='tournament-slide'
+                list={toDay && toDay}
+              />
+            ) : <div className='tournament-doesnt'>{t('Events.8')}</div>
+          ) : (
+            toDay.length !== 0 ? (
+              toDay.map((item) => (
+                <TournamentSlide
+                  class='tournament-slide less'
+                  key={item.id}
+                  id={item.id}
+                  image={item.image}
+                  date={item.date}
+                  name={item.name}
+                  players={item.player_list}
+                />
+              ))
+            ) : (
+              <div className='tournament-doesnt'>{t('Events.8')}</div>
+            )
+          )
         }
       </div>
       <h2 className='event-title'>{t('Events.9')}</h2>
       <div className='wrapper'>
         {
-
-          immediate.length !== 0 ? <TournamentSlider
-            list={immediate && immediate}
-          /> : <div className='tournament-doesnt'>{t('Events.10')}</div>
+          width > 500 ? (
+            tomorrow.length !== 0 ? (
+              <TournamentSlider
+                class='tournament-slide'
+                list={tomorrow && tomorrow}
+              />
+            ) : <div className='tournament-doesnt'>{t('Events.10')}</div>
+          ) : (
+            tomorrow.length !== 0 ? (
+              tomorrow.map((item) => (
+                <TournamentSlide
+                  class='tournament-slide less'
+                  key={item.id}
+                  id={item.id}
+                  image={item.image}
+                  date={item.date}
+                  name={item.name}
+                  players={item.player_list}
+                />
+              ))
+            ) : (
+              <div className='tournament-doesnt'>{t('Events.10')}</div>
+            )
+          )
         }
       </div>
-      <h2 className='event-title'>{t('Events.11')}</h2>
-      <div className='wrapper tour-2'>
+      <h2 className='event-title'>{t('Events.16')}</h2>
+      <div className='wrapper'>
         {
-          toDay ? toDay.map(item => (
-            <LobbyCard
-              key={item.id}
-              id={item.id}
-              image={item.image}
-              name={item.name}
-              map={item.map}
-              date={item.date}
-              price={item.price}
-              kill_award={item.kill_award}
-              checkIsTime={checkIsTime}
-            />
-          )) : null
-        }
-        {
-          immediate ? immediate.map(item => (
-            <LobbyCard
-              key={item.id}
-              id={item.id}
-              image={item.image}
-              name={item.name}
-              map={item.map}
-              date={item.date}
-              price={item.price}
-              kill_award={item.kill_award}
-              checkIsTime={checkIsTime}
-            />
-          )) : null
-        }
-        {
-          others ? others.map(item => (
-            <LobbyCard
-              key={item.id}
-              id={item.id}
-              image={item.image}
-              name={item.name}
-              map={item.map}
-              date={item.date}
-              price={item.price}
-              kill_award={item.kill_award}
-              checkIsTime={checkIsTime}
-            />
-          )) : null
+          width > 500 ? (
+            afterTomorrow.length !== 0 ? (
+              <TournamentSlider
+                class='tournament-slide'
+                list={afterTomorrow && afterTomorrow}
+              />
+            ) : <div className='tournament-doesnt'>{t('Events.17')}</div>
+          ) : (
+            afterTomorrow.length !== 0 ? (
+              afterTomorrow.map((item) => (
+                <TournamentSlide
+                  class='tournament-slide less'
+                  key={item.id}
+                  id={item.id}
+                  image={item.image}
+                  date={item.date}
+                  name={item.name}
+                  players={item.player_list}
+                />
+              ))
+            ) : (
+              <div className='tournament-doesnt'>{t('Events.17')}</div>
+            )
+          )
         }
       </div>
       <h2 className='event-title more'>{t('Events.12')}</h2>
       <div className='wrapper'>
-      {
-        done ? done.map(item => (
-          <LobbyCard
-            key={item.id}
-            id={item.id}
-            image={item.image}
-            name={item.name}
-            map={item.map}
-            date={item.date}
-            price={item.price}
-            kill_award={item.kill_award}
-            checkIsTime={checkIsTime}
-          />
-        )) : null
-      }
+        {
+          done ? done.map(item => (
+            <LobbyCard
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              name={item.name}
+              map={item.map}
+              date={item.date}
+              price={item.price}
+              kill_award={item.kill_award}
+              checkIsTime={checkIsTime}
+            />
+          )) : null
+        }
       </div>
     </div>
   )
