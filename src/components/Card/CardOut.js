@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {
   handlePay24ActionCreator,
@@ -11,9 +11,13 @@ import balanceIcon from '../../assets/img/balance.jpg'
 import elsomIcon from '../../assets/img/elsom.jpeg'
 
 import {useTranslation} from 'react-i18next'
+import axios from "../../axios/axios";
+import {setLoading} from "../../store/actions/lobbies";
+import {NavLink} from "react-router-dom";
 
 const CardOut = () => {
-  const {success, failed, loading} = useSelector(state => ({
+  const {success, failed, loading, profile} = useSelector(state => ({
+    profile: state.profile.myProfile,
     loading: state.card.post.loading,
     success: state.card.post.success,
     failed: state.card.post.failed
@@ -25,6 +29,9 @@ const CardOut = () => {
   const [value, setValue] = useState(0)
   const [commission, setСommission] = useState('12%')
   const [error, setError] = useState(false)
+  const [wallet, setWallet] = useState('')
+  const [money, setMoney] = useState('')
+  const [operator, setOperator] = useState('O!')
 
   const dispatch = useDispatch()
 
@@ -42,10 +49,29 @@ const CardOut = () => {
     }
   }
 
-  return (
+  const handleSend = (e) => {
+    axios.post('/pay/outpay/', {'money': money, 'phone': profile.phone, 'wallet': wallet, 'operator': operator})
+      .then(response => {
+        console.log(response)
+      })
+      .catch(e => console.log(e))
+  }
 
+  return (
     <section className='cardOut'>
-      <section>Разработка</section>
+      <section className='warningCard'>VISA, Элсом и BalanceKG пока не активны</section>
+      <p className='warningCardTwo'>Можно вывести на Сотового Оператора!</p>
+      <input name='phone' type='hidden' value={profile.phone}/>
+      <input name='wallet' type='text' value={wallet} placeholder='+996700 300 300'
+             onChange={(e) => setWallet(e.target.value)}/>
+      <input name='money' type='text' value={money} placeholder='Сумма' onChange={(e) => setMoney(e.target.value)}/>
+      <select onChange={e => setOperator(e.target.value)} defaultValue='O'>
+        <option value='O!'>О!</option>
+        <option value='megacom'>MegaCom</option>
+        <option value='balance'>Beeline</option>
+      </select>
+      <p className='warningCardTwo'>Остаток баланса не может быть ниже 100</p>
+      <NavLink to='/' className='navlink-change' onClick={e => handleSend(e)}>Отправить</NavLink>
       {/*<form action="https://merchant.intellectmoney.ru/ru/" name="pay" method="POST">*/}
       {/*  <input type="hidden" name="eshopId" readOnly={true} value="459141"/>*/}
       {/*  <input type="hidden" name="orderId" readOnly={true} value="order_0000001"/>*/}

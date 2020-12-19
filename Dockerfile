@@ -16,10 +16,10 @@ COPY . ./
 EXPOSE 80
 # start app
 CMD ["npm", "start"]
-
-FROM nginx:latest
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY www_arenagames_io.crt /etc/nginx/ssl/www_arenagames_io.crt
-COPY arenagames.io.key /etc/nginx/ssl/arenagames.io.key
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+#
+#FROM nginx:latest
+#COPY nginx.conf /etc/nginx/nginx.conf
+#COPY www_arenagames_io.crt /etc/nginx/ssl/www_arenagames_io.crt
+#COPY arenagames.io.key /etc/nginx/ssl/arenagames.io.key
+#EXPOSE 80
+#CMD ["nginx", "-g", "daemon off;"]
