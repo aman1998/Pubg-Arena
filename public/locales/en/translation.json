@@ -72,8 +72,8 @@
       "2": "First time on the site?",
       "3": "Read the instructions",
       "4": "Instructions for participating in the game",
-      "5": "1. Register now",
-      "6": "2. Top up cash",
+      "5": "1. Register now ('Регистрация')",
+      "6": "2. Top up cash ('Пополнить счет')",
       "7": "3. Go to the 'Tournaments' section ('Турниры')",
       "8": "4. Select one of the available tournaments and click 'Details' ('Подробнее')",
       "9": "5. Click on the 'Join' button and confirm the action ('Вступить')",
@@ -331,12 +331,17 @@
     "9": "Incorrect code",
     "10": "This number is already registered",
     "11": "Confirm the password",
-    "12": "An error occured, please try again"
+    "12": "An error occured, please try again",
+    "13": "Enter your nickname from the Pubg Mobile game. Otherwise you won't be able to get money for kills!"
   },
   "Placeholder": {
     "1": "Activation code",
     "2": "Enter your phone number",
-    "3": "password"
+    "3": "password",
+    "4": "repeat password",
+    "5": "Passwords do not match",
+    "6": "Enter password",
+    "7": "Nickname Pubg Mobile"
   },
   "Profile": {
     "personal-data": {

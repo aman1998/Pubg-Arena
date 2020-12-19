@@ -208,7 +208,7 @@
       position: relative;
       padding: 10px;
       overflow: auto;
-      width: 200px;
+      width: 240px;
       height: 350px;
       border: 1px solid rgba(255, 255, 255, 0.5);
       box-sizing: border-box;
@@ -242,7 +242,8 @@
       .player {
         display: flex;
         justify-content: space-between;
-        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 15px;
         .player-avatar {
           width: 20px;
           height: 20px;

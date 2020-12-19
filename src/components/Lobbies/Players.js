@@ -18,7 +18,7 @@ const Players = () => {
         isLoadingPlayers ? <div className='players-loading'></div> :
           players ? players.map((item, index) => {
             return <div className='player' key={item.id}>
-              <div> {index + 1}. {item.name}</div>
+              <div>{index + 1}. {item.name.length <= 14 ? item.name : `${item.name.slice(0, 12)}-${item.name[item.name.length-1]}`}</div>
               {item.avatar ? <img src={item.avatar} className='player-avatar' alt='avatar'/> : 
               <div className='player-avatar-failed'></div> }
             </div>
