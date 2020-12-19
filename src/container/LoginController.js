@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
 import Login from "../components/UI/Login/Login"
@@ -38,6 +38,10 @@ const LoginController = () => {
     language: state.language.language,
   }))
 
+  useEffect(() => {
+    dispatch(getLanguage(localStorage.getItem('i18nextLng')))
+  }, [language])
+
   const showLog = () => {
     setModalUserInfo(false)
     dispatch(showLogin())
@@ -47,9 +51,9 @@ const LoginController = () => {
 		dispatch(logoutActionCreator(token))
   }
 
-  const handleChange = (e) => {
+  async function handleChange (e) {
     dispatch(getLanguage(e.target.value))
-    i18n.changeLanguage(e.target.value)
+    await i18n.changeLanguage(e.target.value)
   }
 
   return (
