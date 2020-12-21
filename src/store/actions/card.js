@@ -39,3 +39,17 @@ export const handleBalanceActionCreator = (sum, id, commission) => dispatch => {
       dispatch({type: FETCH_FAILED})
     })
 }
+
+export const handlePhoneActionCreator = (money, phone, wallet, operator, setPopup) => dispatch => {
+  dispatch({type: FETCH_LOADING})
+  axios.post('/pay/outpay/', {'money': money, 'phone': phone, 'wallet': wallet, 'operator': operator})
+  .then(response => {
+    console.log(response)
+    dispatch({type: FETCH_SUCCESS})
+    setPopup(true)
+  })
+  .catch((e) => {
+    console.log(e)
+    dispatch({type: FETCH_FAILED})
+  })
+}

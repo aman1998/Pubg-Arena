@@ -1,19 +1,24 @@
 import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import PhoneInput from 'react-phone-input-2'
 import {
   handlePay24ActionCreator,
   handleElsomActionCreator,
-  handleBalanceActionCreator
+  handleBalanceActionCreator,
+  handlePhoneActionCreator
 } from '../../store/actions/card'
 
 import payIcon from '../../assets/img/pay24.jpg'
 import balanceIcon from '../../assets/img/balance.jpg'
 import elsomIcon from '../../assets/img/elsom.jpeg'
+import megacomIcon from '../../assets/img/megacom.jpg'
+import oIcon from '../../assets/img/oshka.png'
 
-import {useTranslation} from 'react-i18next'
-import axios from "../../axios/axios";
-import {setLoading} from "../../store/actions/lobbies";
-import {NavLink} from "react-router-dom";
+import Popup from '../UI/Money'
+
+
+import {useTranslation} from 'react-i18next';
+import { TrendingUpRounded } from '@material-ui/icons'
 
 const CardOut = () => {
   const {success, failed, loading, profile} = useSelector(state => ({
@@ -29,6 +34,8 @@ const CardOut = () => {
   const [value, setValue] = useState(0)
   const [commission, setCommission] = useState('12%')
   const [error, setError] = useState(false)
+  const [error2, setError2] = useState(false)
+  const [popup, setPopup] = useState(false)
   const [wallet, setWallet] = useState('')
   const [money, setMoney] = useState('')
   const [operator, setOperator] = useState('O!')
@@ -49,29 +56,105 @@ const CardOut = () => {
     }
   }
 
-  const handleSend = (e) => {
-    axios.post('/pay/outpay/', {'money': money, 'phone': profile.phone, 'wallet': wallet, 'operator': operator})
-      .then(response => {
-        console.log(response)
-      })
-      .catch(e => console.log(e))
+  const handleSend = () => {
+    if(money >= 100) {
+      dispatch(handlePhoneActionCreator(money, profile.phone, wallet, operator, setPopup))
+      console.log(money, profile.phone, wallet, operator)
+    }
+    else {
+      setError2(true)
+    }
+  }
+
+  const closePopup = () => {
+    setPopup(false)
   }
 
   return (
     <section className='cardOut'>
+      {popup ? 
+        <Popup 
+          close = {closePopup}
+          show = {popup}
+        /> :
+        null  
+      }
       <section className='warningCard'>VISA, Элсом и BalanceKG пока не активны</section>
       <p className='warningCardTwo'>Можно вывести на Сотового Оператора!</p>
       <input name='phone' type='hidden' value={profile.phone}/>
-      <input name='wallet' type='text' value={wallet} placeholder='+996700 300 300'
-             onChange={(e) => setWallet(e.target.value)}/>
-      <input name='money' type='text' value={money} placeholder='Сумма' onChange={(e) => setMoney(e.target.value)}/>
-      <select onChange={e => setOperator(e.target.value)} defaultValue='O'>
-        <option value='O!'>О!</option>
-        <option value='megacom'>MegaCom</option>
-        <option value='balance'>Beeline</option>
-      </select>
-      <p className='warningCardTwo'>Остаток баланса не может быть ниже 100</p>
-      <NavLink to='/' className='navlink-change' onClick={e => handleSend(e)}>Отправить</NavLink>
+        {/* <input 
+          name='wallet' 
+          type='number' 
+          value={wallet} 
+          placeholder='996 700 300 300'
+          className='sum'
+          onChange={(e) => setWallet(e.target.value)}
+          /> */}
+          <PhoneInput
+            country='kg'
+            onlyCountries={['kg']}
+            disableDropdown
+            containerClass='phone'
+            name='wallet' 
+            value={wallet}
+            onChange={setWallet}
+          />
+        <input 
+          name='money' 
+          type='number' 
+          value={money} 
+          placeholder='Сумма' 
+          className='sum'
+          onChange={(e) => setMoney(e.target.value)
+          }/>
+        {error2 ? <div className='error'>{t('Profile.cardOut.10')}</div> : null}
+      <form className='form operator'>
+        <div className='form-item'>
+          <img src={oIcon} alt='O!' className='phone-icon'/>
+          <div className='radio'>
+            <input 
+              type='radio'
+              checked={operator === 'O!'}
+              value='O!'
+              onChange={e => {
+                setOperator(e.target.value)
+              }}
+            />
+          </div>
+        </div>
+        <div className='form-item'>
+          <img src={megacomIcon} alt='Megacom' className='phone-icon'/>
+          <div className='radio'>
+            <input 
+              type='radio'
+              checked={operator === 'megacom'}
+              value='megacom'
+              onChange={e => {
+                setOperator(e.target.value)
+              }}
+            />
+          </div>
+        </div>
+        <div className='form-item'>
+          <img src={balanceIcon} alt='beeline' className='phone-icon'/>
+          <div className='radio'>
+            <input 
+              type='radio'
+              checked={operator === 'balance'}
+              value='balance'
+              onChange={e => {
+                setOperator(e.target.value)
+              }}
+            />
+          </div>
+        </div>
+      </form>
+      <button className='cardOut-btn' onClick={handleSend}>
+      { loading ? 
+        <div className='login-loading'></div> : 
+        failed ? 
+        <div className='btn-error'>{t('Login.btns.5')}</div> : t('Profile.cardOut.9')}
+      </button>
       {/*<form action="https://merchant.intellectmoney.ru/ru/" name="pay" method="POST">*/}
       {/*  <input type="hidden" name="eshopId" readOnly={true} value="459141"/>*/}
       {/*  <input type="hidden" name="orderId" readOnly={true} value="order_0000001"/>*/}
