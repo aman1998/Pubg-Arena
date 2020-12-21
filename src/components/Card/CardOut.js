@@ -13,6 +13,7 @@ import balanceIcon from '../../assets/img/balance.jpg'
 import elsomIcon from '../../assets/img/elsom.jpeg'
 import megacomIcon from '../../assets/img/megacom.jpg'
 import oIcon from '../../assets/img/oshka.png'
+import beelineIcon from '../../assets/img/beeline.jpg'
 
 import Popup from '../UI/Money'
 
@@ -79,17 +80,10 @@ const CardOut = () => {
         /> :
         null  
       }
-      <section className='warningCard'>VISA, Элсом и BalanceKG пока не активны</section>
-      <p className='warningCardTwo'>Можно вывести на Сотового Оператора!</p>
+      <section className='warningCard'>{t('Profile.cardOut.13')}</section>
+      <p className='warningCardTwo'>{t('Profile.cardOut.11')}</p>
+      <p className='balance-warning'>{t('Profile.cardOut.12')}</p>
       <input name='phone' type='hidden' value={profile.phone}/>
-        {/* <input 
-          name='wallet' 
-          type='number' 
-          value={wallet} 
-          placeholder='996 700 300 300'
-          className='sum'
-          onChange={(e) => setWallet(e.target.value)}
-          /> */}
           <PhoneInput
             country='kg'
             onlyCountries={['kg']}
@@ -136,7 +130,7 @@ const CardOut = () => {
           </div>
         </div>
         <div className='form-item'>
-          <img src={balanceIcon} alt='beeline' className='phone-icon'/>
+          <img src={beelineIcon} alt='beeline' className='phone-icon'/>
           <div className='radio'>
             <input 
               type='radio'

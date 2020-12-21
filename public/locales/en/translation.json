@@ -398,7 +398,10 @@
       "7": "Commission",
       "8": "Enter the amount",
       "9": "Withdraw",
-      "10": "Enter an amount more than 100 soms"
+      "10": "Enter an amount no less than 100 soms",
+      "11": "You can withdraw through the Cellular Operator!",
+      "12": "Your balance must be at least 200 soms",
+      "13": "VISA, Elsom and BalanceKG are not active yet"
     }
   },
   "Money": {
