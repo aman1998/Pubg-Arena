@@ -27,7 +27,7 @@ const CardOut = () => {
 
   const [radio, setRadio] = useState('pay24')
   const [value, setValue] = useState(0)
-  const [commission, setСommission] = useState('12%')
+  const [commission, setCommission] = useState('12%')
   const [error, setError] = useState(false)
   const [wallet, setWallet] = useState('')
   const [money, setMoney] = useState('')
@@ -136,7 +136,7 @@ const CardOut = () => {
       {/*//                 value='pay24'*/}
       {/*//                 onChange={e => {*/}
       {/*//                   setRadio(e.target.value)*/}
-      {/*//                   setСommission('12%')*/}
+      {/*//                   setCommission('12%')*/}
       {/*//                 }}*/}
       {/*//               />*/}
       {/*//             </div>*/}
@@ -150,7 +150,7 @@ const CardOut = () => {
       {/*//                 value='elsom'*/}
       {/*//                 onChange={e => {*/}
       {/*//                   setRadio(e.target.value)*/}
-      {/*//                   setСommission('8%')*/}
+      {/*//                   setCommission('8%')*/}
       {/*//                 }}*/}
       {/*//               />*/}
       {/*//             </div>*/}
@@ -164,7 +164,7 @@ const CardOut = () => {
       {/*//                 value='balance'*/}
       {/*//                 onChange={e => {*/}
       {/*//                   setRadio(e.target.value)*/}
-      {/*//                   setСommission('6%')*/}
+      {/*//                   setCommission('6%')*/}
       {/*//                 }}*/}
       {/*//               />*/}
       {/*//             </div>*/}
